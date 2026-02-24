@@ -37,16 +37,16 @@ export default function FAQPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-cream-light dark:bg-gray-950">
       <Navigation />
       
       <div className="pt-32 pb-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-cream-dark dark:text-cream mb-4">
               FAQ
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-cream-dark dark:text-cream max-w-2xl mx-auto">
               Frequently asked questions about our photography services
             </p>
           </div>
@@ -55,28 +55,28 @@ export default function FAQPage() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
+                className="bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 rounded-3xl p-6 md:p-8 border-2 border-dusty-rose dark:border-gray-700 hover:shadow-soft-lg transition-all shadow-soft"
               >
-                <h3 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-xl md:text-2xl font-semibold text-cream-dark dark:text-cream mb-3">
                   {faq.question}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-cream-dark dark:text-cream leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 text-center bg-gray-50 dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-4">
+          <div className="mt-16 text-center bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 rounded-3xl p-8 border-2 border-dusty-rose dark:border-gray-700 shadow-soft-lg">
+            <h2 className="text-2xl font-display font-bold text-cream-dark dark:text-cream mb-4">
               Still have questions?
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-cream-dark dark:text-cream mb-6">
               We&apos;re here to help! Reach out and we&apos;ll get back to you as soon as possible.
             </p>
             <a
               href="/#contact"
-              className="inline-block px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-lg font-medium hover:opacity-90 transition-opacity"
+              className="inline-block px-8 py-3 bg-coral text-white rounded-2xl font-medium hover:bg-coral-dark transition-all shadow-soft hover:shadow-soft-lg transform hover:scale-105"
             >
               Contact Us
             </a>

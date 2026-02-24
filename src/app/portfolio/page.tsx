@@ -35,6 +35,16 @@ const CATEGORIES = [
     description: 'Corporate events and special occasions',
     image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&h=800&fit=crop&q=90'
   },
+  { 
+    name: 'Professional', 
+    description: 'Professional business headshots',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=800&fit=crop&q=90'
+  },
+  { 
+    name: 'Portraits', 
+    description: 'Portrait photography sessions',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&h=800&fit=crop&q=90'
+  },
 ];
 
 const FALLBACK_PHOTOS: Record<string, Photo[]> = {
@@ -58,6 +68,17 @@ const FALLBACK_PHOTOS: Record<string, Photo[]> = {
     { id: 's1', src: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=1200&fit=crop', alt: 'Special event celebration', category: 'Special Events' },
     { id: 's2', src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=1200&fit=crop', alt: 'Corporate event', category: 'Special Events' },
     { id: 's3', src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=1200&fit=crop', alt: 'Event photography', category: 'Special Events' },
+  ],
+  'Professional': [
+    { id: 'p1', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1200&fit=crop', alt: 'Professional headshot', category: 'Professional' },
+    { id: 'p2', src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=1200&fit=crop', alt: 'Business headshot', category: 'Professional' },
+    { id: 'p3', src: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&h=1200&fit=crop', alt: 'Corporate portrait', category: 'Professional' },
+  ],
+  'Portraits': [
+    { id: 'pr1', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&h=1200&fit=crop', alt: 'Portrait session', category: 'Portraits' },
+    { id: 'pr2', src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=1200&fit=crop', alt: 'Portrait photography', category: 'Portraits' },
+    { id: 'pr3', src: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&h=1200&fit=crop', alt: 'Creative portrait', category: 'Portraits' },
+    { id: 'pr4', src: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&h=1200&fit=crop', alt: 'Portrait session', category: 'Portraits' },
   ],
 };
 
@@ -110,29 +131,29 @@ function PortfolioContent() {
   }, [selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-cream-light dark:bg-gray-950">
       <Navigation />
       
       <div className="pt-32 pb-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-cream-dark dark:text-cream mb-4">
               Portfolio
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-cream-dark dark:text-cream max-w-2xl mx-auto">
               Explore our curated galleries by category. Select a category below to view our work.
             </p>
           </div>
 
           {/* Category Selection */}
           {!selectedCategory ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {CATEGORIES.map((category) => (
                 <Link
                   key={category.name}
                   href={`/portfolio?category=${category.name}`}
-                  className="group relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-[1.02]"
+                  className="group relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-soft-lg hover:shadow-soft-lg transition-all duration-500 transform hover:scale-[1.02] ring-2 ring-dusty-rose/30 dark:ring-gray-700/20"
                 >
                   <Image
                     src={category.image}
@@ -165,14 +186,14 @@ function PortfolioContent() {
               <div className="mb-8 flex items-center justify-between">
                 <button
                   onClick={() => setSelectedCategory(null)}
-                  className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-cream-dark dark:text-coral hover:text-cream-dark dark:hover:text-rose-300 transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                   Back to Categories
                 </button>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-cream-dark dark:text-cream">
                   {selectedCategory}
                 </h2>
                 <div className="w-24"></div> {/* Spacer for centering */}
@@ -181,19 +202,19 @@ function PortfolioContent() {
               {/* Photo Gallery */}
               {loading ? (
                 <div className="flex justify-center py-24">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-white"></div>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-coral dark:border-rose-300"></div>
                 </div>
               ) : photos.length === 0 ? (
-                <div className="text-center py-24 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
-                  <p className="text-gray-600 dark:text-gray-400 text-lg">No photos in this category yet</p>
-                  <p className="text-gray-500 dark:text-gray-500 mt-2">Check back soon for new additions</p>
+                <div className="text-center py-24 bg-cream-light dark:bg-gray-900 rounded-3xl border-2 border-dusty-rose dark:border-gray-700 shadow-soft">
+                  <p className="text-cream-dark dark:text-cream text-lg">No photos in this category yet</p>
+                  <p className="text-coral dark:text-coral mt-2">Check back soon for new additions</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {photos.map((photo) => (
                     <div
                       key={photo.id}
-                      className="group relative overflow-hidden rounded-lg aspect-[4/5] cursor-pointer transform transition-all duration-500 hover:scale-[1.02]"
+                      className="group relative overflow-hidden rounded-2xl aspect-[4/5] cursor-pointer transform transition-all duration-500 hover:scale-[1.02] shadow-soft hover:shadow-soft-lg ring-1 ring-dusty-rose/20 dark:ring-gray-700/20"
                       onMouseEnter={() => setHoveredId(photo.id)}
                       onMouseLeave={() => setHoveredId(null)}
                     >
@@ -231,10 +252,10 @@ function PortfolioContent() {
 export default function PortfolioPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-white dark:bg-black">
+      <div className="min-h-screen bg-cream-light dark:bg-gray-950">
         <Navigation />
         <div className="flex items-center justify-center py-24">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-white"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-coral dark:border-rose-300"></div>
         </div>
       </div>
     }>

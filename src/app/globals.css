@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FEFCF3;
+  --foreground: #5a3d3a;
+  --cream-light: #FEFCF3;
+  --cream: #F5EBE0;
+  --dusty-rose: #F0DBDB;
+  --coral: #DBA39A;
+  --coral-dark: #c89288;
+  --text-primary: #6b4e4a;
+  --text-secondary: #8b6f6a;
 }
 
 @theme inline {
@@ -18,8 +25,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1a0f0f;
+    --foreground: #f5e6e3;
   }
 }
 
@@ -27,6 +34,78 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Custom cream color utilities */
+.bg-cream-light {
+  background-color: #FEFCF3;
+}
+
+.bg-cream {
+  background-color: #F5EBE0;
+}
+
+.bg-dusty-rose {
+  background-color: #F0DBDB;
+}
+
+.bg-coral {
+  background-color: #DBA39A;
+}
+
+.bg-coral-dark {
+  background-color: #c89288;
+}
+
+.text-cream-dark {
+  color: #6b4e4a;
+}
+
+.text-coral {
+  color: #DBA39A;
+}
+
+.border-cream {
+  border-color: #F5EBE0;
+}
+
+.border-dusty-rose {
+  border-color: #F0DBDB;
+}
+
+.border-coral {
+  border-color: #DBA39A;
+}
+
+/* Soft gradient backgrounds */
+.bg-soft-gradient {
+  background: linear-gradient(135deg, #FEFCF3 0%, #F5EBE0 50%, #F0DBDB 100%);
+}
+
+.bg-cream-gradient {
+  background: linear-gradient(135deg, #F5EBE0 0%, #F0DBDB 100%);
+}
+
+/* Cute rounded corners */
+.rounded-cute {
+  border-radius: 2rem;
+}
+
+/* Soft shadows */
+.shadow-soft {
+  box-shadow: 0 4px 20px rgba(219, 163, 154, 0.15);
+}
+
+.shadow-soft-lg {
+  box-shadow: 0 10px 40px rgba(219, 163, 154, 0.2);
+}
+
+/* Artistic gradient text */
+.text-gradient-cream {
+  background: linear-gradient(135deg, #DBA39A 0%, #c89288 50%, #F0DBDB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 * {

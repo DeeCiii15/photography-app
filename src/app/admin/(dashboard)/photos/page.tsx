@@ -13,7 +13,7 @@ type Photo = {
   created_at: string;
 };
 
-const CATEGORIES = ['Weddings', 'Maternity', 'Engagement', 'Special Events', 'Uncategorized'];
+const CATEGORIES = ['Weddings', 'Maternity', 'Engagement', 'Special Events', 'Professional', 'Portraits', 'Uncategorized'];
 
 export default function AdminPhotosPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);

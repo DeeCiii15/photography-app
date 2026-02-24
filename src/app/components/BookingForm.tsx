@@ -40,11 +40,11 @@ export default function BookingForm() {
 
   if (submitted) {
     return (
-      <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-8 text-center">
-        <p className="text-lg font-medium text-emerald-800 dark:text-emerald-400">
+      <div className="bg-cream-light dark:bg-gray-900/20 border-2 border-dusty-rose dark:border-gray-700 rounded-3xl p-8 text-center shadow-soft">
+        <p className="text-lg font-medium text-cream-dark dark:text-cream">
           Thank you! Your inquiry has been received.
         </p>
-        <p className="text-emerald-700 dark:text-emerald-500 mt-2">
+        <p className="text-coral dark:text-cream mt-2">
           We&apos;ll get back to you soon.
         </p>
       </div>
@@ -54,14 +54,14 @@ export default function BookingForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-xl mx-auto text-left">
       {error && (
-        <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-400 text-sm">
+        <div className="p-4 bg-cream-light dark:bg-gray-900/20 border-2 border-dusty-rose dark:border-gray-700 rounded-2xl text-cream-dark dark:text-cream text-sm">
           {error}
         </div>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="name" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
             Name *
           </label>
           <input
@@ -69,12 +69,12 @@ export default function BookingForm() {
             name="name"
             type="text"
             required
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent"
+            className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
             placeholder="Your name"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
             Email *
           </label>
           <input
@@ -82,7 +82,7 @@ export default function BookingForm() {
             name="email"
             type="email"
             required
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent"
+            className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
             placeholder="you@example.com"
           />
         </div>
@@ -90,38 +90,38 @@ export default function BookingForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="phone" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
             Phone
           </label>
           <input
             id="phone"
             name="phone"
             type="tel"
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent"
+            className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
             placeholder="(555) 123-4567"
           />
         </div>
         <div>
-          <label htmlFor="event_date" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="event_date" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
             Event Date
           </label>
           <input
             id="event_date"
             name="event_date"
             type="date"
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent"
+            className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="event_type" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <label htmlFor="event_type" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
           Type of Session
         </label>
         <select
           id="event_type"
           name="event_type"
-          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent"
+          className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
         >
           <option value="">Select...</option>
           <option value="Wedding">Wedding</option>
@@ -134,14 +134,14 @@ export default function BookingForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <label htmlFor="message" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
           Message
         </label>
         <textarea
           id="message"
           name="message"
           rows={4}
-          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent resize-none"
+          className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all resize-none"
           placeholder="Tell us about your vision..."
         />
       </div>
@@ -149,7 +149,7 @@ export default function BookingForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full py-3 px-4 bg-gray-900 dark:bg-white text-white dark:text-black font-medium rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full py-3 px-4 bg-coral text-white font-medium rounded-2xl hover:bg-coral-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-soft hover:shadow-soft-lg transform hover:scale-[1.02]"
       >
         {submitting ? 'Sending...' : 'Send Inquiry'}
       </button>
