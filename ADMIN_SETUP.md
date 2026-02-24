@@ -44,6 +44,7 @@ This creates:
    ```
    NEXT_PUBLIC_SUPABASE_URL=your-project-url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+   NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-username
    ```
 
 2. Get your Supabase credentials:
@@ -51,7 +52,13 @@ This creates:
    - Copy the **Project URL** → `NEXT_PUBLIC_SUPABASE_URL`
    - Copy the **anon public** key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
-3. Update `.env.local` with your values
+3. Get your Calendly URL:
+   - Sign up at [calendly.com](https://calendly.com) if you haven't already
+   - Create your event types (photo shoots, consultations, etc.)
+   - Copy your Calendly scheduling page URL (e.g., `https://calendly.com/your-username`)
+   - Add it as `NEXT_PUBLIC_CALENDLY_URL` in `.env.local`
+
+4. Update `.env.local` with your values
 
 ## Step 5: Start the App
 

@@ -1,6 +1,8 @@
 import Navigation from './components/Navigation';
-import PhotoGallery from './components/PhotoGallery';
 import BookingForm from './components/BookingForm';
+import CalendlyEmbed from './components/CalendlyEmbed';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -12,49 +14,55 @@ export default function Home() {
         id="home"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-900"></div>
-        
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}></div>
+        {/* High-res Background Images */}
+        <div className="absolute inset-0">
+        <Image
+            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&h=1080&fit=crop&q=90"
+            alt="Wedding photography hero"
+            fill
+          priority
+            className="object-cover"
+            quality={90}
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <div className="space-y-8 animate-fade-in">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold text-gray-900 dark:text-white leading-tight">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold text-white leading-tight drop-shadow-2xl">
               Capturing
               <br />
-              <span className="bg-gradient-to-r from-gray-600 to-gray-400 dark:from-gray-300 dark:to-gray-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
                 Moments
               </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          </h1>
+            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
               Through the lens of artistry, every frame tells a story. 
               Welcome to a world where light meets emotion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
               <a
-                href="#gallery"
-                className="px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-              >
-                View Gallery
+                href="/portfolio"
+                className="px-8 py-4 bg-white text-gray-900 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl"
+            >
+                View Portfolio
               </a>
-              <a
-                href="#about"
-                className="px-8 py-4 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white rounded-full font-medium hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300"
-              >
-                Learn More
+            <a
+                href="#events"
+                className="px-8 py-4 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-xl"
+            >
+                Upcoming Events
               </a>
             </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
           <svg
-            className="w-6 h-6 text-gray-400 dark:text-gray-600"
+            className="w-6 h-6 text-white drop-shadow-lg"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -74,26 +82,200 @@ export default function Home() {
         id="about"
         className="py-24 px-6 sm:px-8 lg:px-12 bg-gray-50 dark:bg-gray-900"
       >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-display font-bold text-gray-900 dark:text-white mb-8">
-            About
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-            Taylor Rose Reels is more than just capturing images—it's about preserving 
-            moments, telling stories, and evoking emotions. Each photograph is a 
-            window into a unique perspective, a frozen moment in time that speaks 
-            to the soul.
-          </p>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-            With a passion for visual storytelling and an eye for detail, we strive 
-            to create images that resonate, inspire, and leave a lasting impression. 
-            Every shot is crafted with intention, every frame composed with care.
-          </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-gray-900 dark:text-white mb-4">
+              About
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&h=1000&fit=crop&q=90"
+                alt="Female photographer"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="space-y-6">
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                Taylor Rose Reels is more than just capturing images—it&apos;s about preserving 
+                moments, telling stories, and evoking emotions. Each photograph is a 
+                window into a unique perspective, a frozen moment in time that speaks 
+                to the soul.
+              </p>
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                With a passion for visual storytelling and an eye for detail, we strive 
+                to create images that resonate, inspire, and leave a lasting impression. 
+                Every shot is crafted with intention, every frame composed with care.
+              </p>
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                Whether it&apos;s a wedding, engagement, maternity session, or special event, 
+                we approach each project with dedication and creativity to ensure your 
+                memories are beautifully preserved.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <PhotoGallery />
+      {/* Portfolio Hero Section */}
+      <section
+        id="portfolio"
+        className="py-24 px-6 sm:px-8 lg:px-12 bg-white dark:bg-black"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-gray-900 dark:text-white mb-4">
+              Portfolio
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Explore our work across different photography styles and events
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+            {/* Weddings */}
+            <Link
+              href="/portfolio?category=Weddings"
+              className="group relative h-[350px] md:h-[400px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-[1.02]"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1200&fit=crop&q=90"
+                alt="Weddings"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
+                  Weddings
+                </h3>
+                <p className="text-sm md:text-base text-white/90 mb-3">
+                  Beautiful ceremonies
+                </p>
+                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>View Gallery</span>
+                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+
+            {/* Maternity */}
+            <Link
+              href="/portfolio?category=Maternity"
+              className="group relative h-[350px] md:h-[400px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-[1.02]"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&h=1200&fit=crop&q=90"
+                alt="Maternity"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
+                  Maternity
+                </h3>
+                <p className="text-sm md:text-base text-white/90 mb-3">
+                  Celebrating motherhood
+                </p>
+                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>View Gallery</span>
+                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+
+            {/* Engagement */}
+            <Link
+              href="/portfolio?category=Engagement"
+              className="group relative h-[350px] md:h-[400px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-[1.02]"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&h=1200&fit=crop&q=90"
+                alt="Engagement"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
+                  Engagement
+                </h3>
+                <p className="text-sm md:text-base text-white/90 mb-3">
+                  Romantic sessions
+                </p>
+                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>View Gallery</span>
+                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+
+            {/* Special Events */}
+            <Link
+              href="/portfolio?category=Special Events"
+              className="group relative h-[350px] md:h-[400px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-[1.02]"
+          >
+            <Image
+                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=1200&fit=crop&q=90"
+                alt="Special Events"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
+                  Special Events
+                </h3>
+                <p className="text-sm md:text-base text-white/90 mb-3">
+                  Corporate & occasions
+                </p>
+                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>View Gallery</span>
+                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Events Section - Calendly Booking */}
+      <section
+        id="events"
+        className="py-24 px-6 sm:px-8 lg:px-12 bg-white dark:bg-black"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-gray-900 dark:text-white mb-4">
+              Upcoming Events
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+              Schedule your photo shoot directly. Choose a time that works for you and let&apos;s create something beautiful together.
+            </p>
+          </div>
+          
+          {/* Calendly Embed */}
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-4 md:p-8 border border-gray-200 dark:border-gray-800">
+            <CalendlyEmbed />
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section
@@ -115,7 +297,7 @@ export default function Home() {
               className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               hello@taylorrosereels.com
-            </a>
+          </a>
             <div className="flex justify-center gap-6 mt-4">
               <a
                 href="#"
@@ -125,8 +307,8 @@ export default function Home() {
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
-              </a>
-              <a
+          </a>
+          <a
                 href="#"
                 className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 aria-label="Twitter"
@@ -146,14 +328,35 @@ export default function Home() {
           <p className="text-gray-400 dark:text-gray-500">
             © {new Date().getFullYear()} Taylor Rose Reels. All rights reserved.
           </p>
-          <a
-            href="/admin"
-            className="inline-block mt-2 text-sm text-gray-500 hover:text-gray-400 transition-colors"
-          >
-            Admin
-          </a>
         </div>
       </footer>
+
+      {/* Fixed Contact Ribbon - Bottom Right */}
+      <div className="fixed bottom-6 right-6 sm:right-8 lg:right-12 z-50">
+        <div className="bg-white/90 backdrop-blur-md rounded-full px-6 py-3.5 shadow-lg flex items-center gap-5">
+          <a
+            href="tel:+1234567890"
+            className="flex items-center gap-2.5 text-gray-900 font-medium hover:text-gray-700 transition-colors text-base"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span className="hidden sm:inline">(123) 456-7890</span>
+            <span className="sm:hidden">Call</span>
+          </a>
+          <div className="h-6 w-px bg-gray-300"></div>
+          <a
+            href="mailto:hello@taylorrosereels.com"
+            className="flex items-center gap-2.5 text-gray-900 font-medium hover:text-gray-700 transition-colors text-base"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span className="hidden sm:inline">hello@taylorrosereels.com</span>
+            <span className="sm:hidden">Email</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

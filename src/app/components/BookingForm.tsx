@@ -18,7 +18,7 @@ export default function BookingForm() {
 
     try {
       const supabase = createClient();
-      const { error } = await supabase.from('bookings').insert({
+      const { error } = await supabase.from('contact').insert({
         name: formData.get('name') as string,
         email: formData.get('email') as string,
         phone: (formData.get('phone') as string) || null,

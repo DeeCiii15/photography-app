@@ -13,7 +13,7 @@ type Photo = {
   created_at: string;
 };
 
-const CATEGORIES = ['Portrait', 'Landscape', 'Nature', 'Urban', 'Street', 'Travel', 'Wildlife', 'Architecture', 'Uncategorized'];
+const CATEGORIES = ['Weddings', 'Maternity', 'Engagement', 'Special Events', 'Uncategorized'];
 
 export default function AdminPhotosPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -63,7 +63,7 @@ export default function AdminPhotosPage() {
         const { error: insertError } = await supabase.from('photos').insert({
           src: publicUrl,
           alt: file.name.replace(/\.[^/.]+$/, ''),
-          category: 'Uncategorized',
+          category: 'Weddings',
           display_order: photos.length + i,
         });
 

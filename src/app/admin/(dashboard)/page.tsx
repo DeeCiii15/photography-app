@@ -11,8 +11,8 @@ export default async function AdminDashboardPage() {
   try {
     const [photosRes, bookingsRes, pendingRes] = await Promise.all([
       supabase.from('photos').select('*', { count: 'exact', head: true }),
-      supabase.from('bookings').select('*', { count: 'exact', head: true }),
-      supabase.from('bookings').select('*', { count: 'exact', head: true }).eq('status', 'pending'),
+      supabase.from('contact').select('*', { count: 'exact', head: true }),
+      supabase.from('contact').select('*', { count: 'exact', head: true }).eq('status', 'pending'),
     ]);
     photosCount = photosRes.count ?? 0;
     bookingsCount = bookingsRes.count ?? 0;

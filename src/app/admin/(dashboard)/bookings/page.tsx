@@ -25,7 +25,7 @@ export default function AdminBookingsPage() {
 
   const fetchBookings = async () => {
     let query = supabase
-      .from('bookings')
+      .from('contact')
       .select('*')
       .order('created_at', { ascending: false });
 
@@ -50,7 +50,7 @@ export default function AdminBookingsPage() {
 
   const updateStatus = async (id: string, status: Booking['status']) => {
     try {
-      await supabase.from('bookings').update({ status }).eq('id', id);
+      await supabase.from('contact').update({ status }).eq('id', id);
       await fetchBookings();
     } catch (error) {
       console.error('Update error:', error);

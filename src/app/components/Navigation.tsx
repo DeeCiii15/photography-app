@@ -18,48 +18,60 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm dark:bg-black/95'
-          : 'bg-transparent'
+          ? 'bg-white shadow-md dark:bg-gray-900'
+          : 'bg-white/95 backdrop-blur-md shadow-sm dark:bg-gray-900/95'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           <a
-            href="#home"
+            href="/"
             className="text-2xl font-display font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
           >
             Taylor Rose Reels
           </a>
           <div className="hidden md:flex items-center space-x-8">
             <a
-              href="#home"
+              href="/#home"
               className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               Home
             </a>
             <a
-              href="#gallery"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              Gallery
-            </a>
-            <a
-              href="#about"
+              href="/#about"
               className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               About
             </a>
             <a
-              href="#contact"
+              href="/portfolio"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              Portfolio
+            </a>
+            <a
+              href="/pricing"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              Pricing
+            </a>
+            <a
+              href="/faq"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              FAQ
+            </a>
+            <a
+              href="/#contact"
               className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               Contact
             </a>
             <a
-              href="/admin"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors border-l border-gray-300 dark:border-gray-600 pl-8"
+              href="/#events"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              Admin
+              Events
             </a>
           </div>
           <button
@@ -81,42 +93,56 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
             <div className="flex flex-col space-y-3">
               <a
-                href="#home"
+                href="/#home"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 Home
               </a>
               <a
-                href="#gallery"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-                Gallery
-              </a>
-              <a
-                href="#about"
+                href="/#about"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 About
               </a>
               <a
-                href="#contact"
+                href="/portfolio"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+              >
+                Portfolio
+              </a>
+              <a
+                href="/pricing"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+              >
+                Pricing
+              </a>
+              <a
+                href="/faq"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+              >
+                FAQ
+              </a>
+              <a
+                href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 Contact
               </a>
               <a
-                href="/admin"
+                href="/#events"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors pt-3 border-t border-gray-200 dark:border-gray-700"
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
-                Admin
+                Events
               </a>
             </div>
           </div>

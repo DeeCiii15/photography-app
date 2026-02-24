@@ -11,8 +11,8 @@ create table public.photos (
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
--- Bookings table for inquiry management
-create table public.bookings (
+-- Contact table for inquiry management
+create table public.contact (
   id uuid default uuid_generate_v4() primary key,
   name text not null,
   email text not null,
@@ -26,7 +26,7 @@ create table public.bookings (
 
 -- Enable Row Level Security (RLS)
 alter table public.photos enable row level security;
-alter table public.bookings enable row level security;
+alter table public.contact enable row level security;
 
 -- Photos: Allow public read, authenticated users can do everything
 create policy "Photos are viewable by everyone"
@@ -37,13 +37,13 @@ create policy "Authenticated users can manage photos"
   on public.photos for all
   using (auth.role() = 'authenticated');
 
--- Bookings: Public can insert (submit form), authenticated can read/update
-create policy "Anyone can submit a booking"
-  on public.bookings for insert
+-- Contact: Public can insert (submit form), authenticated can read/update
+create policy "Anyone can submit a contact"
+  on public.contact for insert
   with check (true);
 
-create policy "Authenticated users can view and manage bookings"
-  on public.bookings for all
+create policy "Authenticated users can view and manage contact"
+  on public.contact for all
   using (auth.role() = 'authenticated');
 
 -- Storage bucket for photo uploads

@@ -12,15 +12,17 @@ type Photo = {
 };
 
 const FALLBACK_PHOTOS: Photo[] = [
-  { id: '1', src: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&h=1200&fit=crop', alt: 'Portrait photography', category: 'Portrait' },
-  { id: '2', src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop', alt: 'Landscape photography', category: 'Landscape' },
-  { id: '3', src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=1200&fit=crop', alt: 'Nature photography', category: 'Nature' },
-  { id: '4', src: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=600&fit=crop', alt: 'Urban photography', category: 'Urban' },
-  { id: '5', src: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=1200&fit=crop', alt: 'Street photography', category: 'Street' },
-  { id: '6', src: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&h=600&fit=crop', alt: 'Travel photography', category: 'Travel' },
+  { id: '1', src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1200&fit=crop', alt: 'Beautiful wedding ceremony', category: 'Weddings' },
+  { id: '2', src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=1200&fit=crop', alt: 'Wedding couple portrait', category: 'Weddings' },
+  { id: '3', src: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&h=1200&fit=crop', alt: 'Maternity photoshoot', category: 'Maternity' },
+  { id: '4', src: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=1200&fit=crop', alt: 'Maternity session', category: 'Maternity' },
+  { id: '5', src: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&h=1200&fit=crop', alt: 'Engagement proposal', category: 'Engagement' },
+  { id: '6', src: 'https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=800&h=1200&fit=crop', alt: 'Engagement photos', category: 'Engagement' },
+  { id: '7', src: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=1200&fit=crop', alt: 'Special event celebration', category: 'Special Events' },
+  { id: '8', src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=1200&fit=crop', alt: 'Corporate event', category: 'Special Events' },
 ];
 
-const CATEGORIES = ['All', 'Portrait', 'Landscape', 'Nature', 'Urban', 'Street', 'Travel', 'Wildlife', 'Architecture', 'Uncategorized'];
+const CATEGORIES = ['All', 'Weddings', 'Maternity', 'Engagement', 'Special Events'];
 
 export default function PhotoGallery() {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -59,11 +61,11 @@ export default function PhotoGallery() {
   const uniqueCategories = displayCategories.length > 1 ? displayCategories : CATEGORIES;
 
   return (
-    <section id="gallery" className="py-24 px-6 sm:px-8 lg:px-12 bg-white dark:bg-black">
+    <section id="portfolio" className="py-24 px-6 sm:px-8 lg:px-12 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-display font-bold text-gray-900 dark:text-white mb-4">
-            Gallery
+            Portfolio
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Explore a curated collection of moments captured through the lens
