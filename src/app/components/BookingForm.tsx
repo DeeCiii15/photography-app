@@ -1,58 +1,136 @@
 'use client';
 
-import { useState } from 'react';
-import { createClient } from '@/lib/supabase/client';
+import { useRef, useState } from 'react';
+
+const PHOTOGRAPHER_EMAIL =
+  process.env.NEXT_PUBLIC_PHOTOGRAPHER_EMAIL ?? 'hello@taylorrosereels.com';
+
+/** E.164-style number for sms: links (e.g. +15551234567). */
+const PHOTOGRAPHER_SMS_NUMBER =
+  process.env.NEXT_PUBLIC_PHOTOGRAPHER_PHONE ?? '+1234567890';
+
+function getField(formData: FormData, key: string): string {
+  const v = formData.get(key);
+  return typeof v === 'string' ? v.trim() : '';
+}
+
+function buildInquiryBody(formData: FormData): string {
+  const name = getField(formData, 'name');
+  const email = getField(formData, 'email');
+  const phone = getField(formData, 'phone');
+  const eventDate = getField(formData, 'event_date');
+  const eventType = getField(formData, 'event_type');
+  const message = getField(formData, 'message');
+
+  return [
+    'New inquiry from the website contact form',
+    '',
+    `Name: ${name || '—'}`,
+    `Email: ${email || '—'}`,
+    `Phone: ${phone || '—'}`,
+    `Event date: ${eventDate || '—'}`,
+    `Type of session: ${eventType || '—'}`,
+    '',
+    'Message:',
+    message || '—',
+  ].join('\n');
+}
+
+function buildMailtoUrl(formData: FormData): string {
+  const name = getField(formData, 'name');
+  const subject = `Photography inquiry from ${name || 'website'}`;
+  const body = buildInquiryBody(formData);
+  return `mailto:${PHOTOGRAPHER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function buildSmsUrl(formData: FormData): string {
+  const body = buildInquiryBody(formData);
+  const digits = PHOTOGRAPHER_SMS_NUMBER.replace(/[^\d+]/g, '');
+  return `sms:${digits}?body=${encodeURIComponent(body)}`;
+}
 
 export default function BookingForm() {
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState<string | null>(null);
+  const [successKind, setSuccessKind] = useState<'email' | 'sms' | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setError(null);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const supabase = createClient();
-      const { error } = await supabase.from('contact').insert({
-        name: formData.get('name') as string,
-        email: formData.get('email') as string,
-        phone: (formData.get('phone') as string) || null,
-        event_date: (formData.get('event_date') as string) || null,
-        event_type: (formData.get('event_type') as string) || null,
-        message: (formData.get('message') as string) || null,
-      });
-
-      if (error) throw error;
-
-      setSubmitted(true);
-      form.reset();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
-    } finally {
-      setSubmitting(false);
-    }
+  const validate = (formData: FormData): string | null => {
+    if (!getField(formData, 'name')) return 'Please enter your name.';
+    if (!getField(formData, 'email')) return 'Please enter your email.';
+    return null;
   };
 
-  if (submitted) {
+  const openEmail = () => {
+    const form = formRef.current;
+    if (!form) return;
+    if (!form.reportValidity()) return;
+    const formData = new FormData(form);
+    const v = validate(formData);
+    if (v) {
+      setError(v);
+      return;
+    }
+    setError(null);
+    const url = buildMailtoUrl(formData);
+    if (url.length > 1800) {
+      setError('Your message is too long for email links. Please shorten it or email us directly.');
+      return;
+    }
+    window.location.href = url;
+    setSuccessKind('email');
+  };
+
+  const openSms = () => {
+    const form = formRef.current;
+    if (!form) return;
+    if (!form.reportValidity()) return;
+    const formData = new FormData(form);
+    const v = validate(formData);
+    if (v) {
+      setError(v);
+      return;
+    }
+    setError(null);
+    const url = buildSmsUrl(formData);
+    if (url.length > 1800) {
+      setError('Your message is too long for a text link. Please shorten it or text us a shorter note.');
+      return;
+    }
+    window.location.href = url;
+    setSuccessKind('sms');
+  };
+
+  if (successKind) {
     return (
       <div className="bg-cream-light dark:bg-gray-900/20 border-2 border-dusty-rose dark:border-gray-700 rounded-3xl p-8 text-center shadow-soft">
         <p className="text-lg font-medium text-cream-dark dark:text-cream">
-          Thank you! Your inquiry has been received.
+          {successKind === 'email'
+            ? 'Your email app should open with your message ready to send.'
+            : 'Your messaging app should open with your text ready to send.'}
         </p>
-        <p className="text-coral dark:text-cream mt-2">
-          We&apos;ll get back to you soon.
+        <p className="text-coral dark:text-cream mt-2 text-sm">
+          If nothing opened, check that you have a default mail or SMS app set, or contact us directly at{' '}
+          <a
+            href={`mailto:${PHOTOGRAPHER_EMAIL}`}
+            className="underline hover:text-coral-dark"
+          >
+            {PHOTOGRAPHER_EMAIL}
+          </a>
+          .
         </p>
+        <button
+          type="button"
+          onClick={() => setSuccessKind(null)}
+          className="mt-6 px-6 py-2 rounded-2xl border-2 border-dusty-rose dark:border-gray-600 text-cream-dark dark:text-cream text-sm font-medium hover:bg-cream dark:hover:bg-gray-800 transition-colors"
+        >
+          Send another message
+        </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-xl mx-auto text-left">
+    <form ref={formRef} className="space-y-6 max-w-xl mx-auto text-left">
       {error && (
         <div className="p-4 bg-cream-light dark:bg-gray-900/20 border-2 border-dusty-rose dark:border-gray-700 rounded-2xl text-cream-dark dark:text-cream text-sm">
           {error}
@@ -146,14 +224,25 @@ export default function BookingForm() {
         />
       </div>
 
-      <button
-        type="submit"
-        disabled={submitting}
-        className="w-full py-3 px-4 bg-coral text-white font-medium rounded-2xl hover:bg-coral-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-soft hover:shadow-soft-lg transform hover:scale-[1.02]"
-      >
-        {submitting ? 'Sending...' : 'Send Inquiry'}
-      </button>
+      <div className="flex flex-col sm:flex-row gap-3">
+        <button
+          type="button"
+          onClick={openEmail}
+          className="flex-1 py-3 px-4 bg-coral text-white font-medium rounded-2xl hover:bg-coral-dark transition-all shadow-soft hover:shadow-soft-lg transform hover:scale-[1.02]"
+        >
+          Send via email
+        </button>
+        <button
+          type="button"
+          onClick={openSms}
+          className="flex-1 py-3 px-4 border-2 border-coral text-coral dark:text-coral font-medium rounded-2xl hover:bg-coral/10 transition-all"
+        >
+          Send via text
+        </button>
+      </div>
+      <p className="text-xs text-cream-dark/80 dark:text-cream/70 text-center">
+        Opens your email or messages app with this form filled in—you send the message from your device.
+      </p>
     </form>
   );
 }
-

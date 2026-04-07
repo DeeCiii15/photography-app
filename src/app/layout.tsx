@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} antialiased`}
       >
         <CalendlyProvider>
-          {children}
+        {children}
         </CalendlyProvider>
       </body>
     </html>

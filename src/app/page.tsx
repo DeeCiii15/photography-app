@@ -5,6 +5,7 @@ import BookingForm from './components/BookingForm';
 import { useCalendly } from './components/CalendlyEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PORTFOLIO_HOME_CARDS } from '@/lib/portfolioData';
 
 export default function Home() {
   const { openCalendly } = useCalendly();
@@ -28,7 +29,7 @@ export default function Home() {
             className="object-cover"
             quality={90}
             sizes="100vw"
-          />
+        />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
         </div>
@@ -146,179 +147,36 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
-            {/* Weddings */}
-            <Link
-              href="/portfolio?category=Weddings"
-              className="group relative h-[380px] md:h-[450px] rounded-3xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:scale-[1.02] ring-2 ring-dusty-rose/30 dark:ring-gray-700/20"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1200&fit=crop&q=90"
-                alt="Weddings"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 pb-6">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 min-h-[2.5rem] md:min-h-[3rem] flex items-end">
-                  Weddings
-                </h3>
-                <p className="text-sm md:text-base text-white/90 mb-3 min-h-[1.5rem] md:min-h-[1.75rem]">
-                  Beautiful ceremonies
-                </p>
-                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span>View Gallery</span>
-                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+            {PORTFOLIO_HOME_CARDS.map((card) => (
+              <Link
+                key={card.name}
+                href={card.href}
+                className="group relative h-[380px] md:h-[450px] rounded-3xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:scale-[1.02] ring-2 ring-dusty-rose/30 dark:ring-gray-700/20"
+              >
+                <Image
+                  src={card.image}
+                  alt={card.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 pb-6">
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 min-h-[2.5rem] md:min-h-[3rem] flex items-end">
+                    {card.name}
+                  </h3>
+                  <p className="text-sm md:text-base text-white/90 mb-3 min-h-[1.5rem] md:min-h-[1.75rem]">
+                    {card.tagline}
+                  </p>
+                  <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>View Gallery</span>
+                    <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            </Link>
-
-            {/* Maternity */}
-            <Link
-              href="/portfolio?category=Maternity"
-              className="group relative h-[380px] md:h-[450px] rounded-3xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:scale-[1.02] ring-2 ring-dusty-rose/30 dark:ring-gray-700/20"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&h=1200&fit=crop&q=90"
-                alt="Maternity"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 pb-6">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 min-h-[2.5rem] md:min-h-[3rem] flex items-end">
-                  Maternity
-                </h3>
-                <p className="text-sm md:text-base text-white/90 mb-3 min-h-[1.5rem] md:min-h-[1.75rem]">
-                  Celebrating motherhood
-                </p>
-                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span>View Gallery</span>
-                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-
-            {/* Engagement */}
-            <Link
-              href="/portfolio?category=Engagement"
-              className="group relative h-[380px] md:h-[450px] rounded-3xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:scale-[1.02] ring-2 ring-dusty-rose/30 dark:ring-gray-700/20"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&h=1200&fit=crop&q=90"
-                alt="Engagement"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 pb-6">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 min-h-[2.5rem] md:min-h-[3rem] flex items-end">
-                  Engagement
-                </h3>
-                <p className="text-sm md:text-base text-white/90 mb-3 min-h-[1.5rem] md:min-h-[1.75rem]">
-                  Romantic sessions
-                </p>
-                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span>View Gallery</span>
-                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-
-            {/* Special Events */}
-            <Link
-              href="/portfolio?category=Special Events"
-              className="group relative h-[380px] md:h-[450px] rounded-3xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:scale-[1.02] ring-2 ring-dusty-rose/30 dark:ring-gray-700/20"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=1200&fit=crop&q=90"
-                alt="Special Events"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 pb-6">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 min-h-[2.5rem] md:min-h-[3rem] flex items-end">
-                  Special Events
-                </h3>
-                <p className="text-sm md:text-base text-white/90 mb-3 min-h-[1.5rem] md:min-h-[1.75rem]">
-                  Corporate & occasions
-                </p>
-                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span>View Gallery</span>
-                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-
-            {/* Professional */}
-            <Link
-              href="/portfolio?category=Professional"
-              className="group relative h-[380px] md:h-[450px] rounded-3xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:scale-[1.02] ring-2 ring-dusty-rose/30 dark:ring-gray-700/20"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1200&fit=crop&q=90"
-                alt="Professional"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 pb-6">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 min-h-[2.5rem] md:min-h-[3rem] flex items-end">
-                  Professional
-                </h3>
-                <p className="text-sm md:text-base text-white/90 mb-3 min-h-[1.5rem] md:min-h-[1.75rem]">
-                  Business headshots
-                </p>
-                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span>View Gallery</span>
-                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-
-            {/* Portraits */}
-            <Link
-              href="/portfolio?category=Portraits"
-              className="group relative h-[380px] md:h-[450px] rounded-3xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:scale-[1.02] ring-2 ring-dusty-rose/30 dark:ring-gray-700/20"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&h=1200&fit=crop&q=90"
-                alt="Portraits"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 pb-6">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 min-h-[2.5rem] md:min-h-[3rem] flex items-end">
-                  Portraits
-                </h3>
-                <p className="text-sm md:text-base text-white/90 mb-3 min-h-[1.5rem] md:min-h-[1.75rem]">
-                  Portrait sessions
-                </p>
-                <div className="flex items-center text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span>View Gallery</span>
-                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -340,8 +198,8 @@ export default function Home() {
           <div className="mt-12 pt-8 border-t border-dusty-rose dark:border-gray-700">
             <p className="text-sm text-cream-dark dark:text-cream mb-4">Or reach us directly</p>
             <a
-              href="mailto:hello@taylorrosereels.com"
-              className="text-coral dark:text-cream hover:text-coral-dark dark:hover:text-cream transition-colors"
+              href="mailto:hello@taylorrosereels.com?subject=Inquiry%20from%20Taylor%20Rose%20Reels"
+              className="cursor-pointer touch-manipulation text-coral dark:text-cream hover:text-coral-dark dark:hover:text-cream transition-colors"
             >
               hello@taylorrosereels.com
             </a>
@@ -393,7 +251,8 @@ export default function Home() {
         <div className="bg-white/95 backdrop-blur-md rounded-full px-6 py-3.5 shadow-soft-lg flex items-center gap-5 ring-2 ring-dusty-rose/50 dark:ring-gray-700/30">
           <a
             href="tel:+1234567890"
-            className="flex items-center gap-2.5 text-cream-dark font-medium hover:text-coral transition-colors text-base"
+            aria-label="Call (123) 456-7890"
+            className="flex cursor-pointer touch-manipulation items-center gap-2.5 text-cream-dark font-medium hover:text-coral transition-colors text-base"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -403,8 +262,9 @@ export default function Home() {
           </a>
           <div className="h-6 w-px bg-dusty-rose dark:bg-gray-600"></div>
           <a
-            href="mailto:hello@taylorrosereels.com"
-            className="flex items-center gap-2.5 text-cream-dark font-medium hover:text-coral transition-colors text-base"
+            href="mailto:hello@taylorrosereels.com?subject=Inquiry%20from%20Taylor%20Rose%20Reels"
+            aria-label="Email hello@taylorrosereels.com"
+            className="flex cursor-pointer touch-manipulation items-center gap-2.5 text-cream-dark font-medium hover:text-coral transition-colors text-base"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

@@ -54,12 +54,6 @@ export default function Navigation() {
           </a>
           <div className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2 font-display">
             <a
-              href="/#home"
-              className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
-            >
-              Home
-            </a>
-            <a
               href="/#about"
               className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
             >
@@ -122,13 +116,6 @@ export default function Navigation() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-dusty-rose dark:border-gray-700 bg-white/98 dark:bg-gray-900/98 backdrop-blur-md">
             <div className="flex flex-col space-y-3">
-              <a
-                href="/#home"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors"
-              >
-                Home
-              </a>
               <a
                 href="/#about"
                 onClick={() => setMobileMenuOpen(false)}
