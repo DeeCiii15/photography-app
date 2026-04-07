@@ -13,8 +13,6 @@ export type PortfolioPhoto = {
 export type PortfolioCategoryDef = {
   /** Used in ?category= and links (e.g. "Special Events") */
   name: string;
-  /** Folder slug (used for keys / future local bundles) */
-  slug: string;
   description: string;
   homeTagline: string;
   coverSrc: string;
@@ -29,7 +27,6 @@ function unsplash(photoId: string, w: number, h: number) {
 export const PORTFOLIO_CATEGORY_DEFS: PortfolioCategoryDef[] = [
   {
     name: 'Weddings',
-    slug: 'weddings',
     description: 'Beautiful wedding ceremonies and celebrations',
     homeTagline: 'Beautiful ceremonies',
     coverSrc: unsplash('photo-1519741497674-611481863552', 1200, 800),
@@ -58,7 +55,6 @@ export const PORTFOLIO_CATEGORY_DEFS: PortfolioCategoryDef[] = [
   },
   {
     name: 'Maternity',
-    slug: 'maternity',
     description: 'Celebrating the journey of motherhood',
     homeTagline: 'Celebrating motherhood',
     coverSrc: unsplash('photo-1555252333-9f8e92e65df9', 1200, 800),
@@ -82,7 +78,6 @@ export const PORTFOLIO_CATEGORY_DEFS: PortfolioCategoryDef[] = [
   },
   {
     name: 'Engagement',
-    slug: 'engagement',
     description: 'Romantic engagement sessions',
     homeTagline: 'Romantic sessions',
     coverSrc: unsplash('photo-1516589178581-6cd7833ae3b2', 1200, 800),
@@ -106,7 +101,6 @@ export const PORTFOLIO_CATEGORY_DEFS: PortfolioCategoryDef[] = [
   },
   {
     name: 'Special Events',
-    slug: 'special-events',
     description: 'Corporate events and special occasions',
     homeTagline: 'Corporate & occasions',
     coverSrc: unsplash('photo-1511795409834-ef04bbd61622', 1200, 800),
@@ -130,7 +124,6 @@ export const PORTFOLIO_CATEGORY_DEFS: PortfolioCategoryDef[] = [
   },
   {
     name: 'Professional',
-    slug: 'professional',
     description: 'Professional business headshots',
     homeTagline: 'Business headshots',
     coverSrc: unsplash('photo-1560250097-0b93528c311a', 1200, 800),
@@ -154,7 +147,6 @@ export const PORTFOLIO_CATEGORY_DEFS: PortfolioCategoryDef[] = [
   },
   {
     name: 'Portraits',
-    slug: 'portraits',
     description: 'Portrait photography sessions',
     homeTagline: 'Portrait sessions',
     coverSrc: unsplash('photo-1494790108377-be9c29b29330', 1200, 800),
@@ -208,18 +200,3 @@ export const PORTFOLIO_GALLERY_BY_CATEGORY: Record<string, PortfolioPhoto[]> =
       })),
     ])
   );
-
-export const PORTFOLIO_GALLERY_CATEGORY_FILTERS = [
-  'All',
-  ...PORTFOLIO_CATEGORY_DEFS.map((c) => c.name),
-] as const;
-
-export const PORTFOLIO_HOME_GALLERY: PortfolioPhoto[] = PORTFOLIO_CATEGORY_DEFS.flatMap(
-  (c) =>
-    c.photos.slice(0, 2).map((p) => ({
-      id: p.id,
-      src: p.src,
-      alt: p.alt,
-      category: c.name,
-    }))
-);

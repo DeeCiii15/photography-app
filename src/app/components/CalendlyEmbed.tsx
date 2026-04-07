@@ -1,41 +1,52 @@
 'use client';
 
-import { useState, useCallback, createContext, useContext, ReactNode } from 'react';
+import { useState, useCallback, createContext, useContext, ReactNode, useMemo } from 'react';
+import { InlineWidget } from 'react-calendly';
 
 type CalendlyModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  url: string;
+  url: string | null;
 };
+
+function normalizeCalendlyUrl(raw: string | undefined): string | null {
+  const u = raw?.trim();
+  if (!u) return null;
+  if (u.includes('your-username')) return null;
+  try {
+    const parsed = new URL(u);
+    if (!parsed.hostname.endsWith('calendly.com')) return null;
+    return u.replace(/\/$/, '');
+  } catch {
+    return null;
+  }
+}
 
 function CalendlyModal({ isOpen, onClose, url }: CalendlyModalProps) {
   if (!isOpen) return null;
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm cursor-pointer"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm"
       onClick={onClose}
-      style={{ 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        bottom: 0,
-        zIndex: 9999
-      }}
+      onKeyDown={(e) => e.key === 'Escape' && onClose()}
+      role="presentation"
     >
       <div
-        className="relative w-full max-w-4xl h-[90vh] bg-white rounded-2xl shadow-2xl m-4 overflow-hidden"
+        className="relative m-4 flex h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl"
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Schedule a time"
       >
-        {/* Close button */}
         <button
+          type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors cursor-pointer"
+          className="absolute right-4 top-4 z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-lg transition-colors hover:bg-white cursor-pointer"
           aria-label="Close"
         >
           <svg
-            className="w-6 h-6 text-gray-700"
+            className="h-6 w-6 text-gray-700"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -49,21 +60,31 @@ function CalendlyModal({ isOpen, onClose, url }: CalendlyModalProps) {
           </svg>
         </button>
 
-        {/* Calendly iframe */}
-        <iframe
-          src={`${url}?embed_domain=${typeof window !== 'undefined' ? window.location.hostname : ''}&embed_type=Inline`}
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          className="w-full h-full"
-          title="Calendly Scheduling"
-        />
+        <div className="min-h-0 flex-1 pt-14">
+          {url ? (
+            <InlineWidget
+              url={url}
+              styles={{ width: '100%', height: '100%', minHeight: 'min(70vh, 640px)' }}
+              iframeTitle="Calendly scheduling"
+            />
+          ) : (
+            <div className="flex h-full flex-col items-center justify-center gap-4 px-8 pb-12 text-center">
+              <p className="text-lg font-medium text-gray-900">Calendly link not configured</p>
+              <p className="max-w-md text-sm text-gray-600">
+                Add your scheduling URL to <code className="rounded bg-gray-100 px-1.5 py-0.5 text-xs">.env.local</code> as{' '}
+                <code className="rounded bg-gray-100 px-1.5 py-0.5 text-xs">
+                  NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-name
+                </code>
+                , then restart the dev server.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
-// Create a context to share modal state
 type CalendlyContextType = {
   openCalendly: () => void;
   closeCalendly: () => void;
@@ -72,14 +93,16 @@ type CalendlyContextType = {
 
 const CalendlyContext = createContext<CalendlyContextType | null>(null);
 
-// Provider component
 export function CalendlyProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/your-username';
+
+  const calendlyUrl = useMemo(
+    () => normalizeCalendlyUrl(process.env.NEXT_PUBLIC_CALENDLY_URL),
+    []
+  );
 
   const openCalendly = useCallback(() => {
     setIsOpen(true);
-    // Prevent body scroll when modal is open
     if (typeof document !== 'undefined') {
       document.body.style.overflow = 'hidden';
     }
@@ -87,7 +110,6 @@ export function CalendlyProvider({ children }: { children: ReactNode }) {
 
   const closeCalendly = useCallback(() => {
     setIsOpen(false);
-    // Restore body scroll
     if (typeof document !== 'undefined') {
       document.body.style.overflow = 'unset';
     }
@@ -101,7 +123,6 @@ export function CalendlyProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Hook to use Calendly context
 export function useCalendly() {
   const context = useContext(CalendlyContext);
   if (!context) {
@@ -112,9 +133,3 @@ export function useCalendly() {
     closeCalendly: context.closeCalendly,
   };
 }
-
-// Component for backward compatibility (not used anymore)
-export default function CalendlyEmbed({ url }: { url?: string }) {
-  return null;
-}
-

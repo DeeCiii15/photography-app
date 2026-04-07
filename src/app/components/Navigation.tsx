@@ -20,29 +20,28 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 overflow-x-hidden transition-all duration-300 ${
         scrolled
-          ? 'bg-white/98 backdrop-blur-md shadow-soft dark:bg-gray-900/98'
-          : 'bg-white/95 backdrop-blur-md shadow-soft dark:bg-gray-900/95'
+          ? 'bg-cream-light shadow-soft dark:bg-gray-900'
+          : 'bg-cream-light shadow-soft dark:bg-gray-950'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex items-center h-24 md:h-28 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="flex items-center justify-between gap-3 h-20 md:h-28 relative">
           <a
             href="/"
-            className="group relative flex items-center"
+            className="group relative flex min-w-0 max-w-[min(100%,14rem)] md:max-w-none shrink items-center"
           >
             {/* Logo - falls back to text if image doesn't exist */}
             {!logoError ? (
-              <div className={`relative h-16 md:h-20 lg:h-24 w-auto flex items-center overflow-visible ${scrolled ? 'bg-cream-light/98 dark:bg-gray-900/98' : 'bg-cream-light/95 dark:bg-gray-900/95'} rounded-lg px-2`}>
+              <div className="relative flex h-14 w-auto items-center md:h-20 lg:h-24">
                 <Image
                   src="/images/logo-v2.png"
                   alt="Taylor Rose Reels"
                   width={1200}
                   height={96}
-                  className="h-16 md:h-20 lg:h-24 w-auto object-contain object-center transition-opacity group-hover:opacity-80"
+                  className="h-14 w-auto max-h-14 origin-left scale-[1.35] object-contain object-left transition-opacity group-hover:opacity-80 md:h-20 md:max-h-none md:origin-center md:scale-[1.75] lg:h-24 md:object-center"
                   priority
-                  style={{ maxHeight: '96px', width: 'auto', transform: 'scale(1.75)', transformOrigin: 'center center' }}
                   onError={() => setLogoError(true)}
                 />
               </div>
@@ -96,9 +95,11 @@ export default function Navigation() {
             </button>
           </div>
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-cream-dark dark:text-cream ml-auto"
+            className="md:hidden shrink-0 -mr-1 rounded-lg p-2 text-cream-dark hover:bg-black/[0.04] dark:text-cream dark:hover:bg-white/10"
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,44 +115,43 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-dusty-rose dark:border-gray-700 bg-white/98 dark:bg-gray-900/98 backdrop-blur-md">
-            <div className="flex flex-col space-y-3">
+          <div className="md:hidden border-t border-dusty-rose/60 dark:border-gray-600">
+            <div className="flex flex-col divide-y divide-dusty-rose/35 dark:divide-gray-700 font-display">
               <a
                 href="/#about"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors"
+                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
               >
                 About
               </a>
               <a
                 href="/portfolio"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors"
+                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
               >
                 Portfolio
               </a>
               <a
                 href="/pricing"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors"
+                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
               >
                 Pricing
               </a>
               <a
                 href="/faq"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors"
+                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
               >
                 FAQ
               </a>
               <a
                 href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors"
+                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
               >
                 Contact
               </a>
-              <span className="text-sm text-cream-dark/50 dark:text-cream/50">|</span>
               <button
                 type="button"
                 onClick={(e) => {
@@ -159,7 +159,7 @@ export default function Navigation() {
                   openCalendly();
                   setMobileMenuOpen(false);
                 }}
-                className="text-sm font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors cursor-pointer"
+                className="block w-full cursor-pointer py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
               >
                 Upcoming Events
               </button>
