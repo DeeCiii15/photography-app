@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useCalendly } from './CalendlyEmbed';
 import Image from 'next/image';
 
@@ -28,7 +29,7 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between gap-3 h-20 md:h-28 relative">
-          <a
+          <Link
             href="/"
             className="group relative flex min-w-0 max-w-[min(100%,14rem)] md:max-w-none shrink items-center"
           >
@@ -50,38 +51,38 @@ export default function Navigation() {
                 Taylor Rose Reels
               </span>
             )}
-          </a>
+          </Link>
           <div className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2 font-display">
-            <a
+            <Link
               href="/#about"
               className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
             >
               About
-            </a>
-            <a
+            </Link>
+            <Link
               href="/portfolio"
               className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
             >
               Portfolio
-            </a>
-            <a
+            </Link>
+            <Link
               href="/pricing"
               className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
             >
               Pricing
-            </a>
-            <a
+            </Link>
+            <Link
               href="/faq"
               className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
             >
               FAQ
-            </a>
-            <a
+            </Link>
+            <Link
               href="/#contact"
               className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
             >
               Contact
-            </a>
+            </Link>
             <span className="text-lg text-cream-dark/50 dark:text-cream/50">|</span>
             <button
               type="button"
@@ -115,54 +116,98 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-dusty-rose/60 dark:border-gray-600">
-            <div className="flex flex-col divide-y divide-dusty-rose/35 dark:divide-gray-700 font-display">
-              <a
-                href="/#about"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
-              >
-                About
-              </a>
-              <a
-                href="/portfolio"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
-              >
-                Portfolio
-              </a>
-              <a
-                href="/pricing"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
-              >
-                Pricing
-              </a>
-              <a
-                href="/faq"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
-              >
-                FAQ
-              </a>
-              <a
-                href="/#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
-              >
-                Contact
-              </a>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  openCalendly();
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full cursor-pointer py-3.5 text-left text-base font-medium text-cream-dark dark:text-cream active:bg-black/[0.03] dark:active:bg-white/5"
-              >
-                Upcoming Events
-              </button>
+          <div className="md:hidden border-t border-dusty-rose/40 bg-cream-light/50 px-3 pb-5 pt-3 dark:border-gray-600 dark:bg-gray-950/40">
+            <div className="overflow-hidden rounded-2xl border border-dusty-rose/40 bg-white/95 shadow-soft-lg ring-1 ring-black/[0.04] backdrop-blur-sm dark:border-gray-600 dark:bg-gray-900/95 dark:ring-white/5">
+              <nav className="font-display p-2" aria-label="Mobile">
+                <ul className="flex flex-col gap-1">
+                  <li>
+                    <Link
+                      href="/#about"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-3 py-3.5 text-base font-medium text-cream-dark transition-colors hover:bg-coral/10 active:bg-coral/15 dark:text-cream dark:hover:bg-white/10"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral/12 text-coral dark:bg-white/10 dark:text-cream">
+                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </span>
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/portfolio"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-3 py-3.5 text-base font-medium text-cream-dark transition-colors hover:bg-coral/10 active:bg-coral/15 dark:text-cream dark:hover:bg-white/10"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral/12 text-coral dark:bg-white/10 dark:text-cream">
+                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </span>
+                      Portfolio
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/pricing"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-3 py-3.5 text-base font-medium text-cream-dark transition-colors hover:bg-coral/10 active:bg-coral/15 dark:text-cream dark:hover:bg-white/10"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral/12 text-coral dark:bg-white/10 dark:text-cream">
+                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </span>
+                      Pricing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/faq"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-3 py-3.5 text-base font-medium text-cream-dark transition-colors hover:bg-coral/10 active:bg-coral/15 dark:text-cream dark:hover:bg-white/10"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral/12 text-coral dark:bg-white/10 dark:text-cream">
+                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </span>
+                      FAQ
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/#contact"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-3 py-3.5 text-base font-medium text-cream-dark transition-colors hover:bg-coral/10 active:bg-coral/15 dark:text-cream dark:hover:bg-white/10"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral/12 text-coral dark:bg-white/10 dark:text-cream">
+                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </span>
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+                <div className="mt-2 border-t border-dusty-rose/30 p-2 pt-3 dark:border-gray-600">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      openCalendly();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-coral to-coral-dark px-4 py-3.5 text-base font-semibold text-white shadow-md transition-transform active:scale-[0.98]"
+                  >
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Upcoming Events
+                  </button>
+                </div>
+              </nav>
             </div>
           </div>
         )}
