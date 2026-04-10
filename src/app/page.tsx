@@ -33,16 +33,16 @@ export default function Home() {
               The same warmth as tall grass at golden hour—never loud, never
               forced.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap">
               <Link
                 href="/portfolio"
-                className="font-display inline-flex items-center justify-center border border-white/40 bg-white/95 px-8 py-3.5 text-xl text-[#3d342c] transition hover:bg-white md:text-[1.35rem] md:py-4 md:px-9"
+                className="font-display inline-flex min-h-12 w-full touch-manipulation items-center justify-center border border-white/40 bg-white/95 px-8 py-3.5 text-xl text-[#3d342c] transition hover:bg-white sm:w-auto md:text-[1.35rem] md:py-4 md:px-9"
               >
                 View work
               </Link>
               <Link
                 href="/contact"
-                className="font-display inline-flex items-center justify-center border border-white/35 bg-transparent px-8 py-3.5 text-xl text-white transition hover:bg-white/10 md:text-[1.35rem] md:py-4 md:px-9"
+                className="font-display inline-flex min-h-12 w-full touch-manipulation items-center justify-center border border-white/35 bg-transparent px-8 py-3.5 text-xl text-white transition hover:bg-white/10 sm:w-auto md:text-[1.35rem] md:py-4 md:px-9"
               >
                 Inquire
               </Link>
@@ -147,7 +147,7 @@ export default function Home() {
               </div>
               <Link
                 href="/pricing"
-                className="font-display mt-10 inline-block text-2xl text-coral transition hover:text-coral-dark md:text-[1.65rem]"
+                className="font-display mt-10 inline-block touch-manipulation text-2xl text-coral transition hover:text-coral-dark md:text-[1.65rem]"
               >
                 Collections &amp; investment →
               </Link>

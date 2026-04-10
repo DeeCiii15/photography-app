@@ -233,14 +233,14 @@ export default function BookingForm({ className }: BookingFormProps) {
         <button
           type="button"
           onClick={openEmail}
-          className="font-display flex-1 rounded-full border border-boho-bark/10 bg-coral px-6 py-4 text-xl text-white shadow-soft transition hover:bg-coral-dark hover:shadow-soft-lg"
+          className="font-display min-h-12 flex-1 touch-manipulation rounded-full border border-boho-bark/10 bg-coral px-6 py-4 text-xl text-white shadow-soft transition hover:bg-coral-dark hover:shadow-soft-lg"
         >
           Send by email
         </button>
         <button
           type="button"
           onClick={openSms}
-          className="font-display flex-1 rounded-full border border-coral/50 bg-white/60 px-6 py-4 text-xl text-coral backdrop-blur-sm transition hover:bg-coral/10 dark:bg-boho-bark/40 dark:text-coral"
+          className="font-display min-h-12 flex-1 touch-manipulation rounded-full border border-coral/50 bg-white/60 px-6 py-4 text-xl text-coral backdrop-blur-sm transition hover:bg-coral/10 dark:bg-boho-bark/40 dark:text-coral"
         >
           Send by text
         </button>

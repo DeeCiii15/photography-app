@@ -21,6 +21,15 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileMenuOpen]);
+
   /** Match TRR title: white on hero, warm gold / coral when scrolled (same as script fallback + logo era) */
   const linkClass = onHero
     ? 'rounded-full px-4 py-2 text-lg tracking-wide text-white/95 transition hover:bg-white/15 hover:text-white xl:px-5 xl:text-xl'
@@ -92,7 +101,7 @@ export default function Navigation() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`shrink-0 rounded-full p-2.5 transition hover:bg-coral/10 dark:hover:bg-white/10 lg:hidden ${onHero ? 'text-white hover:bg-white/15' : 'text-coral hover:bg-coral/10 dark:text-[#e8c4a8] dark:hover:bg-white/10'}`}
+            className={`touch-manipulation shrink-0 rounded-full p-3 transition hover:bg-coral/10 dark:hover:bg-white/10 lg:hidden ${onHero ? 'text-white hover:bg-white/15' : 'text-coral hover:bg-coral/10 dark:text-[#e8c4a8] dark:hover:bg-white/10'}`}
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -136,35 +145,35 @@ export default function Navigation() {
               <Link
                 href="/#about"
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
                 About
               </Link>
               <Link
                 href="/portfolio"
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
                 Portfolio
               </Link>
               <Link
                 href="/pricing"
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
                 Pricing
               </Link>
               <Link
                 href="/experience"
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
                 Experience
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
                 Contact
               </Link>

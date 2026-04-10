@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Allura, Great_Vibes, Lora } from "next/font/google";
 import "./globals.css";
 import ContactRibbon from "./components/ContactRibbon";
@@ -30,6 +30,12 @@ export const metadata: Metadata = {
     "Photography inspired by open fields, cedar arches, and soft film light—sage greens, wheat gold, and airy romance for Southern and boho-modern love stories.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,7 +46,7 @@ export default function RootLayout({
       <body
         className={`${lora.variable} ${allura.variable} ${greatVibes.variable} antialiased`}
       >
-        <div className="relative z-10 min-h-dvh overflow-x-hidden">
+        <div className="relative z-10 min-h-dvh overflow-x-hidden max-sm:pb-[calc(7.5rem+env(safe-area-inset-bottom,0px))]">
           {children}
           <ContactRibbon />
         </div>

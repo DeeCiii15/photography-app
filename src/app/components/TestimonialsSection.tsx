@@ -94,7 +94,7 @@ export default function TestimonialsSection({
           <button
             type="button"
             onClick={() => scrollTestimonialDeck(-1)}
-            className="font-display absolute left-0 top-[55%] z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#d4cdc0]/80 bg-[#faf8f4]/90 text-coral shadow-sm backdrop-blur-[2px] transition hover:border-coral/30 hover:bg-white/95 dark:border-boho-stone/50 dark:bg-boho-bark/85 dark:text-[#d4a574] sm:flex sm:left-1 sm:h-11 sm:w-11"
+            className="font-display absolute left-0 top-[55%] z-20 flex h-10 w-10 -translate-y-1/2 touch-manipulation items-center justify-center rounded-full border border-[#d4cdc0]/80 bg-[#faf8f4]/90 text-coral shadow-sm backdrop-blur-[2px] transition hover:border-coral/30 hover:bg-white/95 dark:border-boho-stone/50 dark:bg-boho-bark/85 dark:text-[#d4a574] sm:left-1 sm:h-11 sm:w-11"
             aria-label="Scroll testimonials back"
           >
             <TestimonialDeckChevron dir={-1} />
@@ -102,7 +102,7 @@ export default function TestimonialsSection({
           <button
             type="button"
             onClick={() => scrollTestimonialDeck(1)}
-            className="font-display absolute right-0 top-[55%] z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#d4cdc0]/80 bg-[#faf8f4]/90 text-coral shadow-sm backdrop-blur-[2px] transition hover:border-coral/30 hover:bg-white/95 dark:border-boho-stone/50 dark:bg-boho-bark/85 dark:text-[#d4a574] sm:flex sm:right-1 sm:h-11 sm:w-11"
+            className="font-display absolute right-0 top-[55%] z-20 flex h-10 w-10 -translate-y-1/2 touch-manipulation items-center justify-center rounded-full border border-[#d4cdc0]/80 bg-[#faf8f4]/90 text-coral shadow-sm backdrop-blur-[2px] transition hover:border-coral/30 hover:bg-white/95 dark:border-boho-stone/50 dark:bg-boho-bark/85 dark:text-[#d4a574] sm:right-1 sm:h-11 sm:w-11"
             aria-label="Scroll testimonials forward"
           >
             <TestimonialDeckChevron dir={1} />
@@ -110,7 +110,7 @@ export default function TestimonialsSection({
 
           <div
             ref={testimonialDeckRef}
-            className="scrollbar-hide flex scroll-smooth snap-x snap-mandatory sm:snap-proximity gap-0 overflow-x-auto overflow-y-visible overscroll-x-contain px-6 pb-10 pt-6 [scroll-padding-inline:max(1rem,6vw)] [-webkit-overflow-scrolling:touch] [touch-action:pan-x_pan-y] sm:px-14 sm:pb-12 sm:pt-8 sm:[touch-action:manipulation] md:px-16 md:pb-14"
+            className="scrollbar-hide flex scroll-smooth snap-x snap-mandatory sm:snap-proximity gap-0 overflow-x-auto overflow-y-visible overscroll-x-contain px-12 pb-10 pt-6 [scroll-padding-inline:max(1rem,6vw)] [-webkit-overflow-scrolling:touch] [touch-action:pan-x_pan-y] sm:px-14 sm:pb-12 sm:pt-8 sm:[touch-action:manipulation] md:px-16 md:pb-14"
           >
             {TESTIMONIALS.map((t, i) => (
               <blockquote
@@ -163,7 +163,7 @@ export default function TestimonialsSection({
           <div className="mt-14 text-center">
             <Link
               href="/contact"
-              className="font-display inline-flex items-center justify-center rounded-full border border-boho-sage/30 bg-white/70 px-8 py-3 text-lg text-coral shadow-soft transition hover:border-coral/40 hover:bg-white dark:border-boho-stone/45 dark:bg-boho-bark/60 dark:text-coral dark:hover:bg-boho-bark"
+              className="font-display inline-flex min-h-12 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/70 px-8 py-3 text-lg text-coral shadow-soft transition hover:border-coral/40 hover:bg-white dark:border-boho-stone/45 dark:bg-boho-bark/60 dark:text-coral dark:hover:bg-boho-bark"
             >
               Reach out for your date
             </Link>

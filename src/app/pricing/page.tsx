@@ -40,10 +40,10 @@ export default function PricingPage() {
                     cat.featured
                       ? 'border-coral/35 shadow-soft-lg ring-coral/15 dark:border-coral/35 dark:ring-coral/20'
                       : 'border-[#e0d9ce] dark:border-boho-stone/40'
-                  } ${i % 2 === 1 ? 'md:ml-4 lg:ml-10' : i % 2 === 0 && i > 0 ? 'md:mr-4 lg:mr-8' : ''}`}
+                  } ${i % 2 === 1 ? 'lg:ml-10' : i % 2 === 0 && i > 0 ? 'lg:mr-8' : ''}`}
                 >
                   {cat.featured && (
-                    <span className="absolute -top-3 left-10 rounded-full bg-coral px-4 py-1.5 font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+                    <span className="absolute -top-3 left-4 rounded-full bg-coral px-4 py-1.5 font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-white sm:left-10">
                       Most booked
                     </span>
                   )}
@@ -78,16 +78,16 @@ export default function PricingPage() {
                         </ul>
                       )}
                     </div>
-                    <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-stretch">
+                    <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row sm:items-center lg:flex-col lg:items-stretch">
                       <Link
                         href="/contact"
-                        className="font-display inline-flex justify-center rounded-full border border-boho-sage/30 bg-coral px-8 py-3.5 text-center text-lg text-white shadow-soft transition hover:border-coral/40 hover:bg-coral-dark hover:shadow-soft-lg dark:border-boho-stone/45"
+                        className="font-display inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-coral px-8 py-3.5 text-center text-lg text-white shadow-soft transition hover:border-coral/40 hover:bg-coral-dark hover:shadow-soft-lg dark:border-boho-stone/45 sm:w-auto"
                       >
                         Inquire
                       </Link>
                       <Link
                         href={galleryHref}
-                        className="font-display inline-flex justify-center rounded-full border border-[#d4cdc0]/90 bg-white/80 px-8 py-3.5 text-center text-lg text-coral transition hover:border-coral/35 hover:bg-white dark:border-boho-stone/50 dark:bg-boho-bark/70 dark:text-[#d4a574] dark:hover:bg-boho-bark"
+                        className="font-display inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-full border border-[#d4cdc0]/90 bg-white/80 px-8 py-3.5 text-center text-lg text-coral transition hover:border-coral/35 hover:bg-white dark:border-boho-stone/50 dark:bg-boho-bark/70 dark:text-[#d4a574] dark:hover:bg-boho-bark sm:w-auto"
                       >
                         See work
                       </Link>

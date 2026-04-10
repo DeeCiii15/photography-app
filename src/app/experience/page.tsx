@@ -143,7 +143,7 @@ export default function ExperiencePage() {
                   key={faq.question}
                   className="group rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 shadow-sm ring-1 ring-[#e8e3db]/80 transition-[box-shadow] open:shadow-[0_12px_32px_rgba(61,52,44,0.08)] dark:border-boho-stone/40 dark:bg-boho-bark/50 dark:ring-boho-stone/25 dark:open:shadow-[0_12px_32px_rgba(0,0,0,0.2)]"
                 >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-display text-lg leading-snug text-cream-dark marker:content-none sm:px-8 sm:py-6 sm:text-xl dark:text-cream [&::-webkit-details-marker]:hidden">
+                  <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-display text-lg leading-snug text-cream-dark marker:content-none touch-manipulation sm:min-h-0 sm:px-8 sm:py-6 sm:text-xl dark:text-cream [&::-webkit-details-marker]:hidden">
                     <span className="min-w-0 pr-2">{faq.question}</span>
                     <FaqChevron />
                   </summary>
@@ -165,7 +165,7 @@ export default function ExperiencePage() {
             </p>
             <Link
               href="/contact"
-              className="font-display mt-6 inline-flex rounded-full border border-boho-sage/30 bg-coral px-10 py-3.5 text-lg text-white shadow-soft transition hover:border-coral/40 hover:bg-coral-dark hover:shadow-soft-lg dark:border-boho-stone/45"
+              className="font-display mt-6 inline-flex min-h-12 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-coral px-10 py-3.5 text-lg text-white shadow-soft transition hover:border-coral/40 hover:bg-coral-dark hover:shadow-soft-lg dark:border-boho-stone/45"
             >
               Write me a note
             </Link>
