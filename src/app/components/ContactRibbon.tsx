@@ -43,12 +43,8 @@ function PhoneIcon({ className }: { className?: string }) {
   );
 }
 
-/**
- * Side-view rose bud — asymmetric bulb beside the stem (rose), not a symmetric upright cup (tulip).
- */
+/** Line-work rose — original FAB rose (stem, leaf, outer + inner bloom) */
 function RoseLineIcon({ className }: { className?: string }) {
-  const sw = 1.35;
-  const swSoft = 1.1;
   return (
     <svg
       className={className}
@@ -57,51 +53,35 @@ function RoseLineIcon({ className }: { className?: string }) {
       aria-hidden
     >
       <path
-        d="M9.85 21.75V16.2"
+        d="M12 21.25v-6.85"
         stroke="currentColor"
-        strokeWidth={sw}
+        strokeWidth={1.35}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M8.2 18.9c-1.8-.4-2.75.55-2.55 1.65.2 1 1.2 1.45 2.35.85"
+        d="M12 15.6c-1.9-.95-3.55-.85-4.7.2"
         stroke="currentColor"
-        strokeWidth={swSoft}
+        strokeWidth={1.25}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+        opacity={0.88}
+      />
+      <path
+        d="M12 14.35c-2.9-2.35-3.55-5.6-1.65-8 1.35-1.7 3.85-1.85 5.5-.35 2.15 1.95 1.45 5.35-1.45 7.85"
+        stroke="currentColor"
+        strokeWidth={1.35}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M10.7 19.7c1.7 1.5 3.4 1.75 4.35.4.6-.8.4-1.8-.6-2.4"
+        d="M12 9.1c-1.05-.7-1.7-2-1.05-3.35.85-1.55 2.9-1.4 3.65.15.6 1.2-.2 2.45-1.15 3.15"
         stroke="currentColor"
-        strokeWidth={swSoft}
+        strokeWidth={1.25}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M9.85 16.2C8.9 14.8 8.6 12 9.65 9.8 10.8 7.2 14.2 5.9 17.5 7.2 20.2 8.2 21.2 11.2 20.4 13.8 19.6 16.2 16.8 17.3 13.8 17 12 16.8 10.5 16.5 9.85 16.2z"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M11.15 14.6Q14.9 10.4 18.55 12.6"
-        stroke="currentColor"
-        strokeWidth={swSoft}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-        opacity={0.9}
-      />
-      <path
-        d="M10.45 12.05Q14.15 8.35 17.75 10.65"
-        stroke="currentColor"
-        strokeWidth={swSoft}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-        opacity={0.9}
       />
     </svg>
   );
