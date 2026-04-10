@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 /** Soft vintage handset — thin stroke, warm line caps (matches boho / film site) */
 function PhoneIcon({ className }: { className?: string }) {
   return (
@@ -76,10 +78,25 @@ function IconMat({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** Fixed pill — stacks on very narrow viewports; sm+ matches original horizontal pill */
-export default function ContactRibbon() {
+function CloseIcon({ className }: { className?: string }) {
   return (
-    <div className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-3 right-3 z-50 sm:bottom-6 sm:left-auto sm:right-6">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      aria-hidden
+    >
+      <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** sm+ — always-visible horizontal pill (unchanged) */
+function DesktopRibbon() {
+  return (
+    <div className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-3 right-3 z-50 hidden sm:bottom-6 sm:left-auto sm:right-6 sm:block">
       <div className="pointer-events-auto mx-auto flex w-full max-w-full flex-col rounded-2xl border border-boho-sage/25 bg-white/70 py-2 pl-2 pr-2 shadow-sm backdrop-blur-md dark:border-boho-stone/45 dark:bg-boho-ink/55 sm:w-max sm:min-w-[min(100%,28.5rem)] sm:max-w-[calc(100vw-0.75rem)] sm:flex-row sm:items-center sm:rounded-full sm:border-boho-sage/25 sm:bg-white/55 sm:py-1.5 sm:pl-1.5 sm:pr-1.5 sm:dark:bg-boho-ink/50">
         <a
           href="tel:+1234567890"
@@ -115,5 +132,121 @@ export default function ContactRibbon() {
         </a>
       </div>
     </div>
+  );
+}
+
+/** &lt; sm — FAB opens slide-up sheet */
+function MobileContactSheet() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <div className="sm:hidden">
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-label="Open contact options"
+        aria-expanded={open}
+        className={`fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 flex h-14 w-14 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-300 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] ${
+          open ? 'pointer-events-none scale-75 opacity-0' : 'scale-100 opacity-100'
+        }`}
+      >
+        <PhoneIcon className="h-6 w-6" />
+      </button>
+
+      <div
+        className={`fixed inset-0 z-40 bg-[#2a231c]/40 transition-opacity duration-300 dark:bg-black/50 ${
+          open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+        aria-hidden={!open}
+        onClick={() => setOpen(false)}
+      />
+
+      <div
+        className={`fixed inset-x-0 bottom-0 z-50 max-h-[85dvh] overflow-y-auto rounded-t-2xl border border-[#e0d9ce] bg-[#faf8f4]/98 shadow-[0_-8px_40px_rgba(61,52,44,0.15)] transition-transform duration-300 ease-out dark:border-boho-stone/40 dark:bg-boho-bark/98 ${
+          open
+            ? 'pointer-events-auto translate-y-0'
+            : 'pointer-events-none translate-y-full'
+        }`}
+        style={{
+          paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
+        }}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Contact Taylor Rose Reels"
+      >
+        <div className="sticky top-0 flex items-center justify-between border-b border-[#e0d9ce]/80 bg-[#faf8f4]/95 px-4 py-3 backdrop-blur-sm dark:border-boho-stone/35 dark:bg-boho-bark/95">
+          <p className="font-display text-xl text-cream-dark dark:text-cream">
+            Get in touch
+          </p>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="touch-manipulation rounded-full p-2.5 text-coral transition hover:bg-boho-sage/15 dark:text-[#e8b896] dark:hover:bg-white/10"
+            aria-label="Close contact panel"
+          >
+            <CloseIcon className="h-5 w-5" />
+          </button>
+        </div>
+        <div className="flex flex-col gap-1 px-3 py-4">
+          <a
+            href="tel:+1234567890"
+            onClick={() => setOpen(false)}
+            className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
+          >
+            <IconMat>
+              <PhoneIcon className="h-[15px] w-[15px]" />
+            </IconMat>
+            <div className="min-w-0">
+              <p className="font-body text-xs font-semibold uppercase tracking-wider text-cream-dark/55 dark:text-cream/50">
+                Call
+              </p>
+              <p className="font-body text-base font-medium text-cream-dark dark:text-cream">
+                (123) 456-7890
+              </p>
+            </div>
+          </a>
+          <a
+            href="mailto:hello@taylorrosereels.com?subject=Inquiry%20from%20Taylor%20Rose%20Reels"
+            onClick={() => setOpen(false)}
+            className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
+          >
+            <IconMat>
+              <MailIcon className="h-[15px] w-[15px]" />
+            </IconMat>
+            <div className="min-w-0">
+              <p className="font-body text-xs font-semibold uppercase tracking-wider text-cream-dark/55 dark:text-cream/50">
+                Email
+              </p>
+              <p className="break-all font-body text-base font-medium text-coral dark:text-[#e8b896]">
+                hello@taylorrosereels.com
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function ContactRibbon() {
+  return (
+    <>
+      <DesktopRibbon />
+      <MobileContactSheet />
+    </>
   );
 }

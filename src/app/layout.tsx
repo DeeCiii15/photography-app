@@ -46,7 +46,7 @@ export default function RootLayout({
       <body
         className={`${lora.variable} ${allura.variable} ${greatVibes.variable} antialiased`}
       >
-        <div className="relative z-10 min-h-dvh overflow-x-hidden max-sm:pb-[calc(7.5rem+env(safe-area-inset-bottom,0px))]">
+        <div className="relative z-10 min-h-dvh overflow-x-hidden max-sm:pb-[calc(4.75rem+env(safe-area-inset-bottom,0px))]">
           {children}
           <ContactRibbon />
         </div>
