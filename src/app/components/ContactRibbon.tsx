@@ -44,11 +44,11 @@ function PhoneIcon({ className }: { className?: string }) {
 }
 
 /**
- * Original monoline rose for this site — same *idea* as classic rose icons (spiral, arcs, stem, leaves)
- * but unique layout: off-center bloom, stem sweeps right, asymmetric leaves, different arc rhythm.
+ * Simple rose: one continuous bloom outline (no crossing “grid” of arcs) + one inner cup line + stem + leaves.
  */
 function RoseLineIcon({ className }: { className?: string }) {
-  const sw = 1.35;
+  const sw = 1.4;
+  const swSoft = 1.15;
   return (
     <svg
       className={className}
@@ -56,76 +56,46 @@ function RoseLineIcon({ className }: { className?: string }) {
       fill="none"
       aria-hidden
     >
-      {/* Stem bends right then down — not a straight or left-leaning stock pose */}
       <path
-        d="M11.4 15.9c.35 1.85 1.35 3.35 2.15 5.35.45 1.15.55 2.35.35 3.55"
+        d="M12 16.55v5.1"
         stroke="currentColor"
         strokeWidth={sw}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
       />
-      {/* Narrow leaf high on the right of the stem */}
       <path
-        d="M12.85 16.85c1.85-.85 3.35-.35 3.95 1.05.45 1.05-.15 2.05-1.65 2.45"
+        d="M10.2 17.4c-2.15-.95-3.55.05-3.65 1.35-.08.95 1.05 1.75 2.75 1.2"
         stroke="currentColor"
-        strokeWidth={1.15}
+        strokeWidth={swSoft}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
       />
-      {/* Broader leaf lower, left of stem */}
       <path
-        d="M10.65 19.4c-2.35.15-3.65 1.35-3.45 2.65.2 1.15 1.85 1.55 3.35.35"
+        d="M13.85 18.5c2.2 1.05 3.65.2 3.75-1 .1-1-1.1-1.85-2.85-1.25"
         stroke="currentColor"
-        strokeWidth={1.15}
+        strokeWidth={swSoft}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
       />
-      {/* Wrapping petal arcs — focal point slightly left of center (original geometry) */}
+      {/* Single outer silhouette — wavy crown reads as one flower */}
       <path
-        d="M6.2 11.4Q11.2 4.8 17.2 10.6"
+        d="M12 16.55 10.55 16.15C8.35 15.6 7 13.65 7 11.05 7 8.15 8.75 5.9 10.65 5.45 10.9 4.35 11.45 3.75 12.05 4.35 12.65 3.75 13.2 4.35 13.45 5.45 15.35 5.9 17 8.15 17 11.05 17 13.65 15.65 15.6 13.45 16.15L12 16.55z"
         stroke="currentColor"
         strokeWidth={sw}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M7.1 9.15Q11.4 3.85 16.4 8.35"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M8.35 12.85Q11.5 7.2 15.1 12.2"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M9.1 7.1Q7.85 10.2 10.65 13.15"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M14.85 7.25Q16.35 10.5 13.25 13.35"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      {/* Open spiral heart — hand-tuned curve, not a traced asset */}
-      <path
-        d="M12.95 7.05c-1.35-.45-2.55.35-2.65 1.55-.08 1.05.95 1.85 2.05 1.55 1.35-.35 1.85-1.75 1.05-2.65-.65-.75-1.95-.65-2.55.25"
-        stroke="currentColor"
-        strokeWidth={1.15}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
+      />
+      {/* One shallow inner curve only — sits mid-bloom, never slashes through the top */}
+      <path
+        d="M9.35 10.4Q12 8.15 14.65 10.4"
+        stroke="currentColor"
+        strokeWidth={swSoft}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+        opacity={0.92}
       />
     </svg>
   );
