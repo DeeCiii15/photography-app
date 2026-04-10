@@ -44,11 +44,11 @@ function PhoneIcon({ className }: { className?: string }) {
 }
 
 /**
- * Simple rose: one continuous bloom outline (no crossing “grid” of arcs) + one inner cup line + stem + leaves.
+ * Side-view rose bud — asymmetric bulb beside the stem (rose), not a symmetric upright cup (tulip).
  */
 function RoseLineIcon({ className }: { className?: string }) {
-  const sw = 1.4;
-  const swSoft = 1.15;
+  const sw = 1.35;
+  const swSoft = 1.1;
   return (
     <svg
       className={className}
@@ -57,14 +57,14 @@ function RoseLineIcon({ className }: { className?: string }) {
       aria-hidden
     >
       <path
-        d="M12 16.55v5.1"
+        d="M9.85 21.75V16.2"
         stroke="currentColor"
         strokeWidth={sw}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M10.2 17.4c-2.15-.95-3.55.05-3.65 1.35-.08.95 1.05 1.75 2.75 1.2"
+        d="M8.2 18.9c-1.8-.4-2.75.55-2.55 1.65.2 1 1.2 1.45 2.35.85"
         stroke="currentColor"
         strokeWidth={swSoft}
         strokeLinecap="round"
@@ -72,30 +72,36 @@ function RoseLineIcon({ className }: { className?: string }) {
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M13.85 18.5c2.2 1.05 3.65.2 3.75-1 .1-1-1.1-1.85-2.85-1.25"
+        d="M10.7 19.7c1.7 1.5 3.4 1.75 4.35.4.6-.8.4-1.8-.6-2.4"
         stroke="currentColor"
         strokeWidth={swSoft}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
       />
-      {/* Single outer silhouette — wavy crown reads as one flower */}
       <path
-        d="M12 16.55 10.55 16.15C8.35 15.6 7 13.65 7 11.05 7 8.15 8.75 5.9 10.65 5.45 10.9 4.35 11.45 3.75 12.05 4.35 12.65 3.75 13.2 4.35 13.45 5.45 15.35 5.9 17 8.15 17 11.05 17 13.65 15.65 15.6 13.45 16.15L12 16.55z"
+        d="M9.85 16.2C8.9 14.8 8.6 12 9.65 9.8 10.8 7.2 14.2 5.9 17.5 7.2 20.2 8.2 21.2 11.2 20.4 13.8 19.6 16.2 16.8 17.3 13.8 17 12 16.8 10.5 16.5 9.85 16.2z"
         stroke="currentColor"
         strokeWidth={sw}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
       />
-      {/* One shallow inner curve only — sits mid-bloom, never slashes through the top */}
       <path
-        d="M9.35 10.4Q12 8.15 14.65 10.4"
+        d="M11.15 14.6Q14.9 10.4 18.55 12.6"
         stroke="currentColor"
         strokeWidth={swSoft}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
-        opacity={0.92}
+        opacity={0.9}
+      />
+      <path
+        d="M10.45 12.05Q14.15 8.35 17.75 10.65"
+        stroke="currentColor"
+        strokeWidth={swSoft}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+        opacity={0.9}
       />
     </svg>
   );
