@@ -44,11 +44,11 @@ function PhoneIcon({ className }: { className?: string }) {
 }
 
 /**
- * Monoline rose — spiral center, overlapping petal arcs, curved stem, two almond leaves
- * (inspired by classic vector rose icons)
+ * Front-facing rose — wavy petal crown, round body, inner cup, spiral, stem + two leaves.
  */
 function RoseLineIcon({ className }: { className?: string }) {
-  const sw = 1.3;
+  const sw = 1.45;
+  const swFine = 1.2;
   return (
     <svg
       className={className}
@@ -56,16 +56,32 @@ function RoseLineIcon({ className }: { className?: string }) {
       fill="none"
       aria-hidden
     >
-      {/* Stem + leaves first (under bloom) */}
       <path
-        d="M12 11.35C10.9 13.8 9.85 16.9 9.55 21.25"
+        d="M12 16.55v4.9"
         stroke="currentColor"
         strokeWidth={sw}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M10.35 14.6c-2.1-1.85-3.6-1.15-4.15.45-.35.95.15 2.05 1.55 2.35 1.05.25 2.05-.35 2.6-1.8"
+        d="M10.35 17.25c-2.6-1-3.95.15-4.1 1.45-.12 1 1.15 1.85 2.95 1.25"
+        stroke="currentColor"
+        strokeWidth={swFine}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M13.65 18.6c2.65 1.2 4.15.25 4.3-1 .14-1.05-1.25-1.95-3.15-1.3"
+        stroke="currentColor"
+        strokeWidth={swFine}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      {/* Wavy crown + wide base — reads clearly as a flower, not abstract lines */}
+      <path
+        d="M12 16.55 10.55 16.15C8.35 15.6 7 13.65 7 11.05 7 8.15 8.75 5.9 10.65 5.45 10.9 4.35 11.45 3.75 12.05 4.35 12.65 3.75 13.2 4.35 13.45 5.45 15.35 5.9 17 8.15 17 11.05 17 13.65 15.65 15.6 13.45 16.15L12 16.55z"
         stroke="currentColor"
         strokeWidth={sw}
         strokeLinecap="round"
@@ -73,54 +89,17 @@ function RoseLineIcon({ className }: { className?: string }) {
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M9.85 18.35c1.35 2.35 3.85 3.15 5.1 1.55.65-.8.55-2.05-.65-2.85-1.35-.9-3.05-.35-4.45 1.3"
+        d="M9.1 10.05Q12 7.35 14.9 10.05"
         stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      {/* Overlapping petal arcs — circular bloom read */}
-      <path
-        d="M7.6 9.15Q12 4.35 16.4 9.15"
-        stroke="currentColor"
-        strokeWidth={sw}
+        strokeWidth={swFine}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
+        opacity={0.9}
       />
       <path
-        d="M7.35 7.85Q12 3.55 16.65 7.85"
+        d="M12.85 6.15c-.15-1-.95-1.6-1.75-1.25-.55.25-.75.95-.35 1.4.5.55 1.35.4 1.65-.25.2-.4.05-.9-.35-1.05"
         stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M8.35 6.55Q12 3.15 15.65 6.55"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M10.15 10.05Q6.85 7.65 9.35 5.15"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M13.85 10.05Q17.15 7.65 14.65 5.15"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      {/* Center spiral */}
-      <path
-        d="M12.35 7.15c-.45-.05-.85.25-.9.65-.08.55.45 1 1.05.85.75-.2 1.05-1.1.55-1.65-.55-.65-1.6-.55-2.05.25"
-        stroke="currentColor"
-        strokeWidth={1.15}
+        strokeWidth={1.1}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
