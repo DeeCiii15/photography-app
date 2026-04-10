@@ -88,32 +88,34 @@ export default function ExperiencePage() {
                   className="rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 p-8 shadow-[0_8px_28px_rgba(61,52,44,0.05)] ring-1 ring-[#e8e3db]/85 dark:border-boho-stone/40 dark:bg-boho-bark/55 dark:ring-boho-stone/25 sm:p-10"
                 >
                   <div
-                    className={`flex flex-row items-start gap-4 sm:gap-6 lg:gap-12 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}
+                    className={`relative flex flex-col items-stretch gap-6 sm:flex-row sm:items-start sm:gap-6 lg:gap-12 ${index % 2 === 1 ? 'sm:flex-row-reverse' : ''}`}
                   >
-                    <div className="min-w-0 flex-1 overflow-hidden">
-                      <div className="flex flex-col gap-4 sm:flex-row sm:items-baseline sm:gap-6">
+                    <div className="min-w-0 w-full flex-1 overflow-hidden pr-[4.5rem] sm:overflow-visible sm:pr-0">
+                      <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-baseline sm:gap-6">
                         <span
                           className="font-display text-4xl tabular-nums leading-none text-coral/45 dark:text-[#d4a574]/55 sm:w-14 sm:shrink-0 sm:text-5xl"
                           aria-hidden
                         >
                           {String(index + 1).padStart(2, '0')}
                         </span>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="font-display text-xl font-medium text-cream-dark dark:text-cream sm:text-2xl">
+                        <div className="min-w-0 w-full max-w-none flex-1">
+                          <h3 className="w-full font-display text-xl font-medium text-cream-dark dark:text-cream sm:text-2xl">
                             {step.title}
                           </h3>
-                          <p className="mt-4 font-body text-base font-light leading-[1.85] text-cream-dark/85 dark:text-cream/82">
+                          <p className="mt-4 w-full max-w-none font-body text-base font-light leading-[1.85] text-cream-dark/85 dark:text-cream/82">
                             {step.body}
                           </p>
                         </div>
                       </div>
                     </div>
-                    <ExperienceProcessPostIt
-                      src={step.postItSrc}
-                      alt={step.postItAlt}
-                      stepNumber={index + 1}
-                      rotationIndex={index}
-                    />
+                    <div className="absolute right-3 top-3 z-10 w-fit sm:static sm:right-auto sm:top-auto sm:z-auto sm:shrink-0">
+                      <ExperienceProcessPostIt
+                        src={step.postItSrc}
+                        alt={step.postItAlt}
+                        stepNumber={index + 1}
+                        rotationIndex={index}
+                      />
+                    </div>
                   </div>
                 </li>
               ))}
@@ -125,7 +127,7 @@ export default function ExperiencePage() {
           className="scroll-mt-24 border-t border-[#e0d9ce] bg-[#f4f1eb] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-ink sm:px-10 lg:px-16 lg:py-24"
           aria-labelledby="faq-heading"
         >
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-3xl text-center sm:text-left">
             <p className="section-eyebrow text-boho-sage">Questions</p>
             <h2
               id="faq-heading"
@@ -133,21 +135,23 @@ export default function ExperiencePage() {
             >
               Straight answers
             </h2>
-            <p className="mt-4 font-body text-base font-light leading-[1.8] text-cream-dark/75 dark:text-cream/72">
+            <p className="mt-4 font-body text-base font-light leading-[1.8] text-cream-dark/75 dark:text-cream/72 sm:max-w-none">
               Tap any row to read more—one topic at a time so the page stays easy
               on the eyes.
             </p>
-            <div className="mt-12 space-y-3">
+            <div className="mt-12 space-y-3 text-left">
               {EXPERIENCE_FAQS.map((faq) => (
                 <details
                   key={faq.question}
-                  className="group rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 shadow-sm ring-1 ring-[#e8e3db]/80 transition-[box-shadow] open:shadow-[0_12px_32px_rgba(61,52,44,0.08)] dark:border-boho-stone/40 dark:bg-boho-bark/50 dark:ring-boho-stone/25 dark:open:shadow-[0_12px_32px_rgba(0,0,0,0.2)]"
+                  className="group rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 text-center shadow-sm ring-1 ring-[#e8e3db]/80 transition-[box-shadow] open:shadow-[0_12px_32px_rgba(61,52,44,0.08)] dark:border-boho-stone/40 dark:bg-boho-bark/50 dark:ring-boho-stone/25 dark:open:shadow-[0_12px_32px_rgba(0,0,0,0.2)] sm:text-left"
                 >
-                  <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-display text-lg leading-snug text-cream-dark marker:content-none touch-manipulation sm:min-h-0 sm:px-8 sm:py-6 sm:text-xl dark:text-cream [&::-webkit-details-marker]:hidden">
-                    <span className="min-w-0 pr-2">{faq.question}</span>
+                  <summary className="flex min-h-14 cursor-pointer list-none flex-col items-center gap-2 px-6 py-5 font-display text-lg leading-snug text-cream-dark marker:content-none touch-manipulation sm:min-h-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-8 sm:py-6 sm:text-xl dark:text-cream [&::-webkit-details-marker]:hidden">
+                    <span className="min-w-0 max-w-md pr-0 sm:max-w-none sm:pr-2">
+                      {faq.question}
+                    </span>
                     <FaqChevron />
                   </summary>
-                  <div className="border-t border-[#e0d9ce] px-6 pb-6 pt-5 font-body text-base font-light leading-[1.85] text-cream-dark/88 dark:border-boho-stone/35 dark:text-cream/84 sm:px-8 sm:pb-8 sm:pt-6">
+                  <div className="border-t border-[#e0d9ce] px-6 pb-6 pt-5 text-center font-body text-base font-light leading-[1.85] text-cream-dark/88 dark:border-boho-stone/35 dark:text-cream/84 sm:px-8 sm:pb-8 sm:pt-6 sm:text-left">
                     {faq.answer}
                   </div>
                 </details>

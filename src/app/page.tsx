@@ -61,7 +61,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-[2000px]">
             <div className="grid grid-cols-3 gap-1.5 px-3 pb-4 pt-3 sm:pb-4 md:gap-2 md:px-4 md:pb-16 md:pt-4 lg:gap-3 lg:px-6 lg:pb-20">
-              <div className="relative z-[1] -translate-y-1 rotate-[-1.5deg] sm:-translate-y-2 sm:rotate-[-2deg] md:aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)] md:-translate-y-4 md:rotate-[-2.5deg] md:rounded-sm">
+              <div className="relative z-[1] -translate-y-1 rotate-[1.5deg] sm:-translate-y-2 sm:rotate-[2deg] md:aspect-[4/5] md:h-auto md:min-h-[min(85vh,900px)] md:-translate-y-4 md:rotate-[-2.5deg] md:rounded-sm">
                 <div className="mood-board-bob relative h-[4.75rem] overflow-hidden rounded-md shadow-[0_6px_20px_rgba(61,52,44,0.12)] sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
                   <Image
                     src={SITE_IMAGES.moodField}
