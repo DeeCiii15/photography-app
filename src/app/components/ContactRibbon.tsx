@@ -43,11 +43,12 @@ function PhoneIcon({ className }: { className?: string }) {
   );
 }
 
-/** Line-work rose — scaled groups separate petal rings; stem stops short of bloom */
+/**
+ * Monoline rose — spiral center, overlapping petal arcs, curved stem, two almond leaves
+ * (inspired by classic vector rose icons)
+ */
 function RoseLineIcon({ className }: { className?: string }) {
-  const swOuter = 1.2;
-  const swMid = 1.15;
-  const swInner = 1.05;
+  const sw = 1.3;
   return (
     <svg
       className={className}
@@ -55,65 +56,75 @@ function RoseLineIcon({ className }: { className?: string }) {
       fill="none"
       aria-hidden
     >
+      {/* Stem + leaves first (under bloom) */}
       <path
-        d="M12 21.5v-5.35"
+        d="M12 11.35C10.9 13.8 9.85 16.9 9.55 21.25"
         stroke="currentColor"
-        strokeWidth={swOuter}
+        strokeWidth={sw}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M10.25 15.95c-.95-.5-1.9-.4-2.75.45M14.75 15.95c.95-.5 1.9-.4 2.75.45"
+        d="M10.35 14.6c-2.1-1.85-3.6-1.15-4.15.45-.35.95.15 2.05 1.55 2.35 1.05.25 2.05-.35 2.6-1.8"
         stroke="currentColor"
-        strokeWidth={1.05}
+        strokeWidth={sw}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M9.85 18.35c1.35 2.35 3.85 3.15 5.1 1.55.65-.8.55-2.05-.65-2.85-1.35-.9-3.05-.35-4.45 1.3"
+        stroke="currentColor"
+        strokeWidth={sw}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      {/* Overlapping petal arcs — circular bloom read */}
+      <path
+        d="M7.6 9.15Q12 4.35 16.4 9.15"
+        stroke="currentColor"
+        strokeWidth={sw}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
-        opacity={0.88}
       />
-      {/* Outermost cup — scaled up from calyx so it clears sepals & mid ring */}
-      <g transform="translate(12 15.35) scale(1.1) translate(-12 -15.35)">
-        <path
-          d="M12 15.1c-1.15-.85-2.35-1.1-3.35-.35-1.35 1-1.15 2.95.35 3.95 1.05.75 2.45.65 3.55-.15 1.35-.95 1.55-2.75.2-3.85-.85-.7-2-.85-2.75-.6Z"
-          stroke="currentColor"
-          strokeWidth={swOuter}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          vectorEffect="non-scaling-stroke"
-        />
-      </g>
-      {/* Middle bloom — pulled inward for a visible gap */}
-      <g transform="translate(12 13.15) scale(0.9) translate(-12 -13.15)">
-        <path
-          d="M12 14.25c-2.05-1.65-2.5-4.15-1.1-6.05.95-1.35 2.75-1.85 4.35-1.15 2.05.9 2.65 3.35 1.15 5.15-.85 1.05-2.35 1.55-3.65 1.35-1.45-.25-2.65-1.15-2.75-2.3Z"
-          stroke="currentColor"
-          strokeWidth={swMid}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          vectorEffect="non-scaling-stroke"
-        />
-      </g>
-      {/* Inner bud */}
-      <g transform="translate(12 10.85) scale(0.86) translate(-12 -10.85)">
-        <path
-          d="M12 10.5c-1.4-.95-1.85-2.65-.85-3.95.65-.85 1.85-1.15 2.85-.65 1.35.7 1.65 2.35.55 3.45-.55.55-1.35.7-2 .45"
-          stroke="currentColor"
-          strokeWidth={swInner}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          vectorEffect="non-scaling-stroke"
-        />
-      </g>
-      {/* Heart of rose — smaller, dropped slightly so it does not meet inner petal */}
-      <g transform="translate(12 9.15) scale(0.82) translate(-12 -9.15)">
-        <path
-          d="M11.35 8.9c.25-.55.85-.95 1.45-.85.55.1.95.55 1 1.15"
-          stroke="currentColor"
-          strokeWidth={1}
-          strokeLinecap="round"
-          vectorEffect="non-scaling-stroke"
-          opacity={0.92}
-        />
-      </g>
+      <path
+        d="M7.35 7.85Q12 3.55 16.65 7.85"
+        stroke="currentColor"
+        strokeWidth={sw}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M8.35 6.55Q12 3.15 15.65 6.55"
+        stroke="currentColor"
+        strokeWidth={sw}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M10.15 10.05Q6.85 7.65 9.35 5.15"
+        stroke="currentColor"
+        strokeWidth={sw}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M13.85 10.05Q17.15 7.65 14.65 5.15"
+        stroke="currentColor"
+        strokeWidth={sw}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      {/* Center spiral */}
+      <path
+        d="M12.35 7.15c-.45-.05-.85.25-.9.65-.08.55.45 1 1.05.85.75-.2 1.05-1.1.55-1.65-.55-.65-1.6-.55-2.05.25"
+        stroke="currentColor"
+        strokeWidth={1.15}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
     </svg>
   );
 }
