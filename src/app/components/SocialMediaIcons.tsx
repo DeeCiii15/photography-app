@@ -29,11 +29,14 @@ function InstagramIcon({ className }: { className?: string }) {
 function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M14.5 8.5h2.2V6.2c0-.1 0-.2-.1-.3-.4-.2-1-.3-1.8-.3-2.2 0-3.7 1.4-3.7 4v2H8.5v3h3.5v7.5h3.4V15h2.8l.5-3h-3.3v-1.8c0-.9.2-1.5 1.5-1.5h1.6V8.5Z"
-        fill="currentColor"
-        vectorEffect="non-scaling-stroke"
-      />
+      {/* Classic “f”; translate = (12,12) − bbox center (13.6, 13.85) from path bounds */}
+      <g transform="translate(-1.6 -1.85)">
+        <path
+          d="M14.5 8.5h2.2V6.2c0-.1 0-.2-.1-.3-.4-.2-1-.3-1.8-.3-2.2 0-3.7 1.4-3.7 4v2H8.5v3h3.5v7.5h3.4V15h2.8l.5-3h-3.3v-1.8c0-.9.2-1.5 1.5-1.5h1.6V8.5Z"
+          fill="currentColor"
+          vectorEffect="non-scaling-stroke"
+        />
+      </g>
     </svg>
   );
 }

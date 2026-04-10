@@ -214,12 +214,9 @@ function MobileContactRibbons() {
             onClick={openSocial}
             aria-label="Open social links"
             aria-expanded={socialOpen}
-            className={`fixed right-3 z-50 flex h-14 w-14 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-300 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] ${
+            className={`fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-3 z-50 flex h-14 w-14 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-300 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] ${
               anyOpen ? 'pointer-events-none scale-75 opacity-0' : 'scale-100 opacity-100'
             }`}
-            style={{
-              bottom: 'calc(max(0.75rem, env(safe-area-inset-bottom, 0px)) + 3.5rem + 0.75rem)',
-            }}
           >
             <SocialHubIcon className="h-6 w-6" />
           </button>
