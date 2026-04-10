@@ -318,7 +318,7 @@ function MobileContactRibbons() {
 
       {/* Branch layout: both satellites share bottom-right with main; translate = diagonal “twigs” */}
       <div
-        className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 h-[min(8.5rem,calc(100dvh-6rem))] w-[min(8.75rem,calc(100vw-1.5rem))]"
+        className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 h-[min(9.25rem,calc(100dvh-6rem))] w-[min(8.75rem,calc(100vw-1.5rem))]"
         role="group"
         aria-label="Contact and social"
       >
@@ -330,7 +330,7 @@ function MobileContactRibbons() {
                   type="button"
                   onClick={openSocial}
                   aria-label="Open social links"
-                  className={`absolute bottom-0 right-0 z-[5] origin-bottom-right -translate-x-[3.35rem] -translate-y-[4.15rem] ${fabBubbleClass}`}
+                  className={`absolute bottom-0 right-0 z-[5] origin-bottom-right -translate-x-[2.35rem] -translate-y-[5.1rem] ${fabBubbleClass}`}
                 >
                   <SocialHubIcon className="h-6 w-6" />
                 </button>
@@ -356,7 +356,7 @@ function MobileContactRibbons() {
             {fabMenuOpen ? (
               <CloseIcon className="h-6 w-6" />
             ) : (
-              <RoseLineIcon className="h-6 w-6" />
+              <RoseLineIcon className="h-7 w-7" />
             )}
           </button>
         </div>
