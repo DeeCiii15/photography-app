@@ -30,10 +30,13 @@ export default function Navigation() {
     };
   }, [mobileMenuOpen]);
 
-  /** Match TRR title: white on hero, warm gold / coral when scrolled (same as script fallback + logo era) */
+  /** Lora, small caps label style (aligned with site eyebrows, slightly looser tracking for words) */
   const linkClass = onHero
-    ? 'rounded-full px-4 py-2 text-lg tracking-wide text-white/95 transition hover:bg-white/15 hover:text-white xl:px-5 xl:text-xl'
-    : 'rounded-full px-4 py-2 text-lg tracking-wide text-coral transition hover:bg-coral/12 hover:text-coral-dark dark:text-[#e8c4a8] dark:hover:bg-white/10 dark:hover:text-[#f2dcc4] xl:px-5 xl:text-xl';
+    ? 'font-body rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/95 transition hover:bg-white/15 hover:text-white xl:px-3.5 xl:tracking-[0.2em]'
+    : 'font-body rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-coral transition hover:bg-coral/12 hover:text-coral-dark dark:text-[#e8c4a8] dark:hover:bg-white/10 dark:hover:text-[#f2dcc4] xl:px-3.5 xl:tracking-[0.2em]';
+
+  const mobileLinkClass =
+    'touch-manipulation rounded-xl px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-cream-dark active:bg-boho-sage/15 dark:text-cream';
 
   const navSurface = onHero
     ? 'border-transparent bg-transparent'
@@ -78,7 +81,7 @@ export default function Navigation() {
 
           <div className="absolute left-1/2 hidden max-w-[min(44rem,calc(100vw_-_9rem))] -translate-x-1/2 lg:flex lg:justify-center">
             <div
-              className={`flex max-w-full flex-nowrap items-center justify-center gap-0.5 rounded-full border px-2.5 py-1.5 font-display ${desktopPill}`}
+              className={`flex max-w-full flex-nowrap items-center justify-center gap-0 rounded-full border px-2 py-1 font-body ${desktopPill}`}
             >
               <Link href="/#about" className={linkClass}>
                 About
@@ -141,39 +144,39 @@ export default function Navigation() {
           <div
             className={`border-t pb-6 lg:hidden ${onHero ? 'border-white/20' : 'border-dusty-rose/25 dark:border-boho-stone/40'}`}
           >
-            <div className="mt-4 flex flex-col gap-0.5 rounded-2xl border border-boho-sage/25 bg-white/95 p-3 font-display shadow-sm backdrop-blur-md dark:border-boho-stone/40 dark:bg-boho-bark/90">
+            <div className="mt-4 flex flex-col gap-0.5 rounded-2xl border border-boho-sage/25 bg-white/95 p-3 font-body shadow-sm backdrop-blur-md dark:border-boho-stone/40 dark:bg-boho-bark/90">
               <Link
                 href="/#about"
                 onClick={() => setMobileMenuOpen(false)}
-                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className={mobileLinkClass}
               >
                 About
               </Link>
               <Link
                 href="/portfolio"
                 onClick={() => setMobileMenuOpen(false)}
-                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className={mobileLinkClass}
               >
                 Portfolio
               </Link>
               <Link
                 href="/pricing"
                 onClick={() => setMobileMenuOpen(false)}
-                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className={mobileLinkClass}
               >
                 Pricing
               </Link>
               <Link
                 href="/experience"
                 onClick={() => setMobileMenuOpen(false)}
-                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className={mobileLinkClass}
               >
                 Experience
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="touch-manipulation rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
+                className={mobileLinkClass}
               >
                 Contact
               </Link>

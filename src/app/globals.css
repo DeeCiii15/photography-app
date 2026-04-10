@@ -342,6 +342,50 @@ html.dark body::after {
   animation: float-soft 7s ease-in-out infinite;
 }
 
+/* Welcome triptych: tiny drift + bounce in place (honors reduced motion) */
+@keyframes mood-board-bob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  22% {
+    transform: translate3d(1.5px, -5px, 0) rotate(0.35deg);
+  }
+  45% {
+    transform: translate3d(-2px, 3px, 0) rotate(-0.3deg);
+  }
+  68% {
+    transform: translate3d(1px, 4px, 0) rotate(0.25deg);
+  }
+  88% {
+    transform: translate3d(-1.5px, -2px, 0) rotate(-0.15deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mood-board-bob {
+    animation: mood-board-bob 4.9s ease-in-out infinite;
+  }
+
+  .mood-board-bob--b {
+    animation: mood-board-bob 5.6s ease-in-out infinite;
+    animation-delay: -1.7s;
+  }
+
+  .mood-board-bob--c {
+    animation: mood-board-bob 4.4s ease-in-out infinite;
+    animation-delay: -3.1s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mood-board-bob,
+  .mood-board-bob--b,
+  .mood-board-bob--c {
+    animation: none;
+  }
+}
+
 @keyframes drift {
   0%,
   100% {
