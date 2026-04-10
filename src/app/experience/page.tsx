@@ -10,9 +10,16 @@ import { EXPERIENCE_FAQS, EXPERIENCE_PROCESS_STEPS } from '@/lib/experienceData'
 import { SITE_IMAGES } from '@/lib/siteImages';
 
 export const metadata: Metadata = {
-  title: 'Experience | Taylor Rose Reels',
+  title: 'Experience',
   description:
     'What to expect from inquiry to gallery—plus answers to common questions and words from past clients.',
+  alternates: { canonical: '/experience' },
+  openGraph: {
+    title: 'Experience',
+    description:
+      'From first note to final frame—the rhythm of working together, FAQs, and client words.',
+    url: '/experience',
+  },
 };
 
 function FaqChevron() {

@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { getSocialLinks } from '@/lib/siteSocial';
+import { SocialHubIcon, SocialNetworkIcon } from './SocialMediaIcons';
 
 /** Soft vintage handset — thin stroke, warm line caps (matches boho / film site) */
 function PhoneIcon({ className }: { className?: string }) {
@@ -93,7 +95,40 @@ function CloseIcon({ className }: { className?: string }) {
   );
 }
 
-/** sm+ — always-visible horizontal pill (unchanged) */
+function DesktopSocialRow() {
+  const links = getSocialLinks();
+  if (links.length === 0) return null;
+
+  return (
+    <>
+      <span
+        className="mx-2 hidden h-4 w-px shrink-0 bg-dusty-rose/45 dark:bg-boho-stone/45 sm:block"
+        aria-hidden
+      />
+      <div className="flex shrink-0 items-center justify-center gap-1 sm:justify-start sm:gap-0 sm:pr-1">
+        {links.map((link) => (
+          <a
+            key={link.network}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.label}
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-xl p-2 transition hover:bg-boho-sage/15 active:bg-boho-sage/20 dark:hover:bg-white/10 sm:min-h-0 sm:min-w-0 sm:rounded-full sm:p-1"
+          >
+            <IconMat>
+              <SocialNetworkIcon
+                network={link.network}
+                className="h-[15px] w-[15px]"
+              />
+            </IconMat>
+          </a>
+        ))}
+      </div>
+    </>
+  );
+}
+
+/** sm+ — horizontal pill with phone, email, socials */
 function DesktopRibbon() {
   return (
     <div className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-3 right-3 z-50 hidden sm:bottom-6 sm:left-auto sm:right-6 sm:block">
@@ -130,38 +165,137 @@ function DesktopRibbon() {
             hello@taylorrosereels.com
           </span>
         </a>
+        <DesktopSocialRow />
       </div>
     </div>
   );
 }
 
-/** &lt; sm — FAB opens slide-up sheet */
-function MobileContactSheet() {
-  const [open, setOpen] = useState(false);
+/** Mobile: social FAB + sheet above phone FAB + sheet */
+function MobileContactRibbons() {
+  const [contactOpen, setContactOpen] = useState(false);
+  const [socialOpen, setSocialOpen] = useState(false);
+  const socialLinks = getSocialLinks();
+  const hasSocials = socialLinks.length > 0;
+  const anyOpen = contactOpen || socialOpen;
 
   useEffect(() => {
-    if (!open) return;
+    if (!anyOpen) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape') {
+        setContactOpen(false);
+        setSocialOpen(false);
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener('keydown', onKey);
     };
-  }, [open]);
+  }, [anyOpen]);
+
+  const openContact = () => {
+    setSocialOpen(false);
+    setContactOpen(true);
+  };
+  const openSocial = () => {
+    setContactOpen(false);
+    setSocialOpen(true);
+  };
 
   return (
     <div className="sm:hidden">
+      {hasSocials && (
+        <>
+          <button
+            type="button"
+            onClick={openSocial}
+            aria-label="Open social links"
+            aria-expanded={socialOpen}
+            className={`fixed right-3 z-50 flex h-14 w-14 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-300 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] ${
+              anyOpen ? 'pointer-events-none scale-75 opacity-0' : 'scale-100 opacity-100'
+            }`}
+            style={{
+              bottom: 'calc(max(0.75rem, env(safe-area-inset-bottom, 0px)) + 3.5rem + 0.75rem)',
+            }}
+          >
+            <SocialHubIcon className="h-6 w-6" />
+          </button>
+
+          <div
+            className={`fixed inset-0 z-40 bg-[#2a231c]/40 transition-opacity duration-300 dark:bg-black/50 ${
+              socialOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+            }`}
+            aria-hidden={!socialOpen}
+            onClick={() => setSocialOpen(false)}
+          />
+
+          <div
+            className={`fixed inset-x-0 bottom-0 z-50 max-h-[85dvh] overflow-y-auto rounded-t-2xl border border-[#e0d9ce] bg-[#faf8f4]/98 shadow-[0_-8px_40px_rgba(61,52,44,0.15)] transition-transform duration-300 ease-out dark:border-boho-stone/40 dark:bg-boho-bark/98 ${
+              socialOpen
+                ? 'pointer-events-auto translate-y-0'
+                : 'pointer-events-none translate-y-full'
+            }`}
+            style={{
+              paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
+            }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Social media"
+          >
+            <div className="sticky top-0 flex items-center justify-between border-b border-[#e0d9ce]/80 bg-[#faf8f4]/95 px-4 py-3 backdrop-blur-sm dark:border-boho-stone/35 dark:bg-boho-bark/95">
+              <p className="font-display text-xl text-cream-dark dark:text-cream">
+                Follow along
+              </p>
+              <button
+                type="button"
+                onClick={() => setSocialOpen(false)}
+                className="touch-manipulation rounded-full p-2.5 text-coral transition hover:bg-boho-sage/15 dark:text-[#e8b896] dark:hover:bg-white/10"
+                aria-label="Close social panel"
+              >
+                <CloseIcon className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="flex flex-col gap-1 px-3 py-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.network}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setSocialOpen(false)}
+                  className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
+                >
+                  <IconMat>
+                    <SocialNetworkIcon
+                      network={link.network}
+                      className="h-[15px] w-[15px]"
+                    />
+                  </IconMat>
+                  <div className="min-w-0">
+                    <p className="font-body text-xs font-semibold uppercase tracking-wider text-cream-dark/55 dark:text-cream/50">
+                      {link.label}
+                    </p>
+                    <p className="truncate font-body text-base font-medium text-coral dark:text-[#e8b896]">
+                      {link.href.replace(/^https?:\/\/(www\.)?/, '')}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={openContact}
         aria-label="Open contact options"
-        aria-expanded={open}
+        aria-expanded={contactOpen}
         className={`fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 flex h-14 w-14 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-300 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] ${
-          open ? 'pointer-events-none scale-75 opacity-0' : 'scale-100 opacity-100'
+          anyOpen ? 'pointer-events-none scale-75 opacity-0' : 'scale-100 opacity-100'
         }`}
       >
         <PhoneIcon className="h-6 w-6" />
@@ -169,15 +303,15 @@ function MobileContactSheet() {
 
       <div
         className={`fixed inset-0 z-40 bg-[#2a231c]/40 transition-opacity duration-300 dark:bg-black/50 ${
-          open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+          contactOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
-        aria-hidden={!open}
-        onClick={() => setOpen(false)}
+        aria-hidden={!contactOpen}
+        onClick={() => setContactOpen(false)}
       />
 
       <div
         className={`fixed inset-x-0 bottom-0 z-50 max-h-[85dvh] overflow-y-auto rounded-t-2xl border border-[#e0d9ce] bg-[#faf8f4]/98 shadow-[0_-8px_40px_rgba(61,52,44,0.15)] transition-transform duration-300 ease-out dark:border-boho-stone/40 dark:bg-boho-bark/98 ${
-          open
+          contactOpen
             ? 'pointer-events-auto translate-y-0'
             : 'pointer-events-none translate-y-full'
         }`}
@@ -194,7 +328,7 @@ function MobileContactSheet() {
           </p>
           <button
             type="button"
-            onClick={() => setOpen(false)}
+            onClick={() => setContactOpen(false)}
             className="touch-manipulation rounded-full p-2.5 text-coral transition hover:bg-boho-sage/15 dark:text-[#e8b896] dark:hover:bg-white/10"
             aria-label="Close contact panel"
           >
@@ -204,7 +338,7 @@ function MobileContactSheet() {
         <div className="flex flex-col gap-1 px-3 py-4">
           <a
             href="tel:+1234567890"
-            onClick={() => setOpen(false)}
+            onClick={() => setContactOpen(false)}
             className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
           >
             <IconMat>
@@ -221,7 +355,7 @@ function MobileContactSheet() {
           </a>
           <a
             href="mailto:hello@taylorrosereels.com?subject=Inquiry%20from%20Taylor%20Rose%20Reels"
-            onClick={() => setOpen(false)}
+            onClick={() => setContactOpen(false)}
             className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
           >
             <IconMat>
@@ -246,7 +380,7 @@ export default function ContactRibbon() {
   return (
     <>
       <DesktopRibbon />
-      <MobileContactSheet />
+      <MobileContactRibbons />
     </>
   );
 }

@@ -1,8 +1,22 @@
+import type { Metadata } from 'next';
 import Navigation from '../components/Navigation';
 import SiteFooter from '../components/SiteFooter';
 import HomeStylePageIntro from '../components/HomeStylePageIntro';
 import Link from 'next/link';
 import { INVESTMENT_CATEGORIES } from '@/lib/pricingData';
+import { SITE_NAME } from '@/lib/siteConfig';
+
+export const metadata: Metadata = {
+  title: 'Pricing & investment',
+  description: `Wedding, elopement, engagement, portrait, and event starting rates—clear, kind, and tailored to your plans. ${SITE_NAME}.`,
+  alternates: { canonical: '/pricing' },
+  openGraph: {
+    title: `Pricing & investment | ${SITE_NAME}`,
+    description:
+      'Starting places for weddings, elopements, couples, portraits, and events—every rate can be adjusted for travel and add-ons.',
+    url: '/pricing',
+  },
+};
 
 export default function PricingPage() {
   return (

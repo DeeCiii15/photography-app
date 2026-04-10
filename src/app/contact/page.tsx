@@ -7,9 +7,16 @@ import Image from 'next/image';
 import { SITE_IMAGES } from '@/lib/siteImages';
 
 export const metadata: Metadata = {
-  title: 'Contact | Taylor Rose Reels',
+  title: 'Contact',
   description:
     'Reach out about your wedding, portrait session, or celebration—Taylor reads every message.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact',
+    description:
+      'Share a date, a venue, or a feeling—book a wedding, portrait, or celebration session.',
+    url: '/contact',
+  },
 };
 
 export default function ContactPage() {

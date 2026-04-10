@@ -220,18 +220,16 @@ export default function BookingForm({ className }: BookingFormProps) {
             placeholder="If you’d rather I text you"
           />
         </div>
-        <div className="min-w-0 w-full max-w-full sm:max-w-none">
+        <div className="min-w-0">
           <label htmlFor="event_date" className={labelClass}>
             Dream date or season
           </label>
-          <div className="max-sm:inline-block max-sm:w-full max-sm:max-w-[min(100%,15.5rem)]">
-            <input
-              id="event_date"
-              name="event_date"
-              type="date"
-              className={`${fieldClass} box-border block w-full min-w-0 max-w-full text-base [color-scheme:light] dark:[color-scheme:dark] max-sm:px-3 max-sm:py-3.5 sm:inline-block sm:w-full sm:px-5 sm:py-4 sm:text-lg`}
-            />
-          </div>
+          <input
+            id="event_date"
+            name="event_date"
+            type="date"
+            className={`${fieldClass} box-border min-w-0 max-w-full [color-scheme:light] dark:[color-scheme:dark]`}
+          />
         </div>
       </div>
 

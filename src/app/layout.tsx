@@ -2,6 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Allura, Great_Vibes, Lora } from "next/font/google";
 import "./globals.css";
 import ContactRibbon from "./components/ContactRibbon";
+import SiteJsonLd from "./components/SiteJsonLd";
+import {
+  DEFAULT_OG_IMAGE_PATH,
+  getSiteUrl,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+} from "@/lib/siteConfig";
 
 /** Warm readable serif — body, forms, eyebrows */
 const lora = Lora({
@@ -24,10 +31,64 @@ const greatVibes = Great_Vibes({
   subsets: ["latin"],
 });
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  title: "Taylor Rose Reels | Golden Hour Wedding & Portrait Photography",
-  description:
-    "Photography inspired by open fields, cedar arches, and soft film light—sage greens, wheat gold, and airy romance for Southern and boho-modern love stories.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${SITE_NAME} | Golden Hour Wedding & Portrait Photography`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "wedding photographer",
+    "portrait photographer",
+    "Southern wedding photography",
+    "natural light photography",
+    "elopement photographer",
+    "engagement photographer",
+    SITE_NAME,
+  ],
+  authors: [{ name: SITE_NAME, url: siteUrl }],
+  creator: SITE_NAME,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} | Golden Hour Wedding & Portrait Photography`,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: DEFAULT_OG_IMAGE_PATH,
+        alt: `${SITE_NAME} — photographer`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} | Wedding & Portrait Photography`,
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE_PATH],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: "/",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -46,7 +107,8 @@ export default function RootLayout({
       <body
         className={`${lora.variable} ${allura.variable} ${greatVibes.variable} antialiased`}
       >
-        <div className="relative z-10 min-h-dvh overflow-x-hidden max-sm:pb-[calc(4.75rem+env(safe-area-inset-bottom,0px))]">
+        <SiteJsonLd />
+        <div className="relative z-10 min-h-dvh overflow-x-hidden max-sm:pb-[calc(8.75rem+env(safe-area-inset-bottom,0px))]">
           {children}
           <ContactRibbon />
         </div>
