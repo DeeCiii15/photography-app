@@ -43,9 +43,11 @@ function PhoneIcon({ className }: { className?: string }) {
   );
 }
 
-/** Line-work rose — layered petals, calyx, stem (reads at ~24px) */
+/** Line-work rose — scaled groups separate petal rings; stem stops short of bloom */
 function RoseLineIcon({ className }: { className?: string }) {
-  const sw = 1.3;
+  const swOuter = 1.2;
+  const swMid = 1.15;
+  const swInner = 1.05;
   return (
     <svg
       className={className}
@@ -54,52 +56,64 @@ function RoseLineIcon({ className }: { className?: string }) {
       aria-hidden
     >
       <path
-        d="M11.85 21.4c.35-2.1.4-4.2-.15-6.15"
+        d="M12 21.5v-5.35"
         stroke="currentColor"
-        strokeWidth={sw}
+        strokeWidth={swOuter}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M10.4 16.2c-.9-.55-1.85-.45-2.65.35M14.35 16.35c.75-.65 1.55-.75 2.35-.15"
-        stroke="currentColor"
-        strokeWidth={1.15}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-        opacity={0.9}
-      />
-      <path
-        d="M12 15.1c-1.15-.85-2.35-1.1-3.35-.35-1.35 1-1.15 2.95.35 3.95 1.05.75 2.45.65 3.55-.15 1.35-.95 1.55-2.75.2-3.85-.85-.7-2-.85-2.75-.6Z"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M12 14.25c-2.05-1.65-2.5-4.15-1.1-6.05.95-1.35 2.75-1.85 4.35-1.15 2.05.9 2.65 3.35 1.15 5.15-.85 1.05-2.35 1.55-3.65 1.35-1.45-.25-2.65-1.15-2.75-2.3Z"
-        stroke="currentColor"
-        strokeWidth={sw}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M12 10.5c-1.4-.95-1.85-2.65-.85-3.95.65-.85 1.85-1.15 2.85-.65 1.35.7 1.65 2.35.55 3.45-.55.55-1.35.7-2 .45"
-        stroke="currentColor"
-        strokeWidth={1.15}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M11.35 8.9c.25-.55.85-.95 1.45-.85.55.1.95.55 1 1.15"
+        d="M10.25 15.95c-.95-.5-1.9-.4-2.75.45M14.75 15.95c.95-.5 1.9-.4 2.75.45"
         stroke="currentColor"
         strokeWidth={1.05}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
-        opacity={0.92}
+        opacity={0.88}
       />
+      {/* Outermost cup — scaled up from calyx so it clears sepals & mid ring */}
+      <g transform="translate(12 15.35) scale(1.1) translate(-12 -15.35)">
+        <path
+          d="M12 15.1c-1.15-.85-2.35-1.1-3.35-.35-1.35 1-1.15 2.95.35 3.95 1.05.75 2.45.65 3.55-.15 1.35-.95 1.55-2.75.2-3.85-.85-.7-2-.85-2.75-.6Z"
+          stroke="currentColor"
+          strokeWidth={swOuter}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </g>
+      {/* Middle bloom — pulled inward for a visible gap */}
+      <g transform="translate(12 13.15) scale(0.9) translate(-12 -13.15)">
+        <path
+          d="M12 14.25c-2.05-1.65-2.5-4.15-1.1-6.05.95-1.35 2.75-1.85 4.35-1.15 2.05.9 2.65 3.35 1.15 5.15-.85 1.05-2.35 1.55-3.65 1.35-1.45-.25-2.65-1.15-2.75-2.3Z"
+          stroke="currentColor"
+          strokeWidth={swMid}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </g>
+      {/* Inner bud */}
+      <g transform="translate(12 10.85) scale(0.86) translate(-12 -10.85)">
+        <path
+          d="M12 10.5c-1.4-.95-1.85-2.65-.85-3.95.65-.85 1.85-1.15 2.85-.65 1.35.7 1.65 2.35.55 3.45-.55.55-1.35.7-2 .45"
+          stroke="currentColor"
+          strokeWidth={swInner}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </g>
+      {/* Heart of rose — smaller, dropped slightly so it does not meet inner petal */}
+      <g transform="translate(12 9.15) scale(0.82) translate(-12 -9.15)">
+        <path
+          d="M11.35 8.9c.25-.55.85-.95 1.45-.85.55.1.95.55 1 1.15"
+          stroke="currentColor"
+          strokeWidth={1}
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+          opacity={0.92}
+        />
+      </g>
     </svg>
   );
 }
@@ -356,7 +370,7 @@ function MobileContactRibbons() {
             {fabMenuOpen ? (
               <CloseIcon className="h-6 w-6" />
             ) : (
-              <RoseLineIcon className="h-8 w-8" />
+              <RoseLineIcon className="h-9 w-9" />
             )}
           </button>
         </div>
