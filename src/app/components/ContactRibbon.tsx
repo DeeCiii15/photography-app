@@ -43,18 +43,46 @@ function PhoneIcon({ className }: { className?: string }) {
   );
 }
 
-function PlusIcon({ className }: { className?: string }) {
+/** Line-work rose — primary mobile FAB when menu is closed */
+function RoseLineIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
       aria-hidden
     >
-      <path d="M12 5v14M5 12h14" vectorEffect="non-scaling-stroke" />
+      <path
+        d="M12 21.25v-6.85"
+        stroke="currentColor"
+        strokeWidth={1.35}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M12 15.6c-1.9-.95-3.55-.85-4.7.2"
+        stroke="currentColor"
+        strokeWidth={1.25}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+        opacity={0.88}
+      />
+      <path
+        d="M12 14.35c-2.9-2.35-3.55-5.6-1.65-8 1.35-1.7 3.85-1.85 5.5-.35 2.15 1.95 1.45 5.35-1.45 7.85"
+        stroke="currentColor"
+        strokeWidth={1.35}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M12 9.1c-1.05-.7-1.7-2-1.05-3.35.85-1.55 2.9-1.4 3.65.15.6 1.2-.2 2.45-1.15 3.15"
+        stroke="currentColor"
+        strokeWidth={1.25}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
     </svg>
   );
 }
@@ -206,7 +234,7 @@ function DesktopRibbon() {
 }
 
 const fabBubbleClass =
-  'flex h-14 w-14 shrink-0 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-200 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] active:scale-95';
+  'pointer-events-auto flex h-14 w-14 shrink-0 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-200 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] active:scale-95';
 
 /** Mobile: one FAB expands into social + contact; sheets unchanged */
 function MobileContactRibbons() {
@@ -271,48 +299,50 @@ function MobileContactRibbons() {
         onClick={closeFabMenu}
       />
 
+      {/* Branch layout: both satellites share bottom-right with main; translate = diagonal “twigs” */}
       <div
-        className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 flex max-w-[calc(100vw-1.5rem)] flex-row-reverse flex-wrap items-end justify-start gap-3"
+        className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 h-[min(11rem,calc(100dvh-6rem))] w-[min(11.5rem,calc(100vw-1.5rem))]"
         role="group"
         aria-label="Contact and social"
       >
-        <button
-          type="button"
-          onClick={() => setFabMenuOpen((o) => !o)}
-          aria-expanded={fabMenuOpen}
-          aria-haspopup="true"
-          aria-label={fabMenuOpen ? 'Close quick actions' : 'Open quick actions'}
-          className={`pointer-events-auto ${fabBubbleClass}`}
-        >
-          {fabMenuOpen ? (
-            <CloseIcon className="h-6 w-6" />
-          ) : (
-            <PlusIcon className="h-6 w-6" />
-          )}
-        </button>
-
-        {fabMenuOpen && (
-          <>
-            <button
-              type="button"
-              onClick={openContact}
-              aria-label="Open contact options"
-              className={`pointer-events-auto ${fabBubbleClass}`}
-            >
-              <PhoneIcon className="h-6 w-6" />
-            </button>
-            {hasSocials && (
+        <div className="pointer-events-none relative h-full w-full">
+          {fabMenuOpen && (
+            <>
+              {hasSocials && (
+                <button
+                  type="button"
+                  onClick={openSocial}
+                  aria-label="Open social links"
+                  className={`absolute bottom-0 right-0 z-[5] origin-bottom-right -translate-x-[5rem] -translate-y-[6.25rem] ${fabBubbleClass}`}
+                >
+                  <SocialHubIcon className="h-6 w-6" />
+                </button>
+              )}
               <button
                 type="button"
-                onClick={openSocial}
-                aria-label="Open social links"
-                className={`pointer-events-auto ${fabBubbleClass}`}
+                onClick={openContact}
+                aria-label="Open contact options"
+                className={`absolute bottom-0 right-0 z-[5] origin-bottom-right ${hasSocials ? '-translate-x-[6.85rem] -translate-y-[1.65rem]' : '-translate-x-[5.75rem] -translate-y-[3.85rem]'} ${fabBubbleClass}`}
               >
-                <SocialHubIcon className="h-6 w-6" />
+                <PhoneIcon className="h-6 w-6" />
               </button>
+            </>
+          )}
+          <button
+            type="button"
+            onClick={() => setFabMenuOpen((o) => !o)}
+            aria-expanded={fabMenuOpen}
+            aria-haspopup="true"
+            aria-label={fabMenuOpen ? 'Close quick actions' : 'Open quick actions'}
+            className={`absolute bottom-0 right-0 z-10 ${fabBubbleClass}`}
+          >
+            {fabMenuOpen ? (
+              <CloseIcon className="h-6 w-6" />
+            ) : (
+              <RoseLineIcon className="h-6 w-6" />
             )}
-          </>
-        )}
+          </button>
+        </div>
       </div>
 
       {hasSocials && (
