@@ -1,21 +1,33 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Allura, Great_Vibes, Lora } from "next/font/google";
 import "./globals.css";
-import { CalendlyProvider } from "./components/CalendlyEmbed";
+import ContactRibbon from "./components/ContactRibbon";
 
-const inter = Inter({
-  variable: "--font-inter",
+/** Warm readable serif — body, forms, eyebrows */
+const lora = Lora({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+/** Flowing script for titles & nav — pairs with Great Vibes brand */
+const allura = Allura({
+  weight: "400",
+  variable: "--font-heading-script",
   subsets: ["latin"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+/** “Taylor Rose Reels” in the header — signature style */
+const greatVibes = Great_Vibes({
+  weight: "400",
+  variable: "--font-brand-script",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Taylor Rose Reels | Modern Visual Stories",
-  description: "Taylor Rose Reels - A modern photography portfolio showcasing stunning visual narratives and artistic moments captured through the lens.",
+  title: "Taylor Rose Reels | Golden Hour Wedding & Portrait Photography",
+  description:
+    "Photography inspired by open fields, cedar arches, and soft film light—sage greens, wheat gold, and airy romance for Southern and boho-modern love stories.",
 };
 
 export default function RootLayout({
@@ -26,11 +38,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased`}
+        className={`${lora.variable} ${allura.variable} ${greatVibes.variable} antialiased`}
       >
-        <CalendlyProvider>
-        {children}
-        </CalendlyProvider>
+        <div className="relative z-10 min-h-dvh overflow-x-hidden">
+          {children}
+          <ContactRibbon />
+        </div>
       </body>
     </html>
   );

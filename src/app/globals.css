@@ -2,102 +2,275 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Full rem scale — comfortable reading and generous image rhythm */
+html {
+  font-size: 100%;
+  overflow-x: hidden;
+}
+
+/* Horizontal strips (e.g. testimonials): keep scroll, hide track/thumb */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 :root {
-  --background: #FEFCF3;
-  --foreground: #5a3d3a;
-  --cream-light: #FEFCF3;
-  --cream: #F5EBE0;
-  --dusty-rose: #F0DBDB;
-  --coral: #DBA39A;
-  --coral-dark: #c89288;
-  --text-primary: #6b4e4a;
-  --text-secondary: #8b6f6a;
+  /* Moodboard: cedar arch + wheat field + soft film B&W */
+  --background: #f4f1ea;
+  --foreground: #5b4d3e;
+  --cream-light: #faf8f4;
+  --cream: #ebe8df;
+  --dusty-rose: #c9bfb2;
+  --coral: #a67c52;
+  --coral-dark: #8a6543;
+  --text-primary: #5b4d3e;
+  --text-secondary: #7a6e62;
+  --porch-mint: #a3ac91;
+  --peach-wash: #e5d9ce;
+  --boho-sage: #8a9a6b;
+  --boho-wheat: #c5a059;
+  --boho-ink-warm: #3d342c;
+  --bark: #5b4d3e;
+  --kraft: #e8e3d9;
+  --sky-dusty: #b8c9d9;
+}
+
+.dark {
+  --background: #141210;
+  --foreground: #ebe4d9;
+  --cream-light: #141210;
+  --cream: #1c1a17;
+  --dusty-rose: #5a534c;
+  --coral: #c97a62;
+  --coral-dark: #a8624e;
+  --text-primary: #ebe4d9;
+  --text-secondary: #a39a8f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-playfair);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading-script);
 }
 
+/* Headlines & decorative UI type — Allura (script, distinct from brand) */
 .font-display {
-  font-family: var(--font-playfair);
+  font-family: var(--font-heading-script), cursive;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+/* Brand name only — Great Vibes */
+.font-script {
+  font-family: var(--font-brand-script), cursive;
+  font-weight: 400;
+}
+
+/* Body copy & forms */
+.font-body {
+  font-family: var(--font-body), Georgia, "Times New Roman", serif;
+}
+
+/* Small labels — Lora, still editorial */
+.type-eyebrow {
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+/* Shared section labels (Welcome, Behind the lens, Galleries, Heard here first) */
+.section-eyebrow {
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .section-eyebrow {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-eyebrow {
+    font-size: 1rem;
+  }
+}
+
+/* Light, hospitable copy rhythm */
+.leading-southern {
+  line-height: 1.78;
 }
 
 body {
-  background: var(--background);
+  position: relative;
+  min-height: 100dvh;
+  background-color: var(--background);
+  /* Soft, neutral field so photographs stay the visual anchor */
+  background-image:
+    radial-gradient(
+      ellipse 140% 90% at 50% -20%,
+      rgba(255, 255, 253, 0.88),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 38% at 92% 22%,
+      rgba(184, 201, 217, 0.12),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse 55% 42% at 8% 72%,
+      rgba(197, 160, 89, 0.08),
+      transparent 50%
+    );
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-body), Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-/* Custom cream color utilities */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* Linen — sheer fabric / stone patio subtle weave */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.11;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 4px,
+      rgba(91, 77, 62, 0.018) 4px,
+      rgba(91, 77, 62, 0.018) 5px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 4px,
+      rgba(91, 77, 62, 0.014) 4px,
+      rgba(91, 77, 62, 0.014) 5px
+    );
+  mix-blend-mode: multiply;
+}
+
+html.dark body::before {
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+}
+
+html.dark body::after {
+  opacity: 0.15;
+}
+
+::selection {
+  background: rgba(138, 154, 107, 0.28);
+  color: var(--foreground);
+}
+
 .bg-cream-light {
-  background-color: #FEFCF3;
+  background-color: var(--cream-light);
 }
 
 .bg-cream {
-  background-color: #F5EBE0;
+  background-color: var(--cream);
 }
 
 .bg-dusty-rose {
-  background-color: #F0DBDB;
+  background-color: var(--dusty-rose);
 }
 
 .bg-coral {
-  background-color: #DBA39A;
+  background-color: var(--coral);
 }
 
 .bg-coral-dark {
-  background-color: #c89288;
+  background-color: var(--coral-dark);
 }
 
 .text-cream-dark {
-  color: #6b4e4a;
+  color: var(--text-primary);
 }
 
 .text-coral {
-  color: #DBA39A;
+  color: var(--coral);
 }
 
 .border-cream {
-  border-color: #F5EBE0;
+  border-color: var(--cream);
 }
 
 .border-dusty-rose {
-  border-color: #F0DBDB;
+  border-color: var(--dusty-rose);
 }
 
 .border-coral {
-  border-color: #DBA39A;
+  border-color: var(--coral);
 }
 
-/* Soft gradient backgrounds */
 .bg-soft-gradient {
-  background: linear-gradient(135deg, #FEFCF3 0%, #F5EBE0 50%, #F0DBDB 100%);
+  background: linear-gradient(
+    165deg,
+    #faf8f4 0%,
+    #ebe8df 38%,
+    #c5d4c0 72%,
+    rgba(184, 201, 217, 0.35) 100%
+  );
 }
 
 .bg-cream-gradient {
-  background: linear-gradient(135deg, #F5EBE0 0%, #F0DBDB 100%);
+  background: linear-gradient(
+    135deg,
+    var(--cream) 0%,
+    var(--dusty-rose) 50%,
+    color-mix(in srgb, var(--coral) 12%, transparent) 100%
+  );
 }
 
-/* Cute rounded corners */
 .rounded-cute {
   border-radius: 2rem;
 }
 
-/* Soft shadows */
 .shadow-soft {
-  box-shadow: 0 4px 20px rgba(219, 163, 154, 0.15);
+  box-shadow: 0 2px 24px rgba(91, 77, 62, 0.07),
+    0 1px 0 rgba(255, 255, 253, 0.65) inset;
 }
 
 .shadow-soft-lg {
-  box-shadow: 0 10px 40px rgba(219, 163, 154, 0.2);
+  box-shadow: 0 4px 36px rgba(91, 77, 62, 0.09),
+    0 1px 0 rgba(255, 255, 253, 0.7) inset;
 }
 
-/* Artistic gradient text */
 .text-gradient-cream {
-  background: linear-gradient(135deg, #DBA39A 0%, #c89288 50%, #F0DBDB 100%);
+  background: linear-gradient(
+    120deg,
+    var(--coral) 0%,
+    var(--coral-dark) 42%,
+    var(--dusty-rose) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -120,4 +293,99 @@ body {
 
 .animate-fade-in {
   animation: fade-in 1s ease-out;
+}
+
+/* Boho layout: organic frames & motion */
+.clip-arch {
+  clip-path: ellipse(72% 100% at 50% 100%);
+}
+
+@media (min-width: 1024px) {
+  .lg\:clip-arch-none {
+    clip-path: none;
+  }
+}
+
+.boho-frame {
+  border-radius: 2.75rem 2.25rem 3.25rem 2.25rem;
+  box-shadow: 0 0 0 1px rgba(91, 77, 62, 0.14),
+    0 0 0 9px rgba(250, 248, 244, 0.98),
+    0 0 0 10px rgba(91, 77, 62, 0.08), 0 24px 56px rgba(91, 77, 62, 0.1),
+    0 1px 0 rgba(255, 255, 253, 0.5) inset;
+}
+
+/* Print-mat frame: thin keyline + lift — keeps focus on the photograph */
+.frame-photo {
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(61, 52, 44, 0.1),
+    0 32px 64px rgba(61, 52, 44, 0.14);
+}
+
+/* Sheer mat + soft lift — veil / linen */
+.polaroid-accent {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 1px rgba(91, 77, 62, 0.12), 0 0 0 6px #faf8f4,
+    0 10px 40px rgba(91, 77, 62, 0.11);
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(0.96);
+  }
+  50% {
+    transform: translate(3%, -2%) scale(0.96);
+  }
+}
+
+.animate-drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
+/* Scrapbook-style photo mats (home gallery) */
+.scrapbook-mat {
+  box-shadow: 0 2px 0 rgba(91, 77, 62, 0.06), 0 12px 28px rgba(61, 52, 44, 0.12),
+    0 0 0 1px rgba(91, 77, 62, 0.08);
+}
+
+/* Testimonials: print “pasted” onto the card — mat lip + lift */
+.testimonial-paste-photo {
+  padding: 0.3rem 0.3rem 0.75rem;
+  background: linear-gradient(
+    152deg,
+    #fdfcfa 0%,
+    #f3efe6 48%,
+    #ebe4d8 100%
+  );
+  border-radius: 1px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 253, 0.75) inset,
+    0 0 0 1px rgba(91, 77, 62, 0.11),
+    0 2px 0 rgba(91, 77, 62, 0.05),
+    0 10px 22px rgba(61, 52, 44, 0.14),
+    0 3px 8px rgba(61, 52, 44, 0.06);
+}
+
+.dark .testimonial-paste-photo {
+  background: linear-gradient(152deg, #2e2a26 0%, #24211e 55%, #1a1816 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 2px 0 rgba(0, 0, 0, 0.2),
+    0 10px 24px rgba(0, 0, 0, 0.35),
+    0 3px 8px rgba(0, 0, 0, 0.25);
 }

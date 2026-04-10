@@ -49,14 +49,23 @@ function buildSmsUrl(formData: FormData): string {
   return `sms:${digits}?body=${encodeURIComponent(body)}`;
 }
 
-export default function BookingForm() {
+type BookingFormProps = {
+  className?: string;
+};
+
+const fieldClass =
+  'font-body w-full rounded-xl border border-boho-sage/35 bg-white/80 px-5 py-4 text-lg leading-normal text-cream-dark shadow-sm transition-all focus:border-coral focus:outline-none focus:ring-2 focus:ring-boho-sage/20 dark:border-boho-stone/55 dark:bg-boho-stone/80 dark:text-cream dark:focus:ring-coral/30';
+
+const labelClass =
+  'font-display mb-3 block text-xl leading-snug text-cream-dark dark:text-cream md:text-2xl';
+
+export default function BookingForm({ className }: BookingFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState<string | null>(null);
   const [successKind, setSuccessKind] = useState<'email' | 'sms' | null>(null);
 
   const validate = (formData: FormData): string | null => {
-    if (!getField(formData, 'name')) return 'Please enter your name.';
-    if (!getField(formData, 'email')) return 'Please enter your email.';
+    if (!getField(formData, 'name')) return 'I’d love to know your name.';
     return null;
   };
 
@@ -102,17 +111,20 @@ export default function BookingForm() {
 
   if (successKind) {
     return (
-      <div className="bg-cream-light dark:bg-gray-900/20 border-2 border-dusty-rose dark:border-gray-700 rounded-3xl p-8 text-center shadow-soft">
-        <p className="text-lg font-medium text-cream-dark dark:text-cream">
+      <div
+        className={`rounded-2xl border border-boho-sage/30 bg-cream-light/95 p-10 text-center shadow-soft backdrop-blur-sm dark:border-boho-stone/50 dark:bg-boho-bark/45 ${className ?? ''}`}
+      >
+        <p className="font-display text-2xl leading-relaxed text-cream-dark dark:text-cream md:text-3xl">
           {successKind === 'email'
-            ? 'Your email app should open with your message ready to send.'
-            : 'Your messaging app should open with your text ready to send.'}
+            ? 'Your email should pop open with your note ready—I can’t wait to read it.'
+            : 'Your messages app should open with your text drafted for you.'}
         </p>
-        <p className="text-coral dark:text-cream mt-2 text-sm">
-          If nothing opened, check that you have a default mail or SMS app set, or contact us directly at{' '}
+        <p className="mt-4 font-body text-base leading-relaxed text-coral dark:text-cream/90 md:text-lg">
+          If nothing happens, make sure you have mail or SMS set up—or reach me
+          directly at{' '}
           <a
             href={`mailto:${PHOTOGRAPHER_EMAIL}`}
-            className="underline hover:text-coral-dark"
+            className="underline decoration-coral/40 underline-offset-2 hover:text-coral-dark"
           >
             {PHOTOGRAPHER_EMAIL}
           </a>
@@ -121,127 +133,121 @@ export default function BookingForm() {
         <button
           type="button"
           onClick={() => setSuccessKind(null)}
-          className="mt-6 px-6 py-2 rounded-2xl border-2 border-dusty-rose dark:border-gray-600 text-cream-dark dark:text-cream text-sm font-medium hover:bg-cream dark:hover:bg-gray-800 transition-colors"
+          className="font-display mt-8 rounded-full border border-boho-sage/35 px-10 py-3.5 text-xl text-cream-dark transition hover:bg-cream dark:border-boho-stone/50 dark:text-cream dark:hover:bg-boho-stone"
         >
-          Send another message
+          Write another note
         </button>
       </div>
     );
   }
 
   return (
-    <form ref={formRef} className="space-y-6 max-w-xl mx-auto text-left">
+    <form
+      ref={formRef}
+      className={`mx-auto max-w-xl space-y-8 text-left ${className ?? ''}`}
+    >
       {error && (
-        <div className="p-4 bg-cream-light dark:bg-gray-900/20 border-2 border-dusty-rose dark:border-gray-700 rounded-2xl text-cream-dark dark:text-cream text-sm">
+        <div className="font-body rounded-xl border border-boho-sage/35 bg-white/85 p-5 text-base leading-relaxed text-cream-dark dark:border-boho-stone/55 dark:bg-boho-bark/40 dark:text-cream">
           {error}
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
-            Name *
+          <label htmlFor="name" className={labelClass}>
+            Your name *
           </label>
           <input
             id="name"
             name="name"
             type="text"
             required
-            className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
-            placeholder="Your name"
+            className={fieldClass}
+            placeholder="What should I call you?"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
-            Email *
+          <label htmlFor="email" className={labelClass}>
+            Email
           </label>
           <input
             id="email"
             name="email"
             type="email"
-            required
-            className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
-            placeholder="you@example.com"
+            className={fieldClass}
+            placeholder="So I can reply (optional)"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
+          <label htmlFor="phone" className={labelClass}>
             Phone
           </label>
           <input
             id="phone"
             name="phone"
             type="tel"
-            className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
-            placeholder="(555) 123-4567"
+            className={fieldClass}
+            placeholder="If you’d rather I text you"
           />
         </div>
         <div>
-          <label htmlFor="event_date" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
-            Event Date
+          <label htmlFor="event_date" className={labelClass}>
+            Dream date or season
           </label>
-          <input
-            id="event_date"
-            name="event_date"
-            type="date"
-            className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
-          />
+          <input id="event_date" name="event_date" type="date" className={fieldClass} />
         </div>
       </div>
 
       <div>
-        <label htmlFor="event_type" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
-          Type of Session
+        <label htmlFor="event_type" className={labelClass}>
+          What are we celebrating?
         </label>
-        <select
-          id="event_type"
-          name="event_type"
-          className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all"
-        >
-          <option value="">Select...</option>
+        <select id="event_type" name="event_type" className={fieldClass}>
+          <option value="">Choose one…</option>
           <option value="Wedding">Wedding</option>
           <option value="Portrait">Portrait</option>
+          <option value="Maternity or newborn">Maternity or newborn</option>
           <option value="Family">Family</option>
-          <option value="Event">Event</option>
-          <option value="Commercial">Commercial</option>
-          <option value="Other">Other</option>
+          <option value="Event">Event or brand</option>
+          <option value="Other">Something else lovely</option>
         </select>
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-cream-dark dark:text-cream mb-2">
-          Message
+        <label htmlFor="message" className={labelClass}>
+          The heart of it
         </label>
         <textarea
           id="message"
           name="message"
-          rows={4}
-          className="w-full px-4 py-3 rounded-2xl border-2 border-dusty-rose dark:border-gray-700 bg-white dark:bg-gray-800 text-cream-dark dark:text-cream focus:ring-2 focus:ring-coral dark:focus:ring-coral focus:border-coral transition-all resize-none"
-          placeholder="Tell us about your vision..."
+          rows={6}
+          className={`${fieldClass} resize-none`}
+          placeholder="Tell me about your people, your place, or what makes your story feel like home…"
         />
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col gap-4 sm:flex-row sm:gap-5">
         <button
           type="button"
           onClick={openEmail}
-          className="flex-1 py-3 px-4 bg-coral text-white font-medium rounded-2xl hover:bg-coral-dark transition-all shadow-soft hover:shadow-soft-lg transform hover:scale-[1.02]"
+          className="font-display flex-1 rounded-full border border-boho-bark/10 bg-coral px-6 py-4 text-xl text-white shadow-soft transition hover:bg-coral-dark hover:shadow-soft-lg"
         >
-          Send via email
+          Send by email
         </button>
         <button
           type="button"
           onClick={openSms}
-          className="flex-1 py-3 px-4 border-2 border-coral text-coral dark:text-coral font-medium rounded-2xl hover:bg-coral/10 transition-all"
+          className="font-display flex-1 rounded-full border border-coral/50 bg-white/60 px-6 py-4 text-xl text-coral backdrop-blur-sm transition hover:bg-coral/10 dark:bg-boho-bark/40 dark:text-coral"
         >
-          Send via text
+          Send by text
         </button>
       </div>
-      <p className="text-xs text-cream-dark/80 dark:text-cream/70 text-center">
-        Opens your email or messages app with this form filled in—you send the message from your device.
+      <p className="font-body text-center text-sm leading-relaxed text-cream-dark/65 dark:text-cream/65 md:text-base">
+        This opens your own email or messages app with your note ready—you tap
+        send when it feels right.
       </p>
     </form>
   );

@@ -2,14 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useCalendly } from './CalendlyEmbed';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { openCalendly } = useCalendly();
   const [logoError, setLogoError] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+  const onHero = isHome && !scrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,151 +21,153 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  /** Match TRR title: white on hero, warm gold / coral when scrolled (same as script fallback + logo era) */
+  const linkClass = onHero
+    ? 'rounded-full px-4 py-2 text-lg tracking-wide text-white/95 transition hover:bg-white/15 hover:text-white xl:px-5 xl:text-xl'
+    : 'rounded-full px-4 py-2 text-lg tracking-wide text-coral transition hover:bg-coral/12 hover:text-coral-dark dark:text-[#e8c4a8] dark:hover:bg-white/10 dark:hover:text-[#f2dcc4] xl:px-5 xl:text-xl';
+
+  const navSurface = onHero
+    ? 'border-transparent bg-transparent'
+    : 'border-b border-boho-sage/25 bg-[#faf8f4]/90 shadow-soft backdrop-blur-lg dark:border-boho-stone/40 dark:bg-boho-bark/90';
+
+  const desktopPill = onHero
+    ? 'border-white/30 bg-white/15 shadow-sm backdrop-blur-lg dark:border-white/20 dark:bg-black/25'
+    : 'border-coral/25 bg-white/70 shadow-soft backdrop-blur-md dark:border-[#c9a574]/35 dark:bg-boho-bark/75';
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 overflow-x-hidden transition-all duration-300 ${
-        scrolled
-          ? 'bg-cream-light shadow-soft dark:bg-gray-900'
-          : 'bg-cream-light shadow-soft dark:bg-gray-950'
-      }`}
+      className={`fixed left-0 right-0 top-0 z-50 overflow-x-hidden transition-all duration-300 ${navSurface}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-between gap-3 h-20 md:h-28 relative">
+      <div className="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
+        <div className="relative flex h-14 max-h-14 shrink-0 items-center justify-between gap-3 overflow-hidden md:h-16 md:max-h-16">
           <Link
             href="/"
-            className="group relative flex min-w-0 max-w-[min(100%,14rem)] md:max-w-none shrink items-center"
+            className="group flex min-w-0 max-w-[min(100%,14rem)] shrink-0 flex-col justify-center gap-0.5 sm:max-w-[16rem] md:max-w-[18rem]"
           >
-            {/* Logo - falls back to text if image doesn't exist */}
-            {!logoError ? (
-              <div className="relative flex h-14 w-auto items-center md:h-20 lg:h-24">
+            {onHero ? (
+              <span className="font-script text-2xl leading-none text-white drop-shadow-md transition-opacity group-hover:opacity-90 md:text-[1.85rem]">
+                Taylor Rose Reels
+              </span>
+            ) : !logoError ? (
+              <div className="relative h-9 w-[7.25rem] max-w-[42vw] sm:h-10 sm:w-[8.25rem] md:h-11 md:w-[9.5rem]">
                 <Image
                   src="/images/logo-v2.png"
                   alt="Taylor Rose Reels"
-                  width={1200}
-                  height={96}
-                  className="h-14 w-auto max-h-14 origin-left scale-[1.35] object-contain object-left transition-opacity group-hover:opacity-80 md:h-20 md:max-h-none md:origin-center md:scale-[1.75] lg:h-24 md:object-center"
+                  fill
+                  className="object-contain object-left transition-opacity group-hover:opacity-85"
+                  sizes="(max-width: 768px) 120px, 152px"
                   priority
                   onError={() => setLogoError(true)}
                 />
               </div>
             ) : (
-              <span className="text-2xl font-display font-bold text-cream-dark dark:text-cream group-hover:text-coral dark:group-hover:text-cream transition-colors">
+              <span className="font-script text-2xl text-coral transition-opacity group-hover:opacity-85 dark:text-[#e8c4a8] md:text-[1.85rem]">
                 Taylor Rose Reels
               </span>
             )}
           </Link>
-          <div className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2 font-display">
-            <Link
-              href="/#about"
-              className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
+
+          <div className="absolute left-1/2 hidden max-w-[min(44rem,calc(100vw_-_9rem))] -translate-x-1/2 lg:flex lg:justify-center">
+            <div
+              className={`flex max-w-full flex-nowrap items-center justify-center gap-0.5 rounded-full border px-2.5 py-1.5 font-display ${desktopPill}`}
             >
-              About
-            </Link>
-            <Link
-              href="/portfolio"
-              className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/pricing"
-              className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="/faq"
-              className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
-            >
-              FAQ
-            </Link>
-            <Link
-              href="/#contact"
-              className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2"
-            >
-              Contact
-            </Link>
-            <span className="text-lg text-cream-dark/50 dark:text-cream/50">|</span>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                openCalendly();
-              }}
-              className="text-lg font-medium text-cream-dark dark:text-cream hover:text-coral dark:hover:text-cream transition-colors py-2 whitespace-nowrap cursor-pointer"
-            >
-              Upcoming Events
-            </button>
+              <Link href="/#about" className={linkClass}>
+                About
+              </Link>
+              <Link href="/portfolio" className={linkClass}>
+                Portfolio
+              </Link>
+              <Link href="/pricing" className={linkClass}>
+                Pricing
+              </Link>
+              <Link href="/experience" className={linkClass}>
+                Experience
+              </Link>
+              <Link href="/contact" className={linkClass}>
+                Contact
+              </Link>
+            </div>
           </div>
+
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden shrink-0 -mr-1 rounded-lg p-2 text-cream-dark hover:bg-black/[0.04] dark:text-cream dark:hover:bg-white/10"
+            className={`shrink-0 rounded-full p-2.5 transition hover:bg-coral/10 dark:hover:bg-white/10 lg:hidden ${onHero ? 'text-white hover:bg-white/15' : 'text-coral hover:bg-coral/10 dark:text-[#e8c4a8] dark:hover:bg-white/10'}`}
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             )}
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-dusty-rose/60 dark:border-gray-600">
-            <div className="flex flex-col divide-y divide-dusty-rose/35 font-display dark:divide-gray-700">
+          <div
+            className={`border-t pb-6 lg:hidden ${onHero ? 'border-white/20' : 'border-dusty-rose/25 dark:border-boho-stone/40'}`}
+          >
+            <div className="mt-4 flex flex-col gap-0.5 rounded-2xl border border-boho-sage/25 bg-white/95 p-3 font-display shadow-sm backdrop-blur-md dark:border-boho-stone/40 dark:bg-boho-bark/90">
               <Link
                 href="/#about"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark active:bg-black/[0.03] dark:text-cream dark:active:bg-white/5"
+                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
                 About
               </Link>
               <Link
                 href="/portfolio"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark active:bg-black/[0.03] dark:text-cream dark:active:bg-white/5"
+                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
                 Portfolio
               </Link>
               <Link
                 href="/pricing"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark active:bg-black/[0.03] dark:text-cream dark:active:bg-white/5"
+                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
                 Pricing
               </Link>
               <Link
-                href="/faq"
+                href="/experience"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark active:bg-black/[0.03] dark:text-cream dark:active:bg-white/5"
+                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
-                FAQ
+                Experience
               </Link>
               <Link
-                href="/#contact"
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 text-left text-base font-medium text-cream-dark active:bg-black/[0.03] dark:text-cream dark:active:bg-white/5"
+                className="rounded-xl px-5 py-4 text-lg text-cream-dark active:bg-boho-sage/15 dark:text-cream"
               >
                 Contact
               </Link>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  openCalendly();
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full cursor-pointer py-3.5 text-left text-base font-medium text-cream-dark active:bg-black/[0.03] dark:text-cream dark:active:bg-white/5"
-              >
-                Upcoming Events
-              </button>
             </div>
           </div>
         )}
@@ -171,4 +175,3 @@ export default function Navigation() {
     </nav>
   );
 }
-
