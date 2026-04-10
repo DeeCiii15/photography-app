@@ -381,33 +381,33 @@ html.dark body::after {
 
 @media (prefers-reduced-motion: no-preference) {
   .mood-board-bob {
-    animation: mood-board-bob-gentle 6.5s ease-in-out infinite;
+    animation: mood-board-bob-gentle 16s ease-in-out infinite;
   }
 
   .mood-board-bob--b {
-    animation: mood-board-bob-gentle 7.2s ease-in-out infinite;
-    animation-delay: -2s;
+    animation: mood-board-bob-gentle 18s ease-in-out infinite;
+    animation-delay: -5s;
   }
 
   .mood-board-bob--c {
-    animation: mood-board-bob-gentle 6s ease-in-out infinite;
-    animation-delay: -3.4s;
+    animation: mood-board-bob-gentle 14.5s ease-in-out infinite;
+    animation-delay: -8s;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
   .mood-board-bob {
-    animation: mood-board-bob 4.9s ease-in-out infinite;
+    animation: mood-board-bob 14s ease-in-out infinite;
   }
 
   .mood-board-bob--b {
-    animation: mood-board-bob 5.6s ease-in-out infinite;
-    animation-delay: -1.7s;
+    animation: mood-board-bob 16s ease-in-out infinite;
+    animation-delay: -5s;
   }
 
   .mood-board-bob--c {
-    animation: mood-board-bob 4.4s ease-in-out infinite;
-    animation-delay: -3.1s;
+    animation: mood-board-bob 12.5s ease-in-out infinite;
+    animation-delay: -9s;
   }
 }
 

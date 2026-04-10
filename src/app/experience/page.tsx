@@ -69,7 +69,7 @@ export default function ExperiencePage() {
           className="border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-24"
           aria-labelledby="process-heading"
         >
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-3xl lg:max-w-5xl">
             <p className="section-eyebrow text-boho-sage">How we move</p>
             <h2
               id="process-heading"
@@ -88,9 +88,9 @@ export default function ExperiencePage() {
                   className="rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 p-8 shadow-[0_8px_28px_rgba(61,52,44,0.05)] ring-1 ring-[#e8e3db]/85 dark:border-boho-stone/40 dark:bg-boho-bark/55 dark:ring-boho-stone/25 sm:p-10"
                 >
                   <div
-                    className={`flex flex-col gap-8 sm:items-start sm:gap-10 lg:flex-row lg:gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+                    className={`flex flex-row items-start gap-4 sm:gap-6 lg:gap-12 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}
                   >
-                    <div className="min-w-0 flex-1">
+                    <div className="min-w-0 flex-1 overflow-hidden">
                       <div className="flex flex-col gap-4 sm:flex-row sm:items-baseline sm:gap-6">
                         <span
                           className="font-display text-4xl tabular-nums leading-none text-coral/45 dark:text-[#d4a574]/55 sm:w-14 sm:shrink-0 sm:text-5xl"

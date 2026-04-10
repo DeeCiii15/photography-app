@@ -9,6 +9,26 @@ const PHOTOGRAPHER_EMAIL =
 const PHOTOGRAPHER_SMS_NUMBER =
   process.env.NEXT_PUBLIC_PHOTOGRAPHER_PHONE ?? '+1234567890';
 
+function formatPhoneDisplay(raw: string): string {
+  const digits = raw.replace(/\D/g, '');
+  if (digits.length === 10) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  }
+  if (digits.length === 11 && digits.startsWith('1')) {
+    return `+1 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
+  }
+  return raw.trim() || PHOTOGRAPHER_SMS_NUMBER;
+}
+
+function telHref(raw: string): string {
+  const cleaned = raw.replace(/[^\d+]/g, '');
+  if (cleaned.startsWith('+')) return `tel:${cleaned}`;
+  const digits = cleaned.replace(/\D/g, '');
+  return digits ? `tel:+${digits}` : `tel:${raw}`;
+}
+
+const PHONE_DISPLAY = formatPhoneDisplay(PHOTOGRAPHER_SMS_NUMBER);
+
 function getField(formData: FormData, key: string): string {
   const v = formData.get(key);
   return typeof v === 'string' ? v.trim() : '';
@@ -127,6 +147,13 @@ export default function BookingForm({ className }: BookingFormProps) {
             className="underline decoration-coral/40 underline-offset-2 hover:text-coral-dark"
           >
             {PHOTOGRAPHER_EMAIL}
+          </a>{' '}
+          or{' '}
+          <a
+            href={telHref(PHOTOGRAPHER_SMS_NUMBER)}
+            className="whitespace-nowrap underline decoration-coral/40 underline-offset-2 hover:text-coral-dark"
+          >
+            {PHONE_DISPLAY}
           </a>
           .
         </p>
@@ -152,8 +179,8 @@ export default function BookingForm({ className }: BookingFormProps) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
-        <div>
+      <div className="grid min-w-0 grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
+        <div className="min-w-0">
           <label htmlFor="name" className={labelClass}>
             Your name *
           </label>
@@ -166,7 +193,7 @@ export default function BookingForm({ className }: BookingFormProps) {
             placeholder="What should I call you?"
           />
         </div>
-        <div>
+        <div className="min-w-0">
           <label htmlFor="email" className={labelClass}>
             Email
           </label>
@@ -180,8 +207,8 @@ export default function BookingForm({ className }: BookingFormProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
-        <div>
+      <div className="grid min-w-0 grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
+        <div className="min-w-0">
           <label htmlFor="phone" className={labelClass}>
             Phone
           </label>
@@ -193,11 +220,16 @@ export default function BookingForm({ className }: BookingFormProps) {
             placeholder="If you’d rather I text you"
           />
         </div>
-        <div>
+        <div className="min-w-0 max-w-full overflow-hidden">
           <label htmlFor="event_date" className={labelClass}>
             Dream date or season
           </label>
-          <input id="event_date" name="event_date" type="date" className={fieldClass} />
+          <input
+            id="event_date"
+            name="event_date"
+            type="date"
+            className={`${fieldClass} box-border w-full min-w-0 max-w-full text-base sm:text-lg [color-scheme:light] dark:[color-scheme:dark]`}
+          />
         </div>
       </div>
 

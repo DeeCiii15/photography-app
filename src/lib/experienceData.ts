@@ -4,28 +4,28 @@ export const EXPERIENCE_PROCESS_STEPS = [
     body:
       'You reach out with a date, a venue, or just a feeling you can’t quite name yet. I read every note myself and write back with warmth—no auto-replies, no pressure. If we’re a good fit, we’ll set up a call or coffee so you can hear my voice and ask anything.',
     postItSrc: '/images/engagement_1.jpg',
-    postItAlt: 'Couple in soft light — first hello',
+    postItAlt: 'Engagement couple in soft light — saying hello',
   },
   {
     title: 'Dream it together',
     body:
       'Once you’re ready to move forward, we’ll talk through timeline, what matters most to you, and any must-have moments. I’ll send a simple agreement and a retainer to hold your date. From there you’ll get gentle prep—timeline tips, outfit thoughts, and space to change your mind as plans evolve.',
-    postItSrc: '/images/inspiration_1.png',
-    postItAlt: 'Mood and inspiration',
+    postItSrc: '/images/bridal_1.jpg',
+    postItAlt: 'Bridal portrait — dreaming up the day together',
   },
   {
     title: 'The day itself',
     body:
       'I show up early, calm, and quietly organized. You’ll get gentle direction when you need it and room to breathe when you don’t. I’m watching for the big moments and the tiny ones—hands held, tears wiped, the way the light falls on your dress.',
     postItSrc: '/images/wedding_1.jpg',
-    postItAlt: 'Wedding day moment',
+    postItAlt: 'Wedding day — ceremony or celebration moment',
   },
   {
     title: 'Your gallery',
     body:
       'Afterward I cull and edit with the same care I brought on the day. You’ll receive a private online gallery to download, share, and print from. Most collections are ready within a few weeks; if you need a handful of sneak peeks sooner, just ask.',
-    postItSrc: '/images/inspiration_3.jpg',
-    postItAlt: 'Film-inspired frame from your gallery',
+    postItSrc: '/images/portrait_1.jpg',
+    postItAlt: 'Finished portrait — your gallery delivered',
   },
 ] as const;
 

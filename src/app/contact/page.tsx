@@ -30,7 +30,7 @@ export default function ContactPage() {
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch lg:gap-14">
-              <div className="relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl bg-[#e8e3db] dark:bg-boho-ink sm:max-w-md lg:col-span-5 lg:aspect-auto lg:max-w-none lg:min-h-0 lg:h-full">
+              <div className="relative hidden aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl bg-[#e8e3db] dark:bg-boho-ink sm:max-w-md lg:col-span-5 lg:block lg:aspect-auto lg:max-w-none lg:min-h-0 lg:h-full lg:rounded-2xl">
                 <Image
                   src={SITE_IMAGES.contactPhoto}
                   alt="Taylor — photographer"
@@ -41,8 +41,22 @@ export default function ContactPage() {
                 />
               </div>
               <div className="flex min-h-0 flex-col lg:col-span-7">
-                <div className="flex min-h-0 flex-1 flex-col rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/92 p-6 shadow-[0_12px_36px_rgba(61,52,44,0.06)] ring-1 ring-[#e8e3db]/80 dark:border-boho-stone/40 dark:bg-boho-bark/48 dark:ring-boho-stone/25 sm:p-8 md:p-10">
-                  <BookingForm className="mx-0 max-w-xl" />
+                <div className="relative flex min-h-0 flex-1 flex-col overflow-visible rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/92 p-6 shadow-[0_12px_36px_rgba(61,52,44,0.06)] ring-1 ring-[#e8e3db]/80 dark:border-boho-stone/40 dark:bg-boho-bark/48 dark:ring-boho-stone/25 sm:p-8 md:p-10">
+                  <div className="pointer-events-none absolute -right-1 -top-3 z-20 w-[4.5rem] rotate-[8deg] sm:-top-4 sm:right-5 sm:w-[6.25rem] sm:rotate-[6deg] md:right-8 md:w-28 md:rotate-[5deg] lg:hidden">
+                    <div className="scrapbook-mat relative rounded-[2px] bg-[#faf8f4] p-1.5 pb-4 shadow-[0_10px_28px_rgba(61,52,44,0.18)] ring-1 ring-[#cfc4b2]/50 dark:bg-[#2a2622] dark:ring-boho-stone/40">
+                      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[1px] bg-[#e8e3db] dark:bg-boho-ink">
+                        <Image
+                          src={SITE_IMAGES.contactPhoto}
+                          alt="Taylor — photographer"
+                          fill
+                          className="object-cover object-[center_15%]"
+                          sizes="112px"
+                          priority
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <BookingForm className="mx-0 max-w-xl pt-8 sm:pt-4 sm:pr-32 md:pr-36 lg:pt-0 lg:pr-0" />
                 </div>
               </div>
             </div>
