@@ -22,14 +22,14 @@ export default function Home() {
       <main id="home">
         {/* Full-viewport hero — rotating inspiration set */}
         <HomeHeroSlideshow>
-          <div className="flex min-h-svh flex-col justify-end px-6 pb-16 pt-28 sm:px-10 sm:pb-20 md:pb-24 lg:px-16">
-            <p className="type-eyebrow max-w-md text-white/88">
+          <div className="flex min-h-svh flex-col items-center justify-end px-6 pb-16 pt-28 text-center sm:items-start sm:px-10 sm:pb-20 sm:text-left md:pb-24 lg:px-16">
+            <p className="type-eyebrow mx-auto max-w-md text-white/88 sm:mx-0">
               Wedding &amp; portrait · Natural light · The American South
             </p>
-            <p className="font-display mt-6 max-w-xl text-2xl leading-snug text-white/95 sm:text-3xl md:text-[2.15rem]">
+            <p className="font-display mx-auto mt-6 max-w-xl text-2xl leading-snug text-white/95 sm:mx-0 sm:text-3xl md:text-[2.15rem]">
               Soft light, honest color, frames that feel like memory.
             </p>
-            <div className="mt-6 flex w-full max-w-md flex-row flex-wrap gap-2 sm:mt-10 sm:max-w-none sm:gap-3 md:flex-row">
+            <div className="mx-auto mt-6 flex w-full max-w-md flex-row flex-wrap justify-center gap-2 sm:mt-10 sm:mx-0 sm:max-w-none sm:justify-start sm:gap-3 md:flex-row">
               <Link
                 href="/portfolio"
                 className="font-body inline-flex min-h-10 flex-1 touch-manipulation items-center justify-center border border-white/40 bg-white/95 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#3d342c] transition hover:bg-white sm:min-h-11 sm:w-auto sm:flex-none sm:px-6 sm:py-3 md:tracking-[0.2em]"
@@ -173,14 +173,14 @@ export default function Home() {
                 deeper.
               </p>
             </div>
-            <div className="columns-1 gap-x-8 gap-y-2 sm:columns-2 sm:gap-x-8 sm:gap-y-2 lg:columns-3 lg:gap-x-10">
+            <div className="columns-2 gap-x-2 gap-y-1 sm:gap-x-8 sm:gap-y-2 lg:columns-3 lg:gap-x-10">
               {PORTFOLIO_HOME_CARDS.map((card, i) => {
                 const s = SCRAPBOOK_STYLES[i % SCRAPBOOK_STYLES.length];
                 return (
                   <Link
                     key={card.name}
                     href={card.href}
-                    className={`group mb-6 block break-inside-avoid transition duration-300 hover:z-10 hover:scale-[1.02] hover:rotate-0 sm:mb-10 ${s.rotate} ${s.push}`}
+                    className={`group mb-4 block break-inside-avoid transition duration-300 hover:z-10 hover:scale-[1.02] hover:rotate-0 sm:mb-10 ${s.rotate} ${s.push}`}
                   >
                     <div
                       className={`scrapbook-mat rounded-[2px] bg-[#faf8f4] p-2 dark:bg-[#2a2622] ${s.lip}`}
@@ -199,7 +199,7 @@ export default function Home() {
                           alt={card.name}
                           fill
                           className="object-cover transition duration-500 group-hover:scale-[1.04]"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       </div>
                       <div className="mt-1.5 px-0.5 text-center sm:mt-3 sm:px-1">

@@ -362,7 +362,40 @@ html.dark body::after {
   }
 }
 
+/* Narrow viewports: smaller motion so short frames don’t feel jumpy */
+@keyframes mood-board-bob-gentle {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(0.5px, -2px, 0) rotate(0.1deg);
+  }
+  50% {
+    transform: translate3d(-0.5px, 1.5px, 0) rotate(-0.08deg);
+  }
+  75% {
+    transform: translate3d(0.35px, 1px, 0) rotate(0.06deg);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
+  .mood-board-bob {
+    animation: mood-board-bob-gentle 6.5s ease-in-out infinite;
+  }
+
+  .mood-board-bob--b {
+    animation: mood-board-bob-gentle 7.2s ease-in-out infinite;
+    animation-delay: -2s;
+  }
+
+  .mood-board-bob--c {
+    animation: mood-board-bob-gentle 6s ease-in-out infinite;
+    animation-delay: -3.4s;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
   .mood-board-bob {
     animation: mood-board-bob 4.9s ease-in-out infinite;
   }
