@@ -330,7 +330,7 @@ function MobileContactRibbons() {
                   type="button"
                   onClick={openSocial}
                   aria-label="Open social links"
-                  className={`absolute bottom-0 right-0 z-[5] origin-bottom-right -translate-x-[2.35rem] -translate-y-[5.1rem] ${fabBubbleClass}`}
+                  className={`absolute bottom-0 right-0 z-[5] origin-bottom-right -translate-x-[1.95rem] -translate-y-[4.65rem] ${fabBubbleClass}`}
                 >
                   <SocialHubIcon className="h-6 w-6" />
                 </button>
@@ -356,7 +356,7 @@ function MobileContactRibbons() {
             {fabMenuOpen ? (
               <CloseIcon className="h-6 w-6" />
             ) : (
-              <RoseLineIcon className="h-7 w-7" />
+              <RoseLineIcon className="h-8 w-8" />
             )}
           </button>
         </div>
