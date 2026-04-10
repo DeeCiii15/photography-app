@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialHubIcon, SocialNetworkIcon } from './SocialMediaIcons';
 
-/** Soft vintage handset — thin stroke, warm line caps (matches boho / film site) */
+/** Smartphone outline — reads clearly at small sizes (stroke matches mail icon) */
 function PhoneIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -13,14 +13,48 @@ function PhoneIcon({ className }: { className?: string }) {
       fill="none"
       aria-hidden
     >
+      <rect
+        x="6.75"
+        y="3.25"
+        width="10.5"
+        height="17.5"
+        rx="2.25"
+        ry="2.25"
+        stroke="currentColor"
+        strokeWidth={1.35}
+        vectorEffect="non-scaling-stroke"
+      />
       <path
-        d="M6.5 3.5h3.2c.6 0 1.1.4 1.3 1l1.1 3.4c.1.5 0 1-.3 1.4l-1.5 1.8a12.1 12.1 0 005.2 5.2l1.8-1.5c.4-.3.9-.4 1.4-.3l3.4 1.1c.6.2 1 .7 1 1.3v3.2c0 1.2-1 2.2-2.2 2.2-.2 0-.4 0-.6-.1-9.5-1.6-17.1-9.2-18.7-18.7-.1-.2-.1-.4-.1-.6 0-1.2 1-2.2 2.2-2.2Z"
+        d="M9.25 5.85h5.5"
+        stroke="currentColor"
+        strokeWidth={1.25}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M10.25 18.35h3.5"
         stroke="currentColor"
         strokeWidth={1.35}
         strokeLinecap="round"
-        strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
+        opacity={0.85}
       />
+    </svg>
+  );
+}
+
+function PlusIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      aria-hidden
+    >
+      <path d="M12 5v14M5 12h14" vectorEffect="non-scaling-stroke" />
     </svg>
   );
 }
@@ -171,22 +205,27 @@ function DesktopRibbon() {
   );
 }
 
-/** Mobile: social FAB + sheet above phone FAB + sheet */
+const fabBubbleClass =
+  'flex h-14 w-14 shrink-0 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-200 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] active:scale-95';
+
+/** Mobile: one FAB expands into social + contact; sheets unchanged */
 function MobileContactRibbons() {
+  const [fabMenuOpen, setFabMenuOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [socialOpen, setSocialOpen] = useState(false);
   const socialLinks = getSocialLinks();
   const hasSocials = socialLinks.length > 0;
-  const anyOpen = contactOpen || socialOpen;
+  const sheetOpen = contactOpen || socialOpen;
 
   useEffect(() => {
-    if (!anyOpen) return;
+    if (!sheetOpen) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setContactOpen(false);
         setSocialOpen(false);
+        setFabMenuOpen(false);
       }
     };
     window.addEventListener('keydown', onKey);
@@ -194,33 +233,90 @@ function MobileContactRibbons() {
       document.body.style.overflow = prev;
       window.removeEventListener('keydown', onKey);
     };
-  }, [anyOpen]);
+  }, [sheetOpen]);
+
+  useEffect(() => {
+    if (!fabMenuOpen || sheetOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setFabMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [fabMenuOpen, sheetOpen]);
 
   const openContact = () => {
     setSocialOpen(false);
+    setFabMenuOpen(false);
     setContactOpen(true);
   };
+
   const openSocial = () => {
     setContactOpen(false);
+    setFabMenuOpen(false);
     setSocialOpen(true);
   };
 
+  const closeFabMenu = () => setFabMenuOpen(false);
+
   return (
     <div className="sm:hidden">
+      {/* Dim + tap outside to collapse speed-dial (sheets use their own scrims) */}
+      <div
+        className={`fixed inset-0 z-40 bg-[#2a231c]/40 transition-opacity duration-200 dark:bg-black/50 ${
+          fabMenuOpen && !sheetOpen
+            ? 'pointer-events-auto opacity-100'
+            : 'pointer-events-none opacity-0'
+        }`}
+        aria-hidden={!fabMenuOpen || sheetOpen}
+        onClick={closeFabMenu}
+      />
+
+      <div
+        className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 flex max-w-[calc(100vw-1.5rem)] flex-row-reverse flex-wrap items-end justify-start gap-3"
+        role="group"
+        aria-label="Contact and social"
+      >
+        <button
+          type="button"
+          onClick={() => setFabMenuOpen((o) => !o)}
+          aria-expanded={fabMenuOpen}
+          aria-haspopup="true"
+          aria-label={fabMenuOpen ? 'Close quick actions' : 'Open quick actions'}
+          className={`pointer-events-auto ${fabBubbleClass}`}
+        >
+          {fabMenuOpen ? (
+            <CloseIcon className="h-6 w-6" />
+          ) : (
+            <PlusIcon className="h-6 w-6" />
+          )}
+        </button>
+
+        {fabMenuOpen && (
+          <>
+            <button
+              type="button"
+              onClick={openContact}
+              aria-label="Open contact options"
+              className={`pointer-events-auto ${fabBubbleClass}`}
+            >
+              <PhoneIcon className="h-6 w-6" />
+            </button>
+            {hasSocials && (
+              <button
+                type="button"
+                onClick={openSocial}
+                aria-label="Open social links"
+                className={`pointer-events-auto ${fabBubbleClass}`}
+              >
+                <SocialHubIcon className="h-6 w-6" />
+              </button>
+            )}
+          </>
+        )}
+      </div>
+
       {hasSocials && (
         <>
-          <button
-            type="button"
-            onClick={openSocial}
-            aria-label="Open social links"
-            aria-expanded={socialOpen}
-            className={`fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-3 z-50 flex h-14 w-14 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-300 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] ${
-              anyOpen ? 'pointer-events-none scale-75 opacity-0' : 'scale-100 opacity-100'
-            }`}
-          >
-            <SocialHubIcon className="h-6 w-6" />
-          </button>
-
           <div
             className={`fixed inset-0 z-40 bg-[#2a231c]/40 transition-opacity duration-300 dark:bg-black/50 ${
               socialOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
@@ -285,18 +381,6 @@ function MobileContactRibbons() {
           </div>
         </>
       )}
-
-      <button
-        type="button"
-        onClick={openContact}
-        aria-label="Open contact options"
-        aria-expanded={contactOpen}
-        className={`fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 flex h-14 w-14 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/95 text-coral shadow-lg backdrop-blur-md transition-all duration-300 dark:border-boho-stone/50 dark:bg-boho-bark/90 dark:text-[#e8b896] ${
-          anyOpen ? 'pointer-events-none scale-75 opacity-0' : 'scale-100 opacity-100'
-        }`}
-      >
-        <PhoneIcon className="h-6 w-6" />
-      </button>
 
       <div
         className={`fixed inset-0 z-40 bg-[#2a231c]/40 transition-opacity duration-300 dark:bg-black/50 ${
