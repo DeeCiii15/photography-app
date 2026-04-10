@@ -171,7 +171,7 @@ export default function BookingForm({ className }: BookingFormProps) {
   return (
     <form
       ref={formRef}
-      className={`mx-auto max-w-xl space-y-8 text-left ${className ?? ''}`}
+      className={`mx-auto min-w-0 w-full max-w-xl space-y-8 text-left ${className ?? ''}`}
     >
       {error && (
         <div className="font-body rounded-xl border border-boho-sage/35 bg-white/85 p-5 text-base leading-relaxed text-cream-dark dark:border-boho-stone/55 dark:bg-boho-bark/40 dark:text-cream">
@@ -220,16 +220,18 @@ export default function BookingForm({ className }: BookingFormProps) {
             placeholder="If you’d rather I text you"
           />
         </div>
-        <div className="min-w-0 max-w-full overflow-hidden">
+        <div className="min-w-0 w-full max-w-full sm:max-w-none">
           <label htmlFor="event_date" className={labelClass}>
             Dream date or season
           </label>
-          <input
-            id="event_date"
-            name="event_date"
-            type="date"
-            className={`${fieldClass} box-border w-full min-w-0 max-w-full text-base sm:text-lg [color-scheme:light] dark:[color-scheme:dark]`}
-          />
+          <div className="max-sm:inline-block max-sm:w-full max-sm:max-w-[min(100%,15.5rem)]">
+            <input
+              id="event_date"
+              name="event_date"
+              type="date"
+              className={`${fieldClass} box-border block w-full min-w-0 max-w-full text-base [color-scheme:light] dark:[color-scheme:dark] max-sm:px-3 max-sm:py-3.5 sm:inline-block sm:w-full sm:px-5 sm:py-4 sm:text-lg`}
+            />
+          </div>
         </div>
       </div>
 

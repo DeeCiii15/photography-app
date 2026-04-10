@@ -41,7 +41,7 @@ export default function ContactPage() {
                 />
               </div>
               <div className="flex min-h-0 flex-col lg:col-span-7">
-                <div className="relative flex min-h-0 flex-1 flex-col overflow-visible rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/92 p-6 shadow-[0_12px_36px_rgba(61,52,44,0.06)] ring-1 ring-[#e8e3db]/80 dark:border-boho-stone/40 dark:bg-boho-bark/48 dark:ring-boho-stone/25 sm:p-8 md:p-10">
+                <div className="relative flex min-h-0 flex-1 flex-col overflow-x-hidden overflow-y-visible rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/92 p-6 shadow-[0_12px_36px_rgba(61,52,44,0.06)] ring-1 ring-[#e8e3db]/80 dark:border-boho-stone/40 dark:bg-boho-bark/48 dark:ring-boho-stone/25 sm:p-8 md:p-10">
                   <BookingForm className="mx-0 max-w-xl" />
                 </div>
               </div>
