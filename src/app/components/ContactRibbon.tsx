@@ -43,8 +43,9 @@ function PhoneIcon({ className }: { className?: string }) {
   );
 }
 
-/** Line-work rose — primary mobile FAB when menu is closed */
+/** Line-work rose — layered petals, calyx, stem (reads at ~24px) */
 function RoseLineIcon({ className }: { className?: string }) {
+  const sw = 1.3;
   return (
     <svg
       className={className}
@@ -53,35 +54,51 @@ function RoseLineIcon({ className }: { className?: string }) {
       aria-hidden
     >
       <path
-        d="M12 21.25v-6.85"
+        d="M11.85 21.4c.35-2.1.4-4.2-.15-6.15"
         stroke="currentColor"
-        strokeWidth={1.35}
+        strokeWidth={sw}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M12 15.6c-1.9-.95-3.55-.85-4.7.2"
+        d="M10.4 16.2c-.9-.55-1.85-.45-2.65.35M14.35 16.35c.75-.65 1.55-.75 2.35-.15"
         stroke="currentColor"
-        strokeWidth={1.25}
+        strokeWidth={1.15}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
-        opacity={0.88}
+        opacity={0.9}
       />
       <path
-        d="M12 14.35c-2.9-2.35-3.55-5.6-1.65-8 1.35-1.7 3.85-1.85 5.5-.35 2.15 1.95 1.45 5.35-1.45 7.85"
+        d="M12 15.1c-1.15-.85-2.35-1.1-3.35-.35-1.35 1-1.15 2.95.35 3.95 1.05.75 2.45.65 3.55-.15 1.35-.95 1.55-2.75.2-3.85-.85-.7-2-.85-2.75-.6Z"
         stroke="currentColor"
-        strokeWidth={1.35}
+        strokeWidth={sw}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M12 9.1c-1.05-.7-1.7-2-1.05-3.35.85-1.55 2.9-1.4 3.65.15.6 1.2-.2 2.45-1.15 3.15"
+        d="M12 14.25c-2.05-1.65-2.5-4.15-1.1-6.05.95-1.35 2.75-1.85 4.35-1.15 2.05.9 2.65 3.35 1.15 5.15-.85 1.05-2.35 1.55-3.65 1.35-1.45-.25-2.65-1.15-2.75-2.3Z"
         stroke="currentColor"
-        strokeWidth={1.25}
+        strokeWidth={sw}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M12 10.5c-1.4-.95-1.85-2.65-.85-3.95.65-.85 1.85-1.15 2.85-.65 1.35.7 1.65 2.35.55 3.45-.55.55-1.35.7-2 .45"
+        stroke="currentColor"
+        strokeWidth={1.15}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M11.35 8.9c.25-.55.85-.95 1.45-.85.55.1.95.55 1 1.15"
+        stroke="currentColor"
+        strokeWidth={1.05}
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+        opacity={0.92}
       />
     </svg>
   );
@@ -301,7 +318,7 @@ function MobileContactRibbons() {
 
       {/* Branch layout: both satellites share bottom-right with main; translate = diagonal “twigs” */}
       <div
-        className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 h-[min(11rem,calc(100dvh-6rem))] w-[min(11.5rem,calc(100vw-1.5rem))]"
+        className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 h-[min(8.5rem,calc(100dvh-6rem))] w-[min(8.75rem,calc(100vw-1.5rem))]"
         role="group"
         aria-label="Contact and social"
       >
@@ -313,7 +330,7 @@ function MobileContactRibbons() {
                   type="button"
                   onClick={openSocial}
                   aria-label="Open social links"
-                  className={`absolute bottom-0 right-0 z-[5] origin-bottom-right -translate-x-[5rem] -translate-y-[6.25rem] ${fabBubbleClass}`}
+                  className={`absolute bottom-0 right-0 z-[5] origin-bottom-right -translate-x-[3.35rem] -translate-y-[4.15rem] ${fabBubbleClass}`}
                 >
                   <SocialHubIcon className="h-6 w-6" />
                 </button>
@@ -322,7 +339,7 @@ function MobileContactRibbons() {
                 type="button"
                 onClick={openContact}
                 aria-label="Open contact options"
-                className={`absolute bottom-0 right-0 z-[5] origin-bottom-right ${hasSocials ? '-translate-x-[6.85rem] -translate-y-[1.65rem]' : '-translate-x-[5.75rem] -translate-y-[3.85rem]'} ${fabBubbleClass}`}
+                className={`absolute bottom-0 right-0 z-[5] origin-bottom-right ${hasSocials ? '-translate-x-[4.45rem] -translate-y-[1.2rem]' : '-translate-x-[3.85rem] -translate-y-[2.65rem]'} ${fabBubbleClass}`}
               >
                 <PhoneIcon className="h-6 w-6" />
               </button>
