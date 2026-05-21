@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Allura, Great_Vibes, Lora } from "next/font/google";
+import { Lora, Mrs_Saint_Delafield } from "next/font/google";
 import "./globals.css";
 import ContactRibbon from "./components/ContactRibbon";
 import SiteJsonLd from "./components/SiteJsonLd";
@@ -17,17 +17,10 @@ const lora = Lora({
   weight: ["400", "500", "600", "700"],
 });
 
-/** Flowing script for titles & nav — pairs with Great Vibes brand */
-const allura = Allura({
+/** Thin signature script — headlines, brand name, and decorative UI */
+const signatureScript = Mrs_Saint_Delafield({
   weight: "400",
-  variable: "--font-heading-script",
-  subsets: ["latin"],
-});
-
-/** “Taylor Rose Reels” in the header — signature style */
-const greatVibes = Great_Vibes({
-  weight: "400",
-  variable: "--font-brand-script",
+  variable: "--font-script",
   subsets: ["latin"],
 });
 
@@ -105,7 +98,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lora.variable} ${allura.variable} ${greatVibes.variable} antialiased`}
+        className={`${lora.variable} ${signatureScript.variable} antialiased`}
       >
         <SiteJsonLd />
         <div className="relative z-10 min-h-dvh overflow-x-hidden max-sm:pb-[calc(4.75rem+env(safe-area-inset-bottom,0px))]">

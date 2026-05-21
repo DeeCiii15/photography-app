@@ -56,20 +56,18 @@ html {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
-  --font-display: var(--font-heading-script);
+  --font-display: var(--font-script);
 }
 
-/* Headlines & decorative UI type — Allura (script, distinct from brand) */
-.font-display {
-  font-family: var(--font-heading-script), cursive;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-}
-
-/* Brand name only — Great Vibes */
+/* Headlines, brand name, buttons — Mrs Saint Delafield (thin signature script) */
+.font-display,
 .font-script {
-  font-family: var(--font-brand-script), cursive;
+  font-family: var(--font-script), cursive;
   font-weight: 400;
+}
+
+.font-display {
+  letter-spacing: 0.02em;
 }
 
 /* Body copy & forms */

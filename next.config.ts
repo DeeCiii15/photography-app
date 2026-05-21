@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: import.meta.dirname,
+  },
   images: {
     /** Allow max quality for full-bleed heroes (default list tops out below 100). */
     qualities: [75, 80, 85, 90, 92, 95, 100],
