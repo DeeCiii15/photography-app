@@ -6,8 +6,7 @@ import TestimonialsSection from './components/TestimonialsSection';
 import HomeHeroSlideshow from './components/HomeHeroSlideshow';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PORTFOLIO_HOME_CARDS } from '@/lib/portfolioData';
-import { SCRAPBOOK_STYLES } from '@/lib/scrapbookGalleryStyles';
+import PortfolioHomeGallery from './components/PortfolioHomeGallery';
 import { SITE_IMAGES } from '@/lib/siteImages';
 import {
   PHOTOGRAPHER_IMAGE_ALT,
@@ -36,7 +35,7 @@ export default function Home() {
                 &amp; portrait
               </span>
               <span className="font-display mt-6 block text-2xl leading-snug text-white/95 sm:text-3xl md:text-[2.15rem]">
-                Soft light, honest color, frames that feel like memory.
+                Soft light, honest color, warmth that feels like memory.
               </span>
             </h1>
             <div className="mx-auto mt-6 flex w-full max-w-md flex-row flex-wrap justify-center gap-2 sm:mt-10 sm:mx-0 sm:max-w-none sm:justify-start sm:gap-3 md:flex-row">
@@ -162,12 +161,6 @@ export default function Home() {
                   you want to remember how it all felt.
                 </p>
               </div>
-              <Link
-                href="/pricing"
-                className="font-display mt-6 inline-block touch-manipulation text-base text-coral transition hover:text-coral-dark sm:mt-10 sm:text-2xl md:text-[1.65rem]"
-              >
-                Collections &amp; investment →
-              </Link>
             </div>
           </div>
         </section>
@@ -184,52 +177,10 @@ export default function Home() {
                 More stories, same light
               </h2>
               <p className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/68">
-                Tucked and tilted like a tabletop album—click any card to wander
-                deeper.
+                Click any card to wander deeper.
               </p>
             </div>
-            <div className="columns-2 gap-x-2 gap-y-1 sm:gap-x-8 sm:gap-y-2 lg:columns-3 lg:gap-x-10">
-              {PORTFOLIO_HOME_CARDS.map((card, i) => {
-                const s = SCRAPBOOK_STYLES[i % SCRAPBOOK_STYLES.length];
-                return (
-                  <Link
-                    key={card.name}
-                    href={card.href}
-                    className={`group mb-4 block break-inside-avoid transition duration-300 hover:z-10 hover:scale-[1.02] hover:rotate-0 sm:mb-10 ${s.rotate} ${s.push}`}
-                  >
-                    <div
-                      className={`scrapbook-mat rounded-[2px] bg-[#faf8f4] p-2 dark:bg-[#2a2622] ${s.lip}`}
-                    >
-                      <div
-                        className={`relative overflow-hidden bg-[#e8e3db] dark:bg-boho-ink ${
-                          i % 3 === 0
-                            ? 'aspect-[5/4] min-h-[92px] sm:min-h-[200px]'
-                            : i % 3 === 1
-                              ? 'aspect-[4/5] min-h-[100px] sm:min-h-[220px]'
-                              : 'aspect-[3/4] min-h-[88px] sm:min-h-[190px]'
-                        }`}
-                      >
-                        <Image
-                          src={card.image}
-                          alt={card.name}
-                          fill
-                          className="object-cover transition duration-500 group-hover:scale-[1.04]"
-                          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 50vw, 33vw"
-                        />
-                      </div>
-                      <div className="mt-1.5 px-0.5 text-center sm:mt-3 sm:px-1">
-                        <h3 className="font-display text-[0.7rem] leading-tight text-cream-dark dark:text-cream sm:text-xl">
-                          {card.name}
-                        </h3>
-                        <p className="mt-0.5 font-body text-[0.55rem] italic leading-snug text-cream-dark/60 dark:text-cream/55 sm:text-xs">
-                          {card.tagline}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
+            <PortfolioHomeGallery variant="home" />
           </div>
         </section>
 

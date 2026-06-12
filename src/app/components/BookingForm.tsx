@@ -1,12 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import {
-  PHOTOGRAPHER_EMAIL,
-  PHOTOGRAPHER_PHONE_DISPLAY,
-  PHOTOGRAPHER_PHONE_RAW,
-  telHref,
-} from '@/lib/siteConfig';
+import { PHOTOGRAPHER_EMAIL } from '@/lib/siteConfig';
 
 function getField(formData: FormData, key: string): string {
   const v = formData.get(key);
@@ -35,17 +30,36 @@ function buildInquiryBody(formData: FormData): string {
   ].join('\n');
 }
 
-function buildMailtoUrl(formData: FormData): string {
+function buildSubject(formData: FormData): string {
   const name = getField(formData, 'name');
-  const subject = `Photography inquiry from ${name || 'website'}`;
+  return `Photography inquiry from ${name || 'website'}`;
+}
+
+function buildMailtoUrl(formData: FormData): string {
+  const subject = buildSubject(formData);
   const body = buildInquiryBody(formData);
   return `mailto:${PHOTOGRAPHER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-function buildSmsUrl(formData: FormData): string {
-  const body = buildInquiryBody(formData);
-  const digits = PHOTOGRAPHER_PHONE_RAW.replace(/[^\d+]/g, '');
-  return `sms:${digits}?body=${encodeURIComponent(body)}`;
+function buildGmailComposeUrl(formData: FormData): string {
+  const params = new URLSearchParams({
+    view: 'cm',
+    fs: '1',
+    to: PHOTOGRAPHER_EMAIL,
+    su: buildSubject(formData),
+    body: buildInquiryBody(formData),
+  });
+  return `https://mail.google.com/mail/?${params.toString()}`;
+}
+
+/** Programmatic mailto — more reliable than assigning window.location.href */
+function triggerMailto(url: string) {
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.style.display = 'none';
+  document.body.appendChild(anchor);
+  anchor.click();
+  document.body.removeChild(anchor);
 }
 
 type BookingFormProps = {
@@ -61,7 +75,9 @@ const labelClass =
 export default function BookingForm({ className }: BookingFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState<string | null>(null);
-  const [successKind, setSuccessKind] = useState<'email' | 'sms' | null>(null);
+  const [sent, setSent] = useState(false);
+  const [mailtoUrl, setMailtoUrl] = useState('');
+  const [gmailUrl, setGmailUrl] = useState('');
 
   const validate = (formData: FormData): string | null => {
     if (!getField(formData, 'name')) return 'I’d love to know your name.';
@@ -79,72 +95,56 @@ export default function BookingForm({ className }: BookingFormProps) {
       return;
     }
     setError(null);
-    const url = buildMailtoUrl(formData);
-    if (url.length > 1800) {
+    const mailto = buildMailtoUrl(formData);
+    if (mailto.length > 1800) {
       setError('Your message is too long for email links. Please shorten it or email us directly.');
       return;
     }
-    window.location.href = url;
-    setSuccessKind('email');
+    const gmail = buildGmailComposeUrl(formData);
+    setMailtoUrl(mailto);
+    setGmailUrl(gmail);
+    triggerMailto(mailto);
+    window.setTimeout(() => setSent(true), 100);
   };
 
-  const openSms = () => {
-    const form = formRef.current;
-    if (!form) return;
-    if (!form.reportValidity()) return;
-    const formData = new FormData(form);
-    const v = validate(formData);
-    if (v) {
-      setError(v);
-      return;
-    }
-    setError(null);
-    const url = buildSmsUrl(formData);
-    if (url.length > 1800) {
-      setError('Your message is too long for a text link. Please shorten it or text us a shorter note.');
-      return;
-    }
-    window.location.href = url;
-    setSuccessKind('sms');
-  };
-
-  if (successKind) {
+  if (sent) {
     return (
       <div
         className={`rounded-2xl border border-boho-sage/30 bg-cream-light/95 p-10 text-center shadow-soft backdrop-blur-sm dark:border-boho-stone/50 dark:bg-boho-bark/45 ${className ?? ''}`}
       >
         <p className="font-display text-2xl leading-relaxed text-cream-dark dark:text-cream md:text-3xl">
-          {successKind === 'email'
-            ? 'Your email should pop open with your note ready—I can’t wait to read it.'
-            : 'Your messages app should open with your text drafted for you.'}
+          Your email should pop open with your note ready—I can’t wait to read it.
         </p>
-        <p className="mt-4 font-body text-base leading-relaxed text-coral dark:text-cream/90 md:text-lg">
-          If nothing happens, make sure you have mail or SMS set up—or reach me
-          directly at{' '}
+        <p className="mt-4 font-body text-base leading-relaxed text-cream-dark/88 dark:text-cream/85 md:text-lg">
+          If nothing opened, use one of the buttons below or email me at{' '}
           <a
             href={`mailto:${PHOTOGRAPHER_EMAIL}`}
-            className="underline decoration-coral/40 underline-offset-2 hover:text-coral-dark"
+            className="text-coral underline decoration-coral/40 underline-offset-2 hover:text-coral-dark dark:text-[#e8b896]"
           >
             {PHOTOGRAPHER_EMAIL}
           </a>
-          {PHOTOGRAPHER_PHONE_RAW ? (
-            <>
-              {' '}
-              or{' '}
-              <a
-                href={telHref(PHOTOGRAPHER_PHONE_RAW)}
-                className="whitespace-nowrap underline decoration-coral/40 underline-offset-2 hover:text-coral-dark"
-              >
-                {PHOTOGRAPHER_PHONE_DISPLAY}
-              </a>
-            </>
-          ) : null}
           .
         </p>
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <a
+            href={mailtoUrl}
+            className="font-display inline-flex min-h-12 w-full max-w-xs touch-manipulation items-center justify-center rounded-full border border-boho-bark/10 bg-coral px-8 py-4 text-xl text-white shadow-soft transition hover:bg-coral-dark hover:shadow-soft-lg sm:w-auto sm:text-2xl"
+          >
+            Open in email app
+          </a>
+          <a
+            href={gmailUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-display inline-flex min-h-12 w-full max-w-xs touch-manipulation items-center justify-center rounded-full border border-coral/50 bg-white/60 px-8 py-4 text-xl text-coral backdrop-blur-sm transition hover:bg-coral/10 dark:bg-boho-bark/40 dark:text-coral sm:w-auto sm:text-2xl"
+          >
+            Open in Gmail
+          </a>
+        </div>
         <button
           type="button"
-          onClick={() => setSuccessKind(null)}
-          className="font-display mt-8 rounded-full border border-boho-sage/35 px-10 py-3.5 text-xl text-cream-dark transition hover:bg-cream dark:border-boho-stone/50 dark:text-cream dark:hover:bg-boho-stone"
+          onClick={() => setSent(false)}
+          className="font-display mt-8 rounded-full border border-boho-sage/35 px-10 py-4 text-xl text-cream-dark transition hover:bg-cream sm:text-2xl dark:border-boho-stone/50 dark:text-cream dark:hover:bg-boho-stone"
         >
           Write another note
         </button>
@@ -201,7 +201,7 @@ export default function BookingForm({ className }: BookingFormProps) {
             name="phone"
             type="tel"
             className={fieldClass}
-            placeholder="If you’d rather I text you"
+            placeholder="Optional"
           />
         </div>
         <div className="min-w-0">
@@ -224,8 +224,8 @@ export default function BookingForm({ className }: BookingFormProps) {
         <select id="event_type" name="event_type" className={fieldClass}>
           <option value="">Choose one…</option>
           <option value="Wedding">Wedding</option>
-          <option value="Portrait">Portrait</option>
-          <option value="Maternity or newborn">Maternity or newborn</option>
+          <option value="Couples / Engagement">Couples / Engagement</option>
+          <option value="Motherhood">Motherhood</option>
           <option value="Family">Family</option>
           <option value="Event">Event or brand</option>
           <option value="Other">Something else lovely</option>
@@ -241,31 +241,22 @@ export default function BookingForm({ className }: BookingFormProps) {
           name="message"
           rows={6}
           className={`${fieldClass} resize-none`}
-          placeholder="Tell me about your people, your place, or what makes your story feel like home…"
+          placeholder="Tell me all the details. What is your vibe, vision and style? What is your location?"
         />
       </div>
 
-      <div className="flex flex-col gap-4 sm:flex-row sm:gap-5">
+      <div className="flex justify-center">
         <button
           type="button"
           onClick={openEmail}
-          className="font-display min-h-12 flex-1 touch-manipulation rounded-full border border-boho-bark/10 bg-coral px-6 py-4 text-xl text-white shadow-soft transition hover:bg-coral-dark hover:shadow-soft-lg"
+          className="font-display min-h-12 w-full max-w-md touch-manipulation rounded-full border border-boho-bark/10 bg-coral px-8 py-4 text-xl text-white shadow-soft transition hover:bg-coral-dark hover:shadow-soft-lg sm:w-auto sm:text-2xl"
         >
           Send by email
         </button>
-        {PHOTOGRAPHER_PHONE_RAW ? (
-          <button
-            type="button"
-            onClick={openSms}
-            className="font-display min-h-12 flex-1 touch-manipulation rounded-full border border-coral/50 bg-white/60 px-6 py-4 text-xl text-coral backdrop-blur-sm transition hover:bg-coral/10 dark:bg-boho-bark/40 dark:text-coral"
-          >
-            Send by text
-          </button>
-        ) : null}
       </div>
       <p className="font-body text-center text-sm leading-relaxed text-cream-dark/65 dark:text-cream/65 md:text-base">
-        This opens your own email or messages app with your note ready—you tap
-        send when it feels right.
+        This opens your email app with your note ready—you tap send when it feels
+        right. On desktop, use Gmail if your email app does not open.
       </p>
     </form>
   );

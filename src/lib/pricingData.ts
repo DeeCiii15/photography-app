@@ -48,8 +48,8 @@ export const INVESTMENT_CATEGORIES: InvestmentCategory[] = [
     ],
   },
   {
-    portfolioCategory: 'Engagement',
-    name: 'Engagement',
+    portfolioCategory: 'Couples / Engagement',
+    name: 'Couples / Engagement',
     tagline: 'Sweet on each other, on camera',
     startingAt: 'Starting at $450',
     coverage: 'About 1–1.5 hours · one location',
@@ -62,11 +62,11 @@ export const INVESTMENT_CATEGORIES: InvestmentCategory[] = [
     ],
   },
   {
-    portfolioCategory: 'Portraits',
-    name: 'Portrait',
-    tagline: 'You, your people, soft light',
+    portfolioCategory: 'Family',
+    name: 'Family',
+    tagline: 'Your people, soft light',
     startingAt: 'Starting at $350',
-    coverage: 'Family, maternity, senior, or solo · session-based',
+    coverage: 'Family, senior, or solo · session-based',
     description:
       'Relaxed sessions built around connection—never a stiff studio hour. We’ll pick a time of day that flatters everyone.',
     highlights: [

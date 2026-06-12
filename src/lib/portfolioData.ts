@@ -23,30 +23,27 @@ export type PortfolioCategoryDef = {
 /** URL slug segment → filename prefix in /public/images/ */
 const CATEGORY_IMAGE_SLUG: Record<string, string> = {
   Weddings: 'wedding',
-  Maternity: 'maternity',
-  Engagement: 'engagement',
+  Motherhood: 'maternity',
+  'Couples / Engagement': 'engagement',
   'Special Events': 'events',
-  Professional: 'business',
-  Portraits: 'portrait',
+  Family: 'portrait',
 };
 
 /** How many tiles to show per gallery (cycles `_1` if higher files aren’t there yet) */
 const PHOTO_COUNT_BY_CATEGORY: Record<string, number> = {
   Weddings: 4,
-  Maternity: 3,
-  Engagement: 3,
+  Motherhood: 3,
+  'Couples / Engagement': 3,
   'Special Events': 3,
-  Professional: 3,
-  Portraits: 4,
+  Family: 4,
 };
 
 const PHOTO_ID_PREFIX: Record<string, string> = {
   Weddings: 'w',
-  Maternity: 'm',
-  Engagement: 'e',
+  Motherhood: 'm',
+  'Couples / Engagement': 'e',
   'Special Events': 's',
-  Professional: 'p',
-  Portraits: 'pr',
+  Family: 'f',
 };
 
 /**
@@ -59,11 +56,11 @@ const SRC_OVERRIDES: Partial<Record<string, Record<number, string>>> = {
     3: '/images/wedding_1.jpg',
     4: '/images/bridal_1.jpg',
   },
-  Engagement: {
+  'Couples / Engagement': {
     2: '/images/engagement_1.jpg',
     3: '/images/engagement_1.jpg',
   },
-  Maternity: {
+  Motherhood: {
     2: '/images/maternity_1.jpg',
     3: '/images/maternity_1.jpg',
   },
@@ -71,11 +68,7 @@ const SRC_OVERRIDES: Partial<Record<string, Record<number, string>>> = {
     2: '/images/events_1.jpg',
     3: '/images/events_1.jpg',
   },
-  Professional: {
-    2: '/images/business_1.jpg',
-    3: '/images/business_1.jpg',
-  },
-  Portraits: {
+  Family: {
     2: '/images/portrait_1.jpg',
     3: '/images/portrait_1.jpg',
     4: '/images/portrait_1.jpg',
@@ -114,44 +107,36 @@ export const PORTFOLIO_CATEGORY_DEFS: PortfolioCategoryDef[] = [
     photos: buildPhotos('Weddings', 'Wedding day'),
   },
   {
-    name: 'Maternity',
+    name: 'Motherhood',
     description:
       'That glow, the bump you keep resting your hand on, and the wonder before baby arrives—documented gently, never rushed.',
     homeTagline: 'Bloom & anticipation',
-    coverSrc: localImageSrc('Maternity', 0),
-    photos: buildPhotos('Maternity', 'Maternity'),
+    coverSrc: localImageSrc('Motherhood', 0),
+    photos: buildPhotos('Motherhood', 'Motherhood'),
   },
   {
-    name: 'Engagement',
+    name: 'Couples / Engagement',
     description:
       'Sweet tea strolls, front-porch swings, or downtown at dusk—wherever y’all feel like yourselves is where I’ll meet you.',
     homeTagline: 'Sweet on each other',
-    coverSrc: localImageSrc('Engagement', 0),
-    photos: buildPhotos('Engagement', 'Engagement'),
+    coverSrc: localImageSrc('Couples / Engagement', 0),
+    photos: buildPhotos('Couples / Engagement', 'Couples and engagement'),
   },
   {
     name: 'Special Events',
     description:
       'Galas, brand launches, and the milestones that deserve to be remembered with polish and a little Southern warmth.',
-    homeTagline: 'Raise a glass moments',
+    homeTagline: 'Celebrate key moments',
     coverSrc: localImageSrc('Special Events', 0),
     photos: buildPhotos('Special Events', 'Event'),
   },
   {
-    name: 'Professional',
+    name: 'Family',
     description:
-      'Headshots that feel like you on your best day—approachable, confident, and ready for your website or press kit.',
-    homeTagline: 'Your best light',
-    coverSrc: localImageSrc('Professional', 0),
-    photos: buildPhotos('Professional', 'Professional portrait'),
-  },
-  {
-    name: 'Portraits',
-    description:
-      'Just you (or your people), soft light, and room to breathe—portraits that feel like a compliment, not a performance.',
+      'Your people, soft light, and room to breathe—family portraits that feel like a compliment, not a performance.',
     homeTagline: 'Effortless & true',
-    coverSrc: localImageSrc('Portraits', 0),
-    photos: buildPhotos('Portraits', 'Portrait'),
+    coverSrc: localImageSrc('Family', 0),
+    photos: buildPhotos('Family', 'Family portrait'),
   },
 ];
 
@@ -167,6 +152,14 @@ export const PORTFOLIO_HOME_CARDS = PORTFOLIO_CATEGORY_DEFS.map((c) => ({
   tagline: c.homeTagline,
   href: `/portfolio?category=${encodeURIComponent(c.name)}`,
 }));
+
+/** Same cards as home, with Weddings in the center position for the polaroid grid */
+export const PORTFOLIO_HOME_CARDS_CENTERED = (() => {
+  const wedding = PORTFOLIO_HOME_CARDS.find((c) => c.name === 'Weddings')!;
+  const rest = PORTFOLIO_HOME_CARDS.filter((c) => c.name !== 'Weddings');
+  const mid = Math.floor(PORTFOLIO_HOME_CARDS.length / 2);
+  return [...rest.slice(0, mid), wedding, ...rest.slice(mid)];
+})();
 
 export const PORTFOLIO_GALLERY_BY_CATEGORY: Record<string, PortfolioPhoto[]> =
   Object.fromEntries(

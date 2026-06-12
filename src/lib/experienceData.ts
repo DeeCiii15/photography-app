@@ -2,28 +2,28 @@ export const EXPERIENCE_PROCESS_STEPS = [
   {
     title: 'Say hello',
     body:
-      'You reach out with a date, a venue, or just a feeling you can’t quite name yet. I read every note myself and write back with warmth—no auto-replies, no pressure. If we’re a good fit, we’ll set up a call or coffee so you can hear my voice and ask anything.',
+      'Reach out and say hello. Introduce yourself & describe your inquiry! If we’re a good fit, we’ll set up a call & have a conversation. Feel free to ask any questions you may have.',
     postItSrc: '/images/engagement_1.jpg',
     postItAlt: 'Engagement couple in soft light — saying hello',
   },
   {
     title: 'Dream it together',
     body:
-      'Once you’re ready to move forward, we’ll talk through timeline, what matters most to you, and any must-have moments. I’ll send a simple agreement and a retainer to hold your date. From there you’ll get gentle prep—timeline tips, outfit thoughts, and space to change your mind as plans evolve.',
+      'Once you are ready to move forward, we’ll talk through the details and what moments matter most to you. I’ll send a simple agreement & collect a retainer to hold your date. I will offer gentle prep like outfit tips, time of day & location, and most importantly space to change your mind and be flexible as plans evolve.',
     postItSrc: '/images/bridal_1.jpg',
     postItAlt: 'Bridal portrait — dreaming up the day together',
   },
   {
     title: 'The day itself',
     body:
-      'I show up early, calm, and quietly organized. You’ll get gentle direction when you need it and room to breathe when you don’t. I’m watching for the big moments and the tiny ones—hands held, tears wiped, the way the light falls on your dress.',
+      'I show up early, calm, and eager to capture your special moments. You’ll get gentle direction when you need it and room to breathe when you don’t. I’m watching for the big moments, the tiny ones and every detail in between.',
     postItSrc: '/images/wedding_1.jpg',
     postItAlt: 'Wedding day — ceremony or celebration moment',
   },
   {
     title: 'Your gallery',
     body:
-      'Afterward I cull and edit with the same care I brought on the day. You’ll receive a private online gallery to download, share, and print from. Most collections are ready within a few weeks; if you need a handful of sneak peeks sooner, just ask.',
+      'Afterward I cull and edit with the same care I brought on the day. You’ll receive a private online gallery to download, share, and print from. Standard sessions have a 2–3 week turnaround, while other special events like weddings have an 8–10 week turnaround.',
     postItSrc: '/images/portrait_1.jpg',
     postItAlt: 'Finished portrait — your gallery delivered',
   },
@@ -48,7 +48,7 @@ export const EXPERIENCE_FAQS = [
   {
     question: 'When will my gallery be ready?',
     answer:
-      'Most collections are ready within two or three weeks—sometimes a touch longer in peak wedding season. If you need a few sneak peeks for thank-you cards or announcements, just say the word.',
+      'Standard sessions have a 2–3 week turnaround, while other special events like weddings have an 8–10 week turnaround.',
   },
   {
     question: 'What should I wear?',

@@ -4,7 +4,6 @@ import {
   GEO_COORDINATES,
   getSiteUrl,
   PHOTOGRAPHER_EMAIL,
-  PHOTOGRAPHER_PHONE_RAW,
   PRIMARY_CITY,
   PRIMARY_REGION,
   PRIMARY_STATE,
@@ -51,18 +50,14 @@ export default function SiteJsonLd() {
     ],
     serviceType: [
       'Wedding photography',
-      'Portrait photography',
+      'Family photography',
       'Elopement photography',
-      'Engagement photography',
-      'Maternity photography',
+      'Couples and engagement photography',
+      'Motherhood photography',
       'Event photography',
     ],
     ...(sameAs.length > 0 ? { sameAs } : {}),
   };
-
-  if (PHOTOGRAPHER_PHONE_RAW) {
-    business.telephone = PHOTOGRAPHER_PHONE_RAW;
-  }
 
   const data = {
     '@context': 'https://schema.org',

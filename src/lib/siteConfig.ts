@@ -40,33 +40,7 @@ export const GEO_COORDINATES = {
 
 export const PHOTOGRAPHER_EMAIL =
   process.env.NEXT_PUBLIC_PHOTOGRAPHER_EMAIL?.trim() ||
-  'hello@taylorrosereels.com';
-
-/** E.164-style number (e.g. +18435551234). Set NEXT_PUBLIC_PHOTOGRAPHER_PHONE in production. */
-export const PHOTOGRAPHER_PHONE_RAW =
-  process.env.NEXT_PUBLIC_PHOTOGRAPHER_PHONE?.trim() || '';
-
-export function formatPhoneDisplay(raw: string): string {
-  const digits = raw.replace(/\D/g, '');
-  if (digits.length === 10) {
-    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
-  }
-  if (digits.length === 11 && digits.startsWith('1')) {
-    return `+1 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
-  }
-  return raw.trim();
-}
-
-export function telHref(raw: string): string {
-  const cleaned = raw.replace(/[^\d+]/g, '');
-  if (cleaned.startsWith('+')) return `tel:${cleaned}`;
-  const digits = cleaned.replace(/\D/g, '');
-  return digits ? `tel:+${digits}` : `tel:${raw}`;
-}
-
-export const PHOTOGRAPHER_PHONE_DISPLAY = PHOTOGRAPHER_PHONE_RAW
-  ? formatPhoneDisplay(PHOTOGRAPHER_PHONE_RAW)
-  : '';
+  'taylorrosereels@gmail.com';
 
 export const PHOTOGRAPHER_IMAGE_ALT = `${SITE_NAME}, ${PRIMARY_CITY} ${PRIMARY_STATE_ABBR} wedding and portrait photographer`;
 

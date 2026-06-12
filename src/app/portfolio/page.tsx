@@ -3,14 +3,11 @@
 import { Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import SiteFooter from '../components/SiteFooter';
 import HomeStylePageIntro from '../components/HomeStylePageIntro';
-import {
-  PORTFOLIO_GALLERY_BY_CATEGORY,
-  PORTFOLIO_HOME_CARDS,
-} from '@/lib/portfolioData';
+import PortfolioHomeGallery from '../components/PortfolioHomeGallery';
+import { PORTFOLIO_GALLERY_BY_CATEGORY } from '@/lib/portfolioData';
 import { SCRAPBOOK_STYLES } from '@/lib/scrapbookGalleryStyles';
 
 function PortfolioContent() {
@@ -39,52 +36,10 @@ function PortfolioContent() {
                   More stories, same light
                 </h1>
                 <p className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/68">
-                  Tucked and tilted like a tabletop album—click any card to wander
-                  deeper.
+                  Click any card to wander deeper.
                 </p>
               </div>
-              <div className="columns-1 gap-x-8 gap-y-2 sm:columns-2 lg:columns-3 lg:gap-x-10">
-                {PORTFOLIO_HOME_CARDS.map((card, i) => {
-                  const s = SCRAPBOOK_STYLES[i % SCRAPBOOK_STYLES.length];
-                  return (
-                    <Link
-                      key={card.name}
-                      href={card.href}
-                      className={`group mb-10 block break-inside-avoid transition duration-300 hover:z-10 hover:scale-[1.02] hover:rotate-0 ${s.rotate} ${s.push}`}
-                    >
-                      <div
-                        className={`scrapbook-mat rounded-[2px] bg-[#faf8f4] p-2 ${s.lip} dark:bg-[#2a2622]`}
-                      >
-                        <div
-                          className={`relative overflow-hidden bg-[#e8e3db] dark:bg-boho-ink ${
-                            i % 3 === 0
-                              ? 'aspect-[5/4] min-h-[200px]'
-                              : i % 3 === 1
-                                ? 'aspect-[4/5] min-h-[220px]'
-                                : 'aspect-[3/4] min-h-[190px]'
-                          }`}
-                        >
-                          <Image
-                            src={card.image}
-                            alt={card.name}
-                            fill
-                            className="object-cover transition duration-500 group-hover:scale-[1.04]"
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          />
-                        </div>
-                        <div className="mt-3 px-1 text-center">
-                          <h3 className="font-display text-xl text-cream-dark dark:text-cream">
-                            {card.name}
-                          </h3>
-                          <p className="mt-0.5 font-body text-xs italic text-cream-dark/60 dark:text-cream/55">
-                            {card.tagline}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
+              <PortfolioHomeGallery variant="portfolio" />
             </div>
           </section>
         ) : (

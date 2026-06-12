@@ -1,53 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import {
-  PHOTOGRAPHER_EMAIL,
-  PHOTOGRAPHER_PHONE_DISPLAY,
-  PHOTOGRAPHER_PHONE_RAW,
-  telHref,
-} from '@/lib/siteConfig';
+import { PHOTOGRAPHER_EMAIL } from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialHubIcon, SocialNetworkIcon } from './SocialMediaIcons';
-
-/** Smartphone outline — reads clearly at small sizes (stroke matches mail icon) */
-function PhoneIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden
-    >
-      <rect
-        x="6.75"
-        y="3.25"
-        width="10.5"
-        height="17.5"
-        rx="2.25"
-        ry="2.25"
-        stroke="currentColor"
-        strokeWidth={1.35}
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M9.25 5.85h5.5"
-        stroke="currentColor"
-        strokeWidth={1.25}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M10.25 18.35h3.5"
-        stroke="currentColor"
-        strokeWidth={1.35}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-        opacity={0.85}
-      />
-    </svg>
-  );
-}
 
 /** Line-work rose — original FAB rose (stem, leaf, outer + inner bloom) */
 function RoseLineIcon({ className }: { className?: string }) {
@@ -196,35 +152,11 @@ function DesktopSocialRow() {
   );
 }
 
-/** sm+ — horizontal pill with phone, email, socials */
+/** sm+ — horizontal pill with email and socials */
 function DesktopRibbon() {
   return (
     <div className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-3 right-3 z-50 hidden sm:bottom-6 sm:left-auto sm:right-6 sm:block">
       <div className="pointer-events-auto mx-auto flex w-full max-w-full flex-col rounded-2xl border border-boho-sage/25 bg-white/70 py-2 pl-2 pr-2 shadow-sm backdrop-blur-md dark:border-boho-stone/45 dark:bg-boho-ink/55 sm:w-max sm:min-w-[min(100%,28.5rem)] sm:max-w-[calc(100vw-0.75rem)] sm:flex-row sm:items-center sm:rounded-full sm:border-boho-sage/25 sm:bg-white/55 sm:py-1.5 sm:pl-1.5 sm:pr-1.5 sm:dark:bg-boho-ink/50">
-        {PHOTOGRAPHER_PHONE_RAW ? (
-          <>
-            <a
-              href={telHref(PHOTOGRAPHER_PHONE_RAW)}
-              aria-label={`Call ${PHOTOGRAPHER_PHONE_DISPLAY}`}
-              className="flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl px-2 py-2 transition hover:bg-boho-sage/15 active:bg-boho-sage/20 dark:hover:bg-white/10 sm:min-h-0 sm:justify-start sm:rounded-full sm:py-1 sm:pl-1 sm:pr-2"
-            >
-              <IconMat>
-                <PhoneIcon className="h-[15px] w-[15px]" />
-              </IconMat>
-              <span className="whitespace-nowrap font-body text-sm font-medium leading-tight text-cream-dark dark:text-cream sm:text-xs">
-                {PHOTOGRAPHER_PHONE_DISPLAY}
-              </span>
-            </a>
-            <span
-              className="mx-2 hidden h-4 w-px shrink-0 bg-dusty-rose/45 dark:bg-boho-stone/45 sm:block"
-              aria-hidden
-            />
-            <div
-              className="h-px w-full bg-dusty-rose/35 dark:bg-boho-stone/40 sm:hidden"
-              aria-hidden
-            />
-          </>
-        ) : null}
         <a
           href={`mailto:${PHOTOGRAPHER_EMAIL}?subject=Inquiry%20from%20Taylor%20Rose%20Reels`}
           aria-label={`Email ${PHOTOGRAPHER_EMAIL}`}
@@ -334,7 +266,7 @@ function MobileContactRibbons() {
                 aria-label="Open contact options"
                 className={`absolute bottom-0 right-0 z-[5] origin-bottom-right ${hasSocials ? '-translate-x-[4.45rem] -translate-y-[1.2rem]' : '-translate-x-[3.85rem] -translate-y-[2.65rem]'} ${fabBubbleClass}`}
               >
-                <PhoneIcon className="h-6 w-6" />
+                <MailIcon className="h-6 w-6" />
               </button>
             </>
           )}
@@ -457,25 +389,6 @@ function MobileContactRibbons() {
           </button>
         </div>
         <div className="flex flex-col gap-1 px-3 py-4">
-          {PHOTOGRAPHER_PHONE_RAW ? (
-            <a
-              href={telHref(PHOTOGRAPHER_PHONE_RAW)}
-              onClick={() => setContactOpen(false)}
-              className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
-            >
-              <IconMat>
-                <PhoneIcon className="h-[15px] w-[15px]" />
-              </IconMat>
-              <div className="min-w-0">
-                <p className="font-body text-xs font-semibold uppercase tracking-wider text-cream-dark/55 dark:text-cream/50">
-                  Call
-                </p>
-                <p className="font-body text-base font-medium text-cream-dark dark:text-cream">
-                  {PHOTOGRAPHER_PHONE_DISPLAY}
-                </p>
-              </div>
-            </a>
-          ) : null}
           <a
             href={`mailto:${PHOTOGRAPHER_EMAIL}?subject=Inquiry%20from%20Taylor%20Rose%20Reels`}
             onClick={() => setContactOpen(false)}

@@ -89,9 +89,6 @@ export default function Navigation() {
               <Link href="/portfolio" className={linkClass}>
                 Portfolio
               </Link>
-              <Link href="/pricing" className={linkClass}>
-                Pricing
-              </Link>
               <Link href="/experience" className={linkClass}>
                 Experience
               </Link>
@@ -158,13 +155,6 @@ export default function Navigation() {
                 className={mobileLinkClass}
               >
                 Portfolio
-              </Link>
-              <Link
-                href="/pricing"
-                onClick={() => setMobileMenuOpen(false)}
-                className={mobileLinkClass}
-              >
-                Pricing
               </Link>
               <Link
                 href="/experience"

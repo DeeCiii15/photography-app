@@ -85,10 +85,6 @@ export default function ExperiencePage() {
             >
               What you can generally expect
             </h2>
-            <p className="mt-4 font-body text-base font-light leading-[1.8] text-cream-dark/75 dark:text-cream/72">
-              In my own words—the rhythm that keeps things calm on your side of
-              the camera.
-            </p>
             <ol className="mt-12 space-y-10">
               {EXPERIENCE_PROCESS_STEPS.map((step, index) => (
                 <li
@@ -153,8 +149,8 @@ export default function ExperiencePage() {
                   key={faq.question}
                   className="group rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 text-center shadow-sm ring-1 ring-[#e8e3db]/80 transition-[box-shadow] open:shadow-[0_12px_32px_rgba(61,52,44,0.08)] dark:border-boho-stone/40 dark:bg-boho-bark/50 dark:ring-boho-stone/25 dark:open:shadow-[0_12px_32px_rgba(0,0,0,0.2)] sm:text-left"
                 >
-                  <summary className="flex min-h-14 cursor-pointer list-none flex-col items-center gap-2 px-6 py-5 font-display text-lg leading-snug text-cream-dark marker:content-none touch-manipulation sm:min-h-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-8 sm:py-6 sm:text-xl dark:text-cream [&::-webkit-details-marker]:hidden">
-                    <span className="min-w-0 max-w-md pr-0 sm:max-w-none sm:pr-2">
+                  <summary className="flex min-h-14 cursor-pointer list-none flex-col items-center gap-2 px-6 py-5 marker:content-none touch-manipulation sm:min-h-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-8 sm:py-6 [&::-webkit-details-marker]:hidden">
+                    <span className="min-w-0 max-w-md pr-0 font-body text-base font-light leading-[1.8] text-cream-dark sm:max-w-none sm:pr-2 dark:text-cream">
                       {faq.question}
                     </span>
                     <FaqChevron />
@@ -177,7 +173,7 @@ export default function ExperiencePage() {
             </p>
             <Link
               href="/contact"
-              className="font-display mt-6 inline-flex min-h-12 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-coral px-10 py-3.5 text-lg text-white shadow-soft transition hover:border-coral/40 hover:bg-coral-dark hover:shadow-soft-lg dark:border-boho-stone/45"
+              className="font-display mt-6 inline-flex min-h-12 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-coral px-10 py-3.5 text-xl text-white shadow-soft transition hover:border-coral/40 hover:bg-coral-dark hover:shadow-soft-lg sm:text-2xl dark:border-boho-stone/45"
             >
               Write me a note
             </Link>
