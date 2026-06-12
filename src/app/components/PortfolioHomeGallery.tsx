@@ -144,12 +144,22 @@ export default function PortfolioHomeGallery({
         </div>
       </div>
 
+      {/* Mobile: 2 · 2 · 1 — wedding centered on the last row */}
       <div className={`lg:hidden ${mobileGridClass}`}>
         {left.map((card, i) => (
           <GalleryCard
             key={card.name}
             card={card}
             index={i}
+            variant={variant}
+            className="mb-0"
+          />
+        ))}
+        {right.map((card, i) => (
+          <GalleryCard
+            key={card.name}
+            card={card}
+            index={weddingIndex + 1 + i}
             variant={variant}
             className="mb-0"
           />
@@ -162,15 +172,6 @@ export default function PortfolioHomeGallery({
             className="mb-0 w-[calc(50%-0.25rem)] sm:w-[calc(50%-1rem)]"
           />
         </div>
-        {right.map((card, i) => (
-          <GalleryCard
-            key={card.name}
-            card={card}
-            index={weddingIndex + 1 + i}
-            variant={variant}
-            className="mb-0"
-          />
-        ))}
       </div>
     </>
   );

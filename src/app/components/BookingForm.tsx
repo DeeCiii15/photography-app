@@ -67,7 +67,9 @@ type BookingFormProps = {
 };
 
 const fieldClass =
-  'font-body w-full rounded-xl border border-boho-sage/35 bg-white/80 px-5 py-4 text-lg leading-normal text-cream-dark shadow-sm transition-all focus:border-coral focus:outline-none focus:ring-2 focus:ring-boho-sage/20 dark:border-boho-stone/55 dark:bg-boho-stone/80 dark:text-cream dark:focus:ring-coral/30';
+  'font-body box-border w-full min-w-0 max-w-full rounded-xl border border-boho-sage/35 bg-white/80 px-5 py-4 text-lg leading-normal text-cream-dark shadow-sm transition-all focus:border-coral focus:outline-none focus:ring-2 focus:ring-boho-sage/20 dark:border-boho-stone/55 dark:bg-boho-stone/80 dark:text-cream dark:focus:ring-coral/30';
+
+const fieldWrapClass = 'min-w-0 w-full max-w-full';
 
 const labelClass =
   'font-display mb-3 block text-xl leading-snug text-cream-dark dark:text-cream md:text-2xl';
@@ -191,8 +193,8 @@ export default function BookingForm({ className }: BookingFormProps) {
         </div>
       </div>
 
-      <div className="grid min-w-0 grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
-        <div className="min-w-0">
+      <div className="grid min-w-0 w-full max-w-full grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
+        <div className={fieldWrapClass}>
           <label htmlFor="phone" className={labelClass}>
             Phone
           </label>
@@ -204,7 +206,7 @@ export default function BookingForm({ className }: BookingFormProps) {
             placeholder="Optional"
           />
         </div>
-        <div className="min-w-0 w-full max-sm:overflow-hidden">
+        <div className={`booking-form-date-field ${fieldWrapClass}`}>
           <label htmlFor="event_date" className={labelClass}>
             Dream date or season
           </label>
@@ -212,7 +214,7 @@ export default function BookingForm({ className }: BookingFormProps) {
             id="event_date"
             name="event_date"
             type="date"
-            className={`${fieldClass} box-border block w-full min-w-0 max-w-full max-sm:px-4 max-sm:text-base [color-scheme:light] dark:[color-scheme:dark]`}
+            className={`${fieldClass} booking-form-date-input [color-scheme:light] dark:[color-scheme:dark]`}
           />
         </div>
       </div>
