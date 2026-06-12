@@ -128,7 +128,7 @@ export default function Home() {
           id="about"
           className="scroll-mt-24 px-4 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-28"
         >
-          <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-8 sm:grid-cols-2 sm:items-center sm:gap-10 lg:gap-20">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 sm:grid-cols-2 sm:items-center sm:gap-10 lg:gap-20">
             <div className="relative mx-auto aspect-[3/4] w-full max-w-md min-w-0 sm:mx-0 sm:max-w-lg lg:max-w-none">
               <Image
                 src={SITE_IMAGES.photographer}
@@ -138,7 +138,7 @@ export default function Home() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
               />
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 w-full sm:text-left">
               <p className="section-eyebrow text-boho-sage">Behind the lens</p>
               <h2 className="mt-2 font-display text-[1.35rem] font-medium leading-snug text-cream-dark dark:text-cream sm:mt-4 sm:text-4xl md:text-[2.65rem] md:leading-[1.12]">
                 Your story deserves{' '}
@@ -146,7 +146,7 @@ export default function Home() {
                 —unguarded laughs, unscripted tears, and the in-between seconds
                 nobody plans for.
               </h2>
-              <div className="mt-4 space-y-3 text-center font-body text-[0.8rem] font-light leading-[1.75] text-cream-dark/82 dark:text-cream/78 sm:mt-8 sm:space-y-5 sm:text-left sm:text-[0.95rem] sm:leading-[1.8]">
+              <div className="mx-auto mt-4 max-w-md space-y-3 text-center font-body text-[0.8rem] font-light leading-[1.75] text-cream-dark/82 dark:text-cream/78 max-sm:px-1 sm:mt-8 sm:max-w-none sm:space-y-5 sm:px-0 sm:text-left sm:text-[0.95rem] sm:leading-[1.8]">
                 <p>
                   I&apos;m drawn to slow mornings, porch light, and the way your
                   people lean in when they think no one&apos;s looking. From{' '}

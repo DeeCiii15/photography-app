@@ -91,28 +91,26 @@ export default function ExperiencePage() {
                   key={step.title}
                   className="rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 p-8 shadow-[0_8px_28px_rgba(61,52,44,0.05)] ring-1 ring-[#e8e3db]/85 dark:border-boho-stone/40 dark:bg-boho-bark/55 dark:ring-boho-stone/25 sm:p-10"
                 >
-                  {/* Mobile: number + title + photo on one row, paragraph below */}
-                  <div className="sm:hidden">
-                    <div className="flex items-start gap-3">
-                      <span
-                        className="w-9 shrink-0 font-display text-3xl tabular-nums leading-none text-coral/45 dark:text-[#d4a574]/55"
-                        aria-hidden
-                      >
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      <h3 className="min-w-0 flex-1 pt-0.5 font-display text-xl font-medium leading-snug text-cream-dark dark:text-cream">
-                        {step.title}
-                      </h3>
-                      <div className="shrink-0">
-                        <ExperienceProcessPostIt
-                          src={step.postItSrc}
-                          alt={step.postItAlt}
-                          stepNumber={index + 1}
-                          rotationIndex={index}
-                        />
-                      </div>
+                  {/* Mobile: number above title, photo right of both, paragraph tight below */}
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-1 sm:hidden">
+                    <span
+                      className="col-start-1 row-start-1 font-display text-3xl tabular-nums leading-none text-coral/45 dark:text-[#d4a574]/55"
+                      aria-hidden
+                    >
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="col-start-1 row-start-2 font-display text-xl font-medium leading-snug text-cream-dark dark:text-cream">
+                      {step.title}
+                    </h3>
+                    <div className="col-start-2 row-start-1 row-end-3 self-start">
+                      <ExperienceProcessPostIt
+                        src={step.postItSrc}
+                        alt={step.postItAlt}
+                        stepNumber={index + 1}
+                        rotationIndex={index}
+                      />
                     </div>
-                    <p className="mt-4 font-body text-base font-light leading-[1.85] text-cream-dark/85 dark:text-cream/82">
+                    <p className="col-span-2 row-start-3 mt-2 font-body text-base font-light leading-[1.85] text-cream-dark/85 dark:text-cream/82">
                       {step.body}
                     </p>
                   </div>
