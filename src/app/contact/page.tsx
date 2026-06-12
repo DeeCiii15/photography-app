@@ -4,17 +4,22 @@ import SiteFooter from '../components/SiteFooter';
 import HomeStylePageIntro from '../components/HomeStylePageIntro';
 import BookingForm from '../components/BookingForm';
 import Image from 'next/image';
+import {
+  PHOTOGRAPHER_EMAIL,
+  PHOTOGRAPHER_IMAGE_ALT,
+  PRIMARY_CITY,
+  PRIMARY_REGION,
+  PRIMARY_STATE_ABBR,
+} from '@/lib/siteConfig';
 import { SITE_IMAGES } from '@/lib/siteImages';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description:
-    'Reach out about your wedding, portrait session, or celebration—Taylor reads every message.',
+  description: `Book a ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding or portrait photographer serving the ${PRIMARY_REGION}. Share your date, venue, or vision—Taylor reads every message.`,
   alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact',
-    description:
-      'Share a date, a venue, or a feeling—book a wedding, portrait, or celebration session.',
+    description: `Inquire about wedding, portrait, or celebration photography in ${PRIMARY_CITY} and the ${PRIMARY_REGION}.`,
     url: '/contact',
   },
 };
@@ -34,13 +39,15 @@ export default function ContactPage() {
             </h1>
             <p className="mt-5 max-w-lg font-body text-sm font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 md:text-base">
               Share a date, a venue, or a feeling—I read every message myself.
+              Based in {PRIMARY_CITY}, {PRIMARY_STATE_ABBR}, I photograph across
+              the {PRIMARY_REGION} and surrounding South Carolina towns.
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch lg:gap-14">
               <div className="relative hidden aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl bg-[#e8e3db] dark:bg-boho-ink sm:max-w-md lg:col-span-5 lg:block lg:aspect-auto lg:max-w-none lg:min-h-0 lg:h-full lg:rounded-2xl">
                 <Image
                   src={SITE_IMAGES.contactPhoto}
-                  alt="Taylor — photographer"
+                  alt={PHOTOGRAPHER_IMAGE_ALT}
                   fill
                   className="object-cover object-[center_15%]"
                   sizes="(max-width: 1024px) 100vw, 42vw"
@@ -55,10 +62,10 @@ export default function ContactPage() {
             </div>
 
             <a
-              href="mailto:hello@taylorrosereels.com?subject=Inquiry%20from%20Taylor%20Rose%20Reels"
+              href={`mailto:${PHOTOGRAPHER_EMAIL}?subject=Inquiry%20from%20Taylor%20Rose%20Reels`}
               className="font-display mt-10 inline-block text-xl text-coral transition hover:text-coral-dark md:text-[1.65rem]"
             >
-              hello@taylorrosereels.com
+              {PHOTOGRAPHER_EMAIL}
             </a>
           </div>
         </section>

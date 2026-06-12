@@ -6,18 +6,18 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import ExperienceProcessPostIt from '../components/ExperienceProcessPostIt';
 import Image from 'next/image';
 import Link from 'next/link';
+import ExperienceFaqJsonLd from '../components/ExperienceFaqJsonLd';
 import { EXPERIENCE_FAQS, EXPERIENCE_PROCESS_STEPS } from '@/lib/experienceData';
+import { PHOTOGRAPHER_IMAGE_ALT, PRIMARY_CITY, PRIMARY_REGION } from '@/lib/siteConfig';
 import { SITE_IMAGES } from '@/lib/siteImages';
 
 export const metadata: Metadata = {
   title: 'Experience',
-  description:
-    'What to expect from inquiry to gallery—plus answers to common questions and words from past clients.',
+  description: `What to expect working with a ${PRIMARY_CITY} photographer serving the ${PRIMARY_REGION}—from inquiry to gallery, plus FAQs and words from past clients.`,
   alternates: { canonical: '/experience' },
   openGraph: {
     title: 'Experience',
-    description:
-      'From first note to final frame—the rhythm of working together, FAQs, and client words.',
+    description: `From first note to final frame—the rhythm of working together across the ${PRIMARY_REGION}, with FAQs and client words.`,
     url: '/experience',
   },
 };
@@ -40,6 +40,7 @@ function FaqChevron() {
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-[#f4f1eb] dark:bg-boho-ink">
+      <ExperienceFaqJsonLd />
       <Navigation />
       <HomeStylePageIntro />
 
@@ -49,7 +50,7 @@ export default function ExperiencePage() {
             <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2px] bg-[#e8e3db] shadow-[0_12px_36px_rgba(61,52,44,0.1)] ring-1 ring-[#e8e3db] dark:bg-boho-bark dark:ring-boho-stone/35 lg:col-span-5 lg:mx-0 lg:max-w-none">
               <Image
                 src={SITE_IMAGES.photographer}
-                alt="Taylor — photographer"
+                alt={PHOTOGRAPHER_IMAGE_ALT}
                 fill
                 className="object-cover object-[center_15%]"
                 sizes="(max-width: 1024px) 90vw, 42vw"

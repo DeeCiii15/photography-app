@@ -1,33 +1,12 @@
 'use client';
 
 import { useRef, useState } from 'react';
-
-const PHOTOGRAPHER_EMAIL =
-  process.env.NEXT_PUBLIC_PHOTOGRAPHER_EMAIL ?? 'hello@taylorrosereels.com';
-
-/** E.164-style number for sms: links (e.g. +15551234567). */
-const PHOTOGRAPHER_SMS_NUMBER =
-  process.env.NEXT_PUBLIC_PHOTOGRAPHER_PHONE ?? '+1234567890';
-
-function formatPhoneDisplay(raw: string): string {
-  const digits = raw.replace(/\D/g, '');
-  if (digits.length === 10) {
-    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
-  }
-  if (digits.length === 11 && digits.startsWith('1')) {
-    return `+1 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
-  }
-  return raw.trim() || PHOTOGRAPHER_SMS_NUMBER;
-}
-
-function telHref(raw: string): string {
-  const cleaned = raw.replace(/[^\d+]/g, '');
-  if (cleaned.startsWith('+')) return `tel:${cleaned}`;
-  const digits = cleaned.replace(/\D/g, '');
-  return digits ? `tel:+${digits}` : `tel:${raw}`;
-}
-
-const PHONE_DISPLAY = formatPhoneDisplay(PHOTOGRAPHER_SMS_NUMBER);
+import {
+  PHOTOGRAPHER_EMAIL,
+  PHOTOGRAPHER_PHONE_DISPLAY,
+  PHOTOGRAPHER_PHONE_RAW,
+  telHref,
+} from '@/lib/siteConfig';
 
 function getField(formData: FormData, key: string): string {
   const v = formData.get(key);
@@ -65,7 +44,7 @@ function buildMailtoUrl(formData: FormData): string {
 
 function buildSmsUrl(formData: FormData): string {
   const body = buildInquiryBody(formData);
-  const digits = PHOTOGRAPHER_SMS_NUMBER.replace(/[^\d+]/g, '');
+  const digits = PHOTOGRAPHER_PHONE_RAW.replace(/[^\d+]/g, '');
   return `sms:${digits}?body=${encodeURIComponent(body)}`;
 }
 
@@ -147,14 +126,19 @@ export default function BookingForm({ className }: BookingFormProps) {
             className="underline decoration-coral/40 underline-offset-2 hover:text-coral-dark"
           >
             {PHOTOGRAPHER_EMAIL}
-          </a>{' '}
-          or{' '}
-          <a
-            href={telHref(PHOTOGRAPHER_SMS_NUMBER)}
-            className="whitespace-nowrap underline decoration-coral/40 underline-offset-2 hover:text-coral-dark"
-          >
-            {PHONE_DISPLAY}
           </a>
+          {PHOTOGRAPHER_PHONE_RAW ? (
+            <>
+              {' '}
+              or{' '}
+              <a
+                href={telHref(PHOTOGRAPHER_PHONE_RAW)}
+                className="whitespace-nowrap underline decoration-coral/40 underline-offset-2 hover:text-coral-dark"
+              >
+                {PHOTOGRAPHER_PHONE_DISPLAY}
+              </a>
+            </>
+          ) : null}
           .
         </p>
         <button
@@ -269,13 +253,15 @@ export default function BookingForm({ className }: BookingFormProps) {
         >
           Send by email
         </button>
-        <button
-          type="button"
-          onClick={openSms}
-          className="font-display min-h-12 flex-1 touch-manipulation rounded-full border border-coral/50 bg-white/60 px-6 py-4 text-xl text-coral backdrop-blur-sm transition hover:bg-coral/10 dark:bg-boho-bark/40 dark:text-coral"
-        >
-          Send by text
-        </button>
+        {PHOTOGRAPHER_PHONE_RAW ? (
+          <button
+            type="button"
+            onClick={openSms}
+            className="font-display min-h-12 flex-1 touch-manipulation rounded-full border border-coral/50 bg-white/60 px-6 py-4 text-xl text-coral backdrop-blur-sm transition hover:bg-coral/10 dark:bg-boho-bark/40 dark:text-coral"
+          >
+            Send by text
+          </button>
+        ) : null}
       </div>
       <p className="font-body text-center text-sm leading-relaxed text-cream-dark/65 dark:text-cream/65 md:text-base">
         This opens your own email or messages app with your note ready—you tap

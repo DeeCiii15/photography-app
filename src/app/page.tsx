@@ -9,6 +9,13 @@ import Link from 'next/link';
 import { PORTFOLIO_HOME_CARDS } from '@/lib/portfolioData';
 import { SCRAPBOOK_STYLES } from '@/lib/scrapbookGalleryStyles';
 import { SITE_IMAGES } from '@/lib/siteImages';
+import {
+  PHOTOGRAPHER_IMAGE_ALT,
+  PRIMARY_CITY,
+  PRIMARY_REGION,
+  PRIMARY_STATE_ABBR,
+  SERVICE_AREAS,
+} from '@/lib/siteConfig';
 
 /**
  * Home: editorial sequence around your inspiration imagery.
@@ -23,12 +30,15 @@ export default function Home() {
         {/* Full-viewport hero — rotating inspiration set */}
         <HomeHeroSlideshow>
           <div className="flex min-h-svh flex-col items-center justify-end px-6 pb-16 pt-28 text-center sm:items-start sm:px-10 sm:pb-20 sm:text-left md:pb-24 lg:px-16">
-            <p className="type-eyebrow mx-auto max-w-md text-white/88 sm:mx-0">
-              Wedding &amp; portrait · Natural light · The American South
-            </p>
-            <p className="font-display mx-auto mt-6 max-w-xl text-2xl leading-snug text-white/95 sm:mx-0 sm:text-3xl md:text-[2.15rem]">
-              Soft light, honest color, frames that feel like memory.
-            </p>
+            <h1 className="mx-auto max-w-xl sm:mx-0">
+              <span className="type-eyebrow block text-white/88">
+                {PRIMARY_CITY}, {PRIMARY_STATE_ABBR} · {PRIMARY_REGION} · Wedding
+                &amp; portrait
+              </span>
+              <span className="font-display mt-6 block text-2xl leading-snug text-white/95 sm:text-3xl md:text-[2.15rem]">
+                Soft light, honest color, frames that feel like memory.
+              </span>
+            </h1>
             <div className="mx-auto mt-6 flex w-full max-w-md flex-row flex-wrap justify-center gap-2 sm:mt-10 sm:mx-0 sm:max-w-none sm:justify-start sm:gap-3 md:flex-row">
               <Link
                 href="/portfolio"
@@ -104,9 +114,12 @@ export default function Home() {
             <p className="mt-3 font-body text-xs font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 sm:mt-4 sm:text-sm sm:text-base">
               This little corner of the internet is a slow scroll through the
               kind of light I love—golden fields, quiet ceremony corners, and
-              film-soft black and white. Stay as long as you like; when
-              you&apos;re ready, we&apos;ll dream up a session that feels like
-              you, not a pose list.
+              film-soft black and white. Based in {PRIMARY_CITY}, I photograph
+              weddings and portraits across the {PRIMARY_REGION} and
+              surrounding {PRIMARY_STATE_ABBR} towns like{' '}
+              {SERVICE_AREAS.slice(1, 4).join(', ')}, and beyond. Stay as long as
+              you like; when you&apos;re ready, we&apos;ll dream up a session
+              that feels like you, not a pose list.
             </p>
           </div>
         </section>
@@ -120,7 +133,7 @@ export default function Home() {
             <div className="relative mx-auto aspect-[3/4] w-full max-w-md min-w-0 sm:mx-0 sm:max-w-lg lg:max-w-none">
               <Image
                 src={SITE_IMAGES.photographer}
-                alt="Taylor — photographer"
+                alt={PHOTOGRAPHER_IMAGE_ALT}
                 fill
                 className="object-cover object-[center_15%]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
@@ -137,9 +150,11 @@ export default function Home() {
               <div className="mt-4 space-y-3 font-body text-[0.8rem] font-light leading-[1.75] text-cream-dark/82 dark:text-cream/78 sm:mt-8 sm:space-y-5 sm:text-[0.95rem] sm:leading-[1.8]">
                 <p>
                   I&apos;m drawn to slow mornings, porch light, and the way your
-                  people lean in when they think no one&apos;s looking. Tell me
-                  what matters to you—music, place, texture, mood—and I&apos;ll
-                  chase that thread from first look to last dance.
+                  people lean in when they think no one&apos;s looking. From{' '}
+                  {PRIMARY_CITY} to {SERVICE_AREAS[1]} and across the{' '}
+                  {PRIMARY_REGION}, tell me what matters to you—music, place,
+                  texture, mood—and I&apos;ll chase that thread from first look
+                  to last dance.
                 </p>
                 <p>
                   No stiff posing playbook: just gentle direction, a calm

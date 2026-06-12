@@ -4,16 +4,15 @@ import SiteFooter from '../components/SiteFooter';
 import HomeStylePageIntro from '../components/HomeStylePageIntro';
 import Link from 'next/link';
 import { INVESTMENT_CATEGORIES } from '@/lib/pricingData';
-import { SITE_NAME } from '@/lib/siteConfig';
+import { PRIMARY_CITY, PRIMARY_REGION, PRIMARY_STATE_ABBR, SITE_NAME } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
   title: 'Pricing & investment',
-  description: `Wedding, elopement, engagement, portrait, and event starting rates—clear, kind, and tailored to your plans. ${SITE_NAME}.`,
+  description: `Wedding, elopement, engagement, portrait, and event starting rates in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} and the ${PRIMARY_REGION}—clear, kind, and tailored to your plans. ${SITE_NAME}.`,
   alternates: { canonical: '/pricing' },
   openGraph: {
     title: `Pricing & investment | ${SITE_NAME}`,
-    description:
-      'Starting places for weddings, elopements, couples, portraits, and events—every rate can be adjusted for travel and add-ons.',
+    description: `Starting places for weddings, elopements, couples, portraits, and events across the ${PRIMARY_REGION}—every rate can be adjusted for travel and add-ons.`,
     url: '/pricing',
   },
 };

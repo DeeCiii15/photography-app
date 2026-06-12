@@ -1,5 +1,6 @@
 'use client';
 
+import { SERVICE_AREA_LABEL } from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialNetworkIcon } from './SocialMediaIcons';
 
@@ -16,6 +17,9 @@ export default function SiteFooter() {
           </p>
           <p className="mt-3 max-w-md font-body text-xs font-light leading-relaxed text-cream-dark/65 dark:text-cream/60">
             Photography rooted in your inspiration.
+          </p>
+          <p className="mt-2 max-w-md font-body text-xs font-light leading-relaxed text-cream-dark/55 dark:text-cream/50">
+            {SERVICE_AREA_LABEL}
           </p>
         </div>
         {socialLinks.length > 0 && (

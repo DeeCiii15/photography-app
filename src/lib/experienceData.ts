@@ -43,7 +43,7 @@ export const EXPERIENCE_FAQS = [
   {
     question: 'Will you travel for my day?',
     answer:
-      "Oh, honey, yes—some of my favorite sessions have been a road trip away. Travel is quoted kindly based on mileage or lodging, and we'll talk through all of that before you ever sign anything.",
+      "Oh, honey, yes—I'm based in Florence and photograph across the Pee Dee, from Hartsville and Darlington to Marion, Dillon, and beyond. Travel outside the region is quoted kindly based on mileage or lodging, and we'll talk through all of that before you ever sign anything.",
   },
   {
     question: 'When will my gallery be ready?',

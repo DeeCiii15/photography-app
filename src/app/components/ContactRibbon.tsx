@@ -1,6 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import {
+  PHOTOGRAPHER_EMAIL,
+  PHOTOGRAPHER_PHONE_DISPLAY,
+  PHOTOGRAPHER_PHONE_RAW,
+  telHref,
+} from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialHubIcon, SocialNetworkIcon } from './SocialMediaIcons';
 
@@ -195,36 +201,40 @@ function DesktopRibbon() {
   return (
     <div className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-3 right-3 z-50 hidden sm:bottom-6 sm:left-auto sm:right-6 sm:block">
       <div className="pointer-events-auto mx-auto flex w-full max-w-full flex-col rounded-2xl border border-boho-sage/25 bg-white/70 py-2 pl-2 pr-2 shadow-sm backdrop-blur-md dark:border-boho-stone/45 dark:bg-boho-ink/55 sm:w-max sm:min-w-[min(100%,28.5rem)] sm:max-w-[calc(100vw-0.75rem)] sm:flex-row sm:items-center sm:rounded-full sm:border-boho-sage/25 sm:bg-white/55 sm:py-1.5 sm:pl-1.5 sm:pr-1.5 sm:dark:bg-boho-ink/50">
+        {PHOTOGRAPHER_PHONE_RAW ? (
+          <>
+            <a
+              href={telHref(PHOTOGRAPHER_PHONE_RAW)}
+              aria-label={`Call ${PHOTOGRAPHER_PHONE_DISPLAY}`}
+              className="flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl px-2 py-2 transition hover:bg-boho-sage/15 active:bg-boho-sage/20 dark:hover:bg-white/10 sm:min-h-0 sm:justify-start sm:rounded-full sm:py-1 sm:pl-1 sm:pr-2"
+            >
+              <IconMat>
+                <PhoneIcon className="h-[15px] w-[15px]" />
+              </IconMat>
+              <span className="whitespace-nowrap font-body text-sm font-medium leading-tight text-cream-dark dark:text-cream sm:text-xs">
+                {PHOTOGRAPHER_PHONE_DISPLAY}
+              </span>
+            </a>
+            <span
+              className="mx-2 hidden h-4 w-px shrink-0 bg-dusty-rose/45 dark:bg-boho-stone/45 sm:block"
+              aria-hidden
+            />
+            <div
+              className="h-px w-full bg-dusty-rose/35 dark:bg-boho-stone/40 sm:hidden"
+              aria-hidden
+            />
+          </>
+        ) : null}
         <a
-          href="tel:+1234567890"
-          aria-label="Call (123) 456-7890"
-          className="flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl px-2 py-2 transition hover:bg-boho-sage/15 active:bg-boho-sage/20 dark:hover:bg-white/10 sm:min-h-0 sm:justify-start sm:rounded-full sm:py-1 sm:pl-1 sm:pr-2"
-        >
-          <IconMat>
-            <PhoneIcon className="h-[15px] w-[15px]" />
-          </IconMat>
-          <span className="whitespace-nowrap font-body text-sm font-medium leading-tight text-cream-dark dark:text-cream sm:text-xs">
-            (123) 456-7890
-          </span>
-        </a>
-        <span
-          className="mx-2 hidden h-4 w-px shrink-0 bg-dusty-rose/45 dark:bg-boho-stone/45 sm:block"
-          aria-hidden
-        />
-        <div
-          className="h-px w-full bg-dusty-rose/35 dark:bg-boho-stone/40 sm:hidden"
-          aria-hidden
-        />
-        <a
-          href="mailto:hello@taylorrosereels.com?subject=Inquiry%20from%20Taylor%20Rose%20Reels"
-          aria-label="Email hello@taylorrosereels.com"
+          href={`mailto:${PHOTOGRAPHER_EMAIL}?subject=Inquiry%20from%20Taylor%20Rose%20Reels`}
+          aria-label={`Email ${PHOTOGRAPHER_EMAIL}`}
           className="flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-xl px-2 py-2 transition hover:bg-boho-sage/15 active:bg-boho-sage/20 dark:hover:bg-white/10 sm:min-h-0 sm:justify-start sm:rounded-full sm:py-1 sm:pl-1 sm:pr-2"
         >
           <IconMat>
             <MailIcon className="h-[15px] w-[15px]" />
           </IconMat>
           <span className="min-w-0 break-all text-center font-body text-xs font-medium leading-snug text-coral dark:text-[#e8b896] sm:break-normal sm:text-left sm:text-xs sm:leading-tight">
-            hello@taylorrosereels.com
+            {PHOTOGRAPHER_EMAIL}
           </span>
         </a>
         <DesktopSocialRow />
@@ -447,25 +457,27 @@ function MobileContactRibbons() {
           </button>
         </div>
         <div className="flex flex-col gap-1 px-3 py-4">
+          {PHOTOGRAPHER_PHONE_RAW ? (
+            <a
+              href={telHref(PHOTOGRAPHER_PHONE_RAW)}
+              onClick={() => setContactOpen(false)}
+              className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
+            >
+              <IconMat>
+                <PhoneIcon className="h-[15px] w-[15px]" />
+              </IconMat>
+              <div className="min-w-0">
+                <p className="font-body text-xs font-semibold uppercase tracking-wider text-cream-dark/55 dark:text-cream/50">
+                  Call
+                </p>
+                <p className="font-body text-base font-medium text-cream-dark dark:text-cream">
+                  {PHOTOGRAPHER_PHONE_DISPLAY}
+                </p>
+              </div>
+            </a>
+          ) : null}
           <a
-            href="tel:+1234567890"
-            onClick={() => setContactOpen(false)}
-            className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
-          >
-            <IconMat>
-              <PhoneIcon className="h-[15px] w-[15px]" />
-            </IconMat>
-            <div className="min-w-0">
-              <p className="font-body text-xs font-semibold uppercase tracking-wider text-cream-dark/55 dark:text-cream/50">
-                Call
-              </p>
-              <p className="font-body text-base font-medium text-cream-dark dark:text-cream">
-                (123) 456-7890
-              </p>
-            </div>
-          </a>
-          <a
-            href="mailto:hello@taylorrosereels.com?subject=Inquiry%20from%20Taylor%20Rose%20Reels"
+            href={`mailto:${PHOTOGRAPHER_EMAIL}?subject=Inquiry%20from%20Taylor%20Rose%20Reels`}
             onClick={() => setContactOpen(false)}
             className="flex min-h-14 touch-manipulation items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-boho-sage/12 active:bg-boho-sage/18 dark:hover:bg-white/10"
           >
@@ -477,7 +489,7 @@ function MobileContactRibbons() {
                 Email
               </p>
               <p className="break-all font-body text-base font-medium text-coral dark:text-[#e8b896]">
-                hello@taylorrosereels.com
+                {PHOTOGRAPHER_EMAIL}
               </p>
             </div>
           </a>

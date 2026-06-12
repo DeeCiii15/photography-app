@@ -6,6 +6,10 @@ import SiteJsonLd from "./components/SiteJsonLd";
 import {
   DEFAULT_OG_IMAGE_PATH,
   getSiteUrl,
+  LOCAL_KEYWORDS,
+  PHOTOGRAPHER_IMAGE_ALT,
+  PRIMARY_CITY,
+  PRIMARY_STATE_ABBR,
   SITE_DESCRIPTION,
   SITE_NAME,
 } from "@/lib/siteConfig";
@@ -29,19 +33,11 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${SITE_NAME} | Golden Hour Wedding & Portrait Photography`,
+    default: `${SITE_NAME} | ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} Wedding & Portrait Photographer`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-    "wedding photographer",
-    "portrait photographer",
-    "Southern wedding photography",
-    "natural light photography",
-    "elopement photographer",
-    "engagement photographer",
-    SITE_NAME,
-  ],
+  keywords: [...LOCAL_KEYWORDS],
   authors: [{ name: SITE_NAME, url: siteUrl }],
   creator: SITE_NAME,
   openGraph: {
@@ -49,18 +45,18 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | Golden Hour Wedding & Portrait Photography`,
+    title: `${SITE_NAME} | ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} Wedding & Portrait Photographer`,
     description: SITE_DESCRIPTION,
     images: [
       {
         url: DEFAULT_OG_IMAGE_PATH,
-        alt: `${SITE_NAME} — photographer`,
+        alt: PHOTOGRAPHER_IMAGE_ALT,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} | Wedding & Portrait Photography`,
+    title: `${SITE_NAME} | ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} Photographer`,
     description: SITE_DESCRIPTION,
     images: [DEFAULT_OG_IMAGE_PATH],
   },

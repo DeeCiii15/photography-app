@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
-import { SITE_NAME } from '@/lib/siteConfig';
+import { PRIMARY_CITY, PRIMARY_REGION, PRIMARY_STATE_ABBR, SITE_NAME } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
-  description: `Wedding, elopement, engagement, portrait, and event galleries—natural light and honest color. ${SITE_NAME}.`,
+  description: `Wedding, elopement, engagement, portrait, and event galleries from ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} and the ${PRIMARY_REGION}. Natural light and honest color by ${SITE_NAME}.`,
   alternates: { canonical: '/portfolio' },
   openGraph: {
     title: `Portfolio | ${SITE_NAME}`,
-    description:
-      'Browse wedding, elopement, engagement, portrait, and special event photography.',
+    description: `Browse wedding, elopement, engagement, portrait, and event photography across the ${PRIMARY_REGION} and ${PRIMARY_STATE_ABBR}.`,
     url: '/portfolio',
   },
 };
