@@ -91,19 +91,46 @@ export default function ExperiencePage() {
                   key={step.title}
                   className="rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 p-8 shadow-[0_8px_28px_rgba(61,52,44,0.05)] ring-1 ring-[#e8e3db]/85 dark:border-boho-stone/40 dark:bg-boho-bark/55 dark:ring-boho-stone/25 sm:p-10"
                 >
+                  {/* Mobile: number + title + photo on one row, paragraph below */}
+                  <div className="sm:hidden">
+                    <div className="flex items-start gap-3">
+                      <span
+                        className="w-9 shrink-0 font-display text-3xl tabular-nums leading-none text-coral/45 dark:text-[#d4a574]/55"
+                        aria-hidden
+                      >
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <h3 className="min-w-0 flex-1 pt-0.5 font-display text-xl font-medium leading-snug text-cream-dark dark:text-cream">
+                        {step.title}
+                      </h3>
+                      <div className="shrink-0">
+                        <ExperienceProcessPostIt
+                          src={step.postItSrc}
+                          alt={step.postItAlt}
+                          stepNumber={index + 1}
+                          rotationIndex={index}
+                        />
+                      </div>
+                    </div>
+                    <p className="mt-4 font-body text-base font-light leading-[1.85] text-cream-dark/85 dark:text-cream/82">
+                      {step.body}
+                    </p>
+                  </div>
+
+                  {/* Desktop: original side-by-side layout */}
                   <div
-                    className={`relative flex flex-col items-stretch gap-6 sm:flex-row sm:items-start sm:gap-6 lg:gap-12 ${index % 2 === 1 ? 'sm:flex-row-reverse' : ''}`}
+                    className={`relative hidden items-stretch gap-6 sm:flex sm:items-start lg:gap-12 ${index % 2 === 1 ? 'sm:flex-row-reverse' : 'sm:flex-row'}`}
                   >
-                    <div className="min-w-0 w-full flex-1 overflow-hidden pr-[4.5rem] sm:overflow-visible sm:pr-0">
-                      <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-baseline sm:gap-6">
+                    <div className="min-w-0 w-full flex-1">
+                      <div className="flex w-full flex-row items-baseline gap-6">
                         <span
-                          className="font-display text-4xl tabular-nums leading-none text-coral/45 dark:text-[#d4a574]/55 sm:w-14 sm:shrink-0 sm:text-5xl"
+                          className="w-14 shrink-0 font-display text-5xl tabular-nums leading-none text-coral/45 dark:text-[#d4a574]/55"
                           aria-hidden
                         >
                           {String(index + 1).padStart(2, '0')}
                         </span>
                         <div className="min-w-0 w-full max-w-none flex-1">
-                          <h3 className="w-full font-display text-xl font-medium text-cream-dark dark:text-cream sm:text-2xl">
+                          <h3 className="w-full font-display text-2xl font-medium text-cream-dark dark:text-cream">
                             {step.title}
                           </h3>
                           <p className="mt-4 w-full max-w-none font-body text-base font-light leading-[1.85] text-cream-dark/85 dark:text-cream/82">
@@ -112,7 +139,7 @@ export default function ExperiencePage() {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute right-3 top-3 z-10 w-fit sm:static sm:right-auto sm:top-auto sm:z-auto sm:shrink-0">
+                    <div className="shrink-0">
                       <ExperienceProcessPostIt
                         src={step.postItSrc}
                         alt={step.postItAlt}
