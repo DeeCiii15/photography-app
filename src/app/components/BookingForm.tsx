@@ -204,7 +204,7 @@ export default function BookingForm({ className }: BookingFormProps) {
             placeholder="Optional"
           />
         </div>
-        <div className="min-w-0">
+        <div className="min-w-0 w-full max-sm:overflow-hidden">
           <label htmlFor="event_date" className={labelClass}>
             Dream date or season
           </label>
@@ -212,7 +212,7 @@ export default function BookingForm({ className }: BookingFormProps) {
             id="event_date"
             name="event_date"
             type="date"
-            className={`${fieldClass} box-border min-w-0 max-w-full [color-scheme:light] dark:[color-scheme:dark]`}
+            className={`${fieldClass} box-border block w-full min-w-0 max-w-full max-sm:px-4 max-sm:text-base [color-scheme:light] dark:[color-scheme:dark]`}
           />
         </div>
       </div>

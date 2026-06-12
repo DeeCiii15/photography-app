@@ -146,7 +146,7 @@ export default function Home() {
                 —unguarded laughs, unscripted tears, and the in-between seconds
                 nobody plans for.
               </h2>
-              <div className="mt-4 space-y-3 font-body text-[0.8rem] font-light leading-[1.75] text-cream-dark/82 dark:text-cream/78 sm:mt-8 sm:space-y-5 sm:text-[0.95rem] sm:leading-[1.8]">
+              <div className="mt-4 space-y-3 text-center font-body text-[0.8rem] font-light leading-[1.75] text-cream-dark/82 dark:text-cream/78 sm:mt-8 sm:space-y-5 sm:text-left sm:text-[0.95rem] sm:leading-[1.8]">
                 <p>
                   I&apos;m drawn to slow mornings, porch light, and the way your
                   people lean in when they think no one&apos;s looking. From{' '}

@@ -106,9 +106,9 @@ export default function PortfolioHomeGallery({
 }: PortfolioHomeGalleryProps) {
   const isHome = variant === 'home';
   const { left, wedding, weddingIndex, right } = getCenteredGalleryGroups();
-  const columnsClass = isHome
-    ? 'columns-2 gap-x-2 gap-y-1 sm:gap-x-8 sm:gap-y-2 lg:columns-3 lg:gap-x-10'
-    : 'columns-1 gap-x-8 gap-y-2 sm:columns-2 lg:columns-3 lg:gap-x-10';
+  const mobileGridClass = isHome
+    ? 'grid grid-cols-2 gap-x-2 gap-y-4 sm:gap-x-8 sm:gap-y-10'
+    : 'grid grid-cols-2 gap-x-8 gap-y-10';
 
   return (
     <>
@@ -144,9 +144,32 @@ export default function PortfolioHomeGallery({
         </div>
       </div>
 
-      <div className={`lg:hidden ${columnsClass}`}>
-        {PORTFOLIO_HOME_CARDS_CENTERED.map((card, i) => (
-          <GalleryCard key={card.name} card={card} index={i} variant={variant} />
+      <div className={`lg:hidden ${mobileGridClass}`}>
+        {left.map((card, i) => (
+          <GalleryCard
+            key={card.name}
+            card={card}
+            index={i}
+            variant={variant}
+            className="mb-0"
+          />
+        ))}
+        <div className="col-span-2 flex justify-center">
+          <GalleryCard
+            card={wedding}
+            index={weddingIndex}
+            variant={variant}
+            className="mb-0 w-[calc(50%-0.25rem)] sm:w-[calc(50%-1rem)]"
+          />
+        </div>
+        {right.map((card, i) => (
+          <GalleryCard
+            key={card.name}
+            card={card}
+            index={weddingIndex + 1 + i}
+            variant={variant}
+            className="mb-0"
+          />
         ))}
       </div>
     </>
