@@ -97,5 +97,11 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       description:
         'Bridal portraits in Camden, SC—soft light, elegant details, & the quiet beauty of getting ready for your wedding day.',
     },
+    {
+      slug: 'florence-sc-professional-portraits',
+      title: 'Florence Professional Portraits',
+      description:
+        'Professional portraits in Florence, SC—polished, approachable, & natural light for headshots, branding, & putting your best self forward.',
+    },
   ],
 };
