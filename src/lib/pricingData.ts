@@ -1,6 +1,6 @@
 /**
  * Investment page — starting prices by session type.
- * Edit `startingAt` and copy anytime; amounts are placeholders until you set your real rates.
+ * Edit `startingAt` & copy anytime; amounts are placeholders until you set your real rates.
  */
 
 export type InvestmentCategory = {
@@ -25,7 +25,7 @@ export const INVESTMENT_CATEGORIES: InvestmentCategory[] = [
     startingAt: 'Starting at $4,200',
     coverage: 'Typically 8–10 hours · customizable',
     description:
-      'Getting ready through send-off—I stay close for vows, portraits, and the dance floor so the story of your day stays complete.',
+      'Getting ready through send-off—I stay close for vows, portraits, & the dance floor so the story of your day stays complete.',
     highlights: [
       'Timeline planning consult',
       'Edited high-resolution gallery',
@@ -54,7 +54,7 @@ export const INVESTMENT_CATEGORIES: InvestmentCategory[] = [
     startingAt: 'Starting at $450',
     coverage: 'About 1–1.5 hours · one location',
     description:
-      'Front-porch light, downtown strolls, or the place you said yes—easy posing and lots of laughter.',
+      'Front-porch light, downtown strolls, or the place you said yes—easy posing & lots of laughter.',
     highlights: [
       'Wardrobe & location tips beforehand',
       'Gallery ready in a few weeks',
@@ -82,7 +82,7 @@ export const INVESTMENT_CATEGORIES: InvestmentCategory[] = [
     startingAt: 'Starting at $600',
     coverage: 'Hourly or half-day · scoped to your run-of-show',
     description:
-      'Fundraisers, anniversaries, openings, or polished imagery for your business—documented with warmth and a steady hand.',
+      'Fundraisers, anniversaries, openings, or polished imagery for your business—documented with warmth & a steady hand.',
     highlights: [
       'Coverage tailored to your schedule',
       'Delivery timeline agreed in advance',

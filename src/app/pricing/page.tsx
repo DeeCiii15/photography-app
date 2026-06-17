@@ -9,11 +9,11 @@ import { PRIMARY_CITY, PRIMARY_REGION, PRIMARY_STATE_ABBR, SITE_NAME } from '@/l
 
 export const metadata: Metadata = {
   title: 'Pricing & investment',
-  description: `Wedding, elopement, engagement, portrait, and event starting rates in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} and the ${PRIMARY_REGION}—clear, kind, and tailored to your plans. ${SITE_NAME}.`,
+  description: `Wedding, elopement, engagement, portrait, & event starting rates in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—clear, kind, & tailored to your plans. ${SITE_NAME}.`,
   alternates: { canonical: '/pricing' },
   openGraph: {
     title: `Pricing & investment | ${SITE_NAME}`,
-    description: `Starting places for weddings, elopements, couples, portraits, and events across the ${PRIMARY_REGION}—every rate can be adjusted for travel and add-ons.`,
+    description: `Starting places for weddings, elopements, couples, portraits, & events across the ${PRIMARY_REGION}—every rate can be adjusted for travel & add-ons.`,
     url: '/pricing',
   },
 };
@@ -36,7 +36,7 @@ export default function PricingPage() {
               behind them
             </h1>
             <p className="mt-5 font-body text-sm font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 sm:text-base md:leading-[1.78]">
-              Starting places for weddings, elopements, couples, portraits, and
+              Starting places for weddings, elopements, couples, portraits, &
               events—then we tailor once I know your plans. Every rate below can
               be adjusted for travel, extra hours, or add-ons.
             </p>

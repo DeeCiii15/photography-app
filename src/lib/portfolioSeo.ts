@@ -25,7 +25,7 @@ export function portfolioShootPath(
 
 export function categoryMetadata(category: PortfolioCategoryDef) {
   const title = `${category.name} Gallery`;
-  const description = `${category.description} ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} and ${PRIMARY_REGION} photography by ${SITE_NAME}.`;
+  const description = `${category.description} ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & ${PRIMARY_REGION} photography by ${SITE_NAME}.`;
   const path = portfolioCategoryPath(category.folder);
 
   return {
@@ -47,7 +47,7 @@ export function shootMetadata(
   const title = shoot.title;
   const description =
     shoot.description?.trim() ||
-    `${shoot.title} — ${category.name.toLowerCase()} photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} and the ${PRIMARY_REGION} by ${SITE_NAME}.`;
+    `${shoot.title} — ${category.name.toLowerCase()} photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION} by ${SITE_NAME}.`;
   const path = portfolioShootPath(category.folder, shoot.slug);
 
   return {

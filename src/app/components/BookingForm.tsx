@@ -244,7 +244,7 @@ export default function BookingForm({ className }: BookingFormProps) {
           name="message"
           rows={6}
           className={`${fieldClass} resize-none`}
-          placeholder="Tell me all the details. What is your vibe, vision and style? What is your location?"
+          placeholder="Tell me all the details. What is your vibe, vision & style? What is your location?"
         />
       </div>
 

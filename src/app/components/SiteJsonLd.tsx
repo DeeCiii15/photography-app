@@ -53,7 +53,7 @@ export default function SiteJsonLd() {
       'Family photography',
       'Portrait photography',
       'Elopement photography',
-      'Couples and engagement photography',
+      'Couples & engagement photography',
       'Motherhood photography',
       'Event photography',
     ],

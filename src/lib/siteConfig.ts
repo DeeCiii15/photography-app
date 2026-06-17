@@ -53,14 +53,14 @@ export const PHOTOGRAPHER_EMAIL =
   process.env.NEXT_PUBLIC_PHOTOGRAPHER_EMAIL?.trim() ||
   'taylorrosereels@gmail.com';
 
-export const PHOTOGRAPHER_IMAGE_ALT = `${SITE_NAME}, ${PRIMARY_CITY} ${PRIMARY_STATE_ABBR} wedding and portrait photographer`;
+export const PHOTOGRAPHER_IMAGE_ALT = `${SITE_NAME}, ${PRIMARY_CITY} ${PRIMARY_STATE_ABBR} wedding & portrait photographer`;
 
-export const SERVICE_AREA_LABEL = `Based in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} · Serving the ${PRIMARY_REGION} and beyond`;
+export const SERVICE_AREA_LABEL = `Based in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} · Serving the ${PRIMARY_REGION} & beyond`;
 
-export const SITE_TAGLINE = `Wedding & portrait photography in natural light across ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} and the ${PRIMARY_REGION}`;
+export const SITE_TAGLINE = `Wedding & portrait photography in natural light across ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}`;
 
 /** Default meta description (home + fallback) */
-export const SITE_DESCRIPTION = `${SITE_NAME} is a ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding and portrait photographer serving the ${PRIMARY_REGION}—${SERVICE_AREAS.slice(1, 5).join(', ')}, and beyond. Natural light, sage greens and wheat gold, for Southern and boho-modern love stories.`;
+export const SITE_DESCRIPTION = `${SITE_NAME} is a ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding & portrait photographer serving the ${PRIMARY_REGION}—${SERVICE_AREAS.slice(1, 5).join(', ')}, & beyond. Natural light, sage greens & wheat gold, for Southern & boho-modern love stories.`;
 
 export const LOCAL_KEYWORDS = [
   `${PRIMARY_CITY} ${PRIMARY_STATE_ABBR} photographer`,

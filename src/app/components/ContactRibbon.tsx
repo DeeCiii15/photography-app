@@ -245,7 +245,7 @@ function MobileContactRibbons() {
       <div
         className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-3 z-50 h-[min(9.25rem,calc(100dvh-6rem))] w-[min(8.75rem,calc(100vw-1.5rem))]"
         role="group"
-        aria-label="Contact and social"
+        aria-label="Contact & social"
       >
         <div className="pointer-events-none relative h-full w-full">
           {fabMenuOpen && (

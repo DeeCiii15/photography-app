@@ -18,7 +18,7 @@ import {
 
 /**
  * Home: editorial sequence around your inspiration imagery.
- * Type stays small and quiet; photos carry the site.
+ * Type stays small & quiet; photos carry the site.
  */
 export default function Home() {
   return (
@@ -55,7 +55,7 @@ export default function Home() {
           </div>
         </HomeHeroSlideshow>
 
-        {/* Breathing room between full-bleed hero and triptych */}
+        {/* Breathing room between full-bleed hero & triptych */}
         <div
           className="relative z-10 border-t border-[#cfc4b2]/60 bg-[#ede8df] py-10 dark:border-boho-stone/50 dark:bg-[#1a1816] md:py-14"
           aria-hidden
@@ -74,7 +74,7 @@ export default function Home() {
                 <div className="mood-board-bob relative h-[4.75rem] overflow-hidden rounded-md shadow-[0_6px_20px_rgba(61,52,44,0.12)] sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
                   <Image
                     src={SITE_IMAGES.moodField}
-                    alt="Inspiration one — portrait and light"
+                    alt="Inspiration one — portrait & light"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 34vw, 33vw"
@@ -85,7 +85,7 @@ export default function Home() {
                 <div className="mood-board-bob mood-board-bob--b relative h-[4.75rem] overflow-hidden rounded-md shadow-[0_8px_24px_rgba(61,52,44,0.14)] sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
                   <Image
                     src={SITE_IMAGES.moodArch}
-                    alt="Inspiration two — color and mood"
+                    alt="Inspiration two — color & mood"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 34vw, 33vw"
@@ -96,7 +96,7 @@ export default function Home() {
                 <div className="mood-board-bob mood-board-bob--c relative h-[4.75rem] overflow-hidden rounded-md shadow-[0_6px_20px_rgba(61,52,44,0.12)] sm:h-28 md:h-full md:min-h-[min(85vh,900px)] md:rounded-none">
                   <Image
                     src={SITE_IMAGES.moodFilm}
-                    alt="Inspiration three — tone and texture"
+                    alt="Inspiration three — tone & texture"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 34vw, 33vw"
@@ -112,11 +112,11 @@ export default function Home() {
             </p>
             <p className="mt-3 font-body text-xs font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 sm:mt-4 sm:text-sm sm:text-base">
               This little corner of the internet is a slow scroll through the
-              kind of light I love—golden fields, quiet ceremony corners, and
-              film-soft black and white. Based in {PRIMARY_CITY}, I photograph
-              weddings and portraits across the {PRIMARY_REGION} and
+              kind of light I love—golden fields, quiet ceremony corners, &
+              film-soft black & white. Based in {PRIMARY_CITY}, I photograph
+              weddings & portraits across the {PRIMARY_REGION} &
               surrounding {PRIMARY_STATE_ABBR} towns like{' '}
-              {SERVICE_AREAS.slice(1, 4).join(', ')}, and beyond. Stay as long as
+              {SERVICE_AREAS.slice(1, 4).join(', ')}, & beyond. Stay as long as
               you like; when you&apos;re ready, we&apos;ll dream up a session
               that feels like you, not a pose list.
             </p>
@@ -145,7 +145,7 @@ export default function Home() {
               </h2>
               <div className="mx-auto mt-4 max-w-md space-y-3 text-center font-body text-[0.8rem] font-light leading-[1.75] text-cream-dark/82 dark:text-cream/78 max-sm:px-1 sm:mt-8 sm:max-w-none sm:space-y-5 sm:px-0 sm:text-left sm:text-[0.95rem] sm:leading-[1.8]">
                 <p>
-                  Hi, friend! I&apos;m Taylor Hayden, the owner and heart behind
+                  Hi, friend! I&apos;m Taylor Hayden, the owner & heart behind
                   Taylor Rose Reels, LLC. I&apos;m so glad you&apos;re here!
                 </p>
                 <p>
@@ -158,20 +158,20 @@ export default function Home() {
                 <p>
                   When I&apos;m not behind the camera, you can usually find me
                   wandering through a thrift store treasure hunting, chasing
-                  after my three sweet girls, or curled up editing galleries and
+                  after my three sweet girls, or curled up editing galleries &
                   reliving the beautiful memories I&apos;ve had the honor of
-                  documenting. I&apos;m a wife, a mama, and an artist with a
+                  documenting. I&apos;m a wife, a mama, & an artist with a
                   passion for turning fleeting moments into lasting keepsakes.
                 </p>
                 <p>
                   My goal is to create a fun, relaxed experience where you can
                   simply be yourself while I capture the genuine smiles,
-                  laughter, and connections that matter most.
+                  laughter, & connections that matter most.
                 </p>
                 <p>
-                  Take a look around, explore my work, and when you&apos;re
+                  Take a look around, explore my work, & when you&apos;re
                   ready, I&apos;d love to connect. Let&apos;s create something
-                  beautiful together and turn your moments into memories
+                  beautiful together & turn your moments into memories
                   you&apos;ll cherish for years to come.
                 </p>
               </div>

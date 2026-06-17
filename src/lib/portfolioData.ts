@@ -130,13 +130,13 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
     {
       name: 'Weddings',
       description:
-        'Veil soft in the breeze, daddy walking you down the aisle, and the quiet tear he tries to hide—I live for those honest wedding-day moments.',
+        'Veil soft in the breeze, daddy walking you down the aisle, & the quiet tear he tries to hide—I live for those honest wedding-day moments.',
       homeTagline: 'Vows, laughter & legacy',
     },
     {
       name: 'Motherhood',
       description:
-        'That glow, the bump you keep resting your hand on, and the wonder before baby arrives—documented gently, never rushed.',
+        'That glow, the bump you keep resting your hand on, & the wonder before & after baby arrives—documented gently, never rushed.',
       homeTagline: 'Bloom & anticipation',
     },
     {
@@ -148,19 +148,19 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
     {
       name: 'Special Events',
       description:
-        'Galas, brand launches, and the milestones that deserve to be remembered with polish and a little Southern warmth.',
+        'Galas, brand launches, & the milestones that deserve to be remembered with polish & a little Southern warmth.',
       homeTagline: 'Celebrate key moments',
     },
     {
       name: 'Family',
       description:
-        'Your people, soft light, and room to breathe—family portraits that feel like a compliment, not a performance.',
+        'Your people, warm light, & so much love. Family portraits that feel natural & authentic, not posed or forced.',
       homeTagline: 'Together & true',
     },
     {
       name: 'Portraits',
       description:
-        'Just you—soft light and room to breathe—portraits that feel like a compliment, not a performance.',
+        'Just you—soft light & room to breathe—portraits that feel like a compliment, not a performance.',
       homeTagline: 'Effortless & true',
     },
   ];

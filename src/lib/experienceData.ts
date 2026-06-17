@@ -2,28 +2,28 @@ export const EXPERIENCE_PROCESS_STEPS = [
   {
     title: 'Say hello',
     body:
-      'Reach out and say hello. Introduce yourself & describe your inquiry! If we’re a good fit, we’ll set up a call & have a conversation. Feel free to ask any questions you may have.',
+      'Reach out & say hello. Introduce yourself & describe your inquiry! If we’re a good fit, we’ll set up a call & have a conversation. Feel free to ask any questions you may have.',
     postItSrc: '/images/engagement_1.jpg',
     postItAlt: 'Engagement couple in soft light — saying hello',
   },
   {
     title: 'Dream it together',
     body:
-      'Once you are ready to move forward, we’ll talk through the details and what moments matter most to you. I’ll send a simple agreement & collect a retainer to hold your date. I will offer gentle prep like outfit tips, time of day & location, and most importantly space to change your mind and be flexible as plans evolve.',
+      'Once you are ready to move forward, we’ll talk through the details & what moments matter most to you. I’ll send a simple agreement & collect a retainer to hold your date. I will offer gentle prep like outfit tips, time of day & location, & most importantly space to change your mind & be flexible as plans evolve.',
     postItSrc: '/images/bridal_1.jpg',
     postItAlt: 'Bridal portrait — dreaming up the day together',
   },
   {
     title: 'The day itself',
     body:
-      'I show up early, calm, and eager to capture your special moments. You’ll get gentle direction when you need it and room to breathe when you don’t. I’m watching for the big moments, the tiny ones and every detail in between.',
+      'I show up early, calm, & eager to capture your special moments. You’ll get gentle direction when you need it & room to breathe when you don’t. I’m watching for the big moments, the tiny ones & every detail in between.',
     postItSrc: '/images/wedding_1.jpg',
     postItAlt: 'Wedding day — ceremony or celebration moment',
   },
   {
     title: 'Your gallery',
     body:
-      'Afterward I cull and edit with the same care I brought on the day. You’ll receive a private online gallery to download, share, and print from. Standard sessions have a 2–3 week turnaround, while other special events like weddings have an 8–10 week turnaround.',
+      'Afterward I cull & edit with the same care I brought on the day. You’ll receive a private online gallery to download, share, & print from. Standard sessions have a 2–3 week turnaround, while other special events like weddings have an 8–10 week turnaround.',
     postItSrc: '/images/portrait_1.jpg',
     postItAlt: 'Finished portrait — your gallery delivered',
   },
@@ -33,17 +33,17 @@ export const EXPERIENCE_FAQS = [
   {
     question: 'How far ahead should I reach out?',
     answer:
-      "Weddings and busy seasons fill up fast—I love at least a few months' notice when we can swing it. That said, if your heart is set on something sooner, still write me. If I can make it work, I will.",
+      "Weddings & busy seasons fill up fast—I love at least a few months' notice when we can swing it. That said, if your heart is set on something sooner, still write me. If I can make it work, I will.",
   },
   {
     question: "What's included when we work together?",
     answer:
-      'You get my time, my care, and a full set of edited images in a private online gallery you can share with your mama, your best friend, and anyone else who’s been cheering you on.',
+      'You get my time, my care, & a full set of edited images in a private online gallery you can share with your mama, your best friend, & anyone else who’s been cheering you on.',
   },
   {
     question: 'Will you travel for my day?',
     answer:
-      "Oh, honey, yes—I'm based in Florence and photograph across the Pee Dee, from Hartsville and Darlington to Marion, Dillon, and beyond. Travel outside the region is quoted kindly based on mileage or lodging, and we'll talk through all of that before you ever sign anything.",
+      "Oh, honey, yes—I'm based in Florence & photograph across the Pee Dee, from Hartsville & Darlington to Marion, Dillon, & beyond. Travel outside the region is quoted kindly based on mileage or lodging, & we'll talk through all of that before you ever sign anything.",
   },
   {
     question: 'When will my gallery be ready?',
@@ -53,12 +53,12 @@ export const EXPERIENCE_FAQS = [
   {
     question: 'What should I wear?',
     answer:
-      'Wear what makes you feel pretty and like yourself—flowy fabrics, soft colors, and a little movement always photograph like a dream. After you book, I send a gentle style guide so you never have to guess.',
+      'Wear what makes you feel pretty & like yourself—flowy fabrics, soft colors, & a little movement always photograph like a dream. After you book, I send a gentle style guide so you never have to guess.',
   },
   {
     question: 'Do you offer payment plans?',
     answer:
-      'I do. A retainer holds your date, and the rest can be split into installments so you can breathe easy while you plan the rest of your celebration.',
+      'I do. A retainer holds your date, & the rest can be split into installments so you can breathe easy while you plan the rest of your celebration.',
   },
   {
     question: 'Can I share a shot list or Pinterest board?',

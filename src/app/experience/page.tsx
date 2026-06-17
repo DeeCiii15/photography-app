@@ -13,11 +13,11 @@ import { SITE_IMAGES } from '@/lib/siteImages';
 
 export const metadata: Metadata = {
   title: 'Experience',
-  description: `What to expect working with a ${PRIMARY_CITY} photographer serving the ${PRIMARY_REGION}—from inquiry to gallery, plus FAQs and words from past clients.`,
+  description: `What to expect working with a ${PRIMARY_CITY} photographer serving the ${PRIMARY_REGION}—from inquiry to gallery, plus FAQs & words from past clients.`,
   alternates: { canonical: '/experience' },
   openGraph: {
     title: 'Experience',
-    description: `From first note to final frame—the rhythm of working together across the ${PRIMARY_REGION}, with FAQs and client words.`,
+    description: `From first note to final frame—the rhythm of working together across the ${PRIMARY_REGION}, with FAQs & client words.`,
     url: '/experience',
   },
 };
@@ -64,8 +64,8 @@ export default function ExperiencePage() {
                 <span className="italic font-normal text-coral">final frame</span>
               </h1>
               <p className="mt-6 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
-                Here’s the general path most clients travel—unhurried, kind, and
-                built around you. Every wedding and session is a little
+                Here’s the general path most clients travel—unhurried, kind, &
+                built around you. Every wedding & session is a little
                 different, but the heart of it stays the same: you should always
                 know what happens next.
               </p>

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact',
-    description: `Inquire about wedding, portrait, or celebration photography in ${PRIMARY_CITY} and the ${PRIMARY_REGION}.`,
+    description: `Inquire about wedding, portrait, or celebration photography in ${PRIMARY_CITY} & the ${PRIMARY_REGION}.`,
     url: '/contact',
   },
 };
@@ -40,7 +40,7 @@ export default function ContactPage() {
             <p className="mt-5 max-w-lg font-body text-sm font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 md:text-base">
               Share a date, a venue, or a feeling—I read every message myself.
               Based in {PRIMARY_CITY}, {PRIMARY_STATE_ABBR}, I photograph across
-              the {PRIMARY_REGION} and surrounding South Carolina towns.
+              the {PRIMARY_REGION} & surrounding South Carolina towns.
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch lg:gap-14">

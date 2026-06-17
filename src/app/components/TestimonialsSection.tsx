@@ -76,7 +76,7 @@ export default function TestimonialsSection({
             <span className="italic text-coral">talk about</span>
           </h2>
           <p className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/65">
-            A few favorites from brides, couples, and mamas who trusted me with
+            A few favorites from brides, couples, & mamas who trusted me with
             their chapters.
           </p>
         </div>
