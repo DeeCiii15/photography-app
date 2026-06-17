@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation';
 import SiteFooter from '../components/SiteFooter';
 import HomeStylePageIntro from '../components/HomeStylePageIntro';
 import Link from 'next/link';
+import { GALLERY_UPLOAD_FOLDERS } from '@/lib/portfolioData';
 import { INVESTMENT_CATEGORIES } from '@/lib/pricingData';
 import { PRIMARY_CITY, PRIMARY_REGION, PRIMARY_STATE_ABBR, SITE_NAME } from '@/lib/siteConfig';
 
@@ -45,7 +46,9 @@ export default function PricingPage() {
         <section className="border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-20">
           <div className="mx-auto flex max-w-5xl flex-col gap-8 md:gap-10">
             {INVESTMENT_CATEGORIES.map((cat, i) => {
-              const galleryHref = `/portfolio?category=${encodeURIComponent(cat.portfolioCategory)}`;
+              const galleryFolder =
+                GALLERY_UPLOAD_FOLDERS[cat.portfolioCategory] ?? 'portfolio';
+              const galleryHref = `/portfolio/${galleryFolder}`;
               return (
                 <div
                   key={`${cat.name}-${i}`}

@@ -25,16 +25,21 @@ function ShootCard({
         className={`group block w-full transition duration-300 hover:z-10 ${s.rotate} ${s.push} hover:scale-[1.02] hover:rotate-0`}
       >
         <div
-          className={`scrapbook-mat overflow-hidden rounded-[2px] bg-[#faf8f4] p-1.5 dark:bg-[#2a2622] sm:p-2 ${s.lip}`}
+          className={`scrapbook-mat flex flex-col overflow-hidden rounded-[2px] bg-[#faf8f4] p-1.5 dark:bg-[#2a2622] sm:p-2 ${s.lip}`}
         >
           <div className={polaroidImageFrameClass(index)}>
             <Image
               src={shoot.image}
-              alt=""
+              alt={shoot.title}
               fill
               className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
               sizes="(max-width: 640px) 33vw, 33vw"
             />
+          </div>
+          <div className="mt-1.5 shrink-0 px-0.5 text-center sm:mt-2 sm:px-1">
+            <h3 className="font-display text-[0.65rem] leading-snug text-cream-dark dark:text-cream sm:text-lg">
+              {shoot.title}
+            </h3>
           </div>
         </div>
       </Link>

@@ -3,7 +3,7 @@
  *
  * Upload layout:
  *   public/images/galleries/{category-folder}/{shoot-slug}/
- *     cover.jpg   ← polaroid thumbnail for this shoot
+ *     cover.jpg or cover.jpeg   ← polaroid thumbnail for this shoot
  *     01.jpg      ← first gallery photo
  *     02.jpg      ← second …
  */
@@ -44,8 +44,7 @@ export type PortfolioShootCard = {
   category: string;
   categoryFolder: string;
   slug: string;
-  name: string;
-  tagline?: string;
+  title: string;
   image: string;
   href: string;
 };
@@ -120,9 +119,9 @@ function buildShootPhotos(
   return manifest.photos.map((filename, i) => ({
     id: `${shoot.slug}-${i + 1}`,
     src: shootGallerySrc(categoryFolder, shoot.slug, filename),
-    alt: `${shoot.name} — ${i + 1}`,
+    alt: `${shoot.title}, ${categoryName} photography — image ${i + 1}`,
     category: categoryName,
-    shoot: shoot.name,
+    shoot: shoot.title,
   }));
 }
 
@@ -143,7 +142,7 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
     {
       name: 'Couples / Engagement',
       description:
-        'Sweet tea strolls, front-porch swings, or downtown at dusk—wherever y’all feel like yourselves is where I’ll meet you.',
+        'Ocean waves, downtown strolls, or evening boat rides—wherever y’all feel like yourselves is where I’ll meet you.',
       homeTagline: 'Sweet on each other',
     },
     {
@@ -183,6 +182,23 @@ export function getCategoryByName(name: string): PortfolioCategoryDef | undefine
   return PORTFOLIO_CATEGORY_DEFS.find((c) => c.name === name);
 }
 
+export function getCategoryByFolder(
+  folderSlug: string,
+): PortfolioCategoryDef | undefined {
+  return PORTFOLIO_CATEGORY_DEFS.find((c) => c.folder === folderSlug);
+}
+
+export function portfolioCategoryHref(categoryFolder: string): string {
+  return `/portfolio/${categoryFolder}`;
+}
+
+export function portfolioShootHref(
+  categoryFolder: string,
+  shootSlug: string,
+): string {
+  return `/portfolio/${categoryFolder}/${shootSlug}`;
+}
+
 export function getShootInCategory(
   categoryName: string,
   shootSlug: string,
@@ -198,10 +214,9 @@ export function getShootCards(categoryName: string): PortfolioShootCard[] {
     category: category.name,
     categoryFolder: category.folder,
     slug: shoot.slug,
-    name: shoot.name,
-    tagline: shoot.tagline,
+    title: shoot.title,
     image: shootCoverSrc(category.folder, shoot),
-    href: `/portfolio?category=${encodeURIComponent(category.name)}&shoot=${encodeURIComponent(shoot.slug)}`,
+    href: portfolioShootHref(category.folder, shoot.slug),
   }));
 }
 
@@ -225,7 +240,7 @@ export const PORTFOLIO_HOME_CARDS = PORTFOLIO_CATEGORY_DEFS.map((c) => ({
   name: c.name,
   image: c.coverSrc,
   tagline: c.homeTagline,
-  href: `/portfolio?category=${encodeURIComponent(c.name)}`,
+  href: portfolioCategoryHref(c.folder),
 }));
 
 export const PORTFOLIO_HOME_CARDS_CENTERED = (() => {

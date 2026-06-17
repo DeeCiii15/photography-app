@@ -1,6 +1,6 @@
 /**
  * Scans public/images/galleries/ and writes src/lib/galleryManifest.json.
- * Renames gallery files to 01.jpg, 02.jpg, … (cover.jpg stays separate).
+ * Renames gallery files to 01.jpg, 02.jpg, … (cover.jpg / cover.jpeg stay separate).
  *
  * Run: npm run galleries:sync
  */
@@ -14,9 +14,71 @@ const galleriesRoot = path.join(projectRoot, 'public', 'images', 'galleries');
 const manifestPath = path.join(projectRoot, 'src', 'lib', 'galleryManifest.json');
 
 const IMAGE_RE = /\.(jpe?g|png|webp|gif)$/i;
+const COVER_PREFERENCE = ['cover.jpg', 'cover.jpeg'];
 
 function isCoverFile(name) {
   return /^cover\./i.test(name);
+}
+
+function findCoverFile(files) {
+  const covers = files.filter(isCoverFile);
+  if (covers.length === 0) return null;
+
+  for (const preferred of COVER_PREFERENCE) {
+    const match = covers.find((f) => f.toLowerCase() === preferred);
+    if (match) return match;
+  }
+
+  return covers[0];
+}
+
+function renameCoverCase(dir, current, canonical) {
+  const src = path.join(dir, current);
+  const dest = path.join(dir, canonical);
+  const temp = path.join(dir, `_tmp_${canonical}`);
+  fs.renameSync(src, temp);
+  fs.renameSync(temp, dest);
+  return canonical;
+}
+
+/** Normalize cover.* to cover.jpg or cover.jpeg (keeps .jpeg when that's what you uploaded). */
+function normalizeCoverFile(dir, cover) {
+  const ext = path.extname(cover).toLowerCase();
+
+  if (ext === '.jpg') {
+    return cover === 'cover.jpg'
+      ? 'cover.jpg'
+      : renameCoverCase(dir, cover, 'cover.jpg');
+  }
+
+  if (ext === '.jpeg') {
+    return cover === 'cover.jpeg'
+      ? 'cover.jpeg'
+      : renameCoverCase(dir, cover, 'cover.jpeg');
+  }
+
+  // PNG / WebP / GIF → copy to cover.jpg
+  const target = path.join(dir, 'cover.jpg');
+  fs.copyFileSync(path.join(dir, cover), target);
+  if (cover.toLowerCase() !== 'cover.jpg') {
+    try {
+      fs.unlinkSync(path.join(dir, cover));
+    } catch {
+      /* ignore */
+    }
+  }
+  return 'cover.jpg';
+}
+
+function removeExtraCoverFiles(dir, keepName) {
+  for (const name of fs.readdirSync(dir)) {
+    if (!isCoverFile(name) || name === keepName) continue;
+    try {
+      fs.unlinkSync(path.join(dir, name));
+    } catch {
+      /* ignore */
+    }
+  }
 }
 
 function toJpgName(index) {
@@ -28,29 +90,20 @@ function syncShootFolder(dir) {
     .readdirSync(dir)
     .filter((f) => IMAGE_RE.test(f) && fs.statSync(path.join(dir, f)).isFile());
 
-  let cover = files.find((f) => isCoverFile(f)) ?? null;
+  let cover = findCoverFile(files);
   if (cover) {
-    const target = path.join(dir, 'cover.jpg');
-    const src = path.join(dir, cover);
-    if (cover.toLowerCase() !== 'cover.jpg') {
-      fs.copyFileSync(src, target);
-      if (cover !== 'cover.jpg') {
-        try {
-          fs.unlinkSync(src);
-        } catch {
-          /* ignore */
-        }
-      }
-    } else if (cover !== 'cover.jpg') {
-      const temp = path.join(dir, '_tmp_cover.jpg');
-      fs.renameSync(src, temp);
-      fs.renameSync(temp, target);
-    }
-    cover = 'cover.jpg';
+    cover = normalizeCoverFile(dir, cover);
+    removeExtraCoverFiles(dir, cover);
   }
 
-  const galleryFiles = files
-    .filter((f) => !isCoverFile(f))
+  const galleryFiles = fs
+    .readdirSync(dir)
+    .filter(
+      (f) =>
+        IMAGE_RE.test(f) &&
+        fs.statSync(path.join(dir, f)).isFile() &&
+        !isCoverFile(f),
+    )
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
   const photos = [];

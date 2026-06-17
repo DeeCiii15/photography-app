@@ -14,7 +14,7 @@ ADD A NEW PHOTO SHOOT (2 steps)
 STEP 1 — Create a folder and add images:
 
   public/images/galleries/{category-folder}/{shoot-slug}/
-    cover.jpg     ← polaroid thumbnail (any favorite shot)
+    cover.jpg or cover.jpeg     ← polaroid thumbnail (either works)
     (other photos with any names — sync renames them)
 
   Examples:
@@ -32,9 +32,24 @@ STEP 2 — Register the shoot in code:
 
   Add under the right category:
 
-    { slug: 'couple-2', name: 'Couple 2' },
+    {
+      slug: 'couple-2',
+      title: 'South Carolina Wedding',
+      description: 'A few sentences for Google — location, vibe, season…',
+    },
 
-  slug must match your folder name exactly.
+  slug must match your folder name.
+  title appears under the shoot polaroid and in the browser tab.
+  description is optional but helps SEO (meta description + shoot page blurb).
+
+
+SITE URLS (after deploy)
+------------------------
+  All galleries:     /portfolio
+  Category:          /portfolio/couples-engagement
+  One shoot:         /portfolio/couples-engagement/couple-1
+
+  Old ?category= links still redirect automatically.
 
 
 STEP 3 — Sync (renames photos & refreshes the site list):
@@ -48,7 +63,7 @@ STEP 3 — Sync (renames photos & refreshes the site list):
 WHAT SYNC DOES
 --------------
   • Renames gallery photos to 01.jpg, 02.jpg, 03.jpg, …
-  • Normalizes cover.jpg
+  • Normalizes cover to cover.jpg or cover.jpeg
   • Updates src/lib/galleryManifest.json (the site reads this)
 
 
