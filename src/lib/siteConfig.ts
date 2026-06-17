@@ -1,11 +1,22 @@
 /**
  * Canonical site URL for metadata, OG tags, sitemap, and JSON-LD.
- * Set in production: NEXT_PUBLIC_SITE_URL=https://yourdomain.com
- * On Vercel, VERCEL_URL is used when NEXT_PUBLIC_SITE_URL is unset.
+ * Override in any environment: NEXT_PUBLIC_SITE_URL=https://yourdomain.com
  */
+export const CANONICAL_SITE_URL = 'https://taylorrosereels.com';
+
 export function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, '');
   if (fromEnv) return fromEnv;
+
+  // Production deploys should never fall back to *.vercel.app when a custom domain exists.
+  if (process.env.VERCEL_ENV === 'production') {
+    const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+    if (productionHost) {
+      return `https://${productionHost.replace(/^https?:\/\//, '')}`;
+    }
+    return CANONICAL_SITE_URL;
+  }
+
   const vercel = process.env.VERCEL_URL?.trim();
   if (vercel) return `https://${vercel.replace(/^https?:\/\//, '')}`;
   return 'http://localhost:3000';
