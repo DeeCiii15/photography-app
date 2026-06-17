@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Taylor Rose Reels">
+  <rect width="180" height="180" rx="40" fill="#f4f1eb"/>
+  <g transform="translate(90 96)">
+    <path
+      fill="#c97a62"
+      d="M0 -34c-7.6 17.4-25.6 23.3-25.6 43.9a25.6 25.6 0 1 0 51.2 0C25.6-10.7 7.6-16.6 0-34z"
+    />
+    <path
+      fill="#a67c52"
+      d="M0 -22c-4.8 11-15.8 14.4-15.8 26.8a15.8 15.8 0 1 0 31.6 0C15.8-7.6 4.8-11 0-22z"
+    />
+    <circle cx="0" cy="8" r="9.5" fill="#8a6543"/>
+    <path
+      fill="#8a9a6b"
+      d="M20 14c13.2 4.2 17.7 16.6 13.2 26.2-8.7-3.1-17.4-7.6-13.2-26.2z"
+    />
+    <path
+      fill="#9aab7c"
+      d="M-28 20c-10.7 2.5-16 12.1-13.8 21.1 8.2-1.4 16-4.8 13.8-21.1z"
+    />
+  </g>
+</svg>
