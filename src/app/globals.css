@@ -59,15 +59,15 @@ html {
   --font-display: var(--font-script);
 }
 
-/* Headlines, brand name, buttons — Mrs Saint Delafield (thin signature script) */
+/* Headlines, brand name, buttons — Dancing Script (casual handwritten script) */
 .font-display,
 .font-script {
   font-family: var(--font-script), cursive;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .font-display {
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 /* Body copy & forms */

@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Lora, Mrs_Saint_Delafield } from "next/font/google";
+import { Dancing_Script, Lora } from "next/font/google";
 import "./globals.css";
 import ContactRibbon from "./components/ContactRibbon";
 import SiteJsonLd from "./components/SiteJsonLd";
@@ -22,11 +22,11 @@ const lora = Lora({
   weight: ["400", "500", "600", "700"],
 });
 
-/** Thin signature script — headlines, brand name, and decorative UI */
-const signatureScript = Mrs_Saint_Delafield({
-  weight: "400",
+/** Casual connected script — headlines, brand name, and decorative UI */
+const signatureScript = Dancing_Script({
   variable: "--font-script",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const siteUrl = getSiteUrl();

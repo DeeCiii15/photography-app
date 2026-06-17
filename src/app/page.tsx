@@ -141,24 +141,38 @@ export default function Home() {
             <div className="min-w-0 w-full sm:text-left">
               <p className="section-eyebrow text-boho-sage">Behind the lens</p>
               <h2 className="mt-2 font-display text-[1.35rem] font-medium leading-snug text-cream-dark dark:text-cream sm:mt-4 sm:text-4xl md:text-[2.65rem] md:leading-[1.12]">
-                Your story deserves{' '}
-                <span className="italic font-normal text-coral">breathing room</span>
-                —unguarded laughs, unscripted tears, and the in-between seconds
-                nobody plans for.
+                Every photo tells a story; I'd love to help you tell yours.
               </h2>
               <div className="mx-auto mt-4 max-w-md space-y-3 text-center font-body text-[0.8rem] font-light leading-[1.75] text-cream-dark/82 dark:text-cream/78 max-sm:px-1 sm:mt-8 sm:max-w-none sm:space-y-5 sm:px-0 sm:text-left sm:text-[0.95rem] sm:leading-[1.8]">
                 <p>
-                  I&apos;m drawn to slow mornings, porch light, and the way your
-                  people lean in when they think no one&apos;s looking. From{' '}
-                  {PRIMARY_CITY} to {SERVICE_AREAS[1]} and across the{' '}
-                  {PRIMARY_REGION}, tell me what matters to you—music, place,
-                  texture, mood—and I&apos;ll chase that thread from first look
-                  to last dance.
+                  Hi, friend! I&apos;m Taylor Hayden, the owner and heart behind
+                  Taylor Rose Reels, LLC. I&apos;m so glad you&apos;re here!
                 </p>
                 <p>
-                  No stiff posing playbook: just gentle direction, a calm
-                  presence in the chaos, and images you can step back into when
-                  you want to remember how it all felt.
+                  Photography is more than just taking pictures—it&apos;s about
+                  preserving the moments that make your story uniquely yours.
+                  Whether it&apos;s the joyful chaos of family life, a milestone
+                  worth celebrating, or the little in-between moments you never
+                  want to forget, I&apos;m here to capture it all.
+                </p>
+                <p>
+                  When I&apos;m not behind the camera, you can usually find me
+                  wandering through a thrift store treasure hunting, chasing
+                  after my three sweet girls, or curled up editing galleries and
+                  reliving the beautiful memories I&apos;ve had the honor of
+                  documenting. I&apos;m a wife, a mama, and an artist with a
+                  passion for turning fleeting moments into lasting keepsakes.
+                </p>
+                <p>
+                  My goal is to create a fun, relaxed experience where you can
+                  simply be yourself while I capture the genuine smiles,
+                  laughter, and connections that matter most.
+                </p>
+                <p>
+                  Take a look around, explore my work, and when you&apos;re
+                  ready, I&apos;d love to connect. Let&apos;s create something
+                  beautiful together and turn your moments into memories
+                  you&apos;ll cherish for years to come.
                 </p>
               </div>
             </div>
