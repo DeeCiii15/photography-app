@@ -51,6 +51,7 @@ export default function SiteJsonLd() {
     serviceType: [
       'Wedding photography',
       'Family photography',
+      'Portrait photography',
       'Elopement photography',
       'Couples and engagement photography',
       'Motherhood photography',

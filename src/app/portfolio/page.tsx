@@ -2,21 +2,40 @@
 
 import { Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Image from 'next/image';
 import Navigation from '../components/Navigation';
 import SiteFooter from '../components/SiteFooter';
 import HomeStylePageIntro from '../components/HomeStylePageIntro';
 import PortfolioHomeGallery from '../components/PortfolioHomeGallery';
-import { PORTFOLIO_GALLERY_BY_CATEGORY } from '@/lib/portfolioData';
-import { SCRAPBOOK_STYLES } from '@/lib/scrapbookGalleryStyles';
+import PortfolioPhotoGrid from '../components/PortfolioPhotoGrid';
+import PortfolioShootGrid from '../components/PortfolioShootGrid';
+import {
+  getCategoryByName,
+  getShootCards,
+  getShootPhotos,
+} from '@/lib/portfolioData';
 
 function PortfolioContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const selectedCategory = searchParams.get('category');
-  const photos = selectedCategory
-    ? (PORTFOLIO_GALLERY_BY_CATEGORY[selectedCategory] || [])
-    : [];
+  const selectedShoot = searchParams.get('shoot');
+
+  const category = selectedCategory
+    ? getCategoryByName(selectedCategory)
+    : undefined;
+  const shootCards = selectedCategory ? getShootCards(selectedCategory) : [];
+  const photos =
+    selectedCategory && selectedShoot
+      ? getShootPhotos(selectedCategory, selectedShoot)
+      : [];
+
+  const backHref = selectedShoot && selectedCategory
+    ? `/portfolio?category=${encodeURIComponent(selectedCategory)}`
+    : '/portfolio';
+
+  const backLabel = selectedShoot
+    ? `Back to ${selectedCategory}`
+    : 'Back to all galleries';
 
   return (
     <div className="min-h-screen bg-[#f4f1eb] dark:bg-boho-ink">
@@ -45,13 +64,13 @@ function PortfolioContent() {
         ) : (
           <section
             className="border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-20"
-            aria-label={selectedCategory}
+            aria-label={selectedShoot ? selectedCategory ?? 'Gallery' : selectedCategory}
           >
             <div className="mx-auto max-w-6xl">
               <div className="mb-12 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between lg:mb-14">
                 <button
                   type="button"
-                  onClick={() => router.push('/portfolio')}
+                  onClick={() => router.push(backHref)}
                   className="font-display inline-flex min-h-12 w-full touch-manipulation items-center justify-center gap-2 rounded-full border border-[#d4cdc0]/80 bg-[#faf8f4]/90 px-5 py-2.5 text-lg text-coral shadow-sm backdrop-blur-[2px] transition hover:border-coral/30 hover:bg-white dark:border-boho-stone/50 dark:bg-boho-bark/85 dark:text-[#d4a574] sm:w-fit sm:justify-start sm:py-3 sm:text-xl"
                 >
                   <svg
@@ -68,69 +87,34 @@ function PortfolioContent() {
                       d="M15 19l-7-7 7-7"
                     />
                   </svg>
-                  Back to all galleries
+                  {backLabel}
                 </button>
                 <div className="text-left sm:text-right">
-                  <p className="section-eyebrow text-boho-sage sm:text-right">
-                    You&apos;re peeking at
-                  </p>
-                  <h1 className="mt-2 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl lg:text-[2.35rem]">
-                    {selectedCategory}
-                  </h1>
+                  {!selectedShoot ? (
+                    <>
+                      <p className="section-eyebrow text-boho-sage sm:text-right">
+                        Gallery
+                      </p>
+                      <h1 className="mt-2 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl lg:text-[2.35rem]">
+                        {selectedCategory}
+                      </h1>
+                      {category?.description ? (
+                        <p className="mt-3 max-w-md font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/68 sm:ml-auto sm:text-right">
+                          {category.description}
+                        </p>
+                      ) : null}
+                    </>
+                  ) : null}
                 </div>
               </div>
 
-              {photos.length === 0 ? (
-                <div className="rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/92 py-24 text-center shadow-[0_12px_36px_rgba(61,52,44,0.06)] ring-1 ring-[#e8e3db]/80 dark:border-boho-stone/40 dark:bg-boho-bark/48 dark:ring-boho-stone/25">
-                  <p className="text-lg text-cream-dark dark:text-cream">
-                    I&apos;m still curating this little gallery
-                  </p>
-                  <p className="mt-3 text-cream-dark/70 dark:text-cream/70">
-                    Check back soon—I&apos;m always adding new favorites.
-                  </p>
-                </div>
+              {selectedShoot ? (
+                <PortfolioPhotoGrid photos={photos} />
               ) : (
-                <div className="columns-1 gap-x-8 gap-y-2 sm:columns-2 lg:columns-3 lg:gap-x-10">
-                  {photos.map((photo, i) => {
-                    const s = SCRAPBOOK_STYLES[i % SCRAPBOOK_STYLES.length];
-                    return (
-                      <div
-                        key={photo.id}
-                        className={`group mb-10 break-inside-avoid ${s.rotate} ${s.push}`}
-                      >
-                        <div
-                          className={`scrapbook-mat rounded-[2px] bg-[#faf8f4] p-2 ${s.lip} dark:bg-[#2a2622]`}
-                        >
-                          <div
-                            className={`relative overflow-hidden bg-[#e8e3db] dark:bg-boho-ink ${
-                              i % 3 === 0
-                                ? 'aspect-[5/4] min-h-[200px]'
-                                : i % 3 === 1
-                                  ? 'aspect-[4/5] min-h-[220px]'
-                                  : 'aspect-[3/4] min-h-[190px]'
-                            }`}
-                          >
-                            <Image
-                              src={photo.src}
-                              alt={photo.alt}
-                              fill
-                              className="object-cover transition duration-500 group-hover:scale-[1.04]"
-                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            />
-                          </div>
-                          <div className="mt-3 px-1 text-center">
-                            <p className="font-body text-[10px] font-medium uppercase tracking-[0.2em] text-coral">
-                              {photo.category}
-                            </p>
-                            <p className="mt-1 font-display text-lg leading-snug text-cream-dark dark:text-cream">
-                              {photo.alt}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                <PortfolioShootGrid
+                  shoots={shootCards}
+                  categoryName={selectedCategory}
+                />
               )}
             </div>
           </section>

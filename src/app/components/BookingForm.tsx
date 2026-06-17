@@ -229,6 +229,7 @@ export default function BookingForm({ className }: BookingFormProps) {
           <option value="Couples / Engagement">Couples / Engagement</option>
           <option value="Motherhood">Motherhood</option>
           <option value="Family">Family</option>
+          <option value="Portraits">Portraits</option>
           <option value="Event">Event or brand</option>
           <option value="Other">Something else lovely</option>
         </select>
@@ -256,10 +257,6 @@ export default function BookingForm({ className }: BookingFormProps) {
           Send by email
         </button>
       </div>
-      <p className="font-body text-center text-sm leading-relaxed text-cream-dark/65 dark:text-cream/65 md:text-base">
-        This opens your email app with your note ready—you tap send when it feels
-        right. On desktop, use Gmail if your email app does not open.
-      </p>
     </form>
   );
 }

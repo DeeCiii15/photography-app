@@ -433,6 +433,7 @@ html.dark body::after {
 
 /* Scrapbook-style photo mats (home gallery) */
 .scrapbook-mat {
+  overflow: hidden;
   box-shadow: 0 2px 0 rgba(91, 77, 62, 0.06), 0 12px 28px rgba(61, 52, 44, 0.12),
     0 0 0 1px rgba(91, 77, 62, 0.08);
 }

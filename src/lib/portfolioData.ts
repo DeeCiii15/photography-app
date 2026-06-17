@@ -1,144 +1,219 @@
 /**
- * Portfolio imagery — files under public/images/.
- * Naming: `{slug}_1.jpg`, `{slug}_2.jpg`, … (e.g. engagement → engagement_1.jpg).
- * Add more numbered files anytime; slots beyond existing files repeat `_1` so nothing 404s.
+ * Portfolio galleries: category → shoots → photos.
+ *
+ * Upload layout:
+ *   public/images/galleries/{category-folder}/{shoot-slug}/
+ *     cover.jpg   ← polaroid thumbnail for this shoot
+ *     01.jpg      ← first gallery photo
+ *     02.jpg      ← second …
  */
+
+import { SHOOTS_BY_CATEGORY, type PortfolioShootDef } from './portfolioShoots';
+import galleryManifest from './galleryManifest.json';
+
+type ShootManifestEntry = { cover: string | null; photos: string[] };
+type GalleryManifest = Record<string, Record<string, ShootManifestEntry>>;
+
+const MANIFEST = galleryManifest as GalleryManifest;
+
+function getShootManifest(
+  categoryFolder: string,
+  shootSlug: string,
+): ShootManifestEntry | undefined {
+  return MANIFEST[categoryFolder]?.[shootSlug];
+}
 
 export type PortfolioPhoto = {
   id: string;
   src: string;
   alt: string;
   category: string;
+  shoot: string;
 };
 
 export type PortfolioCategoryDef = {
-  /** Used in ?category= and links (e.g. "Special Events") */
   name: string;
   description: string;
   homeTagline: string;
+  folder: string;
   coverSrc: string;
-  photos: { id: string; src: string; alt: string }[];
+  shoots: PortfolioShootDef[];
 };
 
-/** URL slug segment → filename prefix in /public/images/ */
-const CATEGORY_IMAGE_SLUG: Record<string, string> = {
-  Weddings: 'wedding',
-  Motherhood: 'maternity',
-  'Couples / Engagement': 'engagement',
-  'Special Events': 'events',
-  Family: 'portrait',
+export type PortfolioShootCard = {
+  category: string;
+  categoryFolder: string;
+  slug: string;
+  name: string;
+  tagline?: string;
+  image: string;
+  href: string;
 };
 
-/** How many tiles to show per gallery (cycles `_1` if higher files aren’t there yet) */
-const PHOTO_COUNT_BY_CATEGORY: Record<string, number> = {
-  Weddings: 4,
-  Motherhood: 3,
-  'Couples / Engagement': 3,
-  'Special Events': 3,
-  Family: 4,
+/** Category → folder under public/images/galleries/ */
+export const GALLERY_UPLOAD_FOLDERS: Record<string, string> = {
+  Weddings: 'weddings',
+  Motherhood: 'motherhood',
+  'Couples / Engagement': 'couples-engagement',
+  'Special Events': 'special-events',
+  Family: 'family',
+  Portraits: 'portraits',
 };
 
-const PHOTO_ID_PREFIX: Record<string, string> = {
-  Weddings: 'w',
-  Motherhood: 'm',
-  'Couples / Engagement': 'e',
-  'Special Events': 's',
-  Family: 'f',
+/** Fallback polaroid covers when a category has no shoots yet */
+const LEGACY_CATEGORY_COVERS: Record<string, string> = {
+  Weddings: '/images/wedding_1.jpg',
+  Motherhood: '/images/maternity_1.jpg',
+  'Couples / Engagement': '/images/engagement_1.jpg',
+  'Special Events': '/images/events_1.jpg',
+  Family: '/images/portrait_1.jpg',
+  Portraits: '/images/portrait_1.jpg',
 };
 
-/**
- * Per 1-based index overrides — avoids 404s until you add `_2`, `_3`, etc.
- * Remove a category’s block here once those files exist (defaults use `{slug}_{n}.jpg`).
- */
-const SRC_OVERRIDES: Partial<Record<string, Record<number, string>>> = {
-  Weddings: {
-    2: '/images/bridal_1.jpg',
-    3: '/images/wedding_1.jpg',
-    4: '/images/bridal_1.jpg',
-  },
-  'Couples / Engagement': {
-    2: '/images/engagement_1.jpg',
-    3: '/images/engagement_1.jpg',
-  },
-  Motherhood: {
-    2: '/images/maternity_1.jpg',
-    3: '/images/maternity_1.jpg',
-  },
-  'Special Events': {
-    2: '/images/events_1.jpg',
-    3: '/images/events_1.jpg',
-  },
-  Family: {
-    2: '/images/portrait_1.jpg',
-    3: '/images/portrait_1.jpg',
-    4: '/images/portrait_1.jpg',
-  },
-};
-
-function localImageSrc(categoryName: string, indexZeroBased: number): string {
-  const slug = CATEGORY_IMAGE_SLUG[categoryName];
-  if (!slug) return '/images/wedding_1.jpg';
-  const overrides = SRC_OVERRIDES[categoryName];
-  const n = indexZeroBased + 1;
-  if (overrides?.[n]) return overrides[n]!;
-  return `/images/${slug}_${n}.jpg`;
+export function shootImageSrc(
+  categoryFolder: string,
+  shootSlug: string,
+  filename: string,
+): string {
+  return `/images/galleries/${categoryFolder}/${shootSlug}/${filename}`;
 }
 
-function buildPhotos(
+export function shootCoverSrc(
+  categoryFolder: string,
+  shoot: PortfolioShootDef,
+): string {
+  const manifest = getShootManifest(categoryFolder, shoot.slug);
+  const file = manifest?.cover ?? manifest?.photos[0] ?? 'cover.jpg';
+  return shootImageSrc(categoryFolder, shoot.slug, file);
+}
+
+export function shootGallerySrc(
+  categoryFolder: string,
+  shootSlug: string,
+  filename: string,
+): string {
+  return shootImageSrc(categoryFolder, shootSlug, filename);
+}
+
+function getCategoryCoverSrc(
   categoryName: string,
-  altStem: string
-): { id: string; src: string; alt: string }[] {
-  const count = PHOTO_COUNT_BY_CATEGORY[categoryName] ?? 3;
-  const idPrefix = PHOTO_ID_PREFIX[categoryName] ?? 'x';
-  return Array.from({ length: count }, (_, i) => ({
-    id: `${idPrefix}${i + 1}`,
-    src: localImageSrc(categoryName, i),
-    alt: `${altStem} — ${i + 1}`,
+  folder: string,
+  shoots: PortfolioShootDef[],
+): string {
+  if (shoots.length > 0) {
+    return shootCoverSrc(folder, shoots[0]!);
+  }
+  return (
+    LEGACY_CATEGORY_COVERS[categoryName] ??
+    `/images/galleries/${folder}/cover.jpg`
+  );
+}
+
+function buildShootPhotos(
+  categoryName: string,
+  categoryFolder: string,
+  shoot: PortfolioShootDef,
+): PortfolioPhoto[] {
+  const manifest = getShootManifest(categoryFolder, shoot.slug);
+  if (!manifest?.photos.length) return [];
+
+  return manifest.photos.map((filename, i) => ({
+    id: `${shoot.slug}-${i + 1}`,
+    src: shootGallerySrc(categoryFolder, shoot.slug, filename),
+    alt: `${shoot.name} — ${i + 1}`,
+    category: categoryName,
+    shoot: shoot.name,
   }));
 }
 
-export const PORTFOLIO_CATEGORY_DEFS: PortfolioCategoryDef[] = [
-  {
-    name: 'Weddings',
-    description:
-      'Veil soft in the breeze, daddy walking you down the aisle, and the quiet tear he tries to hide—I live for those honest wedding-day moments.',
-    homeTagline: 'Vows, laughter & legacy',
-    coverSrc: localImageSrc('Weddings', 0),
-    photos: buildPhotos('Weddings', 'Wedding day'),
+const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'>[] =
+  [
+    {
+      name: 'Weddings',
+      description:
+        'Veil soft in the breeze, daddy walking you down the aisle, and the quiet tear he tries to hide—I live for those honest wedding-day moments.',
+      homeTagline: 'Vows, laughter & legacy',
+    },
+    {
+      name: 'Motherhood',
+      description:
+        'That glow, the bump you keep resting your hand on, and the wonder before baby arrives—documented gently, never rushed.',
+      homeTagline: 'Bloom & anticipation',
+    },
+    {
+      name: 'Couples / Engagement',
+      description:
+        'Sweet tea strolls, front-porch swings, or downtown at dusk—wherever y’all feel like yourselves is where I’ll meet you.',
+      homeTagline: 'Sweet on each other',
+    },
+    {
+      name: 'Special Events',
+      description:
+        'Galas, brand launches, and the milestones that deserve to be remembered with polish and a little Southern warmth.',
+      homeTagline: 'Celebrate key moments',
+    },
+    {
+      name: 'Family',
+      description:
+        'Your people, soft light, and room to breathe—family portraits that feel like a compliment, not a performance.',
+      homeTagline: 'Together & true',
+    },
+    {
+      name: 'Portraits',
+      description:
+        'Just you—soft light and room to breathe—portraits that feel like a compliment, not a performance.',
+      homeTagline: 'Effortless & true',
+    },
+  ];
+
+export const PORTFOLIO_CATEGORY_DEFS: PortfolioCategoryDef[] = CATEGORY_COPY.map(
+  (cat) => {
+    const folder = GALLERY_UPLOAD_FOLDERS[cat.name]!;
+    const shoots = SHOOTS_BY_CATEGORY[cat.name] ?? [];
+    return {
+      ...cat,
+      folder,
+      shoots,
+      coverSrc: getCategoryCoverSrc(cat.name, folder, shoots),
+    };
   },
-  {
-    name: 'Motherhood',
-    description:
-      'That glow, the bump you keep resting your hand on, and the wonder before baby arrives—documented gently, never rushed.',
-    homeTagline: 'Bloom & anticipation',
-    coverSrc: localImageSrc('Motherhood', 0),
-    photos: buildPhotos('Motherhood', 'Motherhood'),
-  },
-  {
-    name: 'Couples / Engagement',
-    description:
-      'Sweet tea strolls, front-porch swings, or downtown at dusk—wherever y’all feel like yourselves is where I’ll meet you.',
-    homeTagline: 'Sweet on each other',
-    coverSrc: localImageSrc('Couples / Engagement', 0),
-    photos: buildPhotos('Couples / Engagement', 'Couples and engagement'),
-  },
-  {
-    name: 'Special Events',
-    description:
-      'Galas, brand launches, and the milestones that deserve to be remembered with polish and a little Southern warmth.',
-    homeTagline: 'Celebrate key moments',
-    coverSrc: localImageSrc('Special Events', 0),
-    photos: buildPhotos('Special Events', 'Event'),
-  },
-  {
-    name: 'Family',
-    description:
-      'Your people, soft light, and room to breathe—family portraits that feel like a compliment, not a performance.',
-    homeTagline: 'Effortless & true',
-    coverSrc: localImageSrc('Family', 0),
-    photos: buildPhotos('Family', 'Family portrait'),
-  },
-];
+);
+
+export function getCategoryByName(name: string): PortfolioCategoryDef | undefined {
+  return PORTFOLIO_CATEGORY_DEFS.find((c) => c.name === name);
+}
+
+export function getShootInCategory(
+  categoryName: string,
+  shootSlug: string,
+): PortfolioShootDef | undefined {
+  return SHOOTS_BY_CATEGORY[categoryName]?.find((s) => s.slug === shootSlug);
+}
+
+export function getShootCards(categoryName: string): PortfolioShootCard[] {
+  const category = getCategoryByName(categoryName);
+  if (!category) return [];
+
+  return category.shoots.map((shoot) => ({
+    category: category.name,
+    categoryFolder: category.folder,
+    slug: shoot.slug,
+    name: shoot.name,
+    tagline: shoot.tagline,
+    image: shootCoverSrc(category.folder, shoot),
+    href: `/portfolio?category=${encodeURIComponent(category.name)}&shoot=${encodeURIComponent(shoot.slug)}`,
+  }));
+}
+
+export function getShootPhotos(
+  categoryName: string,
+  shootSlug: string,
+): PortfolioPhoto[] {
+  const category = getCategoryByName(categoryName);
+  const shoot = getShootInCategory(categoryName, shootSlug);
+  if (!category || !shoot) return [];
+  return buildShootPhotos(category.name, category.folder, shoot);
+}
 
 export const PORTFOLIO_CATEGORIES_FOR_UI = PORTFOLIO_CATEGORY_DEFS.map((c) => ({
   name: c.name,
@@ -153,23 +228,8 @@ export const PORTFOLIO_HOME_CARDS = PORTFOLIO_CATEGORY_DEFS.map((c) => ({
   href: `/portfolio?category=${encodeURIComponent(c.name)}`,
 }));
 
-/** Same cards as home, with Weddings in the center position for the polaroid grid */
 export const PORTFOLIO_HOME_CARDS_CENTERED = (() => {
   const wedding = PORTFOLIO_HOME_CARDS.find((c) => c.name === 'Weddings')!;
   const rest = PORTFOLIO_HOME_CARDS.filter((c) => c.name !== 'Weddings');
-  const mid = Math.floor(PORTFOLIO_HOME_CARDS.length / 2);
-  return [...rest.slice(0, mid), wedding, ...rest.slice(mid)];
+  return [...rest.slice(0, 4), wedding, ...rest.slice(4)];
 })();
-
-export const PORTFOLIO_GALLERY_BY_CATEGORY: Record<string, PortfolioPhoto[]> =
-  Object.fromEntries(
-    PORTFOLIO_CATEGORY_DEFS.map((c) => [
-      c.name,
-      c.photos.map((p) => ({
-        id: p.id,
-        src: p.src,
-        alt: p.alt,
-        category: c.name,
-      })),
-    ])
-  );
