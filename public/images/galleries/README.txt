@@ -64,7 +64,10 @@ WHAT SYNC DOES
 --------------
   • Renames gallery photos to 01.jpg, 02.jpg, 03.jpg, …
   • Normalizes cover to cover.jpg or cover.jpeg
+  • Compresses large gallery images (max 2400px edge, ~85% JPEG quality)
   • Updates src/lib/galleryManifest.json (the site reads this)
+
+  Hero / home page images in public/images/ are NOT touched — only galleries/.
 
 
 TIPS

@@ -23,6 +23,18 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       description:
         'Wedding photography in Tennessee—honest light, real emotion, & the quiet in-between moments from vows through celebration.',
     },
+    {
+      slug: 'mount-pleasant-sc-wedding',
+      title: 'Mount Pleasant Wedding',
+      description:
+        'Wedding photography in Mount Pleasant, SC—honest light, real emotion, & the quiet in-between moments from vows through celebration.',
+    },
+    {
+      slug: 'patrick-sc-wedding',
+      title: 'Patrick Wedding',
+      description:
+        'Wedding photography in Patrick, SC—natural light, genuine emotion, & the real moments from getting ready through your last dance.',
+    }
   ],
   Motherhood: [
     {
@@ -63,7 +75,13 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
     title: 'Prom Portraits',
     description:
       'Hartsville prom portraits—polished, fun, & full of the excitement of the night, captured with natural warmth.',
-  },],
+  },
+  {
+    slug: 'florence-sc-birthday-party',
+    title: 'Florence Birthday Party',
+    description:
+      'Birthday party photography in Florence, SC—joyful details, candid smiles, & the little moments that make the celebration unforgettable.',
+  }],
   Family: [
     {
       slug: 'myrtle-beach-family',
