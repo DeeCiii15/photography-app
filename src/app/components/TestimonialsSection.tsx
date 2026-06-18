@@ -1,8 +1,9 @@
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { TESTIMONIALS, TESTIMONIAL_DECK_STYLES } from '@/lib/testimonialsData';
+import TestimonialLightbox from './TestimonialLightbox';
 
 function TestimonialDeckChevron({ dir }: { dir: -1 | 1 }) {
   return (
@@ -35,6 +36,7 @@ export default function TestimonialsSection({
   showContactCta = true,
 }: TestimonialsSectionProps) {
   const testimonialDeckRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const scrollTestimonialDeck = useCallback((dir: -1 | 1) => {
     const el = testimonialDeckRef.current;
@@ -77,7 +79,7 @@ export default function TestimonialsSection({
           </h2>
           <p className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/65">
             A few favorites from brides, couples, & mamas who trusted me with
-            their chapters.
+            their chapters. Tap a card to read the full review.
           </p>
         </div>
         <div
@@ -110,12 +112,15 @@ export default function TestimonialsSection({
             className="scrollbar-hide flex scroll-smooth snap-x snap-mandatory sm:snap-proximity gap-0 overflow-x-auto overflow-y-visible overscroll-x-contain px-12 pb-4 pt-6 [scroll-padding-inline:max(1rem,6vw)] [-webkit-overflow-scrolling:touch] [touch-action:pan-x_pan-y] sm:px-14 sm:pb-6 sm:pt-8 sm:[touch-action:manipulation] md:px-16 md:pb-6"
           >
             {TESTIMONIALS.map((t, i) => (
-              <blockquote
+              <button
                 key={`${t.name}-${i}`}
+                type="button"
                 style={{ zIndex: i + 1 }}
-                className={`w-[min(82vw,19.5rem)] shrink-0 snap-center overflow-visible rounded-2xl bg-[#faf8f4]/92 p-6 shadow-[0_12px_36px_rgba(61,52,44,0.08)] ring-1 ring-[#e8e3db]/90 transition-[transform,box-shadow] duration-500 ease-out will-change-transform hover:shadow-[0_18px_44px_rgba(61,52,44,0.1)] dark:bg-boho-bark/48 dark:shadow-[0_12px_36px_rgba(0,0,0,0.22)] dark:ring-boho-stone/30 dark:hover:shadow-[0_18px_44px_rgba(0,0,0,0.28)] sm:w-[20.5rem] sm:p-7 md:w-[21rem] ${i > 0 ? '-ml-7 sm:-ml-9 md:-ml-11' : ''} ${TESTIMONIAL_DECK_STYLES[i % TESTIMONIAL_DECK_STYLES.length]}`}
+                onClick={() => setActiveIndex(i)}
+                className={`w-[min(82vw,19.5rem)] shrink-0 snap-center overflow-visible rounded-2xl bg-[#faf8f4]/92 p-6 text-left shadow-[0_12px_36px_rgba(61,52,44,0.08)] ring-1 ring-[#e8e3db]/90 transition-[transform,box-shadow] duration-500 ease-out will-change-transform hover:z-30 hover:scale-[1.02] hover:shadow-[0_18px_44px_rgba(61,52,44,0.1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral dark:bg-boho-bark/48 dark:shadow-[0_12px_36px_rgba(0,0,0,0.22)] dark:ring-boho-stone/30 dark:hover:shadow-[0_18px_44px_rgba(0,0,0,0.28)] sm:w-[20.5rem] sm:p-7 md:w-[21rem] ${i > 0 ? '-ml-7 sm:-ml-9 md:-ml-11' : ''} ${TESTIMONIAL_DECK_STYLES[i % TESTIMONIAL_DECK_STYLES.length]}`}
+                aria-label={`Read full review from ${t.name}`}
               >
-                <p className="font-body text-[0.9rem] font-light italic leading-relaxed text-cream-dark/90 dark:text-cream/88 sm:text-[0.9375rem]">
+                <p className="font-body line-clamp-[9] text-[0.9rem] font-light italic leading-relaxed text-cream-dark/90 dark:text-cream/88 sm:text-[0.9375rem]">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <footer className="mt-5 border-t border-dusty-rose/30 pt-4 dark:border-boho-stone/45">
@@ -126,10 +131,20 @@ export default function TestimonialsSection({
                     {t.detail}
                   </p>
                 </footer>
-              </blockquote>
+              </button>
             ))}
           </div>
         </div>
+
+        {activeIndex !== null ? (
+          <TestimonialLightbox
+            testimonials={TESTIMONIALS}
+            activeIndex={activeIndex}
+            onClose={() => setActiveIndex(null)}
+            onNavigate={setActiveIndex}
+          />
+        ) : null}
+
         {showContactCta && (
           <div className="mt-12 mb-12 flex w-full justify-center lg:mb-14">
             <Link
