@@ -34,6 +34,11 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       title: 'Patrick Wedding',
       description:
         'Wedding photography in Patrick, SC—natural light, genuine emotion, & the real moments from getting ready through your last dance.',
+    }, {
+      slug: 'pamplico-sc-wedding',
+      title: 'Pamplico Wedding',
+      description:
+        'Wedding photography in Pamplico, SC—honest light, real emotion, & the quiet in-between moments from vows through celebration.',
     }
   ],
   Motherhood: [
