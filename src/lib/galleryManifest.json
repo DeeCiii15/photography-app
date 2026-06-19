@@ -137,6 +137,10 @@
         "19.jpg"
       ]
     },
+    "madison": {
+      "cover": "cover.jpeg",
+      "photos": []
+    },
     "sullivans-island-motherhood": {
       "cover": "cover.jpeg",
       "photos": [
@@ -332,7 +336,7 @@
       ]
     },
     "pamplico-sc-wedding": {
-      "cover": "01.jpg",
+      "cover": "cover.jpg",
       "photos": [
         "01.jpg",
         "02.jpg",
@@ -379,8 +383,7 @@
         "43.jpg",
         "44.jpg",
         "45.jpg",
-        "46.jpg",
-        "47.jpg"
+        "46.jpg"
       ]
     },
     "patrick-sc-wedding": {

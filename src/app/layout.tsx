@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Dancing_Script, Lora } from "next/font/google";
+import { Corinthia, Lora } from "next/font/google";
 import "./globals.css";
 import ContactRibbon from "./components/ContactRibbon";
 import SiteJsonLd from "./components/SiteJsonLd";
@@ -15,16 +15,16 @@ import {
   SITE_NAME,
 } from "@/lib/siteConfig";
 
+/** Formal calligraphy script — headlines, brand name, and decorative UI */
+const signatureScript = Corinthia({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 /** Warm readable serif — body, forms, eyebrows */
 const lora = Lora({
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-/** Casual connected script — headlines, brand name, and decorative UI */
-const signatureScript = Dancing_Script({
-  variable: "--font-script",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
