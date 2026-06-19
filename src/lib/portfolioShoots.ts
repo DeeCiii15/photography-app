@@ -53,12 +53,6 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       title: 'Sullivans Island Beach Motherhood',
       description:
         'Beach maternity session on Sullivan\'s Island—ocean air, natural light, & calm portraits that honor the bump & anticipation.',
-    },
-    {
-      slug: 'madison',
-      title: 'Madison\'s Motherhood',
-      description:
-        'Madison'
     }
   ],
   'Couples / Engagement': [
