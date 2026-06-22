@@ -14,11 +14,13 @@ import {
 import { SITE_IMAGES } from '@/lib/siteImages';
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: {
+    absolute: 'Contact Wedding Photographer in Florence, SC | Taylor Rose Reels',
+  },
   description: `Book a ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding or portrait photographer serving the ${PRIMARY_REGION}. Share your date, venue, or vision—Taylor reads every message.`,
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Contact',
+    title: 'Contact Wedding Photographer in Florence, SC | Taylor Rose Reels',
     description: `Inquire about wedding, portrait, or celebration photography in ${PRIMARY_CITY} & the ${PRIMARY_REGION}.`,
     url: '/contact',
   },

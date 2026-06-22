@@ -11,12 +11,17 @@ import { EXPERIENCE_FAQS, EXPERIENCE_PROCESS_STEPS } from '@/lib/experienceData'
 import { PHOTOGRAPHER_IMAGE_ALT, PRIMARY_CITY, PRIMARY_REGION } from '@/lib/siteConfig';
 import { SITE_IMAGES } from '@/lib/siteImages';
 
+const EXPERIENCE_PAGE_TITLE =
+  'Wedding, Event, Bridal, Portrait Frequently Asked Questions | Photography in Florence, SC | Taylor Rose Reels';
+
 export const metadata: Metadata = {
-  title: 'Experience',
+  title: {
+    absolute: EXPERIENCE_PAGE_TITLE,
+  },
   description: `What to expect working with a ${PRIMARY_CITY} photographer serving the ${PRIMARY_REGION}—from inquiry to gallery, plus FAQs & words from past clients.`,
   alternates: { canonical: '/experience' },
   openGraph: {
-    title: 'Experience',
+    title: EXPERIENCE_PAGE_TITLE,
     description: `From first note to final frame—the rhythm of working together across the ${PRIMARY_REGION}, with FAQs & client words.`,
     url: '/experience',
   },
