@@ -5,6 +5,7 @@ import "./globals.css";
 import ContactRibbon from "./components/ContactRibbon";
 import SiteJsonLd from "./components/SiteJsonLd";
 import {
+  CANONICAL_SITE_URL,
   DEFAULT_OG_IMAGE_PATH,
   getSiteUrl,
   LOCAL_KEYWORDS,
@@ -30,6 +31,7 @@ const lora = Lora({
 });
 
 const siteUrl = getSiteUrl();
+const favicon = (path: string) => `${CANONICAL_SITE_URL}${path}`;
 
 const HOME_PAGE_TITLE = `Wedding Photographer in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} and surrounding Pee Dee areas | ${SITE_NAME}`;
 
@@ -73,16 +75,24 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: favicon('/favicon-48x48.png'), sizes: '48x48', type: 'image/png' },
+      { url: favicon('/favicon-96x96.png'), sizes: '96x96', type: 'image/png' },
+      { url: favicon('/favicon-144x144.png'), sizes: '144x144', type: 'image/png' },
+      { url: favicon('/icon-192.png'), sizes: '192x192', type: 'image/png' },
+      { url: favicon('/favicon.ico'), sizes: '48x48', type: 'image/x-icon' },
+      { url: favicon('/favicon-32x32.png'), sizes: '32x32', type: 'image/png' },
+      { url: favicon('/favicon-16x16.png'), sizes: '16x16', type: 'image/png' },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/favicon-48x48.png",
+    apple: [
+      {
+        url: favicon('/apple-touch-icon.png'),
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
+    shortcut: favicon('/favicon-48x48.png'),
   },
+  manifest: favicon('/site.webmanifest'),
   formatDetection: {
     telephone: false,
   },

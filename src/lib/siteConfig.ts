@@ -8,12 +8,9 @@ export function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, '');
   if (fromEnv) return fromEnv;
 
-  // Production deploys should never fall back to *.vercel.app when a custom domain exists.
+  // Always use the custom domain in production so Google, OG tags, and favicons
+  // never point at *.vercel.app (which can serve the default Vercel icon).
   if (process.env.VERCEL_ENV === 'production') {
-    const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
-    if (productionHost) {
-      return `https://${productionHost.replace(/^https?:\/\//, '')}`;
-    }
     return CANONICAL_SITE_URL;
   }
 
