@@ -239,12 +239,15 @@ function MobileContactRibbons() {
               <CloseIcon className="h-6 w-6" />
             ) : (
               <Image
-                src="/favicon-48x48.png"
+                src="/images/rose-favicon.png"
                 alt=""
-                width={36}
-                height={36}
+                width={108}
+                height={108}
+                quality={100}
+                sizes="36px"
                 className="h-9 w-9 object-contain"
                 aria-hidden
+                unoptimized
               />
             )}
           </button>
