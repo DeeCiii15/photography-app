@@ -6,9 +6,6 @@ const root = path.resolve(import.meta.dirname, '..');
 const sourcePng = path.join(root, 'public/images/rose-favicon.png');
 const publicDir = path.join(root, 'public');
 
-/** Site cream — gives line art enough contrast for Google SERP thumbnails */
-const ICON_BG = { r: 244, g: 241, b: 235, alpha: 1 };
-
 async function loadTransparentRose() {
   const trimmed = await sharp(sourcePng)
     .trim({ threshold: 12 })
@@ -32,30 +29,12 @@ async function loadTransparentRose() {
   });
 }
 
-async function iconWithBackground(source, size) {
-  const roseSize = Math.round(size * 0.8);
-  const rose = await source
-    .clone()
-    .resize(roseSize, roseSize, {
-      fit: 'contain',
-      background: { r: 0, g: 0, b: 0, alpha: 0 },
-      kernel: sharp.kernel.lanczos3,
-    })
-    .png()
-    .toBuffer();
-
-  const offset = Math.round((size - roseSize) / 2);
-
-  return sharp({
-    create: {
-      width: size,
-      height: size,
-      channels: 4,
-      background: ICON_BG,
-    },
-  })
-    .composite([{ input: rose, left: offset, top: offset }])
-    .png({ compressionLevel: 9, effort: 10 });
+function iconPipeline(source, size) {
+  return source.clone().resize(size, size, {
+    fit: 'contain',
+    background: { r: 0, g: 0, b: 0, alpha: 0 },
+    kernel: sharp.kernel.lanczos3,
+  }).png({ compressionLevel: 9, effort: 10 });
 }
 
 const rose = await loadTransparentRose();
@@ -71,13 +50,10 @@ const sizes = [
 ];
 
 for (const { name, size } of sizes) {
-  const pipeline = await iconWithBackground(rose, size);
-  await pipeline.toFile(path.join(publicDir, name));
+  await iconPipeline(rose, size).toFile(path.join(publicDir, name));
 }
 
-const applePipeline = await iconWithBackground(rose, 180);
-await applePipeline.toFile(path.join(publicDir, 'apple-touch-icon.png'));
-const icoPipeline = await iconWithBackground(rose, 48);
-await icoPipeline.toFile(path.join(publicDir, 'favicon.ico'));
+await iconPipeline(rose, 180).toFile(path.join(publicDir, 'apple-touch-icon.png'));
+await iconPipeline(rose, 48).toFile(path.join(publicDir, 'favicon.ico'));
 
-console.log('Generated favicons from public/images/rose-favicon.png');
+console.log('Generated transparent favicons from public/images/rose-favicon.png');
