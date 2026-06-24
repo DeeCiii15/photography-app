@@ -1,53 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { PHOTOGRAPHER_EMAIL } from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialHubIcon, SocialNetworkIcon } from './SocialMediaIcons';
-
-/** Line-work rose — original FAB rose (stem, leaf, outer + inner bloom) */
-function RoseLineIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden
-    >
-      <path
-        d="M12 21.25v-6.85"
-        stroke="currentColor"
-        strokeWidth={1.35}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M12 15.6c-1.9-.95-3.55-.85-4.7.2"
-        stroke="currentColor"
-        strokeWidth={1.25}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-        opacity={0.88}
-      />
-      <path
-        d="M12 14.35c-2.9-2.35-3.55-5.6-1.65-8 1.35-1.7 3.85-1.85 5.5-.35 2.15 1.95 1.45 5.35-1.45 7.85"
-        stroke="currentColor"
-        strokeWidth={1.35}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-      />
-      <path
-        d="M12 9.1c-1.05-.7-1.7-2-1.05-3.35.85-1.55 2.9-1.4 3.65.15.6 1.2-.2 2.45-1.15 3.15"
-        stroke="currentColor"
-        strokeWidth={1.25}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-      />
-    </svg>
-  );
-}
 
 /** Linen-fold envelope — gentle curves, same weight as phone */
 function MailIcon({ className }: { className?: string }) {
@@ -281,7 +238,14 @@ function MobileContactRibbons() {
             {fabMenuOpen ? (
               <CloseIcon className="h-6 w-6" />
             ) : (
-              <RoseLineIcon className="h-9 w-9" />
+              <Image
+                src="/favicon-48x48.png"
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 object-contain"
+                aria-hidden
+              />
             )}
           </button>
         </div>

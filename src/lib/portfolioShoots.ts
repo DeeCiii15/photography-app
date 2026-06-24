@@ -53,6 +53,12 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       title: 'Sullivans Island Beach Motherhood',
       description:
         'Beach maternity session on Sullivan\'s Island—ocean air, natural light, & calm portraits that honor the bump & anticipation.',
+    },
+    {
+      slug: 'florence-sc-gender-reveal',
+      title: 'Florence Intimate Gender Reveal',
+      description:
+        'Intimate gender reveal photography in Florence, SC—joyful anticipation, soft natural light, & candid moments as you share the surprise with the people you love most.',
     }
   ],
   'Couples / Engagement': [

@@ -3,12 +3,10 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Image from 'next/image';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [logoError, setLogoError] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === '/';
   const onHero = isHome && !scrolled;
@@ -60,18 +58,6 @@ export default function Navigation() {
               <span className="font-script text-2xl leading-none text-white drop-shadow-md transition-opacity group-hover:opacity-90 md:text-[1.85rem]">
                 Taylor Rose Reels
               </span>
-            ) : !logoError ? (
-              <div className="relative h-9 w-[7.25rem] max-w-[42vw] sm:h-10 sm:w-[8.25rem] md:h-11 md:w-[9.5rem]">
-                <Image
-                  src="/images/logo-v2.png"
-                  alt="Taylor Rose Reels"
-                  fill
-                  className="object-contain object-left transition-opacity group-hover:opacity-85"
-                  sizes="(max-width: 768px) 120px, 152px"
-                  priority
-                  onError={() => setLogoError(true)}
-                />
-              </div>
             ) : (
               <span className="font-script text-2xl text-coral transition-opacity group-hover:opacity-85 dark:text-[#e8c4a8] md:text-[1.85rem]">
                 Taylor Rose Reels
