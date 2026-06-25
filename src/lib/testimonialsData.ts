@@ -34,7 +34,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
   {
     quote:
       'Taylor is truly amazing! She is personable, professional, and incredibly talented. From the very beginning, communication was easy and seamless. I shared my vision with her, and she not only understood it but exceeded every expectation I had. The entire photoshoot was fun, relaxed, and enjoyable, which made the experience even more special. Most importantly, the photos turned out absolutely beautiful. Taylor has a genuine gift for photography, and it shines through in both her work and the way she makes her clients feel comfortable. I couldn\'t be happier with our experience and highly recommend her to anyone looking for stunning photos and an exceptional photographer!',
-    name: 'Kalaya Jones',
+    name: 'Kalayah Dowell',
     detail: 'Engagement pictures · 2025',
     portrait: '/images/Old Picutres/inspiration_3.jpg',
   },
