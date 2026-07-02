@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   title: {
     absolute: 'Contact Wedding Photographer in Florence, SC | Taylor Rose Reels',
   },
-  description: `Book a ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding or portrait photographer serving the ${PRIMARY_REGION}. Share your date, venue, or vision—Taylor reads every message.`,
+  description: `Inquire about wedding, portrait, engagement, motherhood, family, and special event photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}. Share your date, venue, or vision—Taylor reads every message.`,
   alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact Wedding Photographer in Florence, SC | Taylor Rose Reels',
-    description: `Inquire about wedding, portrait, or celebration photography in ${PRIMARY_CITY} & the ${PRIMARY_REGION}.`,
+    description: `Wedding, portrait, engagement, motherhood, family, and special event photography in ${PRIMARY_CITY} & the ${PRIMARY_REGION}.`,
     url: '/contact',
   },
 };
@@ -39,10 +39,10 @@ export default function ContactPage() {
             <h1 className="mt-4 font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream md:text-3xl lg:text-[2.35rem] md:leading-[1.12]">
               Tell me about your day
             </h1>
-            <p className="mt-5 max-w-lg font-body text-sm font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 md:text-base">
-              Share a date, a venue, or a feeling—I read every message myself.
-              Based in {PRIMARY_CITY}, {PRIMARY_STATE_ABBR}, I photograph across
-              the {PRIMARY_REGION} & surrounding South Carolina towns.
+            <p className="mt-5 max-w-xl font-body text-sm font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 md:text-base">
+              Share your date, venue, or vision for weddings, portraits,
+              engagements, motherhood sessions, family photos, or special
+              events—I read every message myself.
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch lg:gap-14">

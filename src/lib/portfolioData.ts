@@ -248,3 +248,18 @@ export const PORTFOLIO_HOME_CARDS_CENTERED = (() => {
   const rest = PORTFOLIO_HOME_CARDS.filter((c) => c.name !== 'Weddings');
   return [...rest.slice(0, 4), wedding, ...rest.slice(4)];
 })();
+
+/** Footer gallery nav — matches contact-page service order & labels */
+export const FOOTER_PORTFOLIO_LINKS = (
+  [
+    ['Weddings', 'Weddings'],
+    ['Portraits', 'Portraits'],
+    ['Couples / Engagement', 'Engagements'],
+    ['Motherhood', 'Motherhood'],
+    ['Family', 'Family'],
+    ['Special Events', 'Special Events'],
+  ] as const
+).map(([categoryName, label]) => ({
+  label,
+  href: portfolioCategoryHref(GALLERY_UPLOAD_FOLDERS[categoryName]!),
+}));

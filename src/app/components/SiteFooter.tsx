@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+import { FOOTER_PORTFOLIO_LINKS } from '@/lib/portfolioData';
 import { SERVICE_AREA_LABEL } from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialNetworkIcon } from './SocialMediaIcons';
@@ -22,6 +24,32 @@ export default function SiteFooter() {
             {SERVICE_AREA_LABEL}
           </p>
         </div>
+        <nav
+          aria-label="Photography services"
+          className="flex max-w-xl flex-col items-center gap-3"
+        >
+          <p className="section-eyebrow text-boho-sage">Services</p>
+          <ul className="flex flex-wrap items-center justify-center gap-y-2">
+            {FOOTER_PORTFOLIO_LINKS.map((link, index) => (
+              <li key={link.href} className="inline-flex items-center">
+                {index > 0 && (
+                  <span
+                    aria-hidden
+                    className="mx-2.5 text-cream-dark/30 dark:text-cream/25"
+                  >
+                    ·
+                  </span>
+                )}
+                <Link
+                  href={link.href}
+                  className="font-body text-xs font-light text-cream-dark/65 transition hover:text-coral dark:text-cream/60 dark:hover:text-[#e8b896]"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
         {socialLinks.length > 0 && (
           <div className="flex flex-wrap items-center justify-center gap-2">
             {socialLinks.map((link) => (
