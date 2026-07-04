@@ -68,6 +68,8 @@ export const LOCAL_KEYWORDS = [
   `wedding photographer ${PRIMARY_CITY} ${PRIMARY_STATE_ABBR}`,
   `elopement photographer ${PRIMARY_REGION}`,
   'natural light photography',
+  'true to color',
+  'timeless',
   SITE_NAME,
 ] as const;
 

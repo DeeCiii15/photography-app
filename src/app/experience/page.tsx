@@ -71,8 +71,8 @@ export default function ExperiencePage() {
               <p className="mt-6 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
                 Here’s the general path most clients travel—unhurried, kind, &
                 built around you. Every wedding & session is a little
-                different, but the heart of it stays the same: you should always
-                know what happens next.
+                different, but the heart of it stays the same: true to color,
+                timeless work, and you should always know what happens next.
               </p>
             </div>
           </div>

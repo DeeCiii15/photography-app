@@ -191,7 +191,7 @@ export default function Home() {
                 More stories, same light
               </h2>
               <p className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/68">
-                Click any card to wander deeper.
+                True to color and timeless by design—click any card to wander deeper.
               </p>
             </div>
             <PortfolioHomeGallery variant="home" />
