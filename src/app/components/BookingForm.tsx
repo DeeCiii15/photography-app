@@ -12,6 +12,7 @@ function buildInquiryBody(formData: FormData): string {
   const name = getField(formData, 'name');
   const email = getField(formData, 'email');
   const phone = getField(formData, 'phone');
+  const location = getField(formData, 'location');
   const eventDate = getField(formData, 'event_date');
   const eventType = getField(formData, 'event_type');
   const message = getField(formData, 'message');
@@ -22,6 +23,7 @@ function buildInquiryBody(formData: FormData): string {
     `Name: ${name || '—'}`,
     `Email: ${email || '—'}`,
     `Phone: ${phone || '—'}`,
+    `Location: ${location || '—'}`,
     `Event date: ${eventDate || '—'}`,
     `Type of session: ${eventType || '—'}`,
     '',
@@ -220,6 +222,19 @@ export default function BookingForm({ className }: BookingFormProps) {
       </div>
 
       <div>
+        <label htmlFor="location" className={labelClass}>
+          Location
+        </label>
+        <input
+          id="location"
+          name="location"
+          type="text"
+          className={fieldClass}
+          placeholder="City, venue, or general area"
+        />
+      </div>
+
+      <div>
         <label htmlFor="event_type" className={labelClass}>
           What are we celebrating?
         </label>
@@ -244,7 +259,7 @@ export default function BookingForm({ className }: BookingFormProps) {
           name="message"
           rows={6}
           className={`${fieldClass} resize-none`}
-          placeholder="Tell me all the details. What is your vibe, vision & style? What is your location?"
+          placeholder="Tell me all the details. What is your vibe, vision & style?"
         />
       </div>
 
