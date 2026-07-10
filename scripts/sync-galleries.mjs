@@ -18,7 +18,7 @@ import path from 'path';
 
 import { fileURLToPath } from 'url';
 
-import sharp from 'sharp';
+import { formatMb, IMAGE_RE, optimizeImage } from './lib/compress-image.mjs';
 
 
 
@@ -32,21 +32,7 @@ const manifestPath = path.join(projectRoot, 'src', 'lib', 'galleryManifest.json'
 
 
 
-const IMAGE_RE = /\.(jpe?g|png|webp|gif)$/i;
-
 const COVER_PREFERENCE = ['cover.jpg', 'cover.jpeg'];
-
-
-
-/** Long edge cap — plenty for grid + lightbox */
-
-const COMPRESS_MAX_EDGE = 2400;
-
-const COMPRESS_QUALITY = 85;
-
-/** Skip re-encoding when already web-sized (avoids quality loss on repeat syncs) */
-
-const SKIP_IF_UNDER_BYTES = 1.5 * 1024 * 1024;
 
 
 
@@ -186,102 +172,6 @@ function toJpgName(index) {
 
 
 
-function formatMb(bytes) {
-
-  return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
-
-}
-
-
-
-/**
-
- * Resize & JPEG-encode gallery images. Skips files already under size/dimension limits.
-
- */
-
-async function optimizeGalleryImage(filePath) {
-
-  const stat = fs.statSync(filePath);
-
-  const ext = path.extname(filePath).toLowerCase();
-
-  const meta = await sharp(filePath).metadata();
-
-  const maxDim = Math.max(meta.width || 0, meta.height || 0);
-
-  const isJpeg = ext === '.jpg' || ext === '.jpeg';
-
-
-
-  if (
-
-    stat.size < SKIP_IF_UNDER_BYTES &&
-
-    maxDim <= COMPRESS_MAX_EDGE &&
-
-    isJpeg
-
-  ) {
-
-    return { skipped: true, before: stat.size, after: stat.size };
-
-  }
-
-
-
-  const before = stat.size;
-
-  const tempPath = `${filePath}.compressing`;
-
-  let pipeline = sharp(filePath).rotate();
-
-
-
-  if (maxDim > COMPRESS_MAX_EDGE) {
-
-    pipeline = pipeline.resize(COMPRESS_MAX_EDGE, COMPRESS_MAX_EDGE, {
-
-      fit: 'inside',
-
-      withoutEnlargement: true,
-
-    });
-
-  }
-
-
-
-  const jpegOpts = { quality: COMPRESS_QUALITY, mozjpeg: true };
-
-  const outputPath =
-
-    ext === '.jpeg' ? filePath : filePath.replace(/\.[^.]+$/i, '.jpg');
-
-
-
-  await pipeline.jpeg(jpegOpts).toFile(tempPath);
-
-
-
-  if (outputPath !== filePath && fs.existsSync(filePath)) {
-
-    fs.unlinkSync(filePath);
-
-  }
-
-  fs.renameSync(tempPath, outputPath);
-
-
-
-  const after = fs.statSync(outputPath).size;
-
-  return { optimized: true, before, after, path: outputPath };
-
-}
-
-
-
 async function compressShootImages(dir, cover, photos) {
 
   const names = new Set();
@@ -308,7 +198,7 @@ async function compressShootImages(dir, cover, photos) {
 
 
 
-    const result = await optimizeGalleryImage(filePath);
+    const result = await optimizeImage(filePath);
 
     if (result.skipped) {
 
