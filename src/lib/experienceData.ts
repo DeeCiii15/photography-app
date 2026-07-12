@@ -3,28 +3,28 @@ export const EXPERIENCE_PROCESS_STEPS = [
     title: 'Say hello',
     body:
       'Reach out & say hello. Introduce yourself & describe your inquiry! If we’re a good fit, we’ll set up a call & have a conversation. Feel free to ask any questions you may have.',
-    postItSrc: '/images/engagement_1.jpg',
+    postItSrc: '/images/1_exp.JPEG',
     postItAlt: 'Engagement couple in soft light — saying hello',
   },
   {
     title: 'Dream it together',
     body:
       'Once you are ready to move forward, we’ll talk through the details & what moments matter most to you. I’ll send a simple agreement & collect a retainer to hold your date. I will offer gentle prep like outfit tips, time of day & location, & most importantly space to change your mind & be flexible as plans evolve.',
-    postItSrc: '/images/bridal_1.jpg',
+    postItSrc: '/images/2_exp.JPEG',
     postItAlt: 'Bridal portrait — dreaming up the day together',
   },
   {
     title: 'The day itself',
     body:
       'I show up early, calm, & eager to capture your special moments. You’ll get gentle direction when you need it & room to breathe when you don’t. I’m watching for the big moments, the tiny ones & every detail in between.',
-    postItSrc: '/images/wedding_1.jpg',
+    postItSrc: '/images/3_exp.JPG',
     postItAlt: 'Wedding day — ceremony or celebration moment',
   },
   {
     title: 'Your gallery',
     body:
       'Afterward I cull & edit with the same care I brought on the day. You’ll receive a private online gallery to download, share, & print from. Standard sessions have a 2–3 week turnaround, while other special events like weddings have an 8–10 week turnaround.',
-    postItSrc: '/images/portrait_1.jpg',
+    postItSrc: '/images/4_exp.JPEG',
     postItAlt: 'Finished portrait — your gallery delivered',
   },
 ] as const;
