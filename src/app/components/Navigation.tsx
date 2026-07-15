@@ -3,13 +3,16 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { FLORENCE_WEDDINGS_PATH } from '@/lib/siteConfig';
+
+/** Routes that open with a full-bleed hero the nav floats over (transparent until scrolled) */
+const HERO_ROUTES = new Set<string>(['/', FLORENCE_WEDDINGS_PATH]);
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === '/';
-  const onHero = isHome && !scrolled;
+  const onHero = HERO_ROUTES.has(pathname) && !scrolled;
 
   useEffect(() => {
     const handleScroll = () => {

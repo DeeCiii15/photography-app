@@ -75,3 +75,6 @@ export const LOCAL_KEYWORDS = [
 
 /** Used for Open Graph / Twitter when a page does not set its own image */
 export const DEFAULT_OG_IMAGE_PATH = '/images/Taylor_site.jpg';
+
+/** Canonical path for the Florence, SC wedding photography SEO landing page */
+export const FLORENCE_WEDDINGS_PATH = '/wedding-photography-florence-sc';

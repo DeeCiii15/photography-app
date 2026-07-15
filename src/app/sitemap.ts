@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getAllPosts, getAllCategories, getAllTags, categoryToSlug, tagToSlug } from '@/lib/blog';
 import { getPortfolioSitemapEntries } from '@/lib/portfolioSeo';
-import { getSiteUrl } from '@/lib/siteConfig';
+import { FLORENCE_WEDDINGS_PATH, getSiteUrl } from '@/lib/siteConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
@@ -9,6 +9,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes = [
     { path: '', priority: 1, changeFrequency: 'weekly' as const },
+    {
+      path: FLORENCE_WEDDINGS_PATH,
+      priority: 0.9,
+      changeFrequency: 'monthly' as const,
+    },
     { path: '/experience', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },

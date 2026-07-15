@@ -2,7 +2,12 @@
 
 import Link from 'next/link';
 import { FOOTER_PORTFOLIO_LINKS } from '@/lib/portfolioData';
-import { SERVICE_AREA_LABEL } from '@/lib/siteConfig';
+import {
+  FLORENCE_WEDDINGS_PATH,
+  PRIMARY_CITY,
+  PRIMARY_STATE_ABBR,
+  SERVICE_AREA_LABEL,
+} from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialNetworkIcon } from './SocialMediaIcons';
 
@@ -17,10 +22,7 @@ export default function SiteFooter() {
           <p className="font-script text-3xl text-coral dark:text-[#d4a574] md:text-4xl">
             Taylor Rose Reels
           </p>
-          <p className="mt-3 max-w-md font-body text-xs font-light leading-relaxed text-cream-dark/65 dark:text-cream/60">
-            Photography rooted in your inspiration.
-          </p>
-          <p className="mt-2 max-w-md font-body text-xs font-light leading-relaxed text-cream-dark/55 dark:text-cream/50">
+          <p className="mt-3 max-w-md font-body text-xs font-light leading-relaxed text-cream-dark/55 dark:text-cream/50">
             {SERVICE_AREA_LABEL}
           </p>
         </div>
@@ -50,6 +52,12 @@ export default function SiteFooter() {
             ))}
           </ul>
         </nav>
+        <Link
+          href={FLORENCE_WEDDINGS_PATH}
+          className="font-body text-xs font-light text-cream-dark/65 underline decoration-boho-sage/40 underline-offset-4 transition hover:text-coral dark:text-cream/60 dark:hover:text-[#e8b896]"
+        >
+          Wedding Photography in {PRIMARY_CITY}, {PRIMARY_STATE_ABBR}
+        </Link>
         {socialLinks.length > 0 && (
           <div className="flex flex-wrap items-center justify-center gap-2">
             {socialLinks.map((link) => (
