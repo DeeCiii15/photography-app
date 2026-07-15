@@ -145,12 +145,12 @@ export default function FlorenceWeddingsPage() {
         {/* Hero */}
         <section className="relative isolate flex min-h-svh items-end overflow-hidden">
           <Image
-            src="/images/galleries/weddings/latta-sc-wedding-the-lees/07.jpg"
+            src="/images/galleries/weddings/latta-sc-wedding-the-lees/04.jpg"
             alt={`Wedding photography in ${PRIMARY_CITY}, ${PRIMARY_STATE} by ${SITE_NAME}`}
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[center_65%]"
+            className="object-cover object-[center_38%]"
           />
           <div
             className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/40"
