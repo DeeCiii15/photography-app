@@ -4,9 +4,11 @@ import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import SiteFooter from '../components/SiteFooter';
 import FlorenceWeddingsJsonLd from '../components/FlorenceWeddingsJsonLd';
-import { portfolioCategoryHref } from '@/lib/portfolioData';
+import { getShootCards, portfolioCategoryHref } from '@/lib/portfolioData';
+import type { PortfolioShootCard } from '@/lib/portfolioData';
 import {
   FLORENCE_WEDDINGS_PATH,
+  FLORENCE_WEDDINGS_REF,
   PRIMARY_CITY,
   PRIMARY_REGION,
   PRIMARY_STATE,
@@ -29,68 +31,107 @@ export const metadata: Metadata = {
 
 const WEDDINGS_HREF = portfolioCategoryHref('weddings');
 
-/** Florence-area wedding venues worth linking out to */
-const FLORENCE_VENUES = [
+type VenueGallery = { caption: string; href: string; image: string };
+type Venue = {
+  name: string;
+  location: string;
+  blurb: string;
+  href: string;
+  galleries: VenueGallery[];
+};
+
+/** Lookup of every gallery I might link a venue to, keyed by shoot slug */
+const GALLERY_CARDS_BY_SLUG = new Map<string, PortfolioShootCard>(
+  [...getShootCards('Weddings'), ...getShootCards('Portraits')].map((card) => [
+    card.slug,
+    card,
+  ]),
+);
+
+/** Resolve registered shoot slugs into polaroid data (cover image, title, href) */
+function venueGalleries(...slugs: string[]): VenueGallery[] {
+  return slugs
+    .map((slug) => GALLERY_CARDS_BY_SLUG.get(slug))
+    .filter((card): card is PortfolioShootCard => Boolean(card))
+    .map((card) => ({
+      caption: card.title,
+      href: `${card.href}?from=${FLORENCE_WEDDINGS_REF}`,
+      image: card.image,
+    }));
+}
+
+/** Small alternating tilts so the polaroids feel hand-placed */
+const POLAROID_TILTS = ['-rotate-[3deg]', 'rotate-[2.5deg]', '-rotate-[1.5deg]'];
+
+/** Florence-area wedding venues I love, each linked to real galleries shot there */
+const FLORENCE_VENUES: Venue[] = [
   {
     name: 'Glenview Farm Events',
     location: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR}`,
     blurb:
-      'A rustic 159-acre farm with remodeled horse barns and twinkle-lit oaks, minutes from downtown Florence.',
+      'Gorgeous remodeled horse barns with natural lighting in the ceremony area & a covered pavilion for the reception hall. Indoor bathrooms, getting ready suites for bride & groom, & beautiful acreage to get plenty of timeless portraits & shots.',
     href: 'https://www.glenviewfarmevents.com/',
+    galleries: venueGalleries('florence-sc-wedding'),
   },
   {
-    name: 'The Country Club of South Carolina',
-    location: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR}`,
+    name: 'Parker Pines',
+    location: `Latta, ${PRIMARY_STATE_ABBR}`,
     blurb:
-      'Lakeside ceremonies and a covered veranda for elegant indoor-and-outdoor celebrations.',
-    href: 'https://www.countryclubsc.com/events/weddings',
+      "Parker Pines offers a variety of ceremony spaces to fit every bride's aesthetic—multiple outdoor spaces, an indoor chapel, & a large barn for getting ready & the reception. It also consists of multiple tiny homes to house the bridal party or out-of-town guests for the wedding weekend.",
+    href: 'https://parkerpinesevents.com/',
+    galleries: venueGalleries(
+      'latta-sc-wedding-the-lees',
+      'latta-sc-wedding-the-flowers',
+      'latta-sc-bridal-portraits',
+    ),
   },
   {
     name: 'The Cabin at Old Spur',
     location: `Timmonsville, ${PRIMARY_STATE_ABBR}`,
     blurb:
-      'A serene pond framed by 70 wooded acres—made for laid-back, all-weekend weddings.',
+      'Whether your day is sunny or covered by a blanket of snow, the Cabin at Old Spur is the perfect cozy location tucked back in the woods. A cabin for getting ready & housing the bridal party, skeet shooting for the boys, & the perfect covered pavilion in case of rain ensures a perfect experience for your wedding day.',
     href: 'https://www.thecabinatoldspur.com/',
+    galleries: venueGalleries('timmonsville-sc-wedding'),
   },
   {
-    name: 'Darlington Country Club',
+    name: 'Murphy Farm',
     location: `Darlington, ${PRIMARY_STATE_ABBR}`,
     blurb:
-      'A historic ballroom on the banks of Black Creek, a short drive north of Florence.',
-    href: 'https://darlingtoncountryclub.com/weddings-events/',
+      'Murphy Farm is a quiet venue tucked away on a back road in Darlington, South Carolina. With a covered barn for reception, a secondary barn for getting ready, & a wide open field, Murphy Farm offers the perfect place to get married. The pond located on the property is the ideal backdrop for those beautiful golden hour photos every bride dreams of.',
+    href: 'https://www.murphyfarmllc.com/',
+    galleries: venueGalleries('darlington-sc-wedding'),
   },
-] as const;
+];
 
 /**
- * Focused gallery for one specific Florence-area wedding.
- * Swap these for your chosen photos: drop the images in
- * public/images/... and update each { src, alt } below (any count works).
- * Starter set uses the Pamplico, SC (Florence County) wedding.
+ * Featured grid for the "closer look at some Florence weddings" section—
+ * a curated mix pulled from the real galleries linked in the venues section
+ * below (Florence, Timmonsville, Latta & Darlington weddings).
  */
 const FLORENCE_WEDDING_GALLERY: { src: string; alt: string }[] = [
   {
-    src: '/images/galleries/weddings/pamplico-sc-wedding/01.jpg',
-    alt: `Florence-area wedding photography by ${SITE_NAME} — 1`,
+    src: '/images/galleries/weddings/florence-sc-wedding/cover.jpg',
+    alt: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/pamplico-sc-wedding/08.jpg',
-    alt: `Florence-area wedding photography by ${SITE_NAME} — 2`,
+    src: '/images/galleries/weddings/timmonsville-sc-wedding/cover.jpg',
+    alt: `Timmonsville, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/pamplico-sc-wedding/14.jpg',
-    alt: `Florence-area wedding photography by ${SITE_NAME} — 3`,
+    src: '/images/galleries/weddings/latta-sc-wedding-the-lees/cover.jpg',
+    alt: `Latta, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/pamplico-sc-wedding/23.jpg',
-    alt: `Florence-area wedding photography by ${SITE_NAME} — 4`,
+    src: '/images/galleries/weddings/darlington-sc-wedding/08.jpg',
+    alt: `Darlington, ${PRIMARY_STATE_ABBR} wedding at Murphy Farm by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/pamplico-sc-wedding/30.jpg',
-    alt: `Florence-area wedding photography by ${SITE_NAME} — 5`,
+    src: '/images/galleries/weddings/latta-sc-wedding-the-flowers/cover.jpg',
+    alt: `Latta, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/pamplico-sc-wedding/41.jpg',
-    alt: `Florence-area wedding photography by ${SITE_NAME} — 6`,
+    src: '/images/galleries/weddings/florence-sc-wedding/05.jpg',
+    alt: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
 ];
 
@@ -104,12 +145,12 @@ export default function FlorenceWeddingsPage() {
         {/* Hero */}
         <section className="relative isolate flex min-h-svh items-end overflow-hidden">
           <Image
-            src="/images/hero_1.jpg"
+            src="/images/galleries/weddings/latta-sc-wedding-the-lees/07.jpg"
             alt={`Wedding photography in ${PRIMARY_CITY}, ${PRIMARY_STATE} by ${SITE_NAME}`}
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[center_25%]"
+            className="object-cover object-[center_65%]"
           />
           <div
             className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/40"
@@ -127,10 +168,10 @@ export default function FlorenceWeddingsPage() {
                 </span>
               </h1>
               <p className="mt-6 max-w-2xl font-body text-base font-light leading-[1.8] text-white/90 sm:text-lg">
-                Natural-light, true-to-color wedding photography for couples
-                saying &ldquo;I do&rdquo; in and around {PRIMARY_CITY}. Honest
-                moments, timeless galleries, and a wedding day that still feels
-                like you.
+                Natural lighting, true-to-color, documentary style wedding
+                photography for couples saying &ldquo;I do&rdquo; in &amp; around{' '}
+                {PRIMARY_CITY}. Genuine moments, timeless galleries, &amp; a
+                wedding day that is true to you.
               </p>
               <div className="mt-8 flex w-full max-w-md flex-row flex-wrap gap-2 sm:mt-10 sm:max-w-none sm:gap-3 md:flex-row">
                 <Link
@@ -152,101 +193,86 @@ export default function FlorenceWeddingsPage() {
 
         {/* Why Florence */}
         <section
-          className="scroll-mt-24 border-t border-[#e0d9ce] px-6 py-16 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-24"
+          className="scroll-mt-24 border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-24"
           aria-labelledby="why-florence-heading"
         >
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2px] bg-[#e8e3db] shadow-[0_12px_36px_rgba(61,52,44,0.1)] ring-1 ring-[#e8e3db] dark:bg-boho-bark dark:ring-boho-stone/35 lg:col-span-5 lg:mx-0 lg:max-w-none">
-              <Image
-                src="/images/galleries/weddings/pamplico-sc-wedding/cover.jpg"
-                alt={`Bride and groom by the water at a ${PRIMARY_REGION} wedding near ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR}`}
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 90vw, 42vw"
-              />
-            </div>
-            <div className="lg:col-span-7">
-              <p className="section-eyebrow text-boho-sage">Why Florence</p>
-              <h2
-                id="why-florence-heading"
-                className="mt-4 font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream sm:text-3xl md:text-[2.35rem] md:leading-[1.12]"
-              >
-                Why I love photographing{' '}
-                <span className="italic font-normal text-coral">
-                  Florence weddings
-                </span>
-              </h2>
-              <p className="mt-6 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
-                {PRIMARY_CITY} is home. There&rsquo;s a particular kind of golden
-                light that settles over the {PRIMARY_REGION} in the late
-                afternoon—over the farm fields, the mossy oaks, and the quiet
-                lakes just outside town—and I&rsquo;ve spent years learning how
-                to chase it. Photographing weddings here means I already know the
-                back roads, the venues, and the way the sun falls at six
-                o&rsquo;clock in October.
-              </p>
-              <p className="mt-5 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
-                More than that, I love the people. {PRIMARY_CITY} weddings are
-                full of hometown warmth—the aunts who&rsquo;ve cooked all week,
-                the daddy-daughter dances, the friends who drove in from every
-                corner of {PRIMARY_STATE}. My job is to stay close and quiet
-                enough to catch all of it: the real, in-between moments
-                you&rsquo;ll want to relive for the rest of your life.
-              </p>
-              <Link
-                href="/contact"
-                className="font-display mt-8 inline-flex min-h-12 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-coral px-9 py-3 text-xl text-white shadow-soft transition hover:border-coral/40 hover:bg-coral-dark hover:shadow-soft-lg sm:text-2xl dark:border-boho-stone/45"
-              >
-                Tell me about your day
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Focused gallery — one specific Florence-area wedding */}
-        <section
-          className="scroll-mt-24 border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-24"
-          aria-labelledby="florence-wedding-heading"
-        >
-          <div className="mx-auto max-w-6xl">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2
-                id="florence-wedding-heading"
-                className="font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl lg:text-[2.35rem]"
-              >
-                A closer look at one{' '}
-                <span className="italic text-coral">{PRIMARY_CITY} wedding</span>
-              </h2>
-              <p className="mt-4 font-body text-base font-light leading-[1.8] text-cream-dark/75 dark:text-cream/72">
-                A handful of favorite frames from a recent wedding day in the{' '}
-                {PRIMARY_CITY} area.
-              </p>
-            </div>
-
             {FLORENCE_WEDDING_GALLERY.length > 0 ? (
-              <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-5">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:col-span-6">
                 {FLORENCE_WEDDING_GALLERY.map((photo) => (
                   <div
                     key={photo.src}
-                    className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-[#e8e3db] shadow-[0_8px_24px_rgba(61,52,44,0.08)] ring-1 ring-[#e8e3db] dark:bg-boho-ink dark:ring-boho-stone/30"
+                    className="relative aspect-[2/3] overflow-hidden rounded-[2px] bg-[#e8e3db] shadow-[0_8px_24px_rgba(61,52,44,0.08)] ring-1 ring-[#e8e3db] dark:bg-boho-ink dark:ring-boho-stone/30"
                   >
                     <Image
                       src={photo.src}
                       alt={photo.alt}
                       fill
                       className="object-cover object-center transition duration-500 hover:scale-[1.03]"
-                      sizes="(max-width: 640px) 50vw, 33vw"
+                      sizes="(max-width: 1024px) 50vw, 22vw"
                     />
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="mt-12 rounded-2xl border border-dashed border-[#d4cdc0] bg-[#faf8f4]/70 py-20 text-center dark:border-boho-stone/45 dark:bg-boho-bark/40">
+              <div className="rounded-2xl border border-dashed border-[#d4cdc0] bg-[#faf8f4]/70 py-20 text-center dark:border-boho-stone/45 dark:bg-boho-bark/40 lg:col-span-6">
                 <p className="font-body text-base font-light text-cream-dark/70 dark:text-cream/68">
                   A featured Florence wedding is on the way—check back soon.
                 </p>
               </div>
             )}
+            <div className="lg:col-span-6">
+              <h2
+                id="why-florence-heading"
+                className="font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream sm:text-3xl md:text-[2.35rem] md:leading-[1.12]"
+              >
+                Why I love being a part of your{' '}
+                <span className="italic font-normal text-coral">
+                  {PRIMARY_CITY} wedding
+                </span>
+              </h2>
+              <p className="mt-6 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
+                {PRIMARY_CITY} is home. It&rsquo;s where my love for photography
+                first began and where I&rsquo;ve spent years learning how to
+                photograph love stories in every kind of light.
+              </p>
+              <p className="mt-5 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
+                We all know the {PRIMARY_REGION}&rsquo;s cotton candy sunsets, the
+                back roads lined with grassy fields and wildflowers, and the
+                family farms and hidden venues tucked into every corner of our
+                community. I&rsquo;ve spent countless evenings chasing that light,
+                learning how it moves across each venue and where it settles just
+                before the sun disappears.
+              </p>
+              <p className="mt-5 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
+                When I&rsquo;m photographing your wedding, I&rsquo;m not searching
+                for the perfect spot—I already know it. I know the pockets of
+                golden light that seem to wrap around the two of you, the fields
+                that come alive with dandelion tufts as you laugh your way through
+                them, and the places where the sun slips perfectly between the
+                trees for one last kiss before night falls.
+              </p>
+              <p className="mt-5 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
+                But what I love most isn&rsquo;t the scenery—it&rsquo;s the people.
+              </p>
+              <p className="mt-5 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
+                It&rsquo;s the parents who built their venue from the ground up,
+                the aunt who poured her heart into every floral arrangement, the
+                grandmothers who spent the week cooking family recipes, the
+                friends and family who traveled from every corner of{' '}
+                {PRIMARY_STATE} just to celebrate you.
+              </p>
+              <p className="mt-5 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
+                Those are the moments that make a wedding feel like home.
+              </p>
+              <p className="mt-5 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
+                My job is to stay close enough to preserve those quiet, fleeting
+                moments, yet far enough away to capture the bigger story unfolding
+                around them. Because years from now, I don&rsquo;t just want to
+                remember what your wedding looked like—I want you to remember
+                exactly how it felt.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -265,47 +291,76 @@ export default function FlorenceWeddingsPage() {
               </h2>
               <p className="mt-4 font-body text-base font-light leading-[1.8] text-cream-dark/75 dark:text-cream/72">
                 Every couple&rsquo;s day looks a little different, but these are a
-                few {PRIMARY_CITY}-area venues I always love returning to. Click
-                through to see what each one offers.
+                few {PRIMARY_CITY}-area venues I always love returning to.
               </p>
             </div>
 
             <ul className="mt-12 grid gap-6 sm:grid-cols-2">
               {FLORENCE_VENUES.map((venue) => (
-                <li key={venue.href}>
-                  <a
-                    href={venue.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex h-full flex-col rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 p-7 shadow-[0_8px_28px_rgba(61,52,44,0.05)] ring-1 ring-[#e8e3db]/85 transition hover:-translate-y-0.5 hover:border-coral/30 hover:shadow-[0_14px_36px_rgba(61,52,44,0.1)] dark:border-boho-stone/40 dark:bg-boho-bark/55 dark:ring-boho-stone/25 sm:p-8"
-                  >
+                <li key={venue.name}>
+                  <div className="flex h-full flex-col rounded-2xl border border-[#e0d9ce] bg-[#faf8f4]/95 p-7 shadow-[0_8px_28px_rgba(61,52,44,0.05)] ring-1 ring-[#e8e3db]/85 dark:border-boho-stone/40 dark:bg-boho-bark/55 dark:ring-boho-stone/25 sm:p-8">
                     <p className="section-eyebrow text-boho-sage">
                       {venue.location}
                     </p>
-                    <h3 className="mt-2 font-display text-2xl font-medium text-cream-dark transition group-hover:text-coral dark:text-cream md:text-[1.65rem]">
-                      {venue.name}
+                    <h3 className="mt-2 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-[1.65rem]">
+                      <a
+                        href={venue.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/name inline-flex items-start gap-1.5 transition hover:text-coral"
+                      >
+                        {venue.name}
+                        <svg
+                          className="mt-1 h-3.5 w-3.5 shrink-0 opacity-50 transition group-hover/name:translate-x-0.5 group-hover/name:opacity-100"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          aria-hidden
+                        >
+                          <path
+                            d="M7 17L17 7M9 7h8v8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </a>
                     </h3>
                     <p className="mt-3 font-body text-base font-light leading-[1.8] text-cream-dark/80 dark:text-cream/76">
                       {venue.blurb}
                     </p>
-                    <span className="font-body mt-5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-coral">
-                      Visit venue
-                      <svg
-                        className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        aria-hidden
-                      >
-                        <path
-                          d="M7 17L17 7M9 7h8v8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
-                  </a>
+                    {venue.galleries.length > 0 && (
+                      <div className="mt-auto border-t border-[#e8e3db] pt-6 dark:border-boho-stone/30">
+                        <p className="font-body text-[10px] font-semibold uppercase tracking-[0.16em] text-cream-dark/50 dark:text-cream/45">
+                          Weddings I&rsquo;ve photographed here
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-x-3 gap-y-5 sm:gap-x-4">
+                          {venue.galleries.map((gallery, gi) => (
+                            <Link
+                              key={gallery.href}
+                              href={gallery.href}
+                              className={`group/polaroid block w-[6.5rem] shrink-0 transition duration-300 hover:z-10 hover:scale-[1.05] hover:rotate-0 sm:w-[7rem] ${
+                                POLAROID_TILTS[gi % POLAROID_TILTS.length]
+                              }`}
+                            >
+                              <div className="scrapbook-mat rounded-[2px] bg-[#faf8f4] p-1.5 pb-4 dark:bg-[#2a2622]">
+                                <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#e8e3db] dark:bg-boho-ink">
+                                  <Image
+                                    src={gallery.image}
+                                    alt={gallery.caption}
+                                    fill
+                                    className="object-cover object-center transition duration-500 group-hover/polaroid:scale-[1.05]"
+                                    sizes="(max-width: 640px) 40vw, 220px"
+                                    quality={90}
+                                  />
+                                </div>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import PortfolioBackLink from '../../../components/PortfolioBackLink';
+import PortfolioShootBackLink from '../../../components/PortfolioShootBackLink';
 import { PortfolioShootJsonLd } from '../../../components/PortfolioGalleryJsonLd';
 import PortfolioPageShell from '../../../components/PortfolioPageShell';
 import PortfolioPhotoGrid from '../../../components/PortfolioPhotoGrid';
@@ -64,9 +64,9 @@ export default async function PortfolioShootPage({ params }: ShootPageProps) {
       >
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between lg:mb-14">
-            <PortfolioBackLink
-              href={portfolioCategoryHref(category.folder)}
-              label={`Back to ${category.name}`}
+            <PortfolioShootBackLink
+              defaultHref={portfolioCategoryHref(category.folder)}
+              defaultLabel={`Back to ${category.name}`}
             />
             <div className="text-left sm:text-right">
               <p className="section-eyebrow text-boho-sage sm:text-right">

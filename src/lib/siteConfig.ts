@@ -78,3 +78,10 @@ export const DEFAULT_OG_IMAGE_PATH = '/images/Taylor_site.jpg';
 
 /** Canonical path for the Florence, SC wedding photography SEO landing page */
 export const FLORENCE_WEDDINGS_PATH = '/wedding-photography-florence-sc';
+
+/**
+ * Query flag appended to gallery links opened from the Florence weddings landing
+ * page, so a shoot page can offer a "back to Florence weddings" link instead of
+ * sending visitors to the generic weddings gallery. Used as `?from=<value>`.
+ */
+export const FLORENCE_WEDDINGS_REF = 'florence-weddings';

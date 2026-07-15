@@ -39,6 +39,36 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       title: 'Pamplico Wedding',
       description:
         'Wedding photography in Pamplico, SC—honest light, real emotion, & the quiet in-between moments from vows through celebration.',
+    },
+    {
+      slug: 'florence-sc-wedding',
+      title: 'Florence Wedding',
+      description:
+        'Wedding photography in Florence, SC—natural light, true-to-color, & the honest in-between moments from getting ready through your last dance.',
+    },
+    {
+      slug: 'timmonsville-sc-wedding',
+      title: 'Timmonsville Wedding',
+      description:
+        'Wedding photography in Timmonsville, SC—a rustic cabin celebration full of natural light, first-look jitters, & the tender family details that make the day.',
+    },
+    {
+      slug: 'latta-sc-wedding-the-lees',
+      title: 'Latta Wedding — The Lees',
+      description:
+        'Wedding photography in Latta, SC—a modern white-barn celebration tucked into the trees, with natural light, honest emotion, & the real moments from getting ready through the last dance.',
+    },
+    {
+      slug: 'latta-sc-wedding-the-flowers',
+      title: 'Latta Wedding — The Flowers',
+      description:
+        'Wedding photography in Latta, SC—romantic waterside vows by the pond, soft natural light, & the quiet in-between moments from first look through celebration.',
+    },
+    {
+      slug: 'darlington-sc-wedding',
+      title: 'Darlington Wedding',
+      description:
+        'Wedding photography in Darlington, SC—a cozy winter celebration at Murphy Farm with an open-field ceremony beside the pond, emerald bridesmaids, red & white florals, & golden-hour portraits by the water from vows through the last dance.',
     }
   ],
   Motherhood: [
@@ -125,6 +155,12 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       title: 'Camden Bridal Portraits',
       description:
         'Bridal portraits in Camden, SC—soft light, elegant details, & the quiet beauty of getting ready for your wedding day.',
+    },
+    {
+      slug: 'latta-sc-bridal-portraits',
+      title: 'Latta Bridal Portraits',
+      description:
+        'Bridal portraits in Latta, SC—soft natural light, elegant details, & the quiet beauty of getting ready for your wedding day.',
     },
     {
       slug: 'florence-sc-professional-portraits',
