@@ -12,10 +12,10 @@ export default function PortfolioBackLink({
   return (
     <Link
       href={href}
-      className="font-display inline-flex min-h-12 w-full touch-manipulation items-center justify-center gap-2 rounded-full border border-[#d4cdc0]/80 bg-[#faf8f4]/90 px-5 py-2.5 text-lg text-coral shadow-sm backdrop-blur-[2px] transition hover:border-coral/30 hover:bg-white dark:border-boho-stone/50 dark:bg-boho-bark/85 dark:text-[#d4a574] sm:w-fit sm:justify-start sm:py-3 sm:text-xl"
+      className="font-display inline-flex min-h-12 w-full touch-manipulation items-center justify-center gap-2 rounded-full border border-[#d4cdc0]/80 bg-[#faf8f4]/90 px-7 py-3 text-xl text-coral shadow-sm backdrop-blur-[2px] transition hover:border-coral/30 hover:bg-white dark:border-boho-stone/50 dark:bg-boho-bark/85 dark:text-[#d4a574] sm:w-fit sm:justify-start sm:px-8 sm:text-2xl"
     >
       <svg
-        className="h-4 w-4 shrink-0"
+        className="h-5 w-5 shrink-0"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

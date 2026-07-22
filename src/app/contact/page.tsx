@@ -37,7 +37,7 @@ export default function ContactPage() {
           <div className="mx-auto max-w-6xl">
             <p className="section-eyebrow text-boho-sage">Contact</p>
             <h1 className="mt-4 font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream md:text-3xl lg:text-[2.35rem] md:leading-[1.12]">
-              Tell me about your day
+              Share your event vision with me
             </h1>
             <p className="mt-5 max-w-xl font-body text-sm font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 md:text-base">
               Share your date, venue, or vision for weddings, portraits,

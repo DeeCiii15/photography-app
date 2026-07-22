@@ -2,7 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { TESTIMONIALS, TESTIMONIAL_DECK_STYLES } from '@/lib/testimonialsData';
+import {
+  TESTIMONIALS,
+  TESTIMONIAL_DECK_STYLES,
+  type Testimonial,
+} from '@/lib/testimonialsData';
 import TestimonialLightbox from './TestimonialLightbox';
 
 function TestimonialDeckChevron({ dir }: { dir: -1 | 1 }) {
@@ -29,11 +33,23 @@ function TestimonialDeckChevron({ dir }: { dir: -1 | 1 }) {
 type TestimonialsSectionProps = {
   id?: string;
   showContactCta?: boolean;
+  testimonials?: readonly Testimonial[];
+  eyebrow?: string;
+  heading?: React.ReactNode;
+  description?: string;
 };
 
 export default function TestimonialsSection({
   id = 'testimonials',
   showContactCta = true,
+  testimonials = TESTIMONIALS,
+  eyebrow = 'Heard here first',
+  heading = (
+    <>
+      What they still <span className="italic text-coral">talk about</span>
+    </>
+  ),
+  description = 'A few favorites from brides, couples, & mamas who trusted me with their chapters. Tap a card to read the full review.',
 }: TestimonialsSectionProps) {
   const testimonialDeckRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -63,6 +79,8 @@ export default function TestimonialsSection({
     return () => el.removeEventListener('wheel', onWheel);
   }, []);
 
+  if (testimonials.length === 0) return null;
+
   return (
     <section
       id={id}
@@ -72,14 +90,12 @@ export default function TestimonialsSection({
     >
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="section-eyebrow text-boho-sage">Heard here first</p>
+          <p className="section-eyebrow text-boho-sage">{eyebrow}</p>
           <h2 className="mt-4 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl lg:text-[2.35rem]">
-            What they still{' '}
-            <span className="italic text-coral">talk about</span>
+            {heading}
           </h2>
           <p className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/65">
-            A few favorites from brides, couples, & mamas who trusted me with
-            their chapters. Tap a card to read the full review.
+            {description}
           </p>
         </div>
         <div
@@ -111,7 +127,7 @@ export default function TestimonialsSection({
             ref={testimonialDeckRef}
             className="scrollbar-hide flex scroll-smooth snap-x snap-mandatory sm:snap-proximity gap-0 overflow-x-auto overflow-y-visible overscroll-x-contain px-12 pb-4 pt-6 [scroll-padding-inline:max(1rem,6vw)] [-webkit-overflow-scrolling:touch] [touch-action:pan-x_pan-y] sm:px-14 sm:pb-6 sm:pt-8 sm:[touch-action:manipulation] md:px-16 md:pb-6"
           >
-            {TESTIMONIALS.map((t, i) => (
+            {testimonials.map((t, i) => (
               <button
                 key={`${t.name}-${i}`}
                 type="button"
@@ -138,7 +154,7 @@ export default function TestimonialsSection({
 
         {activeIndex !== null ? (
           <TestimonialLightbox
-            testimonials={TESTIMONIALS}
+            testimonials={testimonials}
             activeIndex={activeIndex}
             onClose={() => setActiveIndex(null)}
             onNavigate={setActiveIndex}
@@ -149,7 +165,7 @@ export default function TestimonialsSection({
           <div className="mt-12 mb-12 flex w-full justify-center lg:mb-14">
             <Link
               href="/contact"
-              className="font-display inline-flex min-h-12 min-w-[10.5rem] touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/70 px-10 py-4 text-center text-xl leading-none text-coral shadow-soft transition hover:border-coral/40 hover:bg-white sm:text-2xl dark:border-boho-stone/45 dark:bg-boho-bark/60 dark:text-coral dark:hover:bg-boho-bark"
+              className="font-display inline-flex min-h-14 min-w-[10.5rem] touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/70 px-11 py-4 text-center text-2xl leading-none text-coral shadow-soft transition hover:border-coral/40 hover:bg-white sm:text-3xl dark:border-boho-stone/45 dark:bg-boho-bark/60 dark:text-coral dark:hover:bg-boho-bark"
             >
               Reach Out
             </Link>

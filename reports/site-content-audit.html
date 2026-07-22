@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taylor Rose Reels — Site Content Audit</title>
+  <style>
+    :root {
+      --ink: #2c241c;
+      --muted: #6b5f52;
+      --line: #ddd4c8;
+      --bg: #faf8f4;
+      --card: #fff;
+      --accent: #8b5a3c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 40px 28px 80px; }
+    h1 { font-size: 1.85rem; margin: 0 0 8px; font-weight: 600; }
+    h2 {
+      font-size: 1.35rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      page-break-after: avoid;
+    }
+    h3 { font-size: 1.05rem; margin: 0 0 8px; }
+    h4 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 0 0 6px;
+      font-family: system-ui, sans-serif;
+    }
+    .lede { color: var(--muted); margin: 0 0 20px; max-width: 42em; }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+    }
+    .toc h2 { margin-top: 0; font-size: 1rem; border: none; padding: 0; }
+    .toc ul { margin: 0; padding-left: 1.2em; columns: 2; gap: 24px; }
+    .toc a { color: var(--accent); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    .muted { color: var(--muted); font-weight: 400; }
+    .page {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      page-break-inside: avoid;
+    }
+    .page code {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.95em;
+      color: var(--accent);
+    }
+    .title { margin: 0 0 12px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    ul { margin: 0; padding-left: 1.1em; }
+    li { margin-bottom: 2px; }
+    .empty { color: var(--muted); }
+    .first25, .notes { margin: 8px 0 0; }
+    .notes { color: var(--muted); font-size: 0.92em; font-style: italic; }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      .toc ul { columns: 1; }
+    }
+    @media print {
+      body { background: white; font-size: 11pt; }
+      .wrap { padding: 0; max-width: none; }
+      .toc { break-after: page; }
+      .page { border-color: #ccc; box-shadow: none; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Site content audit</h1>
+    <p class="lede">
+      Document title, H1–H3 headings, and the first ~25 words of visible copy
+      for every live route on Taylor Rose Reels.
+    </p>
+    <p class="meta">
+      Generated 2026-07-20 · 59 pages ·
+      Source: page components, services/portfolio data, and blog MDX
+    </p>
+
+    <nav class="toc">
+      <h2>Contents</h2>
+      <ul><li><a href="#group-Core">Core</a> <span class="muted">(3)</span></li><li><a href="#group-Location">Location</a> <span class="muted">(1)</span></li><li><a href="#group-Services">Services</a> <span class="muted">(6)</span></li><li><a href="#group-Portfolio-categories">Portfolio categories</a> <span class="muted">(6)</span></li><li><a href="#group-Portfolio-shoots">Portfolio shoots</a> <span class="muted">(24)</span></li><li><a href="#group-Blog">Blog</a> <span class="muted">(1)</span></li><li><a href="#group-Blog-posts">Blog posts</a> <span class="muted">(2)</span></li><li><a href="#group-Blog-filters">Blog filters</a> <span class="muted">(16)</span></li></ul>
+    </nav>
+
+    
+    <section class="group" id="group-Core">
+      <h2>Core <span class="muted">(3)</span></h2>
+      
+      <article class="page" id="/">
+        <header>
+          <h3><code>/</code></h3>
+          <p class="title"><strong>Title:</strong> Wedding Photographer in Florence, SC and surrounding Pee Dee areas | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Florence, SC · Pee Dee · Wedding &amp; portrait Soft light, honest color, warmth that feels like memory.</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>Every photo tells a story; I'd love to help you tell yours.</li><li>More stories, same light</li><li>What they still talk about</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Weddings</li><li>Motherhood</li><li>Couples / Engagement</li><li>Special Events</li><li>Family</li><li>Portraits</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Florence, SC · Pee Dee · Wedding &amp; portrait Soft light, honest color, warmth that feels like memory.</p>
+        <p class="notes"><strong>Note:</strong> H1 wraps eyebrow + display line in one h1. Portfolio category cards on the home gallery use h3. Testimonials H2 text is “What they still talk about” (italic on “talk about”).</p>
+      </article>
+      <article class="page" id="/contact">
+        <header>
+          <h3><code>/contact</code></h3>
+          <p class="title"><strong>Title:</strong> Contact Wedding Photographer in Florence, SC | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Tell me about your day</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Contact Tell me about your day Share your date, venue, or vision for weddings, portraits, engagements, motherhood sessions, family photos, or special events—I read every…</p>
+        
+      </article>
+      <article class="page" id="/portfolio">
+        <header>
+          <h3><code>/portfolio</code></h3>
+          <p class="title"><strong>Title:</strong> Wedding &amp; Event Portfolio in Florence, SC | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>More stories, same light</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Weddings</li><li>Motherhood</li><li>Couples / Engagement</li><li>Special Events</li><li>Family</li><li>Portraits</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Galleries More stories, same light True to color and timeless by design—click any card to wander deeper.</p>
+        <p class="notes"><strong>Note:</strong> Title set via portfolio/layout.tsx absolute metadata. Category cards use h3 for names in the gallery grid.</p>
+      </article>
+    </section>
+    <section class="group" id="group-Location">
+      <h2>Location <span class="muted">(1)</span></h2>
+      
+      <article class="page" id="/florence-sc-wedding-photography">
+        <header>
+          <h3><code>/florence-sc-wedding-photography</code></h3>
+          <p class="title"><strong>Title:</strong> Florence, South Carolina Wedding Photography | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Florence, South Carolina Wedding Photography</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>Why I love being a part of your Florence wedding</li><li>Florence wedding venues I love</li><li>Let's talk about your Florence area wedding</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Glenview Farm Events</li><li>Parker Pines</li><li>The Cabin at Old Spur</li><li>Murphy Farm</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Florence, SC wedding photography Florence, South Carolina Wedding Photography Natural lighting, true-to-color, documentary style wedding photography for couples saying I do in &amp; around Florence.</p>
+        
+      </article>
+    </section>
+    <section class="group" id="group-Services">
+      <h2>Services <span class="muted">(6)</span></h2>
+      
+      <article class="page" id="/services/wedding-photography">
+        <header>
+          <h3><code>/services/wedding-photography</code></h3>
+          <p class="title"><strong>Title:</strong> Wedding Photography in Florence, SC | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Honest light, real emotion, &amp; the day you’ll still talk about</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>A closer look at wedding photography</li><li>Across the Pee Dee</li><li>Related reading</li><li>Straight answers</li><li>What they say about weddings</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Tennessee Wedding</li><li>Mount Pleasant Wedding</li><li>Patrick Wedding</li><li>Pamplico Wedding</li><li>Florence Wedding</li><li>Timmonsville Wedding</li><li>Latta Wedding — The Lees</li><li>Latta Wedding — The Flowers</li><li>Darlington Wedding</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Wedding photography Honest light, real emotion, &amp; the day you’ll still talk about From getting ready through the last dance—I stay close for vows, portraits,…</p>
+        <p class="notes"><strong>Note:</strong> Shoot titles in the gallery grid are h3. FAQ questions are &lt;summary&gt;, not headings. Related reading only when matching posts exist (currently weddings). Testimonials H2 omitted when no reviews are tagged for that service.</p>
+      </article>
+      <article class="page" id="/services/engagement-photography">
+        <header>
+          <h3><code>/services/engagement-photography</code></h3>
+          <p class="title"><strong>Title:</strong> Engagement Photography in Florence, SC | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Sweet on each other, on camera—wherever you feel most yourselves</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>A closer look at engagement photography</li><li>Straight answers</li><li>What they say about engagements</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Charleston Beach Engagement</li><li>Downtown Florence Engagement</li><li>Pee Dee River Engagement</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Engagement photography Sweet on each other, on camera—wherever you feel most yourselves Ocean waves, downtown strolls, or the porch where you said yes—I’ll meet you…</p>
+        <p class="notes"><strong>Note:</strong> Shoot titles in the gallery grid are h3. FAQ questions are &lt;summary&gt;, not headings. Related reading only when matching posts exist (currently weddings). Testimonials H2 omitted when no reviews are tagged for that service.</p>
+      </article>
+      <article class="page" id="/services/special-events-photography">
+        <header>
+          <h3><code>/services/special-events-photography</code></h3>
+          <p class="title"><strong>Title:</strong> Special Event Photography in Florence, SC | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Galas, milestones, &amp; the moments that deserve to be remembered</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>A closer look at special events photography</li><li>Straight answers</li><li>What they say about special events</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Prom Portraits</li><li>Florence Birthday Party</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Special events photography Galas, milestones, &amp; the moments that deserve to be remembered Prom night, birthday celebrations, brand launches, &amp; polished gatherings—I document the energy…</p>
+        <p class="notes"><strong>Note:</strong> Shoot titles in the gallery grid are h3. FAQ questions are &lt;summary&gt;, not headings. Related reading only when matching posts exist (currently weddings). Testimonials H2 omitted when no reviews are tagged for that service.</p>
+      </article>
+      <article class="page" id="/services/family-portrait-photography">
+        <header>
+          <h3><code>/services/family-portrait-photography</code></h3>
+          <p class="title"><strong>Title:</strong> Family Portrait Photography in Florence, SC | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Your people, warm light, &amp; love that doesn’t feel forced</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>A closer look at family portrait photography</li><li>Straight answers</li><li>What they say about family</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Myrtle Beach Family Shoot</li><li>Florence Family Shoot</li><li>Marion Family Shoot</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Family portrait photography Your people, warm light, &amp; love that doesn’t feel forced Relaxed family sessions built around connection—not a stiff hour in a studio.…</p>
+        <p class="notes"><strong>Note:</strong> Shoot titles in the gallery grid are h3. FAQ questions are &lt;summary&gt;, not headings. Related reading only when matching posts exist (currently weddings). Testimonials H2 omitted when no reviews are tagged for that service.</p>
+      </article>
+      <article class="page" id="/services/motherhood-photography">
+        <header>
+          <h3><code>/services/motherhood-photography</code></h3>
+          <p class="title"><strong>Title:</strong> Motherhood &amp; Maternity Photography in Florence, SC | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>That glow, the bump, &amp; the wonder before &amp; after baby arrives</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>A closer look at motherhood photography</li><li>Straight answers</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Charleston Beach Motherhood</li><li>Sullivans Island Beach Motherhood</li><li>Florence Intimate Gender Reveal</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Motherhood photography That glow, the bump, &amp; the wonder before &amp; after baby arrives Maternity, gender reveals, &amp; the tender season of becoming a mama—documented…</p>
+        <p class="notes"><strong>Note:</strong> Shoot titles in the gallery grid are h3. FAQ questions are &lt;summary&gt;, not headings. Related reading only when matching posts exist (currently weddings). Testimonials H2 omitted when no reviews are tagged for that service.</p>
+      </article>
+      <article class="page" id="/services/portrait-photography">
+        <header>
+          <h3><code>/services/portrait-photography</code></h3>
+          <p class="title"><strong>Title:</strong> Portrait Photography in Florence, SC | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Just you—soft light &amp; room to breathe—portraits that feel like a compliment</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>A closer look at portrait photography</li><li>Straight answers</li><li>What they say about portraits</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Hatsville Senior Portraits</li><li>Camden Bridal Portraits</li><li>Latta Bridal Portraits</li><li>Florence Professional Portraits</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Portrait photography Just you—soft light &amp; room to breathe—portraits that feel like a compliment Senior portraits, bridal portraits, professional headshots, &amp; solo sessions—unhurried time in…</p>
+        <p class="notes"><strong>Note:</strong> Shoot titles in the gallery grid are h3. FAQ questions are &lt;summary&gt;, not headings. Related reading only when matching posts exist (currently weddings). Testimonials H2 omitted when no reviews are tagged for that service.</p>
+      </article>
+    </section>
+    <section class="group" id="group-Portfolio-categories">
+      <h2>Portfolio categories <span class="muted">(6)</span></h2>
+      
+      <article class="page" id="/portfolio/weddings">
+        <header>
+          <h3><code>/portfolio/weddings</code></h3>
+          <p class="title"><strong>Title:</strong> Weddings Gallery | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Weddings</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Tennessee Wedding</li><li>Mount Pleasant Wedding</li><li>Patrick Wedding</li><li>Pamplico Wedding</li><li>Florence Wedding</li><li>Timmonsville Wedding</li><li>Latta Wedding — The Lees</li><li>Latta Wedding — The Flowers</li><li>Darlington Wedding</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Gallery Weddings Veil soft in the breeze, daddy walking you down the aisle, &amp; the quiet tear he tries to hide—I live for those honest…</p>
+        
+      </article>
+      <article class="page" id="/portfolio/motherhood">
+        <header>
+          <h3><code>/portfolio/motherhood</code></h3>
+          <p class="title"><strong>Title:</strong> Motherhood Gallery | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Motherhood</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Charleston Beach Motherhood</li><li>Sullivans Island Beach Motherhood</li><li>Florence Intimate Gender Reveal</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Gallery Motherhood That glow, the bump you keep resting your hand on, &amp; the wonder before &amp; after baby arrives—documented gently, never rushed.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/couples-engagement">
+        <header>
+          <h3><code>/portfolio/couples-engagement</code></h3>
+          <p class="title"><strong>Title:</strong> Couples / Engagement Gallery | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Couples / Engagement</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Charleston Beach Engagement</li><li>Downtown Florence Engagement</li><li>Pee Dee River Engagement</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Gallery Couples / Engagement Ocean waves, downtown strolls, or evening boat rides—wherever y’all feel like yourselves is where I’ll meet you.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/special-events">
+        <header>
+          <h3><code>/portfolio/special-events</code></h3>
+          <p class="title"><strong>Title:</strong> Special Events Gallery | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Special Events</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Prom Portraits</li><li>Florence Birthday Party</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Gallery Special Events Galas, brand launches, &amp; the milestones that deserve to be remembered with polish &amp; a little Southern warmth.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/family">
+        <header>
+          <h3><code>/portfolio/family</code></h3>
+          <p class="title"><strong>Title:</strong> Family Gallery | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Family</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Myrtle Beach Family Shoot</li><li>Florence Family Shoot</li><li>Marion Family Shoot</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Gallery Family Your people, warm light, &amp; so much love. Family portraits that feel natural &amp; authentic, not posed or forced.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/portraits">
+        <header>
+          <h3><code>/portfolio/portraits</code></h3>
+          <p class="title"><strong>Title:</strong> Portraits Gallery | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Portraits</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <ul><li>Hatsville Senior Portraits</li><li>Camden Bridal Portraits</li><li>Latta Bridal Portraits</li><li>Florence Professional Portraits</li></ul>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Gallery Portraits Just you—soft light &amp; room to breathe—portraits that feel like a compliment, not a performance.</p>
+        
+      </article>
+    </section>
+    <section class="group" id="group-Portfolio-shoots">
+      <h2>Portfolio shoots <span class="muted">(24)</span></h2>
+      
+      <article class="page" id="/portfolio/weddings/tennessee-wedding">
+        <header>
+          <h3><code>/portfolio/weddings/tennessee-wedding</code></h3>
+          <p class="title"><strong>Title:</strong> Tennessee Wedding | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Tennessee Wedding</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Weddings Tennessee Wedding Wedding photography in Tennessee—honest light, real emotion, &amp; the quiet in-between moments from vows through celebration.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/weddings/mount-pleasant-sc-wedding">
+        <header>
+          <h3><code>/portfolio/weddings/mount-pleasant-sc-wedding</code></h3>
+          <p class="title"><strong>Title:</strong> Mount Pleasant Wedding | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Mount Pleasant Wedding</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Weddings Mount Pleasant Wedding Wedding photography in Mount Pleasant, SC—honest light, real emotion, &amp; the quiet in-between moments from vows through celebration.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/weddings/patrick-sc-wedding">
+        <header>
+          <h3><code>/portfolio/weddings/patrick-sc-wedding</code></h3>
+          <p class="title"><strong>Title:</strong> Patrick Wedding | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Patrick Wedding</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Weddings Patrick Wedding Wedding photography in Patrick, SC—natural light, genuine emotion, &amp; the real moments from getting ready through your last dance.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/weddings/pamplico-sc-wedding">
+        <header>
+          <h3><code>/portfolio/weddings/pamplico-sc-wedding</code></h3>
+          <p class="title"><strong>Title:</strong> Pamplico Wedding | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Pamplico Wedding</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Weddings Pamplico Wedding Wedding photography in Pamplico, SC—honest light, real emotion, &amp; the quiet in-between moments from vows through celebration.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/weddings/florence-sc-wedding">
+        <header>
+          <h3><code>/portfolio/weddings/florence-sc-wedding</code></h3>
+          <p class="title"><strong>Title:</strong> Florence Wedding | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Florence Wedding</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Weddings Florence Wedding Wedding photography in Florence, SC—natural light, true-to-color, &amp; the honest in-between moments from getting ready through your last dance.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/weddings/timmonsville-sc-wedding">
+        <header>
+          <h3><code>/portfolio/weddings/timmonsville-sc-wedding</code></h3>
+          <p class="title"><strong>Title:</strong> Timmonsville Wedding | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Timmonsville Wedding</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Weddings Timmonsville Wedding Wedding photography in Timmonsville, SC—a rustic cabin celebration full of natural light, first-look jitters, &amp; the tender family details that make the…</p>
+        
+      </article>
+      <article class="page" id="/portfolio/weddings/latta-sc-wedding-the-lees">
+        <header>
+          <h3><code>/portfolio/weddings/latta-sc-wedding-the-lees</code></h3>
+          <p class="title"><strong>Title:</strong> Latta Wedding — The Lees | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Latta Wedding — The Lees</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Weddings Latta Wedding — The Lees Wedding photography in Latta, SC—a modern white-barn celebration tucked into the trees, with natural light, honest emotion, &amp; the…</p>
+        
+      </article>
+      <article class="page" id="/portfolio/weddings/latta-sc-wedding-the-flowers">
+        <header>
+          <h3><code>/portfolio/weddings/latta-sc-wedding-the-flowers</code></h3>
+          <p class="title"><strong>Title:</strong> Latta Wedding — The Flowers | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Latta Wedding — The Flowers</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Weddings Latta Wedding — The Flowers Wedding photography in Latta, SC—romantic waterside vows by the pond, soft natural light, &amp; the quiet in-between moments from…</p>
+        
+      </article>
+      <article class="page" id="/portfolio/weddings/darlington-sc-wedding">
+        <header>
+          <h3><code>/portfolio/weddings/darlington-sc-wedding</code></h3>
+          <p class="title"><strong>Title:</strong> Darlington Wedding | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Darlington Wedding</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Weddings Darlington Wedding Wedding photography in Darlington, SC—a cozy winter celebration at Murphy Farm with an open-field ceremony beside the pond, emerald bridesmaids, red &amp;…</p>
+        
+      </article>
+      <article class="page" id="/portfolio/motherhood/charleston-sc-motherhood">
+        <header>
+          <h3><code>/portfolio/motherhood/charleston-sc-motherhood</code></h3>
+          <p class="title"><strong>Title:</strong> Charleston Beach Motherhood | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Charleston Beach Motherhood</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Motherhood Charleston Beach Motherhood Maternity portraits on the Charleston coast—soft sand, golden light, &amp; gentle documentation of life before &amp; after baby arrives.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/motherhood/sullivans-island-motherhood">
+        <header>
+          <h3><code>/portfolio/motherhood/sullivans-island-motherhood</code></h3>
+          <p class="title"><strong>Title:</strong> Sullivans Island Beach Motherhood | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Sullivans Island Beach Motherhood</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Motherhood Sullivans Island Beach Motherhood Beach maternity session on Sullivan's Island—ocean air, natural light, &amp; calm portraits that honor the bump &amp; anticipation.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/motherhood/florence-sc-gender-reveal">
+        <header>
+          <h3><code>/portfolio/motherhood/florence-sc-gender-reveal</code></h3>
+          <p class="title"><strong>Title:</strong> Florence Intimate Gender Reveal | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Florence Intimate Gender Reveal</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Motherhood Florence Intimate Gender Reveal Intimate gender reveal photography in Florence, SC—joyful anticipation, soft natural light, &amp; candid moments as you share the surprise with…</p>
+        
+      </article>
+      <article class="page" id="/portfolio/couples-engagement/charleston-sc-engagement">
+        <header>
+          <h3><code>/portfolio/couples-engagement/charleston-sc-engagement</code></h3>
+          <p class="title"><strong>Title:</strong> Charleston Beach Engagement | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Charleston Beach Engagement</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Couples / Engagement Charleston Beach Engagement Charleston beach engagement photos—waves, shoreline strolls, &amp; relaxed portraits where you can be yourselves.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/couples-engagement/florence-sc-engagement">
+        <header>
+          <h3><code>/portfolio/couples-engagement/florence-sc-engagement</code></h3>
+          <p class="title"><strong>Title:</strong> Downtown Florence Engagement | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Downtown Florence Engagement</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Couples / Engagement Downtown Florence Engagement Downtown Florence engagement session—city streets at golden hour, easy laughs, &amp; romantic portraits in natural light.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/couples-engagement/lake-city-sc-engagement">
+        <header>
+          <h3><code>/portfolio/couples-engagement/lake-city-sc-engagement</code></h3>
+          <p class="title"><strong>Title:</strong> Pee Dee River Engagement | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Pee Dee River Engagement</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Couples / Engagement Pee Dee River Engagement Engagement photos along the Pee Dee River near Lake City—soft light, open water, &amp; unhurried couples portraits.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/special-events/hartsville-sc-prom">
+        <header>
+          <h3><code>/portfolio/special-events/hartsville-sc-prom</code></h3>
+          <p class="title"><strong>Title:</strong> Prom Portraits | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Prom Portraits</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Special Events Prom Portraits Hartsville prom portraits—polished, fun, &amp; full of the excitement of the night, captured with natural warmth.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/special-events/florence-sc-birthday-party">
+        <header>
+          <h3><code>/portfolio/special-events/florence-sc-birthday-party</code></h3>
+          <p class="title"><strong>Title:</strong> Florence Birthday Party | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Florence Birthday Party</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Special Events Florence Birthday Party Birthday party photography in Florence, SC—joyful details, candid smiles, &amp; the little moments that make the celebration unforgettable.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/family/myrtle-beach-family">
+        <header>
+          <h3><code>/portfolio/family/myrtle-beach-family</code></h3>
+          <p class="title"><strong>Title:</strong> Myrtle Beach Family Shoot | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Myrtle Beach Family Shoot</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Family Myrtle Beach Family Shoot Family portraits at Myrtle Beach—siblings, parents, &amp; sandy toes in soft coastal light you'll want to frame for years.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/family/florence-sc-family">
+        <header>
+          <h3><code>/portfolio/family/florence-sc-family</code></h3>
+          <p class="title"><strong>Title:</strong> Florence Family Shoot | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Florence Family Shoot</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Family Florence Family Shoot Family photography in Florence, SC—relaxed portraits with room to breathe, real laughs, &amp; light that flatters your crew.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/family/marion-sc-family">
+        <header>
+          <h3><code>/portfolio/family/marion-sc-family</code></h3>
+          <p class="title"><strong>Title:</strong> Marion Family Shoot | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Marion Family Shoot</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Family Marion Family Shoot Family session in Marion, SC—togetherness, natural light, &amp; portraits that feel like your everyday love, not a stiff pose.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/portraits/hartsville-sc-senior-portraits">
+        <header>
+          <h3><code>/portfolio/portraits/hartsville-sc-senior-portraits</code></h3>
+          <p class="title"><strong>Title:</strong> Hatsville Senior Portraits | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Hatsville Senior Portraits</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Portraits Hatsville Senior Portraits Senior portraits in Hartsville, SC—confident, relaxed, &amp; true to you, with natural light &amp; room to simply be yourself.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/portraits/camden-sc-bridal-portraits">
+        <header>
+          <h3><code>/portfolio/portraits/camden-sc-bridal-portraits</code></h3>
+          <p class="title"><strong>Title:</strong> Camden Bridal Portraits | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Camden Bridal Portraits</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Portraits Camden Bridal Portraits Bridal portraits in Camden, SC—soft light, elegant details, &amp; the quiet beauty of getting ready for your wedding day.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/portraits/latta-sc-bridal-portraits">
+        <header>
+          <h3><code>/portfolio/portraits/latta-sc-bridal-portraits</code></h3>
+          <p class="title"><strong>Title:</strong> Latta Bridal Portraits | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Latta Bridal Portraits</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Portraits Latta Bridal Portraits Bridal portraits in Latta, SC—soft natural light, elegant details, &amp; the quiet beauty of getting ready for your wedding day.</p>
+        
+      </article>
+      <article class="page" id="/portfolio/portraits/florence-sc-professional-portraits">
+        <header>
+          <h3><code>/portfolio/portraits/florence-sc-professional-portraits</code></h3>
+          <p class="title"><strong>Title:</strong> Florence Professional Portraits | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Florence Professional Portraits</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Portraits Florence Professional Portraits Professional portraits in Florence, SC—polished, approachable, &amp; natural light for headshots, branding, &amp; putting your best self forward.</p>
+        
+      </article>
+    </section>
+    <section class="group" id="group-Blog">
+      <h2>Blog <span class="muted">(1)</span></h2>
+      
+      <article class="page" id="/blog">
+        <header>
+          <h3><code>/blog</code></h3>
+          <p class="title"><strong>Title:</strong> Blog | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Stories, tips &amp; local light</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Journal Stories, tips &amp; local light True to color and timeless by design—planning notes, Pee Dee guides, and the heart behind the galleries.</p>
+        
+      </article>
+    </section>
+    <section class="group" id="group-Blog-posts">
+      <h2>Blog posts <span class="muted">(2)</span></h2>
+      
+      <article class="page" id="/blog/jessica-gage-sawtooth-acres-wedding">
+        <header>
+          <h3><code>/blog/jessica-gage-sawtooth-acres-wedding</code></h3>
+          <p class="title"><strong>Title:</strong> A Vintage &amp; Timeless Wedding at Sawtooth Acres in Pamplico, SC | Jessica &amp; Gage | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>A Vintage &amp; Timeless Wedding at Sawtooth Acres in Pamplico, SC | Jessica &amp; Gage</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>Vendors</li><li>More from the journal</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Jessica &amp; Gage were married at the beautiful Sawtooth Acres in Pamplico, South Carolina; a family-owned homestead and wedding venue that feels just as special…</p>
+        
+      </article>
+      <article class="page" id="/blog/why-documentary-wedding-photography-captures-the-moments-you-treasure">
+        <header>
+          <h3><code>/blog/why-documentary-wedding-photography-captures-the-moments-you-treasure</code></h3>
+          <p class="title"><strong>Title:</strong> Why Documentary Wedding Photography Captures the Moments You Will Treasure the Most | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Why Documentary Wedding Photography Captures the Moments You Will Treasure the Most</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <ul><li>More from the journal</li></ul>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> When you look back on your wedding photos twenty years from now, what do you hope you'll remember? We all love posed photos that show…</p>
+        
+      </article>
+    </section>
+    <section class="group" id="group-Blog-filters">
+      <h2>Blog filters <span class="muted">(16)</span></h2>
+      
+      <article class="page" id="/blog/category/weddings">
+        <header>
+          <h3><code>/blog/category/weddings</code></h3>
+          <p class="title"><strong>Title:</strong> Weddings | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Weddings</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Category Weddings Posts in this category from the journal.</p>
+        
+      </article>
+      <article class="page" id="/blog/category/wedding-planning">
+        <header>
+          <h3><code>/blog/category/wedding-planning</code></h3>
+          <p class="title"><strong>Title:</strong> Wedding Planning | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Wedding Planning</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Category Wedding Planning Posts in this category from the journal.</p>
+        
+      </article>
+      <article class="page" id="/blog/tag/weddings">
+        <header>
+          <h3><code>/blog/tag/weddings</code></h3>
+          <p class="title"><strong>Title:</strong> weddings posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>weddings</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag weddings 2 stories tagged with “weddings”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/pamplico-sc">
+        <header>
+          <h3><code>/blog/tag/pamplico-sc</code></h3>
+          <p class="title"><strong>Title:</strong> Pamplico SC posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Pamplico SC</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Pamplico SC 1 stories tagged with “Pamplico SC”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/sawtooth-acres">
+        <header>
+          <h3><code>/blog/tag/sawtooth-acres</code></h3>
+          <p class="title"><strong>Title:</strong> Sawtooth Acres posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Sawtooth Acres</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Sawtooth Acres 1 stories tagged with “Sawtooth Acres”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/pee-dee">
+        <header>
+          <h3><code>/blog/tag/pee-dee</code></h3>
+          <p class="title"><strong>Title:</strong> Pee Dee posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Pee Dee</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Pee Dee 1 stories tagged with “Pee Dee”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/south-carolina">
+        <header>
+          <h3><code>/blog/tag/south-carolina</code></h3>
+          <p class="title"><strong>Title:</strong> South Carolina posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>South Carolina</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag South Carolina 2 stories tagged with “South Carolina”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/documentary-photography">
+        <header>
+          <h3><code>/blog/tag/documentary-photography</code></h3>
+          <p class="title"><strong>Title:</strong> documentary photography posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>documentary photography</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag documentary photography 1 stories tagged with “documentary photography”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/florence-sc">
+        <header>
+          <h3><code>/blog/tag/florence-sc</code></h3>
+          <p class="title"><strong>Title:</strong> Florence SC posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Florence SC</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Florence SC 1 stories tagged with “Florence SC”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/timmonsville-sc">
+        <header>
+          <h3><code>/blog/tag/timmonsville-sc</code></h3>
+          <p class="title"><strong>Title:</strong> Timmonsville SC posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Timmonsville SC</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Timmonsville SC 1 stories tagged with “Timmonsville SC”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/camden-sc">
+        <header>
+          <h3><code>/blog/tag/camden-sc</code></h3>
+          <p class="title"><strong>Title:</strong> Camden SC posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Camden SC</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Camden SC 1 stories tagged with “Camden SC”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/weaverville-nc">
+        <header>
+          <h3><code>/blog/tag/weaverville-nc</code></h3>
+          <p class="title"><strong>Title:</strong> Weaverville NC posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Weaverville NC</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Weaverville NC 1 stories tagged with “Weaverville NC”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/patrick-sc">
+        <header>
+          <h3><code>/blog/tag/patrick-sc</code></h3>
+          <p class="title"><strong>Title:</strong> Patrick SC posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Patrick SC</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Patrick SC 1 stories tagged with “Patrick SC”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/ocean-isle-beach-nc">
+        <header>
+          <h3><code>/blog/tag/ocean-isle-beach-nc</code></h3>
+          <p class="title"><strong>Title:</strong> Ocean Isle Beach NC posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Ocean Isle Beach NC</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Ocean Isle Beach NC 1 stories tagged with “Ocean Isle Beach NC”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/mt-pleasant-sc">
+        <header>
+          <h3><code>/blog/tag/mt-pleasant-sc</code></h3>
+          <p class="title"><strong>Title:</strong> Mt. Pleasant SC posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>Mt. Pleasant SC</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag Mt. Pleasant SC 1 stories tagged with “Mt. Pleasant SC”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+      <article class="page" id="/blog/tag/north-carolina">
+        <header>
+          <h3><code>/blog/tag/north-carolina</code></h3>
+          <p class="title"><strong>Title:</strong> North Carolina posts | Taylor Rose Reels</p>
+        </header>
+        <div class="grid">
+          <div>
+            <h4>H1</h4>
+            <ul><li>North Carolina</li></ul>
+          </div>
+          <div>
+            <h4>H2</h4>
+            <span class="empty">—</span>
+          </div>
+          <div>
+            <h4>H3</h4>
+            <span class="empty">—</span>
+          </div>
+        </div>
+        <p class="first25"><strong>First ~25 words:</strong> Tag North Carolina 1 stories tagged with “North Carolina”.</p>
+        <p class="notes"><strong>Note:</strong> H1 is the original tag label from frontmatter (via getTagBySlug).</p>
+      </article>
+    </section>
+  </div>
+</body>
+</html>

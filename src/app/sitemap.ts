@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getAllPosts, getAllCategories, getAllTags, categoryToSlug, tagToSlug } from '@/lib/blog';
 import { getPortfolioSitemapEntries } from '@/lib/portfolioSeo';
 import { FLORENCE_WEDDINGS_PATH, getSiteUrl } from '@/lib/siteConfig';
+import { getAllServiceSlugs, serviceHref } from '@/lib/servicesData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
@@ -14,13 +15,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       changeFrequency: 'monthly' as const,
     },
-    { path: '/experience', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/blog', priority: 0.85, changeFrequency: 'weekly' as const },
   ];
 
   const portfolioEntries = getPortfolioSitemapEntries();
+  const serviceEntries = getAllServiceSlugs().map((slug) => ({
+    path: serviceHref(slug),
+    priority: 0.85,
+  }));
   const blogPosts = getAllPosts();
   const blogCategories = getAllCategories();
   const blogTags = getAllTags();
@@ -33,6 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority,
     })),
     ...portfolioEntries.map(({ path, priority }) => ({
+      url: `${base}${path}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority,
+    })),
+    ...serviceEntries.map(({ path, priority }) => ({
       url: `${base}${path}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,

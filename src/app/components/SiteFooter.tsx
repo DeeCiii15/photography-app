@@ -1,13 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { FOOTER_PORTFOLIO_LINKS } from '@/lib/portfolioData';
-import {
-  FLORENCE_WEDDINGS_PATH,
-  PRIMARY_CITY,
-  PRIMARY_STATE_ABBR,
-  SERVICE_AREA_LABEL,
-} from '@/lib/siteConfig';
+import { FOOTER_SERVICE_LINKS } from '@/lib/servicesData';
+import { SERVICE_AREA_LABEL } from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialNetworkIcon } from './SocialMediaIcons';
 
@@ -32,7 +27,7 @@ export default function SiteFooter() {
         >
           <p className="section-eyebrow text-boho-sage">Services</p>
           <ul className="flex flex-wrap items-center justify-center gap-y-2">
-            {FOOTER_PORTFOLIO_LINKS.map((link, index) => (
+            {FOOTER_SERVICE_LINKS.map((link, index) => (
               <li key={link.href} className="inline-flex items-center">
                 {index > 0 && (
                   <span
@@ -52,12 +47,6 @@ export default function SiteFooter() {
             ))}
           </ul>
         </nav>
-        <Link
-          href={FLORENCE_WEDDINGS_PATH}
-          className="font-body text-xs font-light text-cream-dark/65 underline decoration-boho-sage/40 underline-offset-4 transition hover:text-coral dark:text-cream/60 dark:hover:text-[#e8b896]"
-        >
-          Wedding Photography in {PRIMARY_CITY}, {PRIMARY_STATE_ABBR}
-        </Link>
         {socialLinks.length > 0 && (
           <div className="flex flex-wrap items-center justify-center gap-2">
             {socialLinks.map((link) => (

@@ -15,6 +15,7 @@ import {
   getRelatedPosts,
   tagToSlug,
 } from '@/lib/blog';
+import { getServicesForBlogPost } from '@/lib/servicesServer';
 import { SITE_NAME } from '@/lib/siteConfig';
 
 type BlogPostPageProps = {
@@ -63,6 +64,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post || !post.published) notFound();
 
   const relatedPosts = getRelatedPosts(slug, 3);
+  const relatedServices = getServicesForBlogPost(post);
 
   return (
     <BlogPageShell>
@@ -76,6 +78,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           >
             ← Back to journal
           </Link>
+
+          {relatedServices.length > 0 &&
+            categoryToSlug(post.category ?? '') !== 'wedding-planning' && (
+            <nav
+              aria-label="Related photography services"
+              className="mt-4 flex flex-col gap-2"
+            >
+              {relatedServices.map((service) => (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="font-body text-sm font-light text-coral underline decoration-boho-sage/40 underline-offset-4 transition hover:text-coral-dark dark:text-[#e8b896] sm:text-base"
+                >
+                  Learn about our {service.name.toLowerCase()} services →
+                </Link>
+              ))}
+            </nav>
+          )}
 
           <header className="mt-8">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">

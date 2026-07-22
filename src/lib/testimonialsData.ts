@@ -16,11 +16,21 @@ export const TESTIMONIAL_PASTE_TILTS = [
   'rotate-[1.25deg]',
 ] as const;
 
+export type ServiceSlug =
+  | 'wedding-photography'
+  | 'engagement-photography'
+  | 'special-events-photography'
+  | 'family-portrait-photography'
+  | 'motherhood-photography'
+  | 'portrait-photography';
+
 export type Testimonial = {
   quote: string;
   name: string;
   detail: string;
   portrait: string;
+  /** Which service pages should show this review */
+  services: ServiceSlug[];
 };
 
 export const TESTIMONIALS: readonly Testimonial[] = [
@@ -30,6 +40,11 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     name: 'Riley Major',
     detail: 'Bridal & Wedding · 2025',
     portrait: '/images/Old Picutres/profile_1.jpg',
+    services: [
+      'wedding-photography',
+      'engagement-photography',
+      'portrait-photography',
+    ],
   },
   {
     quote:
@@ -37,6 +52,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     name: 'Kalayah Dowell',
     detail: 'Engagement pictures · 2025',
     portrait: '/images/Old Picutres/inspiration_3.jpg',
+    services: ['engagement-photography'],
   },
   {
     quote:
@@ -44,6 +60,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     name: 'Makala Mckenzie',
     detail: 'Family portraits · 2026',
     portrait: '/images/Old Picutres/inspiration_2.jpg',
+    services: ['family-portrait-photography'],
   },
   {
     quote:
@@ -51,6 +68,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     name: 'Taylor Rowe',
     detail: 'Engagement pictures · 2026',
     portrait: '/images/Old Picutres/profile_2.jpg',
+    services: ['engagement-photography'],
   },
   {
     quote:
@@ -58,6 +76,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     name: 'Susan Overstreet',
     detail: 'Family portraits · October 2025',
     portrait: '/images/Old Picutres/profile_1.jpg',
+    services: ['family-portrait-photography'],
   },
   {
     quote:
@@ -65,13 +84,15 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     name: 'Brandy Duffy',
     detail: 'Client session · August 2025',
     portrait: '/images/Old Picutres/profile_2.jpg',
+    services: ['portrait-photography', 'special-events-photography'],
   },
   {
     quote:
-      'Taylor did a fantastic job at working with my family of 5 and making all of us comfortable in front of the camera. The photographs turned out beautiful and I’d definitely recommend her to others!',
+      'Taylor did a fantastic job at working with my family of 5 and making all of us comfortable in front of the camera. The photographs turned out beautiful and I\'d definitely recommend her to others!',
     name: 'Scarlett Brown',
     detail: 'Family portraits · August 2025',
     portrait: '/images/Old Picutres/inspiration_2.jpg',
+    services: ['family-portrait-photography'],
   },
   {
     quote:
@@ -79,12 +100,22 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     name: 'Tiffany Renfroe',
     detail: 'Family portraits · August 2025',
     portrait: '/images/Old Picutres/inspiration_1.jpg',
+    services: ['family-portrait-photography'],
   },
   {
     quote:
-      'Taylor has taken my boys pictures since my oldest was born in 2021. She’s always been patient with my kids and has been so easy to work with! Would 1000% recommend, I will prob never have anyone else take pictures for me besides her!',
+      'Taylor has taken my boys pictures since my oldest was born in 2021. She\'s always been patient with my kids and has been so easy to work with! Would 1000% recommend, I will prob never have anyone else take pictures for me besides her!',
     name: 'Courtney Carter',
     detail: 'Family & kids · July 2025',
     portrait: '/images/Old Picutres/profile_2.jpg',
+    services: ['family-portrait-photography'],
   },
 ];
+
+export function getTestimonialsForService(
+  service: ServiceSlug,
+): Testimonial[] {
+  return TESTIMONIALS.filter((testimonial) =>
+    testimonial.services.includes(service),
+  );
+}

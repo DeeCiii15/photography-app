@@ -27,7 +27,7 @@ export default async function PortfolioPage({
           <div className="mb-12 max-w-xl lg:mb-16">
             <p className="section-eyebrow text-boho-sage">Galleries</p>
             <h1 className="mt-3 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl">
-              More stories, same light
+              Documenting Stories One Photograph at a Time
             </h1>
             <p className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/68">
               True to color and timeless by design—click any card to wander deeper.

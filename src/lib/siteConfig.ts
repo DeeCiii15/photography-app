@@ -77,11 +77,17 @@ export const LOCAL_KEYWORDS = [
 export const DEFAULT_OG_IMAGE_PATH = '/images/Taylor_site.jpg';
 
 /** Canonical path for the Florence, SC wedding photography SEO landing page */
-export const FLORENCE_WEDDINGS_PATH = '/wedding-photography-florence-sc';
+export const FLORENCE_WEDDINGS_PATH = '/florence-sc-wedding-photography';
+
+/** Display / SEO title pattern: location first, then service */
+export const FLORENCE_WEDDINGS_TITLE = `${PRIMARY_CITY}, ${PRIMARY_STATE} Wedding Photography`;
+export const FLORENCE_WEDDINGS_TITLE_SHORT = `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} Wedding Photography`;
 
 /**
  * Query flag appended to gallery links opened from the Florence weddings landing
  * page, so a shoot page can offer a "back to Florence weddings" link instead of
  * sending visitors to the generic weddings gallery. Used as `?from=<value>`.
+ *
+ * Future city pages: add entries in `weddingLocations.ts` (path + status: 'live').
  */
 export const FLORENCE_WEDDINGS_REF = 'florence-weddings';

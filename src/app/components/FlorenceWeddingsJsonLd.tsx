@@ -1,5 +1,6 @@
 import {
   FLORENCE_WEDDINGS_PATH,
+  FLORENCE_WEDDINGS_TITLE,
   getSiteUrl,
   PRIMARY_CITY,
   PRIMARY_REGION,
@@ -24,7 +25,7 @@ export default function FlorenceWeddingsJsonLd() {
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
-        name: `Wedding Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE} | ${SITE_NAME}`,
+        name: `${FLORENCE_WEDDINGS_TITLE} | ${SITE_NAME}`,
         isPartOf: { '@id': `${url}#website` },
         about: { '@id': `${pageUrl}#service` },
         primaryImageOfPage: `${url}/images/hero_1.jpg`,
@@ -33,8 +34,8 @@ export default function FlorenceWeddingsJsonLd() {
         '@type': 'Service',
         '@id': `${pageUrl}#service`,
         serviceType: 'Wedding photography',
-        name: `Wedding Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE}`,
-        description: `Natural-light, true-to-color wedding photography for couples in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & across the ${PRIMARY_REGION} by ${SITE_NAME}.`,
+        name: FLORENCE_WEDDINGS_TITLE,
+        description: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography—natural light, true-to-color coverage for couples across the ${PRIMARY_REGION} by ${SITE_NAME}.`,
         url: pageUrl,
         provider: { '@id': `${url}#business` },
         areaServed: [

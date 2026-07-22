@@ -9,6 +9,7 @@ import type { PortfolioShootCard } from '@/lib/portfolioData';
 import {
   FLORENCE_WEDDINGS_PATH,
   FLORENCE_WEDDINGS_REF,
+  FLORENCE_WEDDINGS_TITLE,
   PRIMARY_CITY,
   PRIMARY_REGION,
   PRIMARY_STATE,
@@ -16,15 +17,15 @@ import {
   SITE_NAME,
 } from '@/lib/siteConfig';
 
-const PAGE_TITLE = `Wedding Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE} | ${SITE_NAME}`;
+const PAGE_TITLE = `${FLORENCE_WEDDINGS_TITLE} | ${SITE_NAME}`;
 
 export const metadata: Metadata = {
   title: { absolute: PAGE_TITLE },
-  description: `Natural-light, true-to-color wedding photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR}. A ${PRIMARY_REGION} wedding photographer capturing honest, timeless galleries at Florence's favorite venues—see real weddings & check your date.`,
+  description: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography—natural light, true-to-color, documentary galleries at Florence's favorite venues. A ${PRIMARY_REGION} wedding photographer for honest, timeless coverage.`,
   alternates: { canonical: FLORENCE_WEDDINGS_PATH },
   openGraph: {
     title: PAGE_TITLE,
-    description: `Honest, timeless wedding photography for couples in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & across the ${PRIMARY_REGION}.`,
+    description: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography for couples across the ${PRIMARY_REGION}—honest, timeless, true-to-color.`,
     url: FLORENCE_WEDDINGS_PATH,
   },
 };
@@ -146,7 +147,7 @@ export default function FlorenceWeddingsPage() {
         <section className="relative isolate flex min-h-svh items-end overflow-hidden">
           <Image
             src="/images/galleries/weddings/latta-sc-wedding-the-lees/04.jpg"
-            alt={`Wedding photography in ${PRIMARY_CITY}, ${PRIMARY_STATE} by ${SITE_NAME}`}
+            alt={`${PRIMARY_CITY}, ${PRIMARY_STATE} wedding photography by ${SITE_NAME}`}
             fill
             priority
             sizes="100vw"
@@ -162,9 +163,9 @@ export default function FlorenceWeddingsPage() {
                 {PRIMARY_CITY}, {PRIMARY_STATE_ABBR} wedding photography
               </p>
               <h1 className="mt-5 max-w-3xl font-display text-3xl font-medium leading-[1.1] text-white drop-shadow-sm sm:text-4xl md:text-5xl lg:text-6xl">
-                Wedding Photography in{' '}
+                {PRIMARY_CITY}, {PRIMARY_STATE}{' '}
                 <span className="italic font-normal text-[#f0c9b4]">
-                  {PRIMARY_CITY}, {PRIMARY_STATE}
+                  Wedding Photography
                 </span>
               </h1>
               <p className="mt-6 max-w-2xl font-body text-base font-light leading-[1.8] text-white/90 sm:text-lg">
@@ -391,7 +392,7 @@ export default function FlorenceWeddingsPage() {
             </p>
             <Link
               href="/contact"
-              className="font-display mt-7 inline-flex min-h-12 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-coral px-10 py-3.5 text-xl text-white shadow-soft transition hover:border-coral/40 hover:bg-coral-dark hover:shadow-soft-lg sm:text-2xl dark:border-boho-stone/45"
+              className="font-display mt-7 inline-flex min-h-14 touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-coral px-11 py-4 text-2xl text-white shadow-soft transition hover:border-coral/40 hover:bg-coral-dark hover:shadow-soft-lg sm:text-3xl dark:border-boho-stone/45"
             >
               Get in touch
             </Link>
