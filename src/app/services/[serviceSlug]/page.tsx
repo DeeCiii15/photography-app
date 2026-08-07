@@ -10,6 +10,7 @@ import BlogPostCard from '../../components/BlogPostCard';
 import ServiceFaqSection from '../../components/ServiceFaqSection';
 import ServiceFaqJsonLd from '../../components/ServiceFaqJsonLd';
 import ServiceGallerySection from '../../components/ServiceGallerySection';
+import ServiceVenueSuggestions from '../../components/ServiceVenueSuggestions';
 import WeddingLocationsMap from '../../components/WeddingLocationsMap';
 import {
   getAllServiceSlugs,
@@ -59,6 +60,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const testimonials = getServiceTestimonials(service);
   const heroImage = getServiceHeroImage(service);
   const portfolioHref = getServicePortfolioHref(service);
+  const aboutTopic = service.copyTopic ?? service.navLabel.toLowerCase();
 
   return (
     <div className="min-h-screen bg-[#f4f1eb] dark:bg-boho-ink">
@@ -80,17 +82,46 @@ export default async function ServicePage({ params }: ServicePageProps) {
               />
             </div>
             <div className="lg:col-span-7">
-              <p className="section-eyebrow text-boho-sage">{service.eyebrow}</p>
-              <h1 className="mt-4 font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream sm:text-3xl md:text-[2.35rem] md:leading-[1.12]">
-                {service.headline}{' '}
-                <span className="italic font-normal text-coral">
-                  {service.headlineAccent}
-                </span>
-              </h1>
-              <p className="mt-6 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
+              {service.serviceNameAsH1 ? (
+                <>
+                  <h1 className="section-eyebrow text-boho-sage">
+                    {service.name}
+                  </h1>
+                  <p className="mt-4 font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream sm:text-3xl md:text-[2.35rem] md:leading-[1.12]">
+                    {service.headline}{' '}
+                    <span className="italic font-normal text-coral">
+                      {service.headlineAccent}
+                    </span>
+                  </p>
+                </>
+              ) : (
+                <>
+                  {service.eyebrow ? (
+                    <p className="section-eyebrow text-boho-sage">
+                      {service.eyebrow}
+                    </p>
+                  ) : null}
+                  <h1 className="mt-4 font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream sm:text-3xl md:text-[2.35rem] md:leading-[1.12]">
+                    {service.headline}{' '}
+                    <span className="italic font-normal text-coral">
+                      {service.headlineAccent}
+                    </span>
+                  </h1>
+                </>
+              )}
+              {service.introLead ? (
+                <p className="mt-6 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
+                  {service.introLead}
+                </p>
+              ) : null}
+              <p
+                className={`max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg ${
+                  service.introLead ? 'mt-4' : 'mt-6'
+                }`}
+              >
                 {service.intro}
               </p>
-              <p className="mt-4 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/75 dark:text-cream/72">
+              <p className="mt-4 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
                 {service.body}
               </p>
               <Link
@@ -109,11 +140,18 @@ export default async function ServicePage({ params }: ServicePageProps) {
           shoots={shoots}
         />
 
+        {service.venueSuggestions ? (
+          <ServiceVenueSuggestions
+            suggestions={service.venueSuggestions}
+            surface="base"
+          />
+        ) : null}
+
         {service.slug === 'wedding-photography' && <WeddingLocationsMap />}
 
         {blogPosts.length > 0 && (
           <section
-            className="border-t border-[#e0d9ce] bg-[#f4f1eb] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-ink sm:px-10 lg:px-16 lg:py-24"
+            className="border-t border-[#e0d9ce] bg-[#f9f7f2] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-bark sm:px-10 lg:px-16 lg:py-24"
             aria-labelledby="service-blog-heading"
           >
             <div className="mx-auto max-w-6xl">
@@ -142,19 +180,21 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
         <ServiceFaqSection
           faqs={service.faqs}
-          heading={`Straight answers about ${service.navLabel.toLowerCase()}`}
+          heading={`Straight answers about ${aboutTopic}`}
+          surface={
+            service.venueSuggestions || blogPosts.length > 0 ? 'soft' : 'base'
+          }
         />
 
         <TestimonialsSection
           testimonials={testimonials}
           showContactCta={false}
+          surface="base"
           eyebrow="Client words"
           heading={
             <>
               What they say about{' '}
-              <span className="italic text-coral">
-                {service.navLabel.toLowerCase()}
-              </span>
+              <span className="italic text-coral">{aboutTopic}</span>
             </>
           }
           description="Reviews from clients who trusted me with this kind of session. Tap a card to read the full review."

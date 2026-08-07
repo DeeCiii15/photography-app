@@ -15,29 +15,37 @@ function FaqChevron() {
   );
 }
 
+const SURFACE = {
+  base: 'bg-[#f4f1eb] dark:bg-boho-ink',
+  soft: 'bg-[#f9f7f2] dark:bg-boho-bark',
+} as const;
+
 type ServiceFaqSectionProps = {
   faqs: ServiceFaq[];
   /** H2 text, e.g. "Straight answers about weddings" */
   heading?: string;
   id?: string;
+  /** Alternating page band — soft is the lighter cream */
+  surface?: keyof typeof SURFACE;
 };
 
 export default function ServiceFaqSection({
   faqs,
   heading = 'Straight answers',
   id = 'faq',
+  surface = 'base',
 }: ServiceFaqSectionProps) {
   return (
     <section
       id={id}
-      className="scroll-mt-24 border-t border-[#e0d9ce] bg-[#f4f1eb] px-6 py-16 dark:border-boho-stone/40 dark:bg-boho-ink sm:px-10 lg:px-16 lg:py-24"
+      className={`scroll-mt-24 border-t border-[#e0d9ce] px-6 py-16 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:py-24 ${SURFACE[surface]}`}
       aria-labelledby={`${id}-heading`}
     >
       <div className="mx-auto max-w-3xl text-center sm:text-left">
         <p className="section-eyebrow text-boho-sage">Questions</p>
         <h2
           id={`${id}-heading`}
-          className="mt-4 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl"
+          className="mt-4 font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream sm:text-3xl md:text-[2.35rem] md:leading-[1.12]"
         >
           {heading}
         </h2>
@@ -58,6 +66,15 @@ export default function ServiceFaqSection({
               </summary>
               <div className="border-t border-[#e0d9ce] px-6 pb-6 pt-5 text-center font-body text-base font-light leading-[1.85] text-cream-dark/88 dark:border-boho-stone/35 dark:text-cream/84 sm:px-8 sm:pb-8 sm:pt-6 sm:text-left">
                 {faq.answer}
+                {faq.link ? (
+                  <a
+                    href={faq.link.href}
+                    className="text-coral underline decoration-coral/40 underline-offset-2 transition hover:text-coral-dark dark:text-[#e8b896]"
+                  >
+                    {faq.link.label}
+                  </a>
+                ) : null}
+                {faq.answerAfter ?? null}
               </div>
             </details>
           ))}

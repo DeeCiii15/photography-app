@@ -10,17 +10,20 @@ import {
   PRIMARY_CITY,
   PRIMARY_REGION,
   PRIMARY_STATE_ABBR,
+  SITE_NAME,
 } from '@/lib/siteConfig';
 import { SITE_IMAGES } from '@/lib/siteImages';
 
+const CONTACT_TITLE = `Contact | ${SITE_NAME}`;
+
 export const metadata: Metadata = {
   title: {
-    absolute: 'Contact Wedding Photographer in Florence, SC | Taylor Rose Reels',
+    absolute: CONTACT_TITLE,
   },
   description: `Inquire about wedding, portrait, engagement, motherhood, family, and special event photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}. Share your date, venue, or vision—Taylor reads every message.`,
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Contact Wedding Photographer in Florence, SC | Taylor Rose Reels',
+    title: CONTACT_TITLE,
     description: `Wedding, portrait, engagement, motherhood, family, and special event photography in ${PRIMARY_CITY} & the ${PRIMARY_REGION}.`,
     url: '/contact',
   },

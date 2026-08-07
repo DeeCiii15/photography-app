@@ -2,7 +2,11 @@
 
 import Link from 'next/link';
 import { FOOTER_SERVICE_LINKS } from '@/lib/servicesData';
-import { SERVICE_AREA_LABEL } from '@/lib/siteConfig';
+import {
+  FLORENCE_WEDDINGS_PATH,
+  FLORENCE_WEDDINGS_TITLE_SHORT,
+  SERVICE_AREA_LABEL,
+} from '@/lib/siteConfig';
 import { getSocialLinks } from '@/lib/siteSocial';
 import { SocialNetworkIcon } from './SocialMediaIcons';
 
@@ -46,6 +50,12 @@ export default function SiteFooter() {
               </li>
             ))}
           </ul>
+          <Link
+            href={FLORENCE_WEDDINGS_PATH}
+            className="font-body text-xs font-light text-cream-dark/65 transition hover:text-coral dark:text-cream/60 dark:hover:text-[#e8b896]"
+          >
+            {FLORENCE_WEDDINGS_TITLE_SHORT}
+          </Link>
         </nav>
         {socialLinks.length > 0 && (
           <div className="flex flex-wrap items-center justify-center gap-2">

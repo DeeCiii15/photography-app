@@ -101,7 +101,7 @@
       ]
     },
     "myrtle-beach-family": {
-      "cover": "cover.jpeg",
+      "cover": "cover.jpg",
       "photos": [
         "01.jpg",
         "02.jpg",
@@ -209,7 +209,7 @@
       ]
     },
     "florence-sc-professional-portraits": {
-      "cover": "cover.jpeg",
+      "cover": "cover.jpg",
       "photos": [
         "01.jpg",
         "02.jpg",
@@ -316,7 +316,7 @@
     }
   },
   "weddings": {
-    "darlington-sc-wedding": {
+    "darlington-sc-wedding-murphy-farms": {
       "cover": "01.jpg",
       "photos": [
         "01.jpg",
@@ -329,7 +329,7 @@
         "08.jpg"
       ]
     },
-    "florence-sc-wedding": {
+    "florence-sc-wedding-glenview-farms": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -343,14 +343,14 @@
         "09.jpg"
       ]
     },
-    "latta-sc-wedding-the-flowers": {
+    "latta-sc-wedding-parker-pines-flowers": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
         "02.jpg"
       ]
     },
-    "latta-sc-wedding-the-lees": {
+    "latta-sc-wedding-parker-pines-lee": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -361,7 +361,7 @@
         "06.jpg"
       ]
     },
-    "mount-pleasant-sc-wedding": {
+    "mount-pleasant-sc-wedding-dunes-west-golf-river-club": {
       "cover": "01.jpg",
       "photos": [
         "01.jpg",
@@ -408,7 +408,7 @@
         "42.jpg"
       ]
     },
-    "pamplico-sc-wedding": {
+    "pamplico-sc-wedding-sawtooth-acres": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -457,7 +457,7 @@
         "44.jpg"
       ]
     },
-    "patrick-sc-wedding": {
+    "patrick-sc-wedding-griggs-farm": {
       "cover": "01.jpg",
       "photos": [
         "01.jpg",
@@ -489,7 +489,7 @@
         "27.jpg"
       ]
     },
-    "tennessee-wedding": {
+    "tennessee-wedding-emerald-ridge": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -515,7 +515,7 @@
         "21.jpg"
       ]
     },
-    "timmonsville-sc-wedding": {
+    "timmonsville-sc-wedding-the-cabin-at-old-spur": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",

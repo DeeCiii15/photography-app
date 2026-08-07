@@ -37,7 +37,20 @@ type TestimonialsSectionProps = {
   eyebrow?: string;
   heading?: React.ReactNode;
   description?: string;
+  /** Alternating page band — soft is the lighter cream */
+  surface?: 'base' | 'soft';
 };
+
+const SURFACE = {
+  base: {
+    section: 'bg-[#f4f1eb] dark:bg-boho-ink',
+    fade: 'from-[#f4f1eb] via-[#f4f1eb]/90 dark:from-boho-ink dark:via-boho-ink/90',
+  },
+  soft: {
+    section: 'bg-[#f9f7f2] dark:bg-boho-bark',
+    fade: 'from-[#f9f7f2] via-[#f9f7f2]/90 dark:from-boho-bark dark:via-boho-bark/90',
+  },
+} as const;
 
 export default function TestimonialsSection({
   id = 'testimonials',
@@ -50,6 +63,7 @@ export default function TestimonialsSection({
     </>
   ),
   description = 'A few favorites from brides, couples, & mamas who trusted me with their chapters. Tap a card to read the full review.',
+  surface = 'base',
 }: TestimonialsSectionProps) {
   const testimonialDeckRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -81,17 +95,19 @@ export default function TestimonialsSection({
 
   if (testimonials.length === 0) return null;
 
+  const band = SURFACE[surface];
+
   return (
     <section
       id={id}
-      className={`scroll-mt-24 border-t border-[#e0d9ce] bg-[#f4f1eb] px-6 pt-20 dark:border-boho-stone/40 dark:bg-boho-ink sm:px-10 lg:px-16 lg:pt-28 ${
+      className={`scroll-mt-24 border-t border-[#e0d9ce] px-6 pt-20 dark:border-boho-stone/40 sm:px-10 lg:px-16 lg:pt-28 ${band.section} ${
         showContactCta ? 'pb-0' : 'pb-20 lg:pb-28'
       }`}
     >
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <p className="section-eyebrow text-boho-sage">{eyebrow}</p>
-          <h2 className="mt-4 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl lg:text-[2.35rem]">
+          <h2 className="mt-4 font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream sm:text-3xl md:text-[2.35rem] md:leading-[1.12]">
             {heading}
           </h2>
           <p className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/65">
@@ -103,8 +119,12 @@ export default function TestimonialsSection({
           role="region"
           aria-label="Client testimonials — scroll horizontally"
         >
-          <div className="pointer-events-none absolute inset-y-8 left-0 z-10 w-10 bg-gradient-to-r from-[#f4f1eb] via-[#f4f1eb]/90 to-transparent dark:from-boho-ink dark:via-boho-ink/90 sm:w-14 md:w-16" />
-          <div className="pointer-events-none absolute inset-y-8 right-0 z-10 w-10 bg-gradient-to-l from-[#f4f1eb] via-[#f4f1eb]/90 to-transparent dark:from-boho-ink dark:via-boho-ink/90 sm:w-14 md:w-16" />
+          <div
+            className={`pointer-events-none absolute inset-y-8 left-0 z-10 w-10 bg-gradient-to-r to-transparent sm:w-14 md:w-16 ${band.fade}`}
+          />
+          <div
+            className={`pointer-events-none absolute inset-y-8 right-0 z-10 w-10 bg-gradient-to-l to-transparent sm:w-14 md:w-16 ${band.fade}`}
+          />
 
           <button
             type="button"

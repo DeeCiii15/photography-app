@@ -112,7 +112,8 @@ export function getWeddingLocationById(
 
 /**
  * Match a wedding shoot slug to a live location page
- * (e.g. florence-sc-wedding → Florence, latta-sc-wedding-the-lees → Latta).
+ * (e.g. florence-sc-wedding-glenview-farms → Florence,
+ * latta-sc-wedding-parker-pines-lee → Latta).
  * Longer ids win so `lake-city` matches before a hypothetical `lake`.
  */
 export function getLiveWeddingLocationForShoot(

@@ -1,0 +1,1198 @@
+{
+  "generatedAt": "2026-08-07T01:27:47.859Z",
+  "pageCount": 59,
+  "pages": [
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": "Florence SC photographer; Pee Dee wedding photographer; Florence wedding photographer; South Carolina portrait photographer; SC engagement photographer; wedding photographer Florence SC; elopement photographer Pee Dee; natural light photography; true to color; timeless; Taylor Rose Reels",
+      "ogTitle": "Wedding Photographer in Florence, SC and surrounding Pee Dee areas | Taylor Rose Reels",
+      "ogDescription": "Taylor Rose Reels is a Florence, SC wedding & portrait photographer serving the Pee Dee—Hartsville, Darlington, Marion, Lake City, & beyond.",
+      "ogUrl": "/",
+      "group": "Core",
+      "path": "/",
+      "title": "Wedding Photographer in Florence, SC and surrounding Pee Dee areas | Taylor Rose Reels",
+      "description": "Taylor Rose Reels is a Florence, SC wedding & portrait photographer serving the Pee Dee—Hartsville, Darlington, Marion, Lake City, & beyond.",
+      "canonical": "/",
+      "titleMode": "absolute (layout default)",
+      "h1": [
+        "Florence, SC · Pee Dee · Wedding & portrait Soft light, honest color, warmth that feels like memory."
+      ],
+      "h2": [
+        "Every photo tells a story; I'd love to help you tell yours.",
+        "More stories, same light",
+        "What they still talk about"
+      ],
+      "h3": [
+        "Weddings",
+        "Motherhood",
+        "Couples / Engagement",
+        "Special Events",
+        "Family",
+        "Portraits"
+      ],
+      "notes": "H1 wraps location eyebrow + display line. Category cards on home gallery are H3. Keywords only set on root layout (inherited sitewide unless overridden)."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Contact | Taylor Rose Reels",
+      "ogDescription": "Inquire about wedding, portrait, engagement, motherhood, family, and special event photography in Florence, SC & the Pee Dee. Share your date, venue, or vision—Taylor reads every message.",
+      "ogUrl": "/contact",
+      "group": "Core",
+      "path": "/contact",
+      "title": "Contact | Taylor Rose Reels",
+      "description": "Inquire about wedding, portrait, engagement, motherhood, family, and special event photography in Florence, SC & the Pee Dee. Share your date, venue, or vision—Taylor reads every message.",
+      "canonical": "/contact",
+      "titleMode": "absolute",
+      "h1": [
+        "Share your event vision with me"
+      ],
+      "h2": [],
+      "h3": [],
+      "notes": "Title is brand-only (“Contact | …”). Consider restoring location/service in the title for local SEO."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Wedding & Event Portfolio in Florence, SC | Taylor Rose Reels",
+      "ogDescription": "Wedding, elopement, engagement, portrait, & event galleries from Florence, SC & the Pee Dee. Natural light & honest color by Taylor Rose Reels.",
+      "ogUrl": "/portfolio",
+      "group": "Core",
+      "path": "/portfolio",
+      "title": "Wedding & Event Portfolio in Florence, SC | Taylor Rose Reels",
+      "description": "Wedding, elopement, engagement, portrait, & event galleries from Florence, SC & the Pee Dee. Natural light & honest color by Taylor Rose Reels.",
+      "canonical": "/portfolio",
+      "titleMode": "absolute (portfolio/layout)",
+      "h1": [
+        "Documenting Stories One Photograph at a Time"
+      ],
+      "h2": [],
+      "h3": [
+        "Weddings",
+        "Motherhood",
+        "Couples / Engagement",
+        "Special Events",
+        "Family",
+        "Portraits"
+      ],
+      "notes": "Category cards use H3."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Florence, South Carolina Wedding Photography | Taylor Rose Reels",
+      "ogDescription": "Florence, SC wedding photography—natural light, true-to-color, documentary galleries at Florence's favorite venues. A Pee Dee wedding photographer for honest, timeless coverage.",
+      "ogUrl": "/florence-sc-wedding-photography",
+      "group": "Location",
+      "path": "/florence-sc-wedding-photography",
+      "title": "Florence, South Carolina Wedding Photography | Taylor Rose Reels",
+      "description": "Florence, SC wedding photography—natural light, true-to-color, documentary galleries at Florence's favorite venues. A Pee Dee wedding photographer for honest, timeless coverage.",
+      "canonical": "/florence-sc-wedding-photography",
+      "titleMode": "absolute",
+      "h1": [
+        "Florence, South Carolina Wedding Photography"
+      ],
+      "h2": [
+        "Why I love being a part of your Florence wedding",
+        "Florence wedding venues I love",
+        "Let's talk about your Florence area wedding"
+      ],
+      "h3": [
+        "Glenview Farm Events",
+        "Parker Pines",
+        "The Cabin at Old Spur",
+        "Murphy Farm"
+      ],
+      "notes": "Only live location hub in sitemap. Other cities are soon stubs (not pages)."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Wedding Photography | Taylor Rose Reels",
+      "ogDescription": "Documentary wedding photographer in Florence, SC & the Pee Dee—true-to-color galleries, honest emotion, & timeless coverage from vows to last dance.",
+      "ogUrl": "/services/wedding-photography",
+      "group": "Services",
+      "path": "/services/wedding-photography",
+      "title": "Wedding Photography | Taylor Rose Reels",
+      "description": "Documentary wedding photographer in Florence, SC & the Pee Dee—true-to-color galleries, honest emotion, & timeless coverage from vows to last dance.",
+      "canonical": "/services/wedding-photography",
+      "titleMode": "absolute (service.metaTitle)",
+      "h1": [
+        "Telling the story of your day through images you will cherish forever"
+      ],
+      "h2": [
+        "A closer look at wedding photography",
+        "Across the Pee Dee",
+        "Wedding related reading",
+        "Straight answers about weddings",
+        "What they say about weddings"
+      ],
+      "h3": [
+        "Carly & Drew at Emerald Ridge",
+        "Tori & Michael at Dunes West Golf & River Club",
+        "Elena & Mike at Griggs Farm",
+        "Jessica & Gage at Sawtooth Acres",
+        "Madelyn & Max at Glenview Farms",
+        "Baylee & Walker at The Cabin at Old Spur",
+        "Talor & Houston at Parker Pines",
+        "Kendall & Dalton at Parker Pines",
+        "Maddie & Dan at Murphy Farms"
+      ],
+      "notes": "Shoot titles in gallery are H3. FAQ questions are <summary>, not headings. Related reading only when matching posts exist (weddings). Testimonials H2 omitted when no tagged reviews (motherhood)."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Engagement Photography in Florence, SC | Taylor Rose Reels",
+      "ogDescription": "Engagement & couples photographer in Florence, SC & the Pee Dee—natural light, easy posing, & galleries that feel like you.",
+      "ogUrl": "/services/engagement-photography",
+      "group": "Services",
+      "path": "/services/engagement-photography",
+      "title": "Engagement Photography in Florence, SC | Taylor Rose Reels",
+      "description": "Engagement & couples photographer in Florence, SC & the Pee Dee—natural light, easy posing, & galleries that feel like you.",
+      "canonical": "/services/engagement-photography",
+      "titleMode": "absolute (service.metaTitle)",
+      "h1": [
+        "Engagement Photography"
+      ],
+      "h2": [
+        "A closer look at engagement photography",
+        "Suggested engagement venues in and around Florence",
+        "Straight answers about engagements",
+        "What they say about engagements"
+      ],
+      "h3": [
+        "Charleston Beach Engagement",
+        "Downtown Florence Engagement",
+        "Pee Dee River Engagement"
+      ],
+      "notes": "H1 is service name (eyebrow styling); display line is non-heading brand copy."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Special Event Photography in Florence, SC | Taylor Rose Reels",
+      "ogDescription": "Event photographer in Florence, SC & the Pee Dee—proms, celebrations, brand moments, & milestones captured with polish & warmth.",
+      "ogUrl": "/services/special-events-photography",
+      "group": "Services",
+      "path": "/services/special-events-photography",
+      "title": "Special Event Photography in Florence, SC | Taylor Rose Reels",
+      "description": "Event photographer in Florence, SC & the Pee Dee—proms, celebrations, brand moments, & milestones captured with polish & warmth.",
+      "canonical": "/services/special-events-photography",
+      "titleMode": "absolute (service.metaTitle)",
+      "h1": [
+        "Special Events Photography"
+      ],
+      "h2": [
+        "A closer look at special events photography",
+        "Wherever feels meaningful",
+        "Straight answers about special events",
+        "What they say about special events"
+      ],
+      "h3": [
+        "Prom Portraits",
+        "Florence Birthday Party"
+      ],
+      "notes": "H1 is service name (eyebrow styling); display line is non-heading brand copy."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Family Portrait Photography in Florence, SC | Taylor Rose Reels",
+      "ogDescription": "Family portrait photographer in Florence, SC & the Pee Dee—relaxed sessions, golden light, & galleries that feel authentic.",
+      "ogUrl": "/services/family-portrait-photography",
+      "group": "Services",
+      "path": "/services/family-portrait-photography",
+      "title": "Family Portrait Photography in Florence, SC | Taylor Rose Reels",
+      "description": "Family portrait photographer in Florence, SC & the Pee Dee—relaxed sessions, golden light, & galleries that feel authentic.",
+      "canonical": "/services/family-portrait-photography",
+      "titleMode": "absolute (service.metaTitle)",
+      "h1": [
+        "Family Portrait Photography"
+      ],
+      "h2": [
+        "A closer look at family portrait photography",
+        "Suggested family portrait locations in and around Florence",
+        "Straight answers about family portraits",
+        "What they say about family portraits"
+      ],
+      "h3": [
+        "Myrtle Beach Family Shoot",
+        "Florence Family Shoot",
+        "Marion Family Shoot"
+      ],
+      "notes": "H1 is service name (eyebrow styling); display line is non-heading brand copy."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Maternity and Newborn Photography in Florence, South Carolina | Taylor Rose Reels",
+      "ogDescription": "Maternity & newborn photographer in Florence, SC & the Pee Dee—gentle sessions for bump, gender reveals, & the season before baby.",
+      "ogUrl": "/services/motherhood-photography",
+      "group": "Services",
+      "path": "/services/motherhood-photography",
+      "title": "Maternity and Newborn Photography in Florence, South Carolina | Taylor Rose Reels",
+      "description": "Maternity & newborn photographer in Florence, SC & the Pee Dee—gentle sessions for bump, gender reveals, & the season before baby.",
+      "canonical": "/services/motherhood-photography",
+      "titleMode": "absolute (service.metaTitle)",
+      "h1": [
+        "Maternity and Newborn Photography"
+      ],
+      "h2": [
+        "A closer look at maternity and newborn photography",
+        "Straight answers about motherhood"
+      ],
+      "h3": [
+        "Charleston Beach Motherhood",
+        "Sullivans Island Beach Motherhood",
+        "Florence Intimate Gender Reveal"
+      ],
+      "notes": "H1 is service name (eyebrow styling); display line is non-heading brand copy."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Portrait Photography in Florence, SC | Taylor Rose Reels",
+      "ogDescription": "Portrait photographer in Florence, SC & the Pee Dee—senior, bridal, professional, & personal sessions in natural light.",
+      "ogUrl": "/services/portrait-photography",
+      "group": "Services",
+      "path": "/services/portrait-photography",
+      "title": "Portrait Photography in Florence, SC | Taylor Rose Reels",
+      "description": "Portrait photographer in Florence, SC & the Pee Dee—senior, bridal, professional, & personal sessions in natural light.",
+      "canonical": "/services/portrait-photography",
+      "titleMode": "absolute (service.metaTitle)",
+      "h1": [
+        "Just you—soft light & room to breathe—portraits that feel like a compliment"
+      ],
+      "h2": [
+        "A closer look at portrait photography",
+        "Straight answers about portraits",
+        "What they say about portraits"
+      ],
+      "h3": [
+        "Hatsville Senior Portraits",
+        "Camden Bridal Portraits",
+        "Latta Bridal Portraits",
+        "Florence Professional Portraits"
+      ],
+      "notes": "Shoot titles in gallery are H3. FAQ questions are <summary>, not headings. Related reading only when matching posts exist (weddings). Testimonials H2 omitted when no tagged reviews (motherhood)."
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Wedding Photography Portfolio | Taylor Rose Reels",
+      "ogDescription": "Veil soft in the breeze, daddy walking you down the aisle, & the quiet tear he tries to hide—I live for those honest wedding-day moments. Florence, SC & Pee Dee",
+      "ogUrl": "/portfolio/weddings",
+      "group": "Portfolio categories",
+      "path": "/portfolio/weddings",
+      "title": "Wedding Photography Portfolio | Taylor Rose Reels",
+      "description": "Veil soft in the breeze, daddy walking you down the aisle, & the quiet tear he tries to hide—I live for those honest wedding-day moments. Florence, SC & Pee Dee",
+      "canonical": "/portfolio/weddings",
+      "titleMode": "relative + template",
+      "h1": [
+        "Wedding Portfolios"
+      ],
+      "h2": [],
+      "h3": [
+        "Carly & Drew at Emerald Ridge",
+        "Tori & Michael at Dunes West Golf & River Club",
+        "Elena & Mike at Griggs Farm",
+        "Jessica & Gage at Sawtooth Acres",
+        "Madelyn & Max at Glenview Farms",
+        "Baylee & Walker at The Cabin at Old Spur",
+        "Talor & Houston at Parker Pines",
+        "Kendall & Dalton at Parker Pines",
+        "Maddie & Dan at Murphy Farms"
+      ]
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Motherhood Gallery | Taylor Rose Reels",
+      "ogDescription": "That glow, the bump you keep resting your hand on, & the wonder before & after baby arrives—documented gently, never rushed. Florence, SC & Pee Dee photography ",
+      "ogUrl": "/portfolio/motherhood",
+      "group": "Portfolio categories",
+      "path": "/portfolio/motherhood",
+      "title": "Motherhood Gallery | Taylor Rose Reels",
+      "description": "That glow, the bump you keep resting your hand on, & the wonder before & after baby arrives—documented gently, never rushed. Florence, SC & Pee Dee photography ",
+      "canonical": "/portfolio/motherhood",
+      "titleMode": "relative + template",
+      "h1": [
+        "Motherhood Portfolios"
+      ],
+      "h2": [],
+      "h3": [
+        "Charleston Beach Motherhood",
+        "Sullivans Island Beach Motherhood",
+        "Florence Intimate Gender Reveal"
+      ]
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Couples / Engagement Gallery | Taylor Rose Reels",
+      "ogDescription": "Ocean waves, downtown strolls, or evening boat rides—wherever y’all feel like yourselves is where I’ll meet you. Florence, SC & Pee Dee photography by Taylor Ro",
+      "ogUrl": "/portfolio/couples-engagement",
+      "group": "Portfolio categories",
+      "path": "/portfolio/couples-engagement",
+      "title": "Couples / Engagement Gallery | Taylor Rose Reels",
+      "description": "Ocean waves, downtown strolls, or evening boat rides—wherever y’all feel like yourselves is where I’ll meet you. Florence, SC & Pee Dee photography by Taylor Ro",
+      "canonical": "/portfolio/couples-engagement",
+      "titleMode": "relative + template",
+      "h1": [
+        "Engagement Portfolios"
+      ],
+      "h2": [],
+      "h3": [
+        "Charleston Beach Engagement",
+        "Downtown Florence Engagement",
+        "Pee Dee River Engagement"
+      ]
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Special Events Gallery | Taylor Rose Reels",
+      "ogDescription": "Galas, brand launches, & the milestones that deserve to be remembered with polish & a little Southern warmth. Florence, SC & Pee Dee photography by Taylor Rose ",
+      "ogUrl": "/portfolio/special-events",
+      "group": "Portfolio categories",
+      "path": "/portfolio/special-events",
+      "title": "Special Events Gallery | Taylor Rose Reels",
+      "description": "Galas, brand launches, & the milestones that deserve to be remembered with polish & a little Southern warmth. Florence, SC & Pee Dee photography by Taylor Rose ",
+      "canonical": "/portfolio/special-events",
+      "titleMode": "relative + template",
+      "h1": [
+        "Special Events Portfolios"
+      ],
+      "h2": [],
+      "h3": [
+        "Prom Portraits",
+        "Florence Birthday Party"
+      ]
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Family Gallery | Taylor Rose Reels",
+      "ogDescription": "Your people, warm light, & so much love. Family portraits that feel natural & authentic, not posed or forced. Florence, SC & Pee Dee photography by Taylor Rose ",
+      "ogUrl": "/portfolio/family",
+      "group": "Portfolio categories",
+      "path": "/portfolio/family",
+      "title": "Family Gallery | Taylor Rose Reels",
+      "description": "Your people, warm light, & so much love. Family portraits that feel natural & authentic, not posed or forced. Florence, SC & Pee Dee photography by Taylor Rose ",
+      "canonical": "/portfolio/family",
+      "titleMode": "relative + template",
+      "h1": [
+        "Family Portfolios"
+      ],
+      "h2": [],
+      "h3": [
+        "Myrtle Beach Family Shoot",
+        "Florence Family Shoot",
+        "Marion Family Shoot"
+      ]
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Portraits Gallery | Taylor Rose Reels",
+      "ogDescription": "Just you—soft light & room to breathe—portraits that feel like a compliment, not a performance. Florence, SC & Pee Dee photography by Taylor Rose Reels.",
+      "ogUrl": "/portfolio/portraits",
+      "group": "Portfolio categories",
+      "path": "/portfolio/portraits",
+      "title": "Portraits Gallery | Taylor Rose Reels",
+      "description": "Just you—soft light & room to breathe—portraits that feel like a compliment, not a performance. Florence, SC & Pee Dee photography by Taylor Rose Reels.",
+      "canonical": "/portfolio/portraits",
+      "titleMode": "relative + template",
+      "h1": [
+        "Portrait Portfolios"
+      ],
+      "h2": [],
+      "h3": [
+        "Hatsville Senior Portraits",
+        "Camden Bridal Portraits",
+        "Latta Bridal Portraits",
+        "Florence Professional Portraits"
+      ]
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Carly & Drew at Emerald Ridge | Weddings | Taylor Rose Reels",
+      "ogDescription": "Carly & Drew Nash said I do at Emerald Ridge in Tennessee—honest light, real emotion, & the quiet in-between moments from vows through celebration.",
+      "ogUrl": "/portfolio/weddings/tennessee-wedding-emerald-ridge",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/weddings/tennessee-wedding-emerald-ridge",
+      "title": "Carly & Drew at Emerald Ridge | Taylor Rose Reels",
+      "description": "Carly & Drew Nash said I do at Emerald Ridge in Tennessee—honest light, real emotion, & the quiet in-between moments from vows through celebration.",
+      "canonical": "/portfolio/weddings/tennessee-wedding-emerald-ridge",
+      "titleMode": "relative + template",
+      "h1": [
+        "Carly & Drew at Emerald Ridge"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Tori & Michael at Dunes West Golf & River Club | Weddings | Taylor Rose Reels",
+      "ogDescription": "Tori & Michael McKenzie celebrated at Dunes West Golf & River Club in Mount Pleasant, SC—soft coastal light, easy joy, & the in-between moments that made their ",
+      "ogUrl": "/portfolio/weddings/mount-pleasant-sc-wedding-dunes-west-golf-river-club",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/weddings/mount-pleasant-sc-wedding-dunes-west-golf-river-club",
+      "title": "Tori & Michael at Dunes West Golf & River Club | Taylor Rose Reels",
+      "description": "Tori & Michael McKenzie celebrated at Dunes West Golf & River Club in Mount Pleasant, SC—soft coastal light, easy joy, & the in-between moments that made their ",
+      "canonical": "/portfolio/weddings/mount-pleasant-sc-wedding-dunes-west-golf-river-club",
+      "titleMode": "relative + template",
+      "h1": [
+        "Tori & Michael at Dunes West Golf & River Club"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Elena & Mike at Griggs Farm | Weddings | Taylor Rose Reels",
+      "ogDescription": "Elena & Mike Dotson celebrated at Griggs Farm in Patrick, SC—natural light, genuine emotion, & the real moments from getting ready through the last dance.",
+      "ogUrl": "/portfolio/weddings/patrick-sc-wedding-griggs-farm",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/weddings/patrick-sc-wedding-griggs-farm",
+      "title": "Elena & Mike at Griggs Farm | Taylor Rose Reels",
+      "description": "Elena & Mike Dotson celebrated at Griggs Farm in Patrick, SC—natural light, genuine emotion, & the real moments from getting ready through the last dance.",
+      "canonical": "/portfolio/weddings/patrick-sc-wedding-griggs-farm",
+      "titleMode": "relative + template",
+      "h1": [
+        "Elena & Mike at Griggs Farm"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Jessica & Gage at Sawtooth Acres | Weddings | Taylor Rose Reels",
+      "ogDescription": "Jessica & Gage Norton’s vintage-meets-timeless day at Sawtooth Acres in Pamplico, SC—honest light, real emotion, & the quiet glances that make a wedding feel li",
+      "ogUrl": "/portfolio/weddings/pamplico-sc-wedding-sawtooth-acres",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/weddings/pamplico-sc-wedding-sawtooth-acres",
+      "title": "Jessica & Gage at Sawtooth Acres | Taylor Rose Reels",
+      "description": "Jessica & Gage Norton’s vintage-meets-timeless day at Sawtooth Acres in Pamplico, SC—honest light, real emotion, & the quiet glances that make a wedding feel li",
+      "canonical": "/portfolio/weddings/pamplico-sc-wedding-sawtooth-acres",
+      "titleMode": "relative + template",
+      "h1": [
+        "Jessica & Gage at Sawtooth Acres"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Madelyn & Max at Glenview Farms | Weddings | Taylor Rose Reels",
+      "ogDescription": "Madelyn & Max Freeman celebrated at Glenview Farms in Florence, SC—true-to-color light, barn warmth, & the honest in-between moments from getting ready through ",
+      "ogUrl": "/portfolio/weddings/florence-sc-wedding-glenview-farms",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/weddings/florence-sc-wedding-glenview-farms",
+      "title": "Madelyn & Max at Glenview Farms | Taylor Rose Reels",
+      "description": "Madelyn & Max Freeman celebrated at Glenview Farms in Florence, SC—true-to-color light, barn warmth, & the honest in-between moments from getting ready through ",
+      "canonical": "/portfolio/weddings/florence-sc-wedding-glenview-farms",
+      "titleMode": "relative + template",
+      "h1": [
+        "Madelyn & Max at Glenview Farms"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Baylee & Walker at The Cabin at Old Spur | Weddings | Taylor Rose Reels",
+      "ogDescription": "Baylee & Walker Rogers celebrated at The Cabin at Old Spur in Timmonsville, SC—cabin getting-ready jitters, tender family details, & soft light tucked back in t",
+      "ogUrl": "/portfolio/weddings/timmonsville-sc-wedding-the-cabin-at-old-spur",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/weddings/timmonsville-sc-wedding-the-cabin-at-old-spur",
+      "title": "Baylee & Walker at The Cabin at Old Spur | Taylor Rose Reels",
+      "description": "Baylee & Walker Rogers celebrated at The Cabin at Old Spur in Timmonsville, SC—cabin getting-ready jitters, tender family details, & soft light tucked back in t",
+      "canonical": "/portfolio/weddings/timmonsville-sc-wedding-the-cabin-at-old-spur",
+      "titleMode": "relative + template",
+      "h1": [
+        "Baylee & Walker at The Cabin at Old Spur"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Talor & Houston at Parker Pines | Weddings | Taylor Rose Reels",
+      "ogDescription": "Talor & Houston Lee’s modern white-barn wedding at Parker Pines in Latta, SC—natural light among the trees, honest emotion, & the real moments from getting read",
+      "ogUrl": "/portfolio/weddings/latta-sc-wedding-parker-pines-lee",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/weddings/latta-sc-wedding-parker-pines-lee",
+      "title": "Talor & Houston at Parker Pines | Taylor Rose Reels",
+      "description": "Talor & Houston Lee’s modern white-barn wedding at Parker Pines in Latta, SC—natural light among the trees, honest emotion, & the real moments from getting read",
+      "canonical": "/portfolio/weddings/latta-sc-wedding-parker-pines-lee",
+      "titleMode": "relative + template",
+      "h1": [
+        "Talor & Houston at Parker Pines"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Kendall & Dalton at Parker Pines | Weddings | Taylor Rose Reels",
+      "ogDescription": "Kendall & Dalton Flowers celebrated waterside vows at Parker Pines in Latta, SC—soft natural light by the pond, romantic details, & the quiet in-between moments",
+      "ogUrl": "/portfolio/weddings/latta-sc-wedding-parker-pines-flowers",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/weddings/latta-sc-wedding-parker-pines-flowers",
+      "title": "Kendall & Dalton at Parker Pines | Taylor Rose Reels",
+      "description": "Kendall & Dalton Flowers celebrated waterside vows at Parker Pines in Latta, SC—soft natural light by the pond, romantic details, & the quiet in-between moments",
+      "canonical": "/portfolio/weddings/latta-sc-wedding-parker-pines-flowers",
+      "titleMode": "relative + template",
+      "h1": [
+        "Kendall & Dalton at Parker Pines"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Maddie & Dan at Murphy Farms | Weddings | Taylor Rose Reels",
+      "ogDescription": "Maddie & Dan Galloway’s cozy winter wedding at Murphy Farms in Darlington, SC—an open-field ceremony beside the pond, emerald bridesmaids, red & white florals, ",
+      "ogUrl": "/portfolio/weddings/darlington-sc-wedding-murphy-farms",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/weddings/darlington-sc-wedding-murphy-farms",
+      "title": "Maddie & Dan at Murphy Farms | Taylor Rose Reels",
+      "description": "Maddie & Dan Galloway’s cozy winter wedding at Murphy Farms in Darlington, SC—an open-field ceremony beside the pond, emerald bridesmaids, red & white florals, ",
+      "canonical": "/portfolio/weddings/darlington-sc-wedding-murphy-farms",
+      "titleMode": "relative + template",
+      "h1": [
+        "Maddie & Dan at Murphy Farms"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Charleston Beach Motherhood | Motherhood | Taylor Rose Reels",
+      "ogDescription": "Maternity portraits on the Charleston coast—soft sand, golden light, & gentle documentation of life before & after baby arrives.",
+      "ogUrl": "/portfolio/motherhood/charleston-sc-motherhood",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/motherhood/charleston-sc-motherhood",
+      "title": "Charleston Beach Motherhood | Taylor Rose Reels",
+      "description": "Maternity portraits on the Charleston coast—soft sand, golden light, & gentle documentation of life before & after baby arrives.",
+      "canonical": "/portfolio/motherhood/charleston-sc-motherhood",
+      "titleMode": "relative + template",
+      "h1": [
+        "Charleston Beach Motherhood"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Sullivans Island Beach Motherhood | Motherhood | Taylor Rose Reels",
+      "ogDescription": "Beach maternity session on Sullivan's Island—ocean air, natural light, & calm portraits that honor the bump & anticipation.",
+      "ogUrl": "/portfolio/motherhood/sullivans-island-motherhood",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/motherhood/sullivans-island-motherhood",
+      "title": "Sullivans Island Beach Motherhood | Taylor Rose Reels",
+      "description": "Beach maternity session on Sullivan's Island—ocean air, natural light, & calm portraits that honor the bump & anticipation.",
+      "canonical": "/portfolio/motherhood/sullivans-island-motherhood",
+      "titleMode": "relative + template",
+      "h1": [
+        "Sullivans Island Beach Motherhood"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Florence Intimate Gender Reveal | Motherhood | Taylor Rose Reels",
+      "ogDescription": "Intimate gender reveal photography in Florence, SC—joyful anticipation, soft natural light, & candid moments as you share the surprise with the people you love ",
+      "ogUrl": "/portfolio/motherhood/florence-sc-gender-reveal",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/motherhood/florence-sc-gender-reveal",
+      "title": "Florence Intimate Gender Reveal | Taylor Rose Reels",
+      "description": "Intimate gender reveal photography in Florence, SC—joyful anticipation, soft natural light, & candid moments as you share the surprise with the people you love ",
+      "canonical": "/portfolio/motherhood/florence-sc-gender-reveal",
+      "titleMode": "relative + template",
+      "h1": [
+        "Florence Intimate Gender Reveal"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Charleston Beach Engagement | Couples / Engagement | Taylor Rose Reels",
+      "ogDescription": "Charleston beach engagement photos—waves, shoreline strolls, & relaxed portraits where you can be yourselves.",
+      "ogUrl": "/portfolio/couples-engagement/charleston-sc-engagement",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/couples-engagement/charleston-sc-engagement",
+      "title": "Charleston Beach Engagement | Taylor Rose Reels",
+      "description": "Charleston beach engagement photos—waves, shoreline strolls, & relaxed portraits where you can be yourselves.",
+      "canonical": "/portfolio/couples-engagement/charleston-sc-engagement",
+      "titleMode": "relative + template",
+      "h1": [
+        "Charleston Beach Engagement"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Downtown Florence Engagement | Couples / Engagement | Taylor Rose Reels",
+      "ogDescription": "Downtown Florence engagement session—city streets at golden hour, easy laughs, & romantic portraits in natural light.",
+      "ogUrl": "/portfolio/couples-engagement/florence-sc-engagement",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/couples-engagement/florence-sc-engagement",
+      "title": "Downtown Florence Engagement | Taylor Rose Reels",
+      "description": "Downtown Florence engagement session—city streets at golden hour, easy laughs, & romantic portraits in natural light.",
+      "canonical": "/portfolio/couples-engagement/florence-sc-engagement",
+      "titleMode": "relative + template",
+      "h1": [
+        "Downtown Florence Engagement"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Pee Dee River Engagement | Couples / Engagement | Taylor Rose Reels",
+      "ogDescription": "Engagement photos along the Pee Dee River near Lake City—soft light, open water, & unhurried couples portraits.",
+      "ogUrl": "/portfolio/couples-engagement/lake-city-sc-engagement",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/couples-engagement/lake-city-sc-engagement",
+      "title": "Pee Dee River Engagement | Taylor Rose Reels",
+      "description": "Engagement photos along the Pee Dee River near Lake City—soft light, open water, & unhurried couples portraits.",
+      "canonical": "/portfolio/couples-engagement/lake-city-sc-engagement",
+      "titleMode": "relative + template",
+      "h1": [
+        "Pee Dee River Engagement"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Prom Portraits | Special Events | Taylor Rose Reels",
+      "ogDescription": "Hartsville prom portraits—polished, fun, & full of the excitement of the night, captured with natural warmth.",
+      "ogUrl": "/portfolio/special-events/hartsville-sc-prom",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/special-events/hartsville-sc-prom",
+      "title": "Prom Portraits | Taylor Rose Reels",
+      "description": "Hartsville prom portraits—polished, fun, & full of the excitement of the night, captured with natural warmth.",
+      "canonical": "/portfolio/special-events/hartsville-sc-prom",
+      "titleMode": "relative + template",
+      "h1": [
+        "Prom Portraits"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Florence Birthday Party | Special Events | Taylor Rose Reels",
+      "ogDescription": "Birthday party photography in Florence, SC—joyful details, candid smiles, & the little moments that make the celebration unforgettable.",
+      "ogUrl": "/portfolio/special-events/florence-sc-birthday-party",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/special-events/florence-sc-birthday-party",
+      "title": "Florence Birthday Party | Taylor Rose Reels",
+      "description": "Birthday party photography in Florence, SC—joyful details, candid smiles, & the little moments that make the celebration unforgettable.",
+      "canonical": "/portfolio/special-events/florence-sc-birthday-party",
+      "titleMode": "relative + template",
+      "h1": [
+        "Florence Birthday Party"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Myrtle Beach Family Shoot | Family | Taylor Rose Reels",
+      "ogDescription": "Family portraits at Myrtle Beach—siblings, parents, & sandy toes in soft coastal light you'll want to frame for years.",
+      "ogUrl": "/portfolio/family/myrtle-beach-family",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/family/myrtle-beach-family",
+      "title": "Myrtle Beach Family Shoot | Taylor Rose Reels",
+      "description": "Family portraits at Myrtle Beach—siblings, parents, & sandy toes in soft coastal light you'll want to frame for years.",
+      "canonical": "/portfolio/family/myrtle-beach-family",
+      "titleMode": "relative + template",
+      "h1": [
+        "Myrtle Beach Family Shoot"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Florence Family Shoot | Family | Taylor Rose Reels",
+      "ogDescription": "Family photography in Florence, SC—relaxed portraits with room to breathe, real laughs, & light that flatters your crew.",
+      "ogUrl": "/portfolio/family/florence-sc-family",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/family/florence-sc-family",
+      "title": "Florence Family Shoot | Taylor Rose Reels",
+      "description": "Family photography in Florence, SC—relaxed portraits with room to breathe, real laughs, & light that flatters your crew.",
+      "canonical": "/portfolio/family/florence-sc-family",
+      "titleMode": "relative + template",
+      "h1": [
+        "Florence Family Shoot"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Marion Family Shoot | Family | Taylor Rose Reels",
+      "ogDescription": "Family session in Marion, SC—togetherness, natural light, & portraits that feel like your everyday love, not a stiff pose.",
+      "ogUrl": "/portfolio/family/marion-sc-family",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/family/marion-sc-family",
+      "title": "Marion Family Shoot | Taylor Rose Reels",
+      "description": "Family session in Marion, SC—togetherness, natural light, & portraits that feel like your everyday love, not a stiff pose.",
+      "canonical": "/portfolio/family/marion-sc-family",
+      "titleMode": "relative + template",
+      "h1": [
+        "Marion Family Shoot"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Hatsville Senior Portraits | Portraits | Taylor Rose Reels",
+      "ogDescription": "Senior portraits in Hartsville, SC—confident, relaxed, & true to you, with natural light & room to simply be yourself.",
+      "ogUrl": "/portfolio/portraits/hartsville-sc-senior-portraits",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/portraits/hartsville-sc-senior-portraits",
+      "title": "Hatsville Senior Portraits | Taylor Rose Reels",
+      "description": "Senior portraits in Hartsville, SC—confident, relaxed, & true to you, with natural light & room to simply be yourself.",
+      "canonical": "/portfolio/portraits/hartsville-sc-senior-portraits",
+      "titleMode": "relative + template",
+      "h1": [
+        "Hatsville Senior Portraits"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Camden Bridal Portraits | Portraits | Taylor Rose Reels",
+      "ogDescription": "Bridal portraits in Camden, SC—soft light, elegant details, & the quiet beauty of getting ready for your wedding day.",
+      "ogUrl": "/portfolio/portraits/camden-sc-bridal-portraits",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/portraits/camden-sc-bridal-portraits",
+      "title": "Camden Bridal Portraits | Taylor Rose Reels",
+      "description": "Bridal portraits in Camden, SC—soft light, elegant details, & the quiet beauty of getting ready for your wedding day.",
+      "canonical": "/portfolio/portraits/camden-sc-bridal-portraits",
+      "titleMode": "relative + template",
+      "h1": [
+        "Camden Bridal Portraits"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Latta Bridal Portraits | Portraits | Taylor Rose Reels",
+      "ogDescription": "Bridal portraits in Latta, SC—soft natural light, elegant details, & the quiet beauty of getting ready for your wedding day.",
+      "ogUrl": "/portfolio/portraits/latta-sc-bridal-portraits",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/portraits/latta-sc-bridal-portraits",
+      "title": "Latta Bridal Portraits | Taylor Rose Reels",
+      "description": "Bridal portraits in Latta, SC—soft natural light, elegant details, & the quiet beauty of getting ready for your wedding day.",
+      "canonical": "/portfolio/portraits/latta-sc-bridal-portraits",
+      "titleMode": "relative + template",
+      "h1": [
+        "Latta Bridal Portraits"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Florence Professional Portraits | Portraits | Taylor Rose Reels",
+      "ogDescription": "Professional portraits in Florence, SC—polished, approachable, & natural light for headshots, branding, & putting your best self forward.",
+      "ogUrl": "/portfolio/portraits/florence-sc-professional-portraits",
+      "group": "Portfolio shoots",
+      "path": "/portfolio/portraits/florence-sc-professional-portraits",
+      "title": "Florence Professional Portraits | Taylor Rose Reels",
+      "description": "Professional portraits in Florence, SC—polished, approachable, & natural light for headshots, branding, & putting your best self forward.",
+      "canonical": "/portfolio/portraits/florence-sc-professional-portraits",
+      "titleMode": "relative + template",
+      "h1": [
+        "Florence Professional Portraits"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Blog | Taylor Rose Reels",
+      "ogDescription": "Planning tips, local guides, and behind-the-gallery stories from Taylor Rose Reels—true to color, timeless wedding and portrait photography in Florence and the Pee Dee.",
+      "ogUrl": "/blog",
+      "group": "Blog",
+      "path": "/blog",
+      "title": "Blog | Taylor Rose Reels",
+      "description": "Planning tips, local guides, and behind-the-gallery stories from Taylor Rose Reels—true to color, timeless wedding and portrait photography in Florence and the Pee Dee.",
+      "canonical": "/blog",
+      "titleMode": "relative + template",
+      "h1": [
+        "Stories, tips & local light"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "A Vintage & Timeless Wedding at Sawtooth Acres in Pamplico, SC | Jessica & Gage | Taylor Rose Reels",
+      "ogDescription": "A behind-the-gallery look at this elegant & ethereal wedding day that was so full of love & authenticity",
+      "ogUrl": "/blog/jessica-gage-sawtooth-acres-wedding",
+      "group": "Blog posts",
+      "path": "/blog/jessica-gage-sawtooth-acres-wedding",
+      "title": "A Vintage & Timeless Wedding at Sawtooth Acres in Pamplico, SC | Jessica & Gage | Taylor Rose Reels",
+      "description": "A behind-the-gallery look at this elegant & ethereal wedding day that was so full of love & authenticity",
+      "canonical": "/blog/jessica-gage-sawtooth-acres-wedding",
+      "titleMode": "relative + template (article OG)",
+      "h1": [
+        "A Vintage & Timeless Wedding at Sawtooth Acres in Pamplico, SC | Jessica & Gage"
+      ],
+      "h2": [
+        "Vendors",
+        "More from the journal"
+      ],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Why Documentary Wedding Photography Captures the Moments You Will Treasure the Most | Taylor Rose Reels",
+      "ogDescription": "A look at how documentary-style wedding photography blends intentional portraits with candid, in-between moments you'll want to remember forever.",
+      "ogUrl": "/blog/why-documentary-wedding-photography-captures-the-moments-you-treasure",
+      "group": "Blog posts",
+      "path": "/blog/why-documentary-wedding-photography-captures-the-moments-you-treasure",
+      "title": "Why Documentary Wedding Photography Captures the Moments You Will Treasure the Most | Taylor Rose Reels",
+      "description": "A look at how documentary-style wedding photography blends intentional portraits with candid, in-between moments you'll want to remember forever.",
+      "canonical": "/blog/why-documentary-wedding-photography-captures-the-moments-you-treasure",
+      "titleMode": "relative + template (article OG)",
+      "h1": [
+        "Why Documentary Wedding Photography Captures the Moments You Will Treasure the Most"
+      ],
+      "h2": [
+        "More from the journal"
+      ],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Weddings | Blog | Taylor Rose Reels",
+      "ogDescription": "Weddings from the Taylor Rose Reels journal.",
+      "ogUrl": "/blog/category/weddings",
+      "group": "Blog filters",
+      "path": "/blog/category/weddings",
+      "title": "Weddings | Taylor Rose Reels",
+      "description": "Weddings from the Taylor Rose Reels journal.",
+      "canonical": "/blog/category/weddings",
+      "titleMode": "relative + template",
+      "h1": [
+        "Weddings"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Wedding Planning | Blog | Taylor Rose Reels",
+      "ogDescription": "Wedding Planning from the Taylor Rose Reels journal.",
+      "ogUrl": "/blog/category/wedding-planning",
+      "group": "Blog filters",
+      "path": "/blog/category/wedding-planning",
+      "title": "Wedding Planning | Taylor Rose Reels",
+      "description": "Wedding Planning from the Taylor Rose Reels journal.",
+      "canonical": "/blog/category/wedding-planning",
+      "titleMode": "relative + template",
+      "h1": [
+        "Wedding Planning"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "weddings | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “weddings” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/weddings",
+      "group": "Blog filters",
+      "path": "/blog/tag/weddings",
+      "title": "weddings posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “weddings” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/weddings",
+      "titleMode": "relative + template",
+      "h1": [
+        "weddings"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Pamplico SC | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Pamplico SC” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/pamplico-sc",
+      "group": "Blog filters",
+      "path": "/blog/tag/pamplico-sc",
+      "title": "Pamplico SC posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Pamplico SC” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/pamplico-sc",
+      "titleMode": "relative + template",
+      "h1": [
+        "Pamplico SC"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Sawtooth Acres | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Sawtooth Acres” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/sawtooth-acres",
+      "group": "Blog filters",
+      "path": "/blog/tag/sawtooth-acres",
+      "title": "Sawtooth Acres posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Sawtooth Acres” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/sawtooth-acres",
+      "titleMode": "relative + template",
+      "h1": [
+        "Sawtooth Acres"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Pee Dee | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Pee Dee” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/pee-dee",
+      "group": "Blog filters",
+      "path": "/blog/tag/pee-dee",
+      "title": "Pee Dee posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Pee Dee” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/pee-dee",
+      "titleMode": "relative + template",
+      "h1": [
+        "Pee Dee"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "South Carolina | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “South Carolina” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/south-carolina",
+      "group": "Blog filters",
+      "path": "/blog/tag/south-carolina",
+      "title": "South Carolina posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “South Carolina” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/south-carolina",
+      "titleMode": "relative + template",
+      "h1": [
+        "South Carolina"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "documentary photography | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “documentary photography” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/documentary-photography",
+      "group": "Blog filters",
+      "path": "/blog/tag/documentary-photography",
+      "title": "documentary photography posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “documentary photography” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/documentary-photography",
+      "titleMode": "relative + template",
+      "h1": [
+        "documentary photography"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Florence SC | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Florence SC” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/florence-sc",
+      "group": "Blog filters",
+      "path": "/blog/tag/florence-sc",
+      "title": "Florence SC posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Florence SC” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/florence-sc",
+      "titleMode": "relative + template",
+      "h1": [
+        "Florence SC"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Timmonsville SC | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Timmonsville SC” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/timmonsville-sc",
+      "group": "Blog filters",
+      "path": "/blog/tag/timmonsville-sc",
+      "title": "Timmonsville SC posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Timmonsville SC” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/timmonsville-sc",
+      "titleMode": "relative + template",
+      "h1": [
+        "Timmonsville SC"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Camden SC | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Camden SC” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/camden-sc",
+      "group": "Blog filters",
+      "path": "/blog/tag/camden-sc",
+      "title": "Camden SC posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Camden SC” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/camden-sc",
+      "titleMode": "relative + template",
+      "h1": [
+        "Camden SC"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Weaverville NC | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Weaverville NC” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/weaverville-nc",
+      "group": "Blog filters",
+      "path": "/blog/tag/weaverville-nc",
+      "title": "Weaverville NC posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Weaverville NC” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/weaverville-nc",
+      "titleMode": "relative + template",
+      "h1": [
+        "Weaverville NC"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Patrick SC | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Patrick SC” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/patrick-sc",
+      "group": "Blog filters",
+      "path": "/blog/tag/patrick-sc",
+      "title": "Patrick SC posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Patrick SC” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/patrick-sc",
+      "titleMode": "relative + template",
+      "h1": [
+        "Patrick SC"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Ocean Isle Beach NC | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Ocean Isle Beach NC” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/ocean-isle-beach-nc",
+      "group": "Blog filters",
+      "path": "/blog/tag/ocean-isle-beach-nc",
+      "title": "Ocean Isle Beach NC posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Ocean Isle Beach NC” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/ocean-isle-beach-nc",
+      "titleMode": "relative + template",
+      "h1": [
+        "Ocean Isle Beach NC"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "Mt. Pleasant SC | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “Mt. Pleasant SC” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/mt-pleasant-sc",
+      "group": "Blog filters",
+      "path": "/blog/tag/mt-pleasant-sc",
+      "title": "Mt. Pleasant SC posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “Mt. Pleasant SC” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/mt-pleasant-sc",
+      "titleMode": "relative + template",
+      "h1": [
+        "Mt. Pleasant SC"
+      ],
+      "h2": [],
+      "h3": []
+    },
+    {
+      "robots": "index, follow (googleBot: index, follow) — from root layout",
+      "keywords": null,
+      "ogTitle": "North Carolina | Blog | Taylor Rose Reels",
+      "ogDescription": "Journal posts tagged “North Carolina” from Taylor Rose Reels.",
+      "ogUrl": "/blog/tag/north-carolina",
+      "group": "Blog filters",
+      "path": "/blog/tag/north-carolina",
+      "title": "North Carolina posts | Taylor Rose Reels",
+      "description": "Journal posts tagged “North Carolina” from Taylor Rose Reels.",
+      "canonical": "/blog/tag/north-carolina",
+      "titleMode": "relative + template",
+      "h1": [
+        "North Carolina"
+      ],
+      "h2": [],
+      "h3": []
+    }
+  ]
+}

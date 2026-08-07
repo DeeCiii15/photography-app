@@ -10,13 +10,38 @@ import {
   type ServiceSlug,
   type Testimonial,
 } from './testimonialsData';
-import { PRIMARY_CITY, PRIMARY_REGION, PRIMARY_STATE_ABBR } from './siteConfig';
+import { PRIMARY_CITY, PRIMARY_REGION, PRIMARY_STATE, PRIMARY_STATE_ABBR } from './siteConfig';
 
 export type { ServiceSlug };
 
 export type ServiceFaq = {
   question: string;
   answer: string;
+  /** Optional link rendered after the answer text */
+  link?: { href: string; label: string };
+  /** Text after an optional link (so the sentence can continue) */
+  answerAfter?: string;
+};
+
+export type ServiceVenueLocation = {
+  /** Short display name */
+  name: string;
+  /** Quieter city/region line */
+  detail?: string;
+  /** Google Maps search query — omit for non-mappable items like “YOUR wedding venue” */
+  mapsQuery?: string;
+};
+
+export type ServiceVenueCategory = {
+  name: string;
+  locations: ServiceVenueLocation[];
+};
+
+export type ServiceVenueSuggestions = {
+  /** Section H2 — defaults to engagement venues heading when omitted */
+  heading?: string;
+  intro: string;
+  categories: ServiceVenueCategory[];
 };
 
 export type ServiceDef = {
@@ -25,14 +50,31 @@ export type ServiceDef = {
   name: string;
   /** Shorter label for nav, e.g. "Weddings" */
   navLabel: string;
+  /**
+   * Phrase used in “Straight answers about…” / “What they say about…”
+   * Defaults to lowercased `navLabel` when omitted.
+   */
+  copyTopic?: string;
   /** Portfolio category name — must match portfolioData */
   portfolioCategory: string;
-  eyebrow: string;
+  /** Small label above the display line; omit when `serviceNameAsH1` is set */
+  eyebrow?: string;
+  /**
+   * When true, `name` is the page H1 (eyebrow styling) and `headline` +
+   * `headlineAccent` render as the large display line without being an H1.
+   */
+  serviceNameAsH1?: boolean;
   headline: string;
   headlineAccent: string;
   intro: string;
+  /** Optional lead paragraph shown before intro */
+  introLead?: string;
   body: string;
   faqs: ServiceFaq[];
+  /** Optional hero image override for the service page header */
+  heroImage?: string;
+  /** Optional suggested session locations (e.g. engagement venues) */
+  venueSuggestions?: ServiceVenueSuggestions;
   /** Slugified blog tags that relate to this service */
   blogTags: string[];
   /** Slugified blog categories that relate to this service */
@@ -50,12 +92,12 @@ export const SERVICE_DEFS: ServiceDef[] = [
     navLabel: 'Weddings',
     portfolioCategory: 'Weddings',
     eyebrow: 'Wedding photography',
-    headline: 'The story of the day you’ll talk about',
+    headline: 'Telling the story of your day through images you will cherish',
     headlineAccent: 'forever',
     intro:
-      'From getting ready through the last dance—I stay close for vows, portraits, & every little in-between moment so your gallery feels like the day actually felt.',
+      'From getting ready to final dance and send off, I stay there every step of the way, keeping distance during the big moments and getting close during the intimate ones. You will receive a digital gallery that feels just as real as every moment you lived on your special day.',
     body:
-      'I work documentary-first: true-to-color, timeless images with room for laughter, tears, & the quiet glances you didn’t know anyone caught. Whether your celebration is in a barn in the Pee Dee or on the coast, I’ll meet you where you are & keep the pace unhurried.',
+      'Combining documentary style with perfect posing, your images will feel timeless while also capturing the essence of your day. True to color, vibrant and warm every moment, big and small. Whether we are staying close to home in the Pee Dee or you’re getting married elsewhere, I come to you near or far.',
     faqs: [
       {
         question: 'How far ahead should I reach out?',
@@ -97,31 +139,41 @@ export const SERVICE_DEFS: ServiceDef[] = [
     blogCategories: ['weddings', 'wedding-planning'],
     ctaHeadline: 'Ready to talk about your wedding day?',
     ctaButton: 'Check your date',
-    metaTitle: `Wedding Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} | Taylor Rose Reels`,
-    metaDescription: `Documentary wedding photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—true-to-color galleries, honest emotion, & timeless coverage from vows to last dance.`,
+    metaTitle: `Wedding Photography | Taylor Rose Reels`,
+    metaDescription: `Documentary wedding photographer in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—true-to-color galleries, honest emotion, & timeless coverage from vows to last dance.`,
   },
   {
     slug: 'engagement-photography',
     name: 'Engagement Photography',
     navLabel: 'Engagements',
     portfolioCategory: 'Couples / Engagement',
-    eyebrow: 'Engagement photography',
+    serviceNameAsH1: true,
     headline: 'Sweet on each other, on camera—wherever you feel',
     headlineAccent: 'most yourselves',
+    introLead:
+      'Moments together before the wedding whirlwind. Let’s create the start of your love story somewhere that feels like you.',
     intro:
-      'Ocean waves, downtown strolls, or the porch where you said yes—I’ll meet you somewhere that feels like home & keep the session easy, unhurried, & full of laughter.',
+      'The Myrtle Beach ocean air, the strolls in downtown Florence, or the back-road fields on Oates Highway—it doesn’t have to be the perfect location, just perfect to you.',
     body:
-      'Engagement sessions are a chance to slow down before the wedding whirlwind. I’ll guide you gently when you need it & step back when the moment is already happening. Most sessions run about an hour to ninety minutes at one location, with wardrobe & timing tips sent ahead of time.',
+      'As your engagement photographer, I come ready to prompt and direct you for documentary-style engagement photos that are authentic & capture a moment in time you’ll look back on years from now. Most sessions run about 30 minutes to 90 minutes at one location, with wardrobe & timing tips provided ahead of time.',
+    heroImage:
+      '/images/galleries/couples-engagement/florence-sc-engagement/cover.jpg',
     faqs: [
       {
         question: 'Where should we take engagement photos?',
         answer:
-          'Anywhere that means something to you—a favorite park, downtown street, the lake, or the coast. I’ll suggest spots around the Pee Dee if you’re unsure, & we can scout together for the best light.',
+          'Anywhere that means something to you—a favorite park, downtown street, the lake, or the coast. For ideas, start with my ',
+        link: {
+          href: '#suggested-venues',
+          label: 'Suggested engagement venues',
+        },
+        answerAfter:
+          ' above—beach, urban, & additional spots I’ve loved. We can also scout together for the best light.',
       },
       {
         question: 'What should we wear?',
         answer:
-          'Comfortable clothes you feel good moving in. Coordinating—not matching—colors work beautifully. I’ll send a short style guide before we meet so you’re not guessing the morning of.',
+          'I’ll provide a style guide & tips if requested—but most importantly, wear whatever feels comfortable to you.',
       },
       {
         question: 'Can we include our dog?',
@@ -134,30 +186,141 @@ export const SERVICE_DEFS: ServiceDef[] = [
           'Many wedding collections include or discount an engagement session. Ask when you inquire—I’m happy to bundle them so you get comfortable before the big day.',
       },
     ],
+    venueSuggestions: {
+      heading: `Suggested engagement venues in and around ${PRIMARY_CITY}`,
+      intro:
+        'Here are some locations I’ve found are great for engagement sessions. Tap a category to browse, & open a place in Maps when you want to scout it.',
+      categories: [
+        {
+          name: 'Beach locations',
+          locations: [
+            {
+              name: 'Huntington Beach State Park',
+              detail: 'Myrtle Beach area, South Carolina',
+              mapsQuery: 'Huntington Beach State Park Murrells Inlet SC',
+            },
+            {
+              name: 'Sullivan’s Island',
+              detail: 'South Carolina',
+              mapsQuery: 'Sullivan’s Island South Carolina',
+            },
+            {
+              name: 'Sunset Beach Town Park',
+              detail: 'Sunset Beach, North Carolina',
+              mapsQuery: 'Sunset Beach Town Park Sunset Beach NC',
+            },
+            {
+              name: 'Fort Sumter',
+              detail: 'Charleston Harbor, South Carolina',
+              mapsQuery: 'Fort Sumter National Historical Park Charleston SC',
+            },
+            {
+              name: 'Fort Moultrie',
+              detail: 'Sullivan’s Island, South Carolina',
+              mapsQuery:
+                'Fort Moultrie National Historical Park Sullivan’s Island SC',
+            },
+          ],
+        },
+        {
+          name: 'Urban locations',
+          locations: [
+            {
+              name: 'Downtown Charleston',
+              detail: 'South Carolina',
+              mapsQuery: 'Downtown Charleston South Carolina',
+            },
+            {
+              name: 'Downtown Florence',
+              detail: 'South Carolina',
+              mapsQuery: 'Downtown Florence South Carolina',
+            },
+            {
+              name: 'Florence County Library',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Florence County Library Florence SC',
+            },
+            {
+              name: 'Hague-Porter Park',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Hague-Porter Park Florence SC',
+            },
+          ],
+        },
+        {
+          name: 'Additional locations',
+          locations: [
+            {
+              name: 'YOUR wedding venue',
+              detail: 'Wherever you’re saying I do',
+            },
+            {
+              name: 'The Terraces',
+              detail: 'Camden, South Carolina',
+              mapsQuery: 'The Terraces Camden SC',
+            },
+            {
+              name: 'Moore’s Farms',
+              detail: 'Lake City, South Carolina',
+              mapsQuery: 'Moore’s Farms Lake City SC',
+            },
+            {
+              name: 'Timrod Park',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Timrod Park Florence SC',
+            },
+            {
+              name: 'FMU',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Francis Marion University Florence SC',
+            },
+            {
+              name: 'Collins Grove',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Collins Grove Florence SC',
+            },
+            {
+              name: 'Forest Lake Greenhouse',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Forest Lake Greenhouse Florence SC',
+            },
+          ],
+        },
+      ],
+    },
     blogTags: ['engagement', 'couples'],
     blogCategories: [],
     ctaHeadline: 'Let’s plan your engagement session',
     ctaButton: 'Send an inquiry',
     metaTitle: `Engagement Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} | Taylor Rose Reels`,
-    metaDescription: `Relaxed engagement & couples photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—natural light, easy posing, & galleries that feel like you.`,
+    metaDescription: `Engagement & couples photographer in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—natural light, easy posing, & galleries that feel like you.`,
   },
   {
     slug: 'special-events-photography',
     name: 'Special Events Photography',
     navLabel: 'Special Events',
     portfolioCategory: 'Special Events',
-    eyebrow: 'Special events photography',
+    serviceNameAsH1: true,
     headline: 'Galas, milestones, & the moments that deserve to be',
     headlineAccent: 'remembered',
+    heroImage:
+      '/images/galleries/special-events/hartsville-sc-prom/12.jpg',
+    introLead:
+      'Your special events and sweet milestones deserve to be remembered.',
     intro:
-      'Prom night, birthday celebrations, brand launches, & polished gatherings—I document the energy of the room with warmth & a steady hand.',
+      'Prom night photos in Kalmia Gardens, birthday celebrations at El Venue in downtown Florence, your wedding rehearsal at your childhood home in Hartsville—no matter the event, I’d love to be your photographer and help make it special.',
     body:
-      'Every event has its own run-of-show. We’ll agree on coverage hours, key moments to hit, & delivery timeline before the day so you can focus on hosting—not worrying about the camera. Hourly & half-day options are available.',
+      'Remembering the energy in the room of your little one’s third birthday party or the slowness at your wedding rehearsal the night before your big day—I’ll sit back and photograph every detail from beginning to end. We’ll agree on timeline and key moments to hit so that you receive a gallery that feels curated to your special event.',
     faqs: [
       {
         question: 'What kinds of events do you cover?',
         answer:
           'Proms, milestone birthdays, anniversaries, fundraisers, brand launches, & corporate gatherings. If it’s a celebration or polished occasion worth remembering, reach out—we’ll scope it together.',
+      },
+      {
+        question: 'What should we wear?',
+        answer:
+          'I’ll provide a style guide & tips if requested—but most importantly, wear whatever feels comfortable to you.',
       },
       {
         question: 'How do you quote special events?',
@@ -170,25 +333,32 @@ export const SERVICE_DEFS: ServiceDef[] = [
           'Turnaround is agreed in advance—often 2–4 weeks for events, with rush options when you need images sooner for social or press.',
       },
     ],
+    venueSuggestions: {
+      heading: 'Wherever feels meaningful',
+      intro:
+        'For your special events, I recommend the location should be wherever feels meaningful to you and your milestone. However, if you need suggestions, just ask—I’m happy to give direction.',
+      categories: [],
+    },
     blogTags: ['events', 'special-events'],
     blogCategories: [],
     ctaHeadline: 'Planning something worth documenting?',
     ctaButton: 'Tell me about your event',
     metaTitle: `Special Event Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} | Taylor Rose Reels`,
-    metaDescription: `Event photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—proms, celebrations, brand moments, & milestones captured with polish & warmth.`,
+    metaDescription: `Event photographer in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—proms, celebrations, brand moments, & milestones captured with polish & warmth.`,
   },
   {
     slug: 'family-portrait-photography',
     name: 'Family Portrait Photography',
     navLabel: 'Family',
+    copyTopic: 'family portraits',
     portfolioCategory: 'Family',
-    eyebrow: 'Family portrait photography',
-    headline: 'Your people, warm light, & love that doesn’t feel',
-    headlineAccent: 'forced',
+    serviceNameAsH1: true,
+    headline: 'Your people and warm light that captures the coziness of your',
+    headlineAccent: 'sweet family',
     intro:
-      'Relaxed family sessions built around connection—not a stiff hour in a studio. We’ll pick a time of day that flatters everyone & let the kids be kids.',
+      'I love shooting relaxed family sessions in and around Florence and the Pee Dee area. My sessions are structured around connection and not a stiff hour in a studio. We’ll pick a time that works for your family and let everyone relax and be themselves.',
     body:
-      'As a mom myself, I know how to keep little ones engaged without making photos look posed. Whether it’s annual portraits on the porch or a milestone you want to remember, the goal is always the same: images that feel like your family on a good day.',
+      'As a mom of three little ones, I know the importance of capturing these fleeting years, but as a photographer, I also know how to keep the babies engaged and happy. Whether it’s annual family portraits at Collins Grove or a special milestone captured at Timrod Park, I specialize in remembering the essence of your family, exactly how you will remember these days 20 years from now.',
     faqs: [
       {
         question: 'How long is a typical family session?',
@@ -211,25 +381,67 @@ export const SERVICE_DEFS: ServiceDef[] = [
           'Coordinating neutrals & soft tones photograph beautifully. Avoid loud logos & matchy-matchy outfits. I send a quick guide before your session so everyone feels prepared.',
       },
     ],
+    venueSuggestions: {
+      heading: `Suggested family portrait locations in and around ${PRIMARY_CITY}`,
+      intro:
+        'Here are some places I’ve loved for family sessions. Tap a category to browse, & open a spot in Maps when you want to scout it—or we can shoot right at home if that feels most authentic.',
+      categories: [
+        {
+          name: 'Favorite family spots',
+          locations: [
+            {
+              name: 'Kalmia Gardens',
+              detail: 'Hartsville, South Carolina',
+              mapsQuery: 'Kalmia Gardens Hartsville SC',
+            },
+            {
+              name: 'Timrod Park',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Timrod Park Florence SC',
+            },
+            {
+              name: 'FMU',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Francis Marion University Florence SC',
+            },
+            {
+              name: 'Moore’s Farms',
+              detail: 'Lake City, South Carolina',
+              mapsQuery: 'Moore’s Farms Lake City SC',
+            },
+            {
+              name: 'Collins Grove',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Collins Grove Florence SC',
+            },
+            {
+              name: 'Right at home',
+              detail: 'Wherever feels most authentic to your family',
+            },
+          ],
+        },
+      ],
+    },
     blogTags: ['family'],
     blogCategories: [],
     ctaHeadline: 'Ready for new family portraits?',
     ctaButton: 'Book a session',
     metaTitle: `Family Portrait Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} | Taylor Rose Reels`,
-    metaDescription: `Natural family portrait photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—relaxed sessions, golden light, & galleries that feel authentic.`,
+    metaDescription: `Family portrait photographer in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—relaxed sessions, golden light, & galleries that feel authentic.`,
   },
   {
     slug: 'motherhood-photography',
-    name: 'Motherhood Photography',
+    name: 'Maternity and Newborn Photography',
     navLabel: 'Motherhood',
+    copyTopic: 'maternity and newborn photography',
     portfolioCategory: 'Motherhood',
-    eyebrow: 'Motherhood photography',
-    headline: 'That glow, the bump, & the wonder before & after baby',
+    serviceNameAsH1: true,
+    headline: 'The pregnancy glow, the growing bump, and the wonder before and after baby',
     headlineAccent: 'arrives',
     intro:
-      'Maternity, gender reveals, & the tender season of becoming a mama—documented gently, never rushed, with room for every feeling.',
+      'Maternity sessions, gender reveals, newborn sessions, or updated family portraits with your new arrival—the whole season of motherhood deserves to be timelessly captured.',
     body:
-      'These sessions are unhurried & intimate. Whether you’re celebrating a growing belly, revealing pink or blue, or wanting to remember this fleeting chapter, I’ll guide you softly & let the emotion lead.',
+      'These sessions are unhurried, intimate, and you can even ask me about my motherhood package.',
     faqs: [
       {
         question: 'When is the best time for maternity photos?',
@@ -237,14 +449,14 @@ export const SERVICE_DEFS: ServiceDef[] = [
           'Most mamas book between 30–34 weeks when the bump is beautifully round but you’re still comfortable. We can always adjust based on how you’re feeling.',
       },
       {
-        question: 'Can my partner or older children join?',
+        question: 'Can my spouse or older children join?',
         answer:
           'Yes—some of the sweetest images include the people waiting to meet this baby. Let me know who’s coming & we’ll plan accordingly.',
       },
       {
-        question: 'What should I wear for a maternity session?',
+        question: 'What should I wear for my maternity session?',
         answer:
-          'Flowy dresses, soft neutrals, & anything that makes you feel beautiful. I have suggestions for local boutiques & can share a mood board before we meet.',
+          'I’ll provide a style guide & tips if requested—but most importantly, wear whatever feels comfortable to you.',
       },
       {
         question: 'Do you offer gender reveal coverage?',
@@ -256,8 +468,8 @@ export const SERVICE_DEFS: ServiceDef[] = [
     blogCategories: [],
     ctaHeadline: 'Want to remember this season?',
     ctaButton: 'Reach out',
-    metaTitle: `Motherhood & Maternity Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} | Taylor Rose Reels`,
-    metaDescription: `Maternity & motherhood photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—gentle sessions for bump, gender reveals, & the season before baby.`,
+    metaTitle: `Maternity and Newborn Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE} | Taylor Rose Reels`,
+    metaDescription: `Maternity & newborn photographer in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—gentle sessions for bump, gender reveals, & the season before baby.`,
   },
   {
     slug: 'portrait-photography',
@@ -298,7 +510,7 @@ export const SERVICE_DEFS: ServiceDef[] = [
     ctaHeadline: 'Ready for portraits that feel like you?',
     ctaButton: 'Get in touch',
     metaTitle: `Portrait Photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} | Taylor Rose Reels`,
-    metaDescription: `Portrait photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—senior, bridal, professional, & personal sessions in natural light.`,
+    metaDescription: `Portrait photographer in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION}—senior, bridal, professional, & personal sessions in natural light.`,
   },
 ];
 
@@ -341,6 +553,7 @@ export function getServiceTestimonials(service: ServiceDef): Testimonial[] {
 }
 
 export function getServiceHeroImage(service: ServiceDef): string {
+  if (service.heroImage) return service.heroImage;
   const category = getCategoryByName(service.portfolioCategory);
   if (!category) return '/images/wedding_1.jpg';
   if (category.shoots.length > 0) {

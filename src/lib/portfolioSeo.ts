@@ -24,10 +24,23 @@ export function portfolioShootPath(
 }
 
 export function categoryMetadata(category: PortfolioCategoryDef) {
-  const title = `${category.name} Gallery`;
-  const description = `${category.description} ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & ${PRIMARY_REGION} photography by ${SITE_NAME}.`;
   const path = portfolioCategoryPath(category.folder);
+  const description = `${category.description} ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & ${PRIMARY_REGION} photography by ${SITE_NAME}.`;
 
+  if (category.documentTitle) {
+    return {
+      title: { absolute: category.documentTitle },
+      description: description.slice(0, 160),
+      path,
+      openGraph: {
+        title: category.documentTitle,
+        description: description.slice(0, 200),
+        url: path,
+      },
+    };
+  }
+
+  const title = category.metaTitle ?? `${category.name} Gallery`;
   return {
     title,
     description: description.slice(0, 160),

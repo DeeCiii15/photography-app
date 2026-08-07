@@ -14,7 +14,9 @@ export default function ServiceFaqJsonLd({ faqs }: ServiceFaqJsonLdProps) {
       name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer,
+        text: [faq.answer, faq.link?.label, faq.answerAfter]
+          .filter(Boolean)
+          .join(''),
       },
     })),
   };

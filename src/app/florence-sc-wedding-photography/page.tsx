@@ -72,7 +72,7 @@ const FLORENCE_VENUES: Venue[] = [
     blurb:
       'Gorgeous remodeled horse barns with natural lighting in the ceremony area & a covered pavilion for the reception hall. Indoor bathrooms, getting ready suites for bride & groom, & beautiful acreage to get plenty of timeless portraits & shots.',
     href: 'https://www.glenviewfarmevents.com/',
-    galleries: venueGalleries('florence-sc-wedding'),
+    galleries: venueGalleries('florence-sc-wedding-glenview-farms'),
   },
   {
     name: 'Parker Pines',
@@ -81,8 +81,8 @@ const FLORENCE_VENUES: Venue[] = [
       "Parker Pines offers a variety of ceremony spaces to fit every bride's aesthetic—multiple outdoor spaces, an indoor chapel, & a large barn for getting ready & the reception. It also consists of multiple tiny homes to house the bridal party or out-of-town guests for the wedding weekend.",
     href: 'https://parkerpinesevents.com/',
     galleries: venueGalleries(
-      'latta-sc-wedding-the-lees',
-      'latta-sc-wedding-the-flowers',
+      'latta-sc-wedding-parker-pines-lee',
+      'latta-sc-wedding-parker-pines-flowers',
       'latta-sc-bridal-portraits',
     ),
   },
@@ -92,7 +92,7 @@ const FLORENCE_VENUES: Venue[] = [
     blurb:
       'Whether your day is sunny or covered by a blanket of snow, the Cabin at Old Spur is the perfect cozy location tucked back in the woods. A cabin for getting ready & housing the bridal party, skeet shooting for the boys, & the perfect covered pavilion in case of rain ensures a perfect experience for your wedding day.',
     href: 'https://www.thecabinatoldspur.com/',
-    galleries: venueGalleries('timmonsville-sc-wedding'),
+    galleries: venueGalleries('timmonsville-sc-wedding-the-cabin-at-old-spur'),
   },
   {
     name: 'Murphy Farm',
@@ -100,7 +100,7 @@ const FLORENCE_VENUES: Venue[] = [
     blurb:
       'Murphy Farm is a quiet venue tucked away on a back road in Darlington, South Carolina. With a covered barn for reception, a secondary barn for getting ready, & a wide open field, Murphy Farm offers the perfect place to get married. The pond located on the property is the ideal backdrop for those beautiful golden hour photos every bride dreams of.',
     href: 'https://www.murphyfarmllc.com/',
-    galleries: venueGalleries('darlington-sc-wedding'),
+    galleries: venueGalleries('darlington-sc-wedding-murphy-farms'),
   },
 ];
 
@@ -111,27 +111,27 @@ const FLORENCE_VENUES: Venue[] = [
  */
 const FLORENCE_WEDDING_GALLERY: { src: string; alt: string }[] = [
   {
-    src: '/images/galleries/weddings/florence-sc-wedding/cover.jpg',
+    src: '/images/galleries/weddings/florence-sc-wedding-glenview-farms/cover.jpg',
     alt: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/timmonsville-sc-wedding/cover.jpg',
+    src: '/images/galleries/weddings/timmonsville-sc-wedding-the-cabin-at-old-spur/cover.jpg',
     alt: `Timmonsville, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/latta-sc-wedding-the-lees/cover.jpg',
+    src: '/images/galleries/weddings/latta-sc-wedding-parker-pines-lee/cover.jpg',
     alt: `Latta, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/darlington-sc-wedding/08.jpg',
+    src: '/images/galleries/weddings/darlington-sc-wedding-murphy-farms/08.jpg',
     alt: `Darlington, ${PRIMARY_STATE_ABBR} wedding at Murphy Farm by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/latta-sc-wedding-the-flowers/cover.jpg',
+    src: '/images/galleries/weddings/latta-sc-wedding-parker-pines-flowers/cover.jpg',
     alt: `Latta, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/florence-sc-wedding/05.jpg',
+    src: '/images/galleries/weddings/florence-sc-wedding-glenview-farms/05.jpg',
     alt: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
 ];
@@ -146,7 +146,7 @@ export default function FlorenceWeddingsPage() {
         {/* Hero */}
         <section className="relative isolate flex min-h-svh items-end overflow-hidden">
           <Image
-            src="/images/galleries/weddings/latta-sc-wedding-the-lees/04.jpg"
+            src="/images/galleries/weddings/latta-sc-wedding-parker-pines-lee/04.jpg"
             alt={`${PRIMARY_CITY}, ${PRIMARY_STATE} wedding photography by ${SITE_NAME}`}
             fill
             priority
@@ -239,9 +239,10 @@ export default function FlorenceWeddingsPage() {
               </p>
               <p className="mt-5 max-w-2xl font-body text-base font-light leading-[1.85] text-cream-dark/82 dark:text-cream/78 sm:text-lg">
                 We all know the {PRIMARY_REGION}&rsquo;s cotton candy sunsets, the
-                back roads lined with grassy fields and wildflowers, and the
-                family farms and hidden venues tucked into every corner of our
-                community. I&rsquo;ve spent countless evenings chasing that light,
+                Timmonsville back roads lined with grassy fields and wildflowers,
+                and the Pamplico family farms and hidden venues tucked into every
+                corner of our community. I&rsquo;ve spent countless evenings
+                chasing that light,
                 learning how it moves across each venue and where it settles just
                 before the sun disappears.
               </p>

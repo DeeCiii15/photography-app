@@ -23,7 +23,7 @@ export default function ServiceGallerySection({
           <p className="section-eyebrow text-boho-sage">Recent work</p>
           <h2
             id="service-galleries-heading"
-            className="mt-4 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl"
+            className="mt-4 font-display text-2xl font-medium leading-snug text-cream-dark dark:text-cream sm:text-3xl md:text-[2.35rem] md:leading-[1.12]"
           >
             A closer look at {serviceName.toLowerCase()}
           </h2>

@@ -37,8 +37,8 @@ function ShootCard({
             />
           </div>
           <div className="mt-1.5 shrink-0 px-0.5 text-center sm:mt-2 sm:px-1">
-            <h3 className="font-display text-[0.65rem] leading-snug text-cream-dark dark:text-cream sm:text-lg">
-              {shoot.title}
+            <h3 className="font-display text-[0.8rem] leading-snug text-cream-dark dark:text-cream sm:text-xl">
+              {shoot.label}
             </h3>
           </div>
         </div>

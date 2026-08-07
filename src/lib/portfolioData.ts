@@ -3,12 +3,12 @@
  *
  * Upload layout:
  *   public/images/galleries/{category-folder}/{shoot-slug}/
- *     cover.jpg or cover.jpeg   ← polaroid thumbnail for this shoot
- *     01.jpg      ← first gallery photo
- *     02.jpg      ← second …
+ *     cover.jpg or cover.jpeg   ← polaroid thumbnail + first gallery image
+ *     01.jpg      ← gallery photo
+ *     02.jpg      ← …
  */
 
-import { SHOOTS_BY_CATEGORY, type PortfolioShootDef } from './portfolioShoots';
+import { SHOOTS_BY_CATEGORY, type PortfolioShootDef, shootGalleryLabel } from './portfolioShoots';
 import galleryManifest from './galleryManifest.json';
 
 type ShootManifestEntry = { cover: string | null; photos: string[] };
@@ -38,6 +38,12 @@ export type PortfolioCategoryDef = {
   folder: string;
   coverSrc: string;
   shoots: PortfolioShootDef[];
+  /** Visible H1 on the category page (defaults to name) */
+  pageHeading?: string;
+  /** Relative document title segment (template appends | SITE_NAME) */
+  metaTitle?: string;
+  /** Full document title when set (absolute — skips layout template) */
+  documentTitle?: string;
 };
 
 export type PortfolioShootCard = {
@@ -45,6 +51,8 @@ export type PortfolioShootCard = {
   categoryFolder: string;
   slug: string;
   title: string;
+  /** Short polaroid caption (first names when available) */
+  label: string;
   image: string;
   href: string;
 };
@@ -114,9 +122,16 @@ function buildShootPhotos(
   shoot: PortfolioShootDef,
 ): PortfolioPhoto[] {
   const manifest = getShootManifest(categoryFolder, shoot.slug);
-  if (!manifest?.photos.length) return [];
+  if (!manifest) return [];
 
-  return manifest.photos.map((filename, i) => ({
+  const cover = manifest.cover;
+  const rest = cover
+    ? manifest.photos.filter((filename) => filename !== cover)
+    : manifest.photos;
+  const filenames = cover ? [cover, ...rest] : rest;
+  if (!filenames.length) return [];
+
+  return filenames.map((filename, i) => ({
     id: `${shoot.slug}-${i + 1}`,
     src: shootGallerySrc(categoryFolder, shoot.slug, filename),
     alt: `${shoot.title}, ${categoryName} photography — image ${i + 1}`,
@@ -132,36 +147,43 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
       description:
         'Veil soft in the breeze, daddy walking you down the aisle, & the quiet tear he tries to hide—I live for those honest wedding-day moments.',
       homeTagline: 'Vows, laughter & legacy',
+      pageHeading: 'Wedding Portfolios',
+      metaTitle: 'Wedding Photography Portfolio',
     },
     {
       name: 'Motherhood',
       description:
         'That glow, the bump you keep resting your hand on, & the wonder before & after baby arrives—documented gently, never rushed.',
       homeTagline: 'Bloom & anticipation',
+      pageHeading: 'Motherhood Portfolios',
     },
     {
       name: 'Couples / Engagement',
       description:
         'Ocean waves, downtown strolls, or evening boat rides—wherever y’all feel like yourselves is where I’ll meet you.',
       homeTagline: 'Sweet on each other',
+      pageHeading: 'Engagement Portfolios',
     },
     {
       name: 'Special Events',
       description:
         'Galas, brand launches, & the milestones that deserve to be remembered with polish & a little Southern warmth.',
       homeTagline: 'Celebrate key moments',
+      pageHeading: 'Special Events Portfolios',
     },
     {
       name: 'Family',
       description:
         'Your people, warm light, & so much love. Family portraits that feel natural & authentic, not posed or forced.',
       homeTagline: 'Together & true',
+      pageHeading: 'Family Portfolios',
     },
     {
       name: 'Portraits',
       description:
         'Just you—soft light & room to breathe—portraits that feel like a compliment, not a performance.',
       homeTagline: 'Effortless & true',
+      pageHeading: 'Portrait Portfolios',
     },
   ];
 
@@ -215,6 +237,7 @@ export function getShootCards(categoryName: string): PortfolioShootCard[] {
     categoryFolder: category.folder,
     slug: shoot.slug,
     title: shoot.title,
+    label: shootGalleryLabel(shoot),
     image: shootCoverSrc(category.folder, shoot),
     href: portfolioShootHref(category.folder, shoot.slug),
   }));
