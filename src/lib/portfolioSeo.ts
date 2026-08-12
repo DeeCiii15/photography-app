@@ -30,8 +30,8 @@ function portfolioShareImages(imageSrc: string | undefined, alt: string) {
   if (!imageSrc) return undefined;
   const url = `${getSiteUrl()}${imageSrc}`;
   return {
-    openGraph: { images: [{ url, alt }] as const },
-    twitter: { images: [url] as const },
+    openGraph: { images: [{ url, alt }] },
+    twitter: { images: [url] },
   };
 }
 
