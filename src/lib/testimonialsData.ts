@@ -49,10 +49,10 @@ export const TESTIMONIALS: readonly Testimonial[] = [
   },
   {
     quote:
-      'Taylor NEVER fails to exceed every thing I envision and more for every shoot! She does wonderful with our daughter who was 6 months and 11 months at different shoots.',
+      'Taylor NEVER fails to exceed everything I envision and more for every shoot! She does wonderful with our daughter who was 6 months and 11 months at different shoots.',
     name: 'Gabrielle Biddle',
     detail: 'Portraits · August 2026',
-    portrait: '/images/Old Picutres/inspiration_1.jpg',
+    portrait: '/images/Old Picutres/inspiration_3.jpg',
     services: ['portrait-photography'],
   },
   {
@@ -60,7 +60,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
       'If you\'re looking for a talented, professional and genuinely caring photographer, Taylor is the one. She\'s truly our go-to photographer for every special occasion!',
     name: 'Abby Johnson',
     detail: 'Portraits · August 2026',
-    portrait: '/images/Old Picutres/profile_2.jpg',
+    portrait: '/images/Old Picutres/profile_1.jpg',
     services: ['portrait-photography'],
   },
   {

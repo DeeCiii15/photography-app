@@ -4,6 +4,12 @@ import { useState } from 'react';
 import Link from 'next/link';
 import {
   WEDDING_LOCATIONS,
+  getWeddingLocationActionLabel,
+  getWeddingLocationHref,
+  getWeddingLocationHub,
+  getWeddingLocationListEntries,
+  getWeddingLocationSpokeCities,
+  isWeddingLocationNavigable,
   weddingLocationTitle,
   type WeddingLocation,
 } from '@/lib/weddingLocations';
@@ -21,25 +27,33 @@ function MapPin({
   active: boolean;
   onFocus: (id: string | null) => void;
 }) {
-  const isLive = location.status === 'live';
-  const dotSize = location.featured ? 11 : 8;
+  const isHubLive = location.status === 'live';
+  const navigable = isWeddingLocationNavigable(location);
+  const href = getWeddingLocationHref(location);
+  const hub = getWeddingLocationHub(location);
+  const isSpoke = Boolean(location.mapOnly);
+  const dotSize = location.featured ? 11 : isSpoke ? 6 : 8;
 
   const marker = (
     <span className="relative flex items-center gap-1.5">
       <span
         className={`shrink-0 rounded-full transition duration-200 ${
-          isLive
+          isHubLive
             ? 'bg-coral ring-2 ring-[#c9a07a]/55'
-            : 'bg-[#5c4030] ring-1 ring-[#5c4030]/25'
+            : navigable
+              ? 'bg-[#5c4030] ring-1 ring-coral/35'
+              : 'bg-[#5c4030] ring-1 ring-[#5c4030]/25'
         } ${active ? 'scale-125' : ''}`}
         style={{ width: dotSize, height: dotSize }}
       />
       <span
         className={`whitespace-nowrap font-serif text-[0.68rem] italic leading-none tracking-wide transition sm:text-[0.76rem] ${
-          isLive || active
+          isHubLive || active
             ? 'font-semibold not-italic text-[#3d2a1c]'
             : 'font-medium text-[#5c4030]/90'
-        } ${active && isLive ? 'text-coral not-italic' : ''}`}
+        } ${active && (isHubLive || navigable) ? 'text-coral not-italic' : ''} ${
+          isSpoke ? 'text-[0.62rem] sm:text-[0.68rem]' : ''
+        }`}
       >
         {location.city}
       </span>
@@ -49,13 +63,17 @@ function MapPin({
   const sharedClass =
     'absolute z-20 -translate-x-1/2 -translate-y-1/2 touch-manipulation rounded-sm px-0.5 py-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-coral';
 
-  if (isLive) {
+  if (navigable) {
     return (
       <Link
-        href={location.path}
+        href={href}
         className={`${sharedClass} hover:opacity-90`}
         style={{ left: `${location.x}%`, top: `${location.y}%` }}
-        aria-label={weddingLocationTitle(location.city, true)}
+        aria-label={
+          hub
+            ? `${location.city} wedding photography — see ${hub.city} area`
+            : weddingLocationTitle(location.city, true)
+        }
         onMouseEnter={() => onFocus(location.id)}
         onMouseLeave={() => onFocus(null)}
         onFocus={() => onFocus(location.id)}
@@ -203,12 +221,6 @@ function PeeDeeMapArt() {
         fill="#eef1e0"
       />
       <path
-        d="M445 175 L500 160 L510 250 L470 280 L440 240 Z"
-        {...countyStroke}
-        opacity="0.55"
-        fill="#e5dfcc"
-      />
-      <path
         d="M125 230 L215 220 L270 250 L265 320 L180 335 L120 300 Z"
         {...countyStroke}
         fill="#ebe6d2"
@@ -244,23 +256,6 @@ function PeeDeeMapArt() {
         stroke={ink}
         strokeWidth="1.15"
         strokeDasharray="4 2.8"
-      />
-
-      {/* Soft pink edge wash (antique coast accent) */}
-      <path
-        d="M445 175 L500 160 L510 250 L470 280 L440 240 Z"
-        fill="none"
-        stroke="#c47a8a"
-        strokeWidth="2.5"
-        strokeOpacity="0.28"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M340 125 L400 140 L445 175"
-        fill="none"
-        stroke="#c47a8a"
-        strokeWidth="1.8"
-        strokeOpacity="0.2"
       />
 
       {/* —— Rivers —— */}
@@ -340,7 +335,6 @@ function PeeDeeMapArt() {
       <TreeCluster x={100} y={95} />
       <TreeCluster x={380} y={200} />
       <TreeCluster x={150} y={300} />
-      <TreeCluster x={420} y={290} />
 
       {/* Gentle hills (west) */}
       <g fill="#5c4030" opacity="0.2">
@@ -488,11 +482,7 @@ function PeeDeeMapArt() {
 export default function WeddingLocationsMap() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const liveCount = WEDDING_LOCATIONS.filter((l) => l.status === 'live').length;
-  const listedLocations = [...WEDDING_LOCATIONS].sort((a, b) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    return a.city.localeCompare(b.city);
-  });
+  const listedLocations = getWeddingLocationListEntries();
 
   return (
     <section
@@ -542,47 +532,57 @@ export default function WeddingLocationsMap() {
             <ul className="divide-y divide-[#d4c4a8]/80 rounded-[2px] border border-[#c4a882]/70 bg-[#f7f0e0]/95 shadow-[0_8px_28px_rgba(61,52,44,0.05)] dark:divide-boho-stone/30 dark:border-boho-stone/40 dark:bg-boho-bark/50">
               {listedLocations.map((location) => {
                 const isLive = location.status === 'live';
+                const navigable = isWeddingLocationNavigable(location);
+                const href = getWeddingLocationHref(location);
                 const isActive = activeId === location.id;
-                const rowClass = `flex w-full items-center justify-between gap-3 px-5 py-3.5 text-left transition ${
+                const spokeCities = getWeddingLocationSpokeCities(location.id);
+                const rowClass = `flex w-full items-center justify-between gap-4 px-5 py-3.5 text-left transition sm:px-6 sm:py-4 ${
                   isActive ? 'bg-coral/8 dark:bg-white/5' : ''
                 }`;
 
                 const content = (
                   <>
-                    <span className="flex items-center gap-3">
+                    <span className="flex min-w-0 items-start gap-3">
                       <span
-                        className={`h-2 w-2 shrink-0 rounded-full ${
-                          isLive ? 'bg-coral' : 'bg-[#5c4030]'
+                        className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${
+                          isLive ? 'bg-coral' : navigable ? 'bg-coral/70' : 'bg-[#5c4030]'
                         }`}
                         aria-hidden
                       />
-                      <span
-                        className={`font-serif text-sm italic ${
-                          isLive
-                            ? 'font-medium not-italic text-cream-dark dark:text-cream'
-                            : 'text-cream-dark/70 dark:text-cream/60'
-                        }`}
-                      >
-                        {location.city}
+                      <span className="min-w-0">
+                        <span
+                          className={`block font-serif text-sm italic sm:text-[0.9375rem] ${
+                            isLive || navigable
+                              ? 'font-medium not-italic text-cream-dark dark:text-cream'
+                              : 'text-cream-dark/70 dark:text-cream/60'
+                          }`}
+                        >
+                          {location.city}
+                        </span>
+                        {spokeCities.length > 0 ? (
+                          <span className="mt-0.5 block font-body text-[0.6875rem] font-light leading-snug text-cream-dark/45 dark:text-cream/40">
+                            {spokeCities.join(' · ')}
+                          </span>
+                        ) : null}
                       </span>
                     </span>
                     <span
-                      className={`font-body text-xs font-light ${
-                        isLive
+                      className={`shrink-0 font-body text-xs font-light sm:text-[0.8125rem] ${
+                        isLive || navigable
                           ? 'text-coral dark:text-[#e8b896]'
                           : 'text-cream-dark/40 dark:text-cream/35'
                       }`}
                     >
-                      {isLive ? 'View page →' : 'Coming soon'}
+                      {getWeddingLocationActionLabel(location)}
                     </span>
                   </>
                 );
 
                 return (
                   <li key={location.id}>
-                    {isLive ? (
+                    {navigable ? (
                       <Link
-                        href={location.path}
+                        href={href}
                         className={`${rowClass} hover:bg-coral/6 dark:hover:bg-white/5`}
                         onMouseEnter={() => setActiveId(location.id)}
                         onMouseLeave={() => setActiveId(null)}

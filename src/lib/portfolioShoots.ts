@@ -118,67 +118,75 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       description:
         "Maddie & Dan Galloway’s cozy winter wedding at Murphy Farms in Darlington, SC—an open-field ceremony beside the pond, emerald bridesmaids, red & white florals, & golden-hour portraits by the water.",
     },
+    {
+      slug: 'florence-sc-wedding-collins-grove',
+      title: 'Heather & Will at Collins Grove',
+      name: 'Heather and Will McDonald',
+      venue: 'Collins Grove',
+      description:
+        "Heather & Will McDonald’s day at Collins Grove in Florence, SC—oak-lined Southern charm, vintage estate warmth, & honest in-between moments from getting ready through celebration.",
+    },
   ],
   Motherhood: [
     {
       slug: 'charleston-sc-motherhood-sullivans-island',
-      title: 'Charleston Beach Motherhood',
-      name: 'Kalayah and Chase at Sullivan\'s Island',
+      title: 'Kalayah & Chase at Sullivan\'s Island',
+      name: 'Kalayah and Chase',
       venue: 'Sullivan\'s Island',
       description:
-        'Maternity portraits on the Charleston coast—soft sand, golden light, & gentle documentation of life before & after baby arrives.',
+        "Kalayah & Chase’s maternity session on Sullivan’s Island in Charleston, SC—soft sand, ocean breeze, & gentle portraits that honor this season before baby arrives.",
     },
     {
       slug: 'sunset-beach-nc-motherhood',
-      title: 'Carly and Drew at Sunset Beach',
+      title: 'Carly & Drew at Sunset Beach',
       name: 'Carly and Drew',
       venue: 'Sunset Beach',
       description:
-        'Beach maternity session on Sullivan\'s Island—ocean air, natural light, & calm portraits that honor the bump & anticipation.',
+        "Carly & Drew’s beach maternity session at Sunset Beach, NC—golden light on the shoreline, easy laughter, & calm portraits that celebrate life’s next chapter together.",
     },
     {
       slug: 'florence-sc-gender-reveal-anpov-studios',
-      title: 'Peden and Quinton at AnPOV Studios',
+      title: 'Peden & Quinton at AnPOV Studios',
       name: 'Peden and Quinton',
       venue: 'AnPOV Studios',
       description:
-        'Intimate gender reveal photography in Florence, SC—joyful anticipation, soft natural light, & candid moments as you share the surprise with the people you love most.',
+        "Peden & Quinton’s gender reveal at AnPOV Studios in Florence, SC—joyful anticipation, candid reactions, & the sweet moment you share the surprise with the people you love most.",
     },
   ],
   'Couples / Engagement': [
     {
       slug: 'charleston-sc-engagement-beach',
-      title: 'Carrington and Jewitt at Charleston Beach',
+      title: 'Carrington & Jewitt at Charleston Beach',
       name: 'Carrington and Jewitt',
       venue: 'Charleston Beach',
       description:
-        'Charleston beach engagement photos—waves, shoreline strolls, & relaxed portraits where you can be yourselves.',
+        "Carrington & Jewitt’s Charleston beach engagement—waves at their feet, shoreline strolls, & relaxed portraits where you can just be yourselves.",
     },
     {
       slug: 'florence-sc-engagement-downtown',
-      title: 'Riley and Bradley in Downtown Florence',
+      title: 'Riley & Bradley in Downtown Florence',
       name: 'Riley and Bradley',
       venue: 'Downtown Florence',
       description:
-        'Downtown Florence engagement session—city streets at golden hour, easy laughs, & romantic portraits in natural light.',
+        "Riley & Bradley’s downtown Florence engagement session—city streets at golden hour, easy laughs, & romantic portraits in natural light.",
     },
     {
       slug: 'lake-city-sc-engagement-pee-dee-river',
-      title: 'Hannah and Zac at Pee Dee River',
+      title: 'Hannah & Zac at Pee Dee River',
       name: 'Hannah and Zac',
       venue: 'Pee Dee River',
       description:
-        'Engagement photos along the Pee Dee River near Lake City—soft light, open water, & unhurried couples portraits.',
+        "Hannah & Zac’s engagement photos along the Pee Dee River near Lake City, SC—open water, soft evening light, & unhurried couples portraits.",
     },
   ],
   'Special Events': [
     {
       slug: 'hartsville-sc-prom-kalmia-garden',
-      title: 'Kings\'s Academy at Kalmia Garden',
+      title: 'King\'s Academy at Kalmia Gardens',
       name: 'King\'s Academy',
-      venue: 'Kalmia Garden',
+      venue: 'Kalmia Gardens',
       description:
-        'Hartsville prom portraits—polished, fun, & full of the excitement of the night, captured with natural warmth.',
+        "King’s Academy prom portraits at Kalmia Gardens in Hartsville, SC—garden paths, polished style, & all the excitement of the night captured with natural warmth.",
     },
     {
       slug: 'florence-sc-birthday-party-hayden-residence',
@@ -186,7 +194,7 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       name: 'Mary Tyler',
       venue: 'Hayden Residence',
       description:
-        'Birthday party photography in Florence, SC—joyful details, candid smiles, & the little moments that make the celebration unforgettable.',
+        "Mary Tyler’s birthday celebration at the Hayden residence in Florence, SC—colorful details, candid smiles, & the little moments that make the party feel like her.",
     },
     {
       slug: 'pamplico-sc-birthday-party-sawtooth-acres',
@@ -194,7 +202,7 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       name: 'Annie',
       venue: 'Sawtooth Acres',
       description:
-        "Annie's birthday celebration at Sawtooth Acres in Pamplico, SC—joyful details, candid smiles, & the little moments that make the party feel like her.",
+        "Annie’s birthday celebration at Sawtooth Acres in Pamplico, SC—farm-fresh fun, joyful details, & candid smiles with the people who came to celebrate her.",
     },
     {
       slug: 'florence-sc-bridal-shower-the-rooster-one-thirty-six',
@@ -202,33 +210,33 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       name: 'Madeline',
       venue: 'The Rooster One Thirty Six',
       description:
-        "Madeline's bridal shower at The Rooster One Thirty Six in Florence, SC—pretty details, warm laughter, & the sweet in-between moments with the people she loves most.",
+        "Madeline’s bridal shower at The Rooster One Thirty Six in Florence, SC—pretty details, warm laughter, & the sweet in-between moments with the people she loves most.",
     },
   ],
   Family: [
     {
       slug: 'sunset-beach-nc-family',
-      title: 'The Hayden\'s at Sunset Beach',
-      name: 'The Hayden\'s',
+      title: 'The Haydens at Sunset Beach',
+      name: 'The Haydens',
       venue: 'Sunset Beach',
       description:
-        'Family portraits at Myrtle Beach—siblings, parents, & sandy toes in soft coastal light you\'ll want to frame for years.',
+        "The Hayden family’s portraits at Sunset Beach, NC—siblings, parents, & sandy toes in soft coastal light you’ll want to frame for years.",
     },
     {
       slug: 'florence-sc-family',
-      title: 'The Biddle\'s',
-      name: 'The Biddle\'s',
+      title: 'The Biddles',
+      name: 'The Biddles',
       venue: 'Biddle Residence',
       description:
-        'Family photography in Florence, SC—relaxed portraits with room to breathe, real laughs, & light that flatters your crew.',
+        "The Biddle family’s session at home in Florence, SC—relaxed portraits with room to breathe, real laughs, & light that flatters your whole crew.",
     },
     {
       slug: 'marion-sc-family-francis-marion-university',
-      title: 'The Bennet\'s at Francis Marion University',
-      name: 'The Bennet\'s',
+      title: 'The Bennets at Francis Marion University',
+      name: 'The Bennets',
       venue: 'Francis Marion University',
       description:
-        'Family session in Marion, SC—togetherness, natural light, & portraits that feel like your everyday love, not a stiff pose.',
+        "The Bennet family’s session at Francis Marion University in Marion, SC—campus greenery, natural light, & portraits that feel like your everyday love, not a stiff pose.",
     },
   ],
   Portraits: [
@@ -238,7 +246,7 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       name: 'Grayson',
       venue: 'Foxbrier',
       description:
-        'Senior portraits in Hartsville, SC—confident, relaxed, & true to you, with natural light & room to simply be yourself.',
+        "Grayson’s senior portraits at Foxbrier in Hartsville, SC—confident, relaxed, & true to you, with natural light & room to simply be yourself.",
     },
     {
       slug: 'camden-sc-bridal-portraits-the-terraces',
@@ -246,7 +254,7 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       name: 'Alli',
       venue: 'The Terraces',
       description:
-        'Bridal portraits in Camden, SC—soft light, elegant details, & the quiet beauty of getting ready for your wedding day.',
+        "Alli’s bridal portraits at The Terraces in Camden, SC—soft light, elegant details, & the quiet beauty of getting ready for your wedding day.",
     },
     {
       slug: 'latta-sc-bridal-portraits-parker-pines',
@@ -254,15 +262,15 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       name: 'Ansley',
       venue: 'Parker Pines',
       description:
-        'Bridal portraits in Latta, SC—soft natural light, elegant details, & the quiet beauty of getting ready for your wedding day.',
+        "Ansley’s bridal portraits at Parker Pines in Latta, SC—barn warmth, soft natural light, & timeless images that capture the calm before the celebration.",
     },
     {
       slug: 'florence-sc-professional-portraits-anpov-studios',
-      title: 'Abby at AnPPOV Studios',
+      title: 'Abby at AnPOV Studios',
       name: 'Abby',
       venue: 'AnPOV Studios',
       description:
-        'Professional portraits in Florence, SC—polished, approachable, & natural light for headshots, branding, & putting your best self forward.',
+        "Abby’s professional portraits at AnPOV Studios in Florence, SC—polished, approachable, & natural light for headshots, branding, & putting your best self forward.",
     },
   ],
 };

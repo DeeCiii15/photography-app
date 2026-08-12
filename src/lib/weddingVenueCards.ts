@@ -88,7 +88,7 @@ const COLLINS_GROVE: WeddingVenueCardDef = {
     'For couples searching for Florence, South Carolina wedding venues or Pee Dee wedding venues, Collins Grove offers an intimate setting filled with Southern charm, timeless character, & plenty of room to make your wedding day your own.',
   ],
   href: 'https://southerncelebrations.com/',
-  gallerySlugs: [],
+  gallerySlugs: ['florence-sc-wedding-collins-grove'],
 };
 
 /** Shown on `/florence-sc-wedding-photography`. */
