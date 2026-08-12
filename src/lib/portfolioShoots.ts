@@ -121,76 +121,76 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
   ],
   Motherhood: [
     {
-      slug: 'charleston-sc-motherhood',
+      slug: 'charleston-sc-motherhood-sullivans-island',
       title: 'Charleston Beach Motherhood',
-      name: '',
-      venue: '',
+      name: 'Kalayah and Chase at Sullivan\'s Island',
+      venue: 'Sullivan\'s Island',
       description:
         'Maternity portraits on the Charleston coast—soft sand, golden light, & gentle documentation of life before & after baby arrives.',
     },
     {
-      slug: 'sullivans-island-motherhood',
-      title: 'Sullivans Island Beach Motherhood',
-      name: '',
-      venue: '',
+      slug: 'sunset-beach-nc-motherhood',
+      title: 'Carly and Drew at Sunset Beach',
+      name: 'Carly and Drew',
+      venue: 'Sunset Beach',
       description:
         'Beach maternity session on Sullivan\'s Island—ocean air, natural light, & calm portraits that honor the bump & anticipation.',
     },
     {
-      slug: 'florence-sc-gender-reveal',
-      title: 'Florence Intimate Gender Reveal',
-      name: '',
-      venue: '',
+      slug: 'florence-sc-gender-reveal-anpov-studios',
+      title: 'Peden and Quinton at AnPOV Studios',
+      name: 'Peden and Quinton',
+      venue: 'AnPOV Studios',
       description:
         'Intimate gender reveal photography in Florence, SC—joyful anticipation, soft natural light, & candid moments as you share the surprise with the people you love most.',
     },
   ],
   'Couples / Engagement': [
     {
-      slug: 'charleston-sc-engagement',
-      title: 'Charleston Beach Engagement',
-      name: '',
-      venue: '',
+      slug: 'charleston-sc-engagement-beach',
+      title: 'Carrington and Jewitt at Charleston Beach',
+      name: 'Carrington and Jewitt',
+      venue: 'Charleston Beach',
       description:
         'Charleston beach engagement photos—waves, shoreline strolls, & relaxed portraits where you can be yourselves.',
     },
     {
-      slug: 'florence-sc-engagement',
-      title: 'Downtown Florence Engagement',
-      name: '',
-      venue: '',
+      slug: 'florence-sc-engagement-downtown',
+      title: 'Riley and Bradley in Downtown Florence',
+      name: 'Riley and Bradley',
+      venue: 'Downtown Florence',
       description:
         'Downtown Florence engagement session—city streets at golden hour, easy laughs, & romantic portraits in natural light.',
     },
     {
-      slug: 'lake-city-sc-engagement',
-      title: 'Pee Dee River Engagement',
-      name: '',
-      venue: '',
+      slug: 'lake-city-sc-engagement-pee-dee-river',
+      title: 'Hannah and Zac at Pee Dee River',
+      name: 'Hannah and Zac',
+      venue: 'Pee Dee River',
       description:
         'Engagement photos along the Pee Dee River near Lake City—soft light, open water, & unhurried couples portraits.',
     },
   ],
   'Special Events': [
     {
-      slug: 'hartsville-sc-prom',
-      title: 'Prom Portraits',
-      name: '',
-      venue: '',
+      slug: 'hartsville-sc-prom-kalmia-garden',
+      title: 'Kings\'s Academy at Kalmia Garden',
+      name: 'King\'s Academy',
+      venue: 'Kalmia Garden',
       description:
         'Hartsville prom portraits—polished, fun, & full of the excitement of the night, captured with natural warmth.',
     },
     {
-      slug: 'florence-sc-birthday-party',
-      title: 'Florence Birthday Party',
-      name: '',
-      venue: '',
+      slug: 'florence-sc-birthday-party-hayden-residence',
+      title: 'Mary Tyler at Hayden Residence',
+      name: 'Mary Tyler',
+      venue: 'Hayden Residence',
       description:
         'Birthday party photography in Florence, SC—joyful details, candid smiles, & the little moments that make the celebration unforgettable.',
     },
     {
       slug: 'pamplico-sc-birthday-party-sawtooth-acres',
-      title: 'Annie\'s Birthday Party',
+      title: 'Annie at Sawtooth Acres',
       name: 'Annie',
       venue: 'Sawtooth Acres',
       description:
@@ -198,7 +198,7 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
     },
     {
       slug: 'florence-sc-bridal-shower-the-rooster-one-thirty-six',
-      title: 'Madeline\'s Bridal Shower',
+      title: 'Madeline at The Rooster One Thirty Six',
       name: 'Madeline',
       venue: 'The Rooster One Thirty Six',
       description:
@@ -207,60 +207,60 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
   ],
   Family: [
     {
-      slug: 'myrtle-beach-family',
-      title: 'Myrtle Beach Family Shoot',
-      name: '',
-      venue: '',
+      slug: 'sunset-beach-nc-family',
+      title: 'The Hayden\'s at Sunset Beach',
+      name: 'The Hayden\'s',
+      venue: 'Sunset Beach',
       description:
         'Family portraits at Myrtle Beach—siblings, parents, & sandy toes in soft coastal light you\'ll want to frame for years.',
     },
     {
       slug: 'florence-sc-family',
-      title: 'Florence Family Shoot',
-      name: '',
-      venue: '',
+      title: 'The Biddle\'s',
+      name: 'The Biddle\'s',
+      venue: 'Biddle Residence',
       description:
         'Family photography in Florence, SC—relaxed portraits with room to breathe, real laughs, & light that flatters your crew.',
     },
     {
-      slug: 'marion-sc-family',
-      title: 'Marion Family Shoot',
-      name: '',
-      venue: '',
+      slug: 'marion-sc-family-francis-marion-university',
+      title: 'The Bennet\'s at Francis Marion University',
+      name: 'The Bennet\'s',
+      venue: 'Francis Marion University',
       description:
         'Family session in Marion, SC—togetherness, natural light, & portraits that feel like your everyday love, not a stiff pose.',
     },
   ],
   Portraits: [
     {
-      slug: 'hartsville-sc-senior-portraits',
-      title: 'Hartsville Senior Portraits',
-      name: '',
-      venue: '',
+      slug: 'hartsville-sc-senior-portraits-foxbrier',
+      title: 'Grayson at Foxbrier',
+      name: 'Grayson',
+      venue: 'Foxbrier',
       description:
         'Senior portraits in Hartsville, SC—confident, relaxed, & true to you, with natural light & room to simply be yourself.',
     },
     {
-      slug: 'camden-sc-bridal-portraits',
-      title: 'Camden Bridal Portraits',
-      name: '',
-      venue: '',
+      slug: 'camden-sc-bridal-portraits-the-terraces',
+      title: 'Alli at The Terraces',
+      name: 'Alli',
+      venue: 'The Terraces',
       description:
         'Bridal portraits in Camden, SC—soft light, elegant details, & the quiet beauty of getting ready for your wedding day.',
     },
     {
-      slug: 'latta-sc-bridal-portraits',
-      title: 'Latta Bridal Portraits',
-      name: '',
-      venue: '',
+      slug: 'latta-sc-bridal-portraits-parker-pines',
+      title: 'Ansley at Parker Pines',
+      name: 'Ansley',
+      venue: 'Parker Pines',
       description:
         'Bridal portraits in Latta, SC—soft natural light, elegant details, & the quiet beauty of getting ready for your wedding day.',
     },
     {
-      slug: 'florence-sc-professional-portraits',
-      title: 'Florence Professional Portraits',
-      name: '',
-      venue: '',
+      slug: 'florence-sc-professional-portraits-anpov-studios',
+      title: 'Abby at AnPPOV Studios',
+      name: 'Abby',
+      venue: 'AnPOV Studios',
       description:
         'Professional portraits in Florence, SC—polished, approachable, & natural light for headshots, branding, & putting your best self forward.',
     },

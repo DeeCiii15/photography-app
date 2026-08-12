@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { GOOGLE_REVIEW_URL } from '@/lib/siteSocial';
 import {
   TESTIMONIALS,
   TESTIMONIAL_DECK_STYLES,
@@ -160,7 +161,7 @@ export default function TestimonialsSection({
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <footer className="mt-5 border-t border-dusty-rose/30 pt-4 dark:border-boho-stone/45">
-                  <cite className="font-display not-italic text-base text-coral dark:text-[#d4a574] sm:text-lg">
+                  <cite className="font-display not-italic text-lg text-coral dark:text-[#d4a574] sm:text-xl">
                     {t.name}
                   </cite>
                   <p className="mt-1 font-body text-[10px] uppercase tracking-[0.14em] text-cream-dark/55 dark:text-cream/50 sm:text-xs">
@@ -181,16 +182,28 @@ export default function TestimonialsSection({
           />
         ) : null}
 
-        {showContactCta && (
-          <div className="mt-12 mb-12 flex w-full justify-center lg:mb-14">
+        <div
+          className={`mt-12 flex w-full flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5 ${
+            showContactCta ? 'mb-12 lg:mb-14' : 'mb-0'
+          }`}
+        >
+          <a
+            href={GOOGLE_REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-display inline-flex min-h-14 min-w-[10.5rem] touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/70 px-11 py-4 text-center text-2xl leading-none text-coral shadow-soft transition hover:border-coral/40 hover:bg-white sm:text-3xl dark:border-boho-stone/45 dark:bg-boho-bark/60 dark:text-coral dark:hover:bg-boho-bark"
+          >
+            Leave a Google review
+          </a>
+          {showContactCta ? (
             <Link
               href="/contact"
               className="font-display inline-flex min-h-14 min-w-[10.5rem] touch-manipulation items-center justify-center rounded-full border border-boho-sage/30 bg-white/70 px-11 py-4 text-center text-2xl leading-none text-coral shadow-soft transition hover:border-coral/40 hover:bg-white sm:text-3xl dark:border-boho-stone/45 dark:bg-boho-bark/60 dark:text-coral dark:hover:bg-boho-bark"
             >
               Reach Out
             </Link>
-          </div>
-        )}
+          ) : null}
+        </div>
       </div>
     </section>
   );

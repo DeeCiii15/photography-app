@@ -70,8 +70,20 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       <main>
         <section className="scroll-mt-24 px-6 py-16 sm:px-10 lg:px-16 lg:py-20">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2px] bg-[#e8e3db] shadow-[0_12px_36px_rgba(61,52,44,0.1)] ring-1 ring-[#e8e3db] dark:bg-boho-bark dark:ring-boho-stone/35 lg:col-span-5 lg:mx-0 lg:max-w-none">
+          <div
+            className={`mx-auto grid max-w-6xl gap-8 lg:grid-cols-12 lg:gap-16 ${
+              service.slug === 'wedding-photography'
+                ? 'lg:items-stretch'
+                : 'lg:items-start'
+            }`}
+          >
+            <div
+              className={`relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2px] bg-[#e8e3db] shadow-[0_12px_36px_rgba(61,52,44,0.1)] ring-1 ring-[#e8e3db] dark:bg-boho-bark dark:ring-boho-stone/35 lg:col-span-5 lg:mx-0 lg:max-w-none ${
+                service.slug === 'wedding-photography'
+                  ? 'lg:aspect-auto lg:min-h-full'
+                  : 'lg:mt-6'
+              }`}
+            >
               <Image
                 src={heroImage}
                 alt={`${service.name} by Taylor Rose Reels`}

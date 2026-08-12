@@ -94,10 +94,12 @@ export const SERVICE_DEFS: ServiceDef[] = [
     serviceNameAsH1: true,
     headline: 'Telling the story of your day through images you will cherish',
     headlineAccent: 'forever',
+    introLead:
+      'From the quiet moments of getting ready to the last dance & your final send-off, I’m there to document your wedding day from start to finish. The anticipation, the happy tears, the laughter, the chaos, & all the little moments you didn’t even know were happening.',
     intro:
-      'From getting ready to final dance and send off, I stay there every step of the way, keeping distance during the big moments and getting close during the intimate ones. You will receive a digital gallery that feels just as real as every moment you lived on your special day.',
+      'My approach is documentary style at heart. I’ll give you general direction when you need it, step back when the moment deserves to unfold on its own, & get close when the people and emotions matter most. Your gallery should feel like your wedding day, not a collection of perfectly posed moments that could belong to anyone. With true-to-color editing, warm tones, timeless portraits, & an eye for the in-between moments, I want you to be able to look through your gallery years from now and feel like you’re right back there.',
     body:
-      'Combining documentary style with perfect posing, your images will feel timeless while also capturing the essence of your day. True to color, vibrant and warm every moment, big and small. Whether we are staying close to home in the Pee Dee or you’re getting married elsewhere, I come to you near or far.',
+      'Whether you’re getting married in the heart of the Pee Dee, saying I do along the Lowcountry coast of Charleston, or celebrating in the heart of urban Columbia, I’m always happy to come along. Near or far, I’ll be there to tell the story of your day exactly as it felt.',
     faqs: [
       {
         question: 'How far ahead should I reach out?',
@@ -107,7 +109,7 @@ export const SERVICE_DEFS: ServiceDef[] = [
       {
         question: "What's included when we work together?",
         answer:
-          'You get my time, my care, & a full set of edited images in a private online gallery you can share with your mama, your best friend, & anyone else who’s been cheering you on.',
+          'I have fully loaded wedding packages, or we can tailor a custom package that’s specific to your needs. But regardless of which route you take, you’re guaranteed my time, care, expertise, & a gallery full of professionally curated images.',
       },
       {
         question: 'Will you travel for my day?',
@@ -157,7 +159,7 @@ export const SERVICE_DEFS: ServiceDef[] = [
     body:
       'As your engagement photographer, I come ready to prompt and direct you for documentary-style engagement photos that are authentic & capture a moment in time you’ll look back on years from now. Most sessions run about 30 minutes to 90 minutes at one location, with wardrobe & timing tips provided ahead of time.',
     heroImage:
-      '/images/galleries/couples-engagement/florence-sc-engagement/cover.jpg',
+      '/images/galleries/couples-engagement/florence-sc-engagement-downtown/cover.jpg',
     faqs: [
       {
         question: 'Where should we take engagement photos?',
@@ -304,7 +306,7 @@ export const SERVICE_DEFS: ServiceDef[] = [
     headline: 'Galas, milestones, & the moments that deserve to be',
     headlineAccent: 'remembered',
     heroImage:
-      '/images/galleries/special-events/hartsville-sc-prom/12.jpg',
+      '/images/galleries/special-events/hartsville-sc-prom-kalmia-garden/12.jpg',
     introLead:
       'Your special events and sweet milestones deserve to be remembered.',
     intro:
@@ -515,12 +517,14 @@ export const SERVICE_DEFS: ServiceDef[] = [
     navLabel: 'Portraits',
     portfolioCategory: 'Portraits',
     serviceNameAsH1: true,
-    headline: 'Just you—soft light & room to breathe—portraits that feel like a',
-    headlineAccent: 'compliment',
+    headline: 'Just you—soft light, real moments, & room to',
+    headlineAccent: 'breathe',
+    introLead:
+      'Senior portraits, bridal portraits, professional headshots, & individual sessions—photographed with a documentary approach that feels natural, relaxed, & true to you.',
     intro:
-      'Senior portraits, bridal portraits, professional headshots, & solo sessions—unhurried time in flattering light so you leave feeling seen, not staged.',
+      'Whether we’re wandering the grounds of West Florence High School for your senior portraits, exploring one of Florence’s local parks, or finding a quiet corner with beautiful light near Myrtle Beach, I’ll give you gentle direction when you need it & let the in-between moments unfold naturally. No stiff posing, no forced smiles—just portraits that feel like you.',
     body:
-      'Portraits shouldn’t feel like a performance. I’ll help with posing when you want direction & give you space when the light is doing the work. Most sessions are about an hour at one location, with guidance on wardrobe & timing sent ahead.',
+      'From senior portraits to bridal portraits, headshots to everyday milestones, let each session intentionally capture the essence of YOU. Unhurried, giving you space to move, laugh, settle in, & simply be yourself. Most sessions are about an hour at one location, with guidance on wardrobe, timing, & what to expect sent ahead—so when you arrive, you can relax & let me document the rest.',
     faqs: [
       {
         question: 'What types of portrait sessions do you offer?',
@@ -533,16 +537,73 @@ export const SERVICE_DEFS: ServiceDef[] = [
           'Wear something that makes you feel confident, get a good night’s sleep, & trust that I’ll guide you through the rest. I send location & timing tips before we meet.',
       },
       {
-        question: 'Can I use these photos for work or social media?',
-        answer:
-          'Yes—galleries include print rights for personal use, & commercial licensing can be arranged for professional headshots or branding work.',
-      },
-      {
         question: 'Do you offer mini sessions?',
         answer:
           'Seasonal mini sessions are announced on social media when available. For custom portrait time, a full session gives us the most flexibility & variety.',
       },
     ],
+    venueSuggestions: {
+      heading: `Suggested portrait locations in and around ${PRIMARY_CITY}`,
+      intro:
+        'Here are some places I’ve loved for senior, bridal, & individual portrait sessions. Tap a category to browse, & open a spot in Maps when you want to scout it.',
+      categories: [
+        {
+          name: 'Favorite portrait spots',
+          locations: [
+            {
+              name: 'Timrod Park',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Timrod Park Florence SC',
+            },
+            {
+              name: 'Downtown Florence',
+              detail: 'South Carolina',
+              mapsQuery: 'Downtown Florence South Carolina',
+            },
+            {
+              name: 'The Emerson Rooftop',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'The Emerson Rooftop Florence SC',
+            },
+            {
+              name: 'Victor’s Courtyard',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Victor’s Courtyard Florence SC',
+            },
+            {
+              name: 'Florence Library',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Florence County Library Florence SC',
+            },
+            {
+              name: 'Francis Marion University',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Francis Marion University Florence SC',
+            },
+          ],
+        },
+        {
+          name: 'Local high schools',
+          locations: [
+            {
+              name: 'West Florence',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'West Florence High School Florence SC',
+            },
+            {
+              name: 'South Florence',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'South Florence High School Florence SC',
+            },
+            {
+              name: 'Florence Christian',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Florence Christian School Florence SC',
+            },
+          ],
+        },
+      ],
+    },
     blogTags: ['portraits', 'senior-portraits', 'bridal'],
     blogCategories: [],
     ctaHeadline: 'Ready for portraits that feel like you?',

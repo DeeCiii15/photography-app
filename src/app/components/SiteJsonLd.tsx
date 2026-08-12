@@ -1,4 +1,4 @@
-import { getSocialLinks } from '@/lib/siteSocial';
+import { getSameAsLinks } from '@/lib/siteSocial';
 import {
   DEFAULT_OG_IMAGE_PATH,
   GEO_COORDINATES,
@@ -16,7 +16,7 @@ import {
 /** Local business + website schema for rich results */
 export default function SiteJsonLd() {
   const url = getSiteUrl();
-  const sameAs = getSocialLinks().map((link) => link.href);
+  const sameAs = getSameAsLinks();
 
   const business: Record<string, unknown> = {
     '@type': ['LocalBusiness', 'ProfessionalService', 'Photographer'],

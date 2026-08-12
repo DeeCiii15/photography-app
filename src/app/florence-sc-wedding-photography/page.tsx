@@ -4,8 +4,11 @@ import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import SiteFooter from '../components/SiteFooter';
 import FlorenceWeddingsJsonLd from '../components/FlorenceWeddingsJsonLd';
-import { getShootCards, portfolioCategoryHref } from '@/lib/portfolioData';
-import type { PortfolioShootCard } from '@/lib/portfolioData';
+import { portfolioCategoryHref } from '@/lib/portfolioData';
+import {
+  FLORENCE_WEDDING_VENUE_CARDS,
+  venueGalleries,
+} from '@/lib/weddingVenueCards';
 import {
   FLORENCE_WEDDINGS_PATH,
   FLORENCE_WEDDINGS_REF,
@@ -32,82 +35,18 @@ export const metadata: Metadata = {
 
 const WEDDINGS_HREF = portfolioCategoryHref('weddings');
 
-type VenueGallery = { caption: string; href: string; image: string };
-type Venue = {
-  name: string;
-  location: string;
-  blurb: string;
-  href: string;
-  galleries: VenueGallery[];
-};
-
-/** Lookup of every gallery I might link a venue to, keyed by shoot slug */
-const GALLERY_CARDS_BY_SLUG = new Map<string, PortfolioShootCard>(
-  [...getShootCards('Weddings'), ...getShootCards('Portraits')].map((card) => [
-    card.slug,
-    card,
-  ]),
-);
-
-/** Resolve registered shoot slugs into polaroid data (cover image, title, href) */
-function venueGalleries(...slugs: string[]): VenueGallery[] {
-  return slugs
-    .map((slug) => GALLERY_CARDS_BY_SLUG.get(slug))
-    .filter((card): card is PortfolioShootCard => Boolean(card))
-    .map((card) => ({
-      caption: card.title,
-      href: `${card.href}?from=${FLORENCE_WEDDINGS_REF}`,
-      image: card.image,
-    }));
-}
-
 /** Small alternating tilts so the polaroids feel hand-placed */
 const POLAROID_TILTS = ['-rotate-[3deg]', 'rotate-[2.5deg]', '-rotate-[1.5deg]'];
 
-/** Florence-area wedding venues I love, each linked to real galleries shot there */
-const FLORENCE_VENUES: Venue[] = [
-  {
-    name: 'Glenview Farm Events',
-    location: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR}`,
-    blurb:
-      'Gorgeous remodeled horse barns with natural lighting in the ceremony area & a covered pavilion for the reception hall. Indoor bathrooms, getting ready suites for bride & groom, & beautiful acreage to get plenty of timeless portraits & shots.',
-    href: 'https://www.glenviewfarmevents.com/',
-    galleries: venueGalleries('florence-sc-wedding-glenview-farms'),
-  },
-  {
-    name: 'Parker Pines',
-    location: `Latta, ${PRIMARY_STATE_ABBR}`,
-    blurb:
-      "Parker Pines offers a variety of ceremony spaces to fit every bride's aesthetic—multiple outdoor spaces, an indoor chapel, & a large barn for getting ready & the reception. It also consists of multiple tiny homes to house the bridal party or out-of-town guests for the wedding weekend.",
-    href: 'https://parkerpinesevents.com/',
-    galleries: venueGalleries(
-      'latta-sc-wedding-parker-pines-lee',
-      'latta-sc-wedding-parker-pines-flowers',
-      'latta-sc-bridal-portraits',
-    ),
-  },
-  {
-    name: 'The Cabin at Old Spur',
-    location: `Timmonsville, ${PRIMARY_STATE_ABBR}`,
-    blurb:
-      'Whether your day is sunny or covered by a blanket of snow, the Cabin at Old Spur is the perfect cozy location tucked back in the woods. A cabin for getting ready & housing the bridal party, skeet shooting for the boys, & the perfect covered pavilion in case of rain ensures a perfect experience for your wedding day.',
-    href: 'https://www.thecabinatoldspur.com/',
-    galleries: venueGalleries('timmonsville-sc-wedding-the-cabin-at-old-spur'),
-  },
-  {
-    name: 'Murphy Farm',
-    location: `Darlington, ${PRIMARY_STATE_ABBR}`,
-    blurb:
-      'Murphy Farm is a quiet venue tucked away on a back road in Darlington, South Carolina. With a covered barn for reception, a secondary barn for getting ready, & a wide open field, Murphy Farm offers the perfect place to get married. The pond located on the property is the ideal backdrop for those beautiful golden hour photos every bride dreams of.',
-    href: 'https://www.murphyfarmllc.com/',
-    galleries: venueGalleries('darlington-sc-wedding-murphy-farms'),
-  },
-];
+const FLORENCE_VENUES = FLORENCE_WEDDING_VENUE_CARDS.map((venue) => ({
+  ...venue,
+  galleries: venueGalleries(FLORENCE_WEDDINGS_REF, ...venue.gallerySlugs),
+}));
 
 /**
  * Featured grid for the "closer look at some Florence weddings" section—
  * a curated mix pulled from the real galleries linked in the venues section
- * below (Florence, Timmonsville, Latta & Darlington weddings).
+ * below (Florence, Timmonsville & Pamplico weddings).
  */
 const FLORENCE_WEDDING_GALLERY: { src: string; alt: string }[] = [
   {
@@ -119,20 +58,20 @@ const FLORENCE_WEDDING_GALLERY: { src: string; alt: string }[] = [
     alt: `Timmonsville, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/latta-sc-wedding-parker-pines-lee/cover.jpg',
-    alt: `Latta, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
+    src: '/images/galleries/weddings/pamplico-sc-wedding-sawtooth-acres/cover.jpg',
+    alt: `Pamplico, ${PRIMARY_STATE_ABBR} wedding at Sawtooth Acres by ${SITE_NAME}`,
   },
   {
-    src: '/images/galleries/weddings/darlington-sc-wedding-murphy-farms/08.jpg',
-    alt: `Darlington, ${PRIMARY_STATE_ABBR} wedding at Murphy Farm by ${SITE_NAME}`,
-  },
-  {
-    src: '/images/galleries/weddings/latta-sc-wedding-parker-pines-flowers/cover.jpg',
-    alt: `Latta, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
+    src: '/images/galleries/weddings/pamplico-sc-wedding-sawtooth-acres/01.jpg',
+    alt: `Pamplico, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
   {
     src: '/images/galleries/weddings/florence-sc-wedding-glenview-farms/05.jpg',
     alt: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
+  },
+  {
+    src: '/images/galleries/weddings/timmonsville-sc-wedding-the-cabin-at-old-spur/01.jpg',
+    alt: `Timmonsville, ${PRIMARY_STATE_ABBR} wedding photography by ${SITE_NAME}`,
   },
 ];
 
@@ -328,9 +267,17 @@ export default function FlorenceWeddingsPage() {
                         </svg>
                       </a>
                     </h3>
-                    <p className="mt-3 font-body text-base font-light leading-[1.8] text-cream-dark/80 dark:text-cream/76">
-                      {venue.blurb}
-                    </p>
+                    {(Array.isArray(venue.blurb)
+                      ? venue.blurb
+                      : [venue.blurb]
+                    ).map((paragraph) => (
+                      <p
+                        key={paragraph.slice(0, 48)}
+                        className="mt-3 font-body text-base font-light leading-[1.8] text-cream-dark/80 dark:text-cream/76"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
                     {venue.galleries.length > 0 && (
                       <div className="mt-auto border-t border-[#e8e3db] pt-6 dark:border-boho-stone/30">
                         <p className="font-body text-[10px] font-semibold uppercase tracking-[0.16em] text-cream-dark/50 dark:text-cream/45">

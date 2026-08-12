@@ -36,6 +36,35 @@ export type Testimonial = {
 export const TESTIMONIALS: readonly Testimonial[] = [
   {
     quote:
+      'Taylor has captured engagement photos, bridal portraits, our wedding day, and now pregnancy photos. She has been such a blessing and positive light through all these special milestones. She is so personable and a calming spirit through stressful and chaotic times. She jumps in to help when she can and you can guarantee to catch her on the dance floor at your wedding lol! Taylor feels like a close friend at this point and I could not recommend her enough!!',
+    name: 'Ally Smith',
+    detail: 'Bridal, Maternity, Engagement & Wedding · August 2026',
+    portrait: '/images/Old Picutres/inspiration_2.jpg',
+    services: [
+      'portrait-photography',
+      'motherhood-photography',
+      'engagement-photography',
+      'wedding-photography',
+    ],
+  },
+  {
+    quote:
+      'Taylor NEVER fails to exceed every thing I envision and more for every shoot! She does wonderful with our daughter who was 6 months and 11 months at different shoots.',
+    name: 'Gabrielle Biddle',
+    detail: 'Portraits · August 2026',
+    portrait: '/images/Old Picutres/inspiration_1.jpg',
+    services: ['portrait-photography'],
+  },
+  {
+    quote:
+      'If you\'re looking for a talented, professional and genuinely caring photographer, Taylor is the one. She\'s truly our go-to photographer for every special occasion!',
+    name: 'Abby Johnson',
+    detail: 'Portraits · August 2026',
+    portrait: '/images/Old Picutres/profile_2.jpg',
+    services: ['portrait-photography'],
+  },
+  {
+    quote:
       'Absolutely the best!! Taylor does our family Christmas photos every year and she never disappoints. Definitely recommend her to anyone who wants their photos done.',
     name: 'Renee Hancock',
     detail: 'Family portraits · August 2026',
@@ -159,9 +188,9 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     quote:
       'Taylor was easy and fun to work with! She gets the shot and makes it stress free!',
     name: 'Brandy Duffy',
-    detail: 'Client session · August 2025',
+    detail: 'Family portraits · August 2025',
     portrait: '/images/Old Picutres/profile_2.jpg',
-    services: ['portrait-photography', 'special-events-photography'],
+    services: ['family-portrait-photography'],
   },
   {
     quote:

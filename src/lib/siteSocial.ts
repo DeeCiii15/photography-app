@@ -12,6 +12,13 @@ export type SocialLink = {
   href: string;
 };
 
+/** Public Google Business Profile (Maps) — used in JSON-LD sameAs */
+export const GOOGLE_BUSINESS_PROFILE_URL =
+  'https://g.page/r/CYR1nxU6ANzjEBM';
+
+/** Direct “write a review” link from Google Business Profile */
+export const GOOGLE_REVIEW_URL = `${GOOGLE_BUSINESS_PROFILE_URL}/review`;
+
 export function getSocialLinks(): SocialLink[] {
   const ig =
     process.env.NEXT_PUBLIC_INSTAGRAM_URL?.trim() ||
@@ -27,4 +34,12 @@ export function getSocialLinks(): SocialLink[] {
   ];
   if (pin) links.push({ network: 'pinterest', label: 'Pinterest', href: pin });
   return links;
+}
+
+/** Profiles for LocalBusiness sameAs (social + Google Business Profile) */
+export function getSameAsLinks(): string[] {
+  return [
+    ...getSocialLinks().map((link) => link.href),
+    GOOGLE_BUSINESS_PROFILE_URL,
+  ];
 }

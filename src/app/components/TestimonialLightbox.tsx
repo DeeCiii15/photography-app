@@ -142,7 +142,7 @@ export default function TestimonialLightbox({
             &ldquo;{testimonial.quote}&rdquo;
           </p>
           <footer className="mt-7 border-t border-dusty-rose/30 pt-5 dark:border-boho-stone/45">
-            <cite className="font-display not-italic text-xl text-coral dark:text-[#d4a574]">
+            <cite className="font-display not-italic text-2xl text-coral dark:text-[#d4a574]">
               {testimonial.name}
             </cite>
             <p className="mt-1.5 font-body text-xs uppercase tracking-[0.14em] text-cream-dark/55 dark:text-cream/50">

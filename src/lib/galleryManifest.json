@@ -1,6 +1,6 @@
 {
   "couples-engagement": {
-    "charleston-sc-engagement": {
+    "charleston-sc-engagement-beach": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -13,7 +13,7 @@
         "08.jpg"
       ]
     },
-    "florence-sc-engagement": {
+    "florence-sc-engagement-downtown": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -32,7 +32,7 @@
         "14.jpg"
       ]
     },
-    "lake-city-sc-engagement": {
+    "lake-city-sc-engagement-pee-dee-river": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -80,7 +80,7 @@
         "11.jpg"
       ]
     },
-    "marion-sc-family": {
+    "marion-sc-family-francis-marion-university": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -100,7 +100,7 @@
         "15.jpg"
       ]
     },
-    "myrtle-beach-family": {
+    "sunset-beach-nc-family": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -113,7 +113,7 @@
     }
   },
   "motherhood": {
-    "charleston-sc-motherhood": {
+    "charleston-sc-motherhood-sullivans-island": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -137,7 +137,7 @@
         "19.jpg"
       ]
     },
-    "florence-sc-gender-reveal": {
+    "florence-sc-gender-reveal-anpov-studios": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -261,7 +261,7 @@
     }
   },
   "special-events": {
-    "florence-sc-birthday-party": {
+    "florence-sc-birthday-party-hayden-residence": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
@@ -335,7 +335,7 @@
         "47.jpg"
       ]
     },
-    "hartsville-sc-prom": {
+    "hartsville-sc-prom-kalmia-garden": {
       "cover": "cover.jpg",
       "photos": [
         "01.jpg",
