@@ -25,12 +25,8 @@ function issues(p) {
   ) {
     out.push('Typo: Hatsville→Hartsville');
   }
-  if (
-    pathName === '/services/wedding-photography' &&
-    !/florence|pee dee|, sc/i.test(title)
-  ) {
-    out.push('Title missing location');
-  }
+  // Wedding service title intentionally omits city; location is in meta description.
+  // Do not flag /services/wedding-photography for "Title missing location".
   if (
     pathName === '/services/motherhood-photography' &&
     !/taylor rose/i.test(title)
@@ -63,6 +59,11 @@ function issues(p) {
   return out.length ? out.join('; ') : '—';
 }
 
+function clip(s, n = 70) {
+  const t = String(s || '');
+  return t.length <= n ? t : `${t.slice(0, n - 1)}…`;
+}
+
 const pages = j.pages.map((p) => ({
   group: p.group,
   path: p.path,
@@ -77,14 +78,86 @@ const out = {
   generatedAt: j.generatedAt,
   branch: 'user-acceptance-testing (local working tree)',
   note:
-    'Audited from current UAT checkout including uncommitted local changes (new /services/* pages + renamed wedding galleries). Not live production.',
+    'Audited from current UAT checkout including uncommitted local changes (new /services/* pages + renamed wedding galleries). Not live production. Values are read from source (servicesData, portfolioSeo/portfolioData, page.tsx metadata/H2s)—not a live crawl.',
   pageCount: pages.length,
   pages,
 };
 
+const reportsDir = path.join(root, 'reports');
 fs.writeFileSync(
-  path.join(root, 'reports/seo-snapshot.json'),
+  path.join(reportsDir, 'seo-snapshot.json'),
   JSON.stringify(out, null, 2),
+);
+
+const by = {};
+for (const p of pages) {
+  (by[p.group] ||= []).push(p);
+}
+fs.writeFileSync(
+  path.join(reportsDir, 'seo-snapshot-by-group.json'),
+  JSON.stringify(
+    {
+      meta: {
+        generatedAt: out.generatedAt,
+        branch: out.branch,
+        pageCount: out.pageCount,
+      },
+      by,
+    },
+    null,
+    2,
+  ),
+);
+
+const toneFor = (issue) => {
+  if (!issue || issue === '—') return 'success';
+  if (/missing location|Gallery vs H1/i.test(issue)) return 'danger';
+  return 'warning';
+};
+
+const groupOrder = [
+  'Core',
+  'Location',
+  'Services',
+  'Portfolio categories',
+  'Portfolio shoots',
+  'Blog',
+  'Blog posts',
+  'Blog filters',
+];
+
+const groups = groupOrder
+  .filter((name) => by[name]?.length)
+  .map((name) => {
+    const rows = by[name];
+    return {
+      name,
+      count: rows.length,
+      rows: rows.map((r) => [
+        r.path,
+        clip(r.title, 78),
+        clip(r.desc, 70),
+        clip(r.h1, 52),
+        clip(r.h2 || '—', 52) || '—',
+        r.issue,
+      ]),
+      tones: rows.map((r) => toneFor(r.issue)),
+    };
+  });
+
+const issueCount = pages.filter((p) => p.issue !== '—').length;
+fs.writeFileSync(
+  path.join(reportsDir, 'seo-canvas-data.json'),
+  JSON.stringify(
+    {
+      generatedAt: out.generatedAt,
+      pageCount: out.pageCount,
+      issueCount,
+      groups,
+    },
+    null,
+    2,
+  ),
 );
 
 console.log(
@@ -92,10 +165,31 @@ console.log(
   pages.find((p) => p.path.includes('motherhood-photography'))?.title,
 );
 console.log('pages', pages.length);
-console.log(
-  'with issues',
-  pages.filter((p) => p.issue !== '—').length,
-);
+console.log('with issues', issueCount);
+const focus = [
+  '/contact',
+  '/portfolio',
+  '/florence-sc-wedding-photography',
+  '/services/wedding-photography',
+  '/portfolio/motherhood',
+  '/portfolio/family',
+];
+for (const pathName of focus) {
+  const p = pages.find((x) => x.path === pathName);
+  if (p) {
+    console.log(
+      pathName,
+      '=>',
+      JSON.stringify({
+        title: p.title,
+        descLen: p.desc.length,
+        h1: p.h1,
+        h2: p.h2,
+        issue: p.issue,
+      }),
+    );
+  }
+}
 pages
   .filter((p) => p.issue !== '—')
   .forEach((p) => console.log(p.path, '=>', p.issue));

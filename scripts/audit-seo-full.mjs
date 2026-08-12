@@ -52,7 +52,7 @@ const categories = [
     name: 'Motherhood',
     folder: 'motherhood',
     description:
-      'That glow, the bump you keep resting your hand on, & the wonder before & after baby arrives—documented gently, never rushed.',
+      'That glow, the bump, & the wonder before & after baby arrives—documented gently, never rushed.',
   },
   {
     name: 'Couples / Engagement',
@@ -132,6 +132,76 @@ function parseShoots() {
   return byCat;
 }
 
+function expandSiteTokens(s) {
+  return (s || '')
+    .replace(/\$\{PRIMARY_CITY\}/g, CITY)
+    .replace(/\$\{PRIMARY_STATE_ABBR\}/g, ABBR)
+    .replace(/\$\{PRIMARY_STATE\}/g, STATE)
+    .replace(/\$\{PRIMARY_REGION\}/g, REGION)
+    .replace(/\$\{SITE_NAME\}/g, SITE)
+    .replace(/\$\{CITY\}/g, CITY)
+    .replace(/\$\{ABBR\}/g, ABBR)
+    .replace(/\$\{STATE\}/g, STATE)
+    .replace(/\$\{REGION\}/g, REGION)
+    .replace(/\$\{SITE\}/g, SITE);
+}
+
+/** Read a single-quoted / template-literal / double-quoted const from a page file. */
+function readPageConst(relPath, constName) {
+  const src = fs.readFileSync(path.join(root, relPath), 'utf8');
+  const re = new RegExp(
+    `(?:const|export const)\\s+${constName}\\s*=\\s*(?:\n\\s*)?([\\\`'"])([\\s\\S]*?)\\1\\s*;`,
+  );
+  const m = src.match(re);
+  if (!m) return null;
+  return expandSiteTokens(m[2]);
+}
+
+function readFirstH2(relPath) {
+  const src = fs.readFileSync(path.join(root, relPath), 'utf8');
+  const m = src.match(/<h2\b[^>]*>\s*([\s\S]*?)\s*<\/h2>/i);
+  if (!m) return null;
+  return m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+/** Metadata description= template/string on a page (first match). */
+function readPageMetaDescription(relPath) {
+  const src = fs.readFileSync(path.join(root, relPath), 'utf8');
+  const tpl = src.match(/description:\s*`([^`]*)`/);
+  if (tpl) return expandSiteTokens(tpl[1]);
+  const sq = src.match(/description:\s*'((?:\\'|[^'])*)'/);
+  if (sq) return expandSiteTokens(sq[1].replace(/\\'/g, "'"));
+  const dq = src.match(/description:\s*"((?:\\"|[^"])*)"/);
+  if (dq) return expandSiteTokens(dq[1].replace(/\\"/g, '"'));
+  return null;
+}
+
+function parseCategorySeoFromData() {
+  const src = fs.readFileSync(
+    path.join(root, 'src/lib/portfolioData.ts'),
+    'utf8',
+  );
+  const byName = {};
+  const blockRe =
+    /\{\s*name:\s*'((?:\\'|[^'])*)'\s*,[\s\S]*?(?=^\s*\{|\n\s*\];)/gm;
+  let m;
+  while ((m = blockRe.exec(src))) {
+    const block = m[0];
+    const name = m[1].replace(/\\'/g, "'");
+    const pageHeading = block.match(/pageHeading:\s*'((?:\\'|[^'])*)'/)?.[1];
+    const metaTitle = block.match(/metaTitle:\s*'((?:\\'|[^'])*)'/)?.[1];
+    const documentTitle = block.match(
+      /documentTitle:\s*'((?:\\'|[^'])*)'/,
+    )?.[1];
+    byName[name] = {
+      pageHeading: pageHeading?.replace(/\\'/g, "'") || null,
+      metaTitle: metaTitle?.replace(/\\'/g, "'") || null,
+      documentTitle: documentTitle?.replace(/\\'/g, "'") || null,
+    };
+  }
+  return byName;
+}
+
 function parseServices() {
   const src = fs.readFileSync(path.join(root, 'src/lib/servicesData.ts'), 'utf8');
   const services = [];
@@ -151,12 +221,6 @@ function parseServices() {
     const metaRaw = part.match(/metaTitle:\s*`([^`]*)`/)?.[1];
     const metaDescRaw = part.match(/metaDescription:\s*`([^`]*)`/)?.[1];
     if (!slug || !name) continue;
-    const replace = (s) =>
-      (s || '')
-        .replace(/\$\{PRIMARY_CITY\}/g, CITY)
-        .replace(/\$\{PRIMARY_STATE_ABBR\}/g, ABBR)
-        .replace(/\$\{PRIMARY_STATE\}/g, STATE)
-        .replace(/\$\{PRIMARY_REGION\}/g, REGION);
     services.push({
       slug,
       name,
@@ -165,8 +229,8 @@ function parseServices() {
       eyebrow,
       serviceNameAsH1: /serviceNameAsH1:\s*true/.test(part.slice(0, 400)),
       headline: `${headline} ${accent}`.trim(),
-      metaTitle: replace(metaRaw),
-      metaDescription: replace(metaDescRaw),
+      metaTitle: expandSiteTokens(metaRaw),
+      metaDescription: expandSiteTokens(metaDescRaw),
     });
   }
   return services;
@@ -229,15 +293,18 @@ const servicesWithTestimonials = new Set([
 ]);
 
 // —— Core ——
+// Matches HOME_PAGE_TITLE in src/app/layout.tsx
+const HOME_PAGE_TITLE = `${CITY}, ${ABBR} Photographer | Weddings & Portraits | ${SITE}`;
+
 add({
   group: 'Core',
   path: '/',
-  title: `Wedding Photographer in ${CITY}, ${ABBR} and surrounding Pee Dee areas | ${SITE}`,
+  title: HOME_PAGE_TITLE,
   description: SITE_DESC,
   canonical: '/',
   keywords:
     'Florence SC photographer; Pee Dee wedding photographer; Florence wedding photographer; South Carolina portrait photographer; SC engagement photographer; wedding photographer Florence SC; elopement photographer Pee Dee; natural light photography; true to color; timeless; Taylor Rose Reels',
-  titleMode: 'absolute (layout default)',
+  titleMode: 'absolute (layout default / HOME_PAGE_TITLE)',
   h1: [
     `${CITY}, ${ABBR} · ${REGION} · Wedding & portrait Soft light, honest color, warmth that feels like memory.`,
   ],
@@ -251,19 +318,30 @@ add({
     'H1 wraps location eyebrow + display line. Category cards on home gallery are H3. Keywords only set on root layout (inherited sitewide unless overridden).',
 });
 
+// Contact — read title/description/H2 from src/app/contact/page.tsx
+const CONTACT_TITLE =
+  readPageConst('src/app/contact/page.tsx', 'CONTACT_TITLE') ||
+  `Contact a ${CITY}, ${ABBR} Photographer | ${SITE}`;
+const CONTACT_DESCRIPTION =
+  readPageConst('src/app/contact/page.tsx', 'CONTACT_DESCRIPTION') ||
+  readPageMetaDescription('src/app/contact/page.tsx');
+const CONTACT_H2 = readFirstH2('src/app/contact/page.tsx');
+
 add({
   group: 'Core',
   path: '/contact',
-  title: `Contact | ${SITE}`,
-  description: `Inquire about wedding, portrait, engagement, motherhood, family, and special event photography in ${CITY}, ${ABBR} & the ${REGION}. Share your date, venue, or vision—Taylor reads every message.`,
+  title: CONTACT_TITLE,
+  description: CONTACT_DESCRIPTION,
   canonical: '/contact',
   titleMode: 'absolute',
   h1: ['Share your event vision with me'],
-  h2: [],
+  h2: CONTACT_H2 ? [CONTACT_H2] : [],
   h3: [],
   notes:
-    'Title is brand-only (“Contact | …”). Consider restoring location/service in the title for local SEO.',
+    'Title/meta/H2 read from contact/page.tsx (not hardcoded inventory).',
 });
+
+const PORTFOLIO_H2 = readFirstH2('src/app/portfolio/page.tsx');
 
 add({
   group: 'Core',
@@ -273,16 +351,20 @@ add({
   canonical: '/portfolio',
   titleMode: 'absolute (portfolio/layout)',
   h1: ['Documenting Stories One Photograph at a Time'],
-  h2: [],
+  h2: PORTFOLIO_H2 ? [PORTFOLIO_H2] : [],
   h3: categories.map((c) => c.name),
-  notes: 'Category cards use H3.',
+  notes: 'Supporting line is H2 (read from portfolio/page.tsx). Category cards use H3.',
 });
+
+const FLORENCE_DESC =
+  readPageMetaDescription('src/app/florence-sc-wedding-photography/page.tsx') ||
+  `${CITY}, ${ABBR} wedding photographer—documentary, true-to-color galleries at favorite venues. Honest coverage for couples across the ${REGION}.`;
 
 add({
   group: 'Location',
   path: '/florence-sc-wedding-photography',
   title: `${CITY}, ${STATE} Wedding Photography | ${SITE}`,
-  description: `${CITY}, ${ABBR} wedding photography—natural light, true-to-color, documentary galleries at Florence's favorite venues. A ${REGION} wedding photographer for honest, timeless coverage.`,
+  description: FLORENCE_DESC,
   canonical: '/florence-sc-wedding-photography',
   titleMode: 'absolute',
   h1: [`${CITY}, ${STATE} Wedding Photography`],
@@ -297,7 +379,8 @@ add({
     'The Cabin at Old Spur',
     'Murphy Farm',
   ],
-  notes: 'Only live location hub in sitemap. Other cities are soon stubs (not pages).',
+  notes:
+    'Meta description read from florence-sc-wedding-photography/page.tsx. Only live location hub in sitemap.',
 });
 
 for (const s of services) {
@@ -319,6 +402,10 @@ for (const s of services) {
     h2.push(`What they say about ${s.copyTopic || s.navLabel.toLowerCase()}`);
   }
   const catName = portfolioCatBySlug[s.slug];
+  const weddingTitleNote =
+    s.slug === 'wedding-photography'
+      ? ' Title intentionally omits city (location lives in meta description); not an SEO defect.'
+      : '';
   add({
     group: 'Services',
     path: `/services/${s.slug}`,
@@ -330,28 +417,13 @@ for (const s of services) {
     h2,
     h3: (shootsByCat[catName] || []).map((x) => x.title),
     notes: s.serviceNameAsH1
-      ? 'H1 is service name (eyebrow styling); display line is non-heading brand copy.'
+      ? `H1 is service name via serviceNameAsH1 (eyebrow styling); display line is non-heading brand copy.${weddingTitleNote}`
       : 'Shoot titles in gallery are H3. FAQ questions are <summary>, not headings. Related reading only when matching posts exist (weddings). Testimonials H2 omitted when no tagged reviews (motherhood).',
   });
 }
 
-const categorySeo = {
-  Weddings: {
-    pageHeading: 'Wedding Portfolios',
-    metaTitle: 'Wedding Photography Portfolio',
-  },
-  Motherhood: { pageHeading: 'Motherhood Portfolios', metaTitle: null },
-  'Couples / Engagement': {
-    pageHeading: 'Engagement Portfolios',
-    metaTitle: null,
-  },
-  'Special Events': {
-    pageHeading: 'Special Events Portfolios',
-    metaTitle: null,
-  },
-  Family: { pageHeading: 'Family Portfolios', metaTitle: null },
-  Portraits: { pageHeading: 'Portrait Portfolios', metaTitle: null },
-};
+// Mirrors categoryMetadata() in src/lib/portfolioSeo.ts
+const categorySeo = parseCategorySeoFromData();
 
 for (const cat of categories) {
   const shoots = shootsByCat[cat.name] || [];
@@ -361,18 +433,25 @@ for (const cat of categories) {
       160,
     );
   const seo = categorySeo[cat.name] || {};
-  const titleSeg = seo.metaTitle || `${cat.name} Gallery`;
+  // portfolioSeo.ts: metaTitle ?? pageHeading ?? `${name} Portfolio`
+  const titleSeg =
+    seo.documentTitle ||
+    seo.metaTitle ||
+    seo.pageHeading ||
+    `${cat.name} Portfolio`;
   add({
     group: 'Portfolio categories',
     path: `/portfolio/${cat.folder}`,
     title: `${titleSeg} | ${SITE}`,
     description: desc,
     canonical: `/portfolio/${cat.folder}`,
-    titleMode: 'relative + template',
+    titleMode: 'relative + template (portfolioSeo.categoryMetadata)',
     ogTitle: `${titleSeg} | ${SITE}`,
     h1: [seo.pageHeading || cat.name],
     h2: [],
     h3: shoots.map((s) => s.title),
+    notes:
+      'Title segment from portfolioData (metaTitle/pageHeading) — same fallback order as portfolioSeo.ts (not “… Gallery”).',
   });
 }
 
@@ -397,16 +476,24 @@ for (const cat of categories) {
   }
 }
 
+// Blog index — read meta from src/app/blog/page.tsx (do not hardcode stale copy)
+const BLOG_DESCRIPTION =
+  readPageConst('src/app/blog/page.tsx', 'BLOG_DESCRIPTION') ||
+  readPageMetaDescription('src/app/blog/page.tsx') ||
+  '';
+
 add({
   group: 'Blog',
   path: '/blog',
   title: `Blog | ${SITE}`,
-  description: `Planning tips, local guides, and behind-the-gallery stories from ${SITE}—true to color, timeless wedding and portrait photography in ${CITY} and the ${REGION}.`,
+  description: BLOG_DESCRIPTION,
   canonical: '/blog',
   titleMode: 'relative + template',
   h1: ['Stories, tips & local light'],
   h2: [],
   h3: [],
+  notes:
+    'Meta description read from blog/page.tsx BLOG_DESCRIPTION (not hardcoded inventory).',
 });
 
 for (const post of posts) {

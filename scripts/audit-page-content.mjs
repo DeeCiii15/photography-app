@@ -49,7 +49,7 @@ const categories = [
     name: 'Motherhood',
     folder: 'motherhood',
     description:
-      'That glow, the bump you keep resting your hand on, & the wonder before & after baby arrives—documented gently, never rushed.',
+      'That glow, the bump, & the wonder before & after baby arrives—documented gently, never rushed.',
   },
   {
     name: 'Couples / Engagement',

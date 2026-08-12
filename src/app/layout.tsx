@@ -10,7 +10,6 @@ import {
   getSiteUrl,
   LOCAL_KEYWORDS,
   PHOTOGRAPHER_IMAGE_ALT,
-  PRIMARY_REGION,
   SITE_DESCRIPTION,
   SITE_NAME,
 } from "@/lib/siteConfig";
@@ -32,7 +31,7 @@ const lora = Lora({
 const siteUrl = getSiteUrl();
 const favicon = (path: string) => `${CANONICAL_SITE_URL}${path}`;
 
-const HOME_PAGE_TITLE = `${SITE_NAME} | Wedding & Portrait Photographer in the ${PRIMARY_REGION}`;
+const HOME_PAGE_TITLE = `Florence, SC Photographer | Weddings & Portraits | ${SITE_NAME}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

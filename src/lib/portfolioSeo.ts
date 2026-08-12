@@ -2,10 +2,12 @@ import {
   getCategoryByName,
   getShootInCategory,
   PORTFOLIO_CATEGORY_DEFS,
+  shootCoverSrc,
   type PortfolioCategoryDef,
 } from './portfolioData';
 import type { PortfolioShootDef } from './portfolioShoots';
 import {
+  getSiteUrl,
   PRIMARY_CITY,
   PRIMARY_REGION,
   PRIMARY_STATE_ABBR,
@@ -23,33 +25,54 @@ export function portfolioShootPath(
   return `/portfolio/${categoryFolder}/${shootSlug}`;
 }
 
+/** Absolute image URL for OG/Twitter; omit when no cover so layout default applies. */
+function portfolioShareImages(imageSrc: string | undefined, alt: string) {
+  if (!imageSrc) return undefined;
+  const url = `${getSiteUrl()}${imageSrc}`;
+  return {
+    openGraph: { images: [{ url, alt }] as const },
+    twitter: { images: [url] as const },
+  };
+}
+
 export function categoryMetadata(category: PortfolioCategoryDef) {
   const path = portfolioCategoryPath(category.folder);
-  const description = `${category.description} ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & ${PRIMARY_REGION} photography by ${SITE_NAME}.`;
+  const description = category.metaDescription;
+  const share = portfolioShareImages(
+    category.coverSrc,
+    `${category.name} photography by ${SITE_NAME}`,
+  );
 
   if (category.documentTitle) {
     return {
       title: { absolute: category.documentTitle },
-      description: description.slice(0, 160),
+      description,
       path,
       openGraph: {
         title: category.documentTitle,
-        description: description.slice(0, 200),
+        description,
         url: path,
+        ...share?.openGraph,
       },
+      twitter: share?.twitter,
     };
   }
 
-  const title = category.metaTitle ?? `${category.name} Gallery`;
+  const title =
+    category.metaTitle ??
+    category.pageHeading ??
+    `${category.name} Portfolio`;
   return {
     title,
-    description: description.slice(0, 160),
+    description,
     path,
     openGraph: {
       title: `${title} | ${SITE_NAME}`,
-      description: description.slice(0, 200),
+      description,
       url: path,
+      ...share?.openGraph,
     },
+    twitter: share?.twitter,
   };
 }
 
@@ -62,6 +85,10 @@ export function shootMetadata(
     shoot.description?.trim() ||
     `${shoot.title} — ${category.name.toLowerCase()} photography in ${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} & the ${PRIMARY_REGION} by ${SITE_NAME}.`;
   const path = portfolioShootPath(category.folder, shoot.slug);
+  const share = portfolioShareImages(
+    shootCoverSrc(category.folder, shoot),
+    `${shoot.title} — ${category.name} by ${SITE_NAME}`,
+  );
 
   return {
     title,
@@ -71,7 +98,9 @@ export function shootMetadata(
       title: `${title} | ${category.name} | ${SITE_NAME}`,
       description: description.slice(0, 200),
       url: path,
+      ...share?.openGraph,
     },
+    twitter: share?.twitter,
   };
 }
 

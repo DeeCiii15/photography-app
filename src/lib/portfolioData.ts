@@ -33,7 +33,10 @@ export type PortfolioPhoto = {
 
 export type PortfolioCategoryDef = {
   name: string;
+  /** On-page body blurb under the category H1 */
   description: string;
+  /** Dedicated SEO / Open Graph description (≤160 chars preferred) */
+  metaDescription: string;
   homeTagline: string;
   folder: string;
   coverSrc: string;
@@ -146,6 +149,8 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
       name: 'Weddings',
       description:
         'Veil soft in the breeze, daddy walking you down the aisle, & the quiet tear he tries to hide—I live for those honest wedding-day moments.',
+      metaDescription:
+        'Wedding photography portfolios from Florence, SC & the Pee Dee—real wedding-day galleries in natural light & honest color by Taylor Rose Reels.',
       homeTagline: 'Vows, laughter & legacy',
       pageHeading: 'Wedding Portfolios',
       metaTitle: 'Wedding Photography Portfolio',
@@ -153,7 +158,9 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
     {
       name: 'Motherhood',
       description:
-        'That glow, the bump you keep resting your hand on, & the wonder before & after baby arrives—documented gently, never rushed.',
+        'That glow, the bump, & the wonder before & after baby arrives—documented gently, never rushed.',
+      metaDescription:
+        'Motherhood photography portfolios from Florence, SC & the Pee Dee—maternity & newborn galleries, soft natural light by Taylor Rose Reels.',
       homeTagline: 'Bloom & anticipation',
       pageHeading: 'Motherhood Portfolios',
     },
@@ -161,6 +168,8 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
       name: 'Couples / Engagement',
       description:
         'Ocean waves, downtown strolls, or evening boat rides—wherever y’all feel like yourselves is where I’ll meet you.',
+      metaDescription:
+        'Engagement photography portfolios from Florence, SC & the Pee Dee—couples session galleries in natural light & true color by Taylor Rose Reels.',
       homeTagline: 'Sweet on each other',
       pageHeading: 'Engagement Portfolios',
     },
@@ -168,6 +177,8 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
       name: 'Special Events',
       description:
         'Galas, brand launches, & the milestones that deserve to be remembered with polish & a little Southern warmth.',
+      metaDescription:
+        'Special event photography portfolios from Florence, SC & the Pee Dee—galas, launches & milestone galleries by Taylor Rose Reels.',
       homeTagline: 'Celebrate key moments',
       pageHeading: 'Special Events Portfolios',
     },
@@ -175,6 +186,8 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
       name: 'Family',
       description:
         'Your people, warm light, & so much love. Family portraits that feel natural & authentic, not posed or forced.',
+      metaDescription:
+        'Family photography portfolios from Florence, SC & the Pee Dee—natural, true-to-color family galleries by Taylor Rose Reels.',
       homeTagline: 'Together & true',
       pageHeading: 'Family Portfolios',
     },
@@ -182,6 +195,8 @@ const CATEGORY_COPY: Omit<PortfolioCategoryDef, 'folder' | 'coverSrc' | 'shoots'
       name: 'Portraits',
       description:
         'Just you—soft light & room to breathe—portraits that feel like a compliment, not a performance.',
+      metaDescription:
+        'Portrait photography portfolios from Florence, SC & the Pee Dee—individual sessions in soft natural light by Taylor Rose Reels.',
       homeTagline: 'Effortless & true',
       pageHeading: 'Portrait Portfolios',
     },

@@ -3,15 +3,18 @@ import Link from 'next/link';
 import BlogPageShell from '@/app/components/BlogPageShell';
 import BlogPostCard from '@/app/components/BlogPostCard';
 import { getAllCategories, getAllPosts, getAllTags, categoryToSlug, tagToSlug } from '@/lib/blog';
-import { PRIMARY_CITY, PRIMARY_REGION, SITE_NAME } from '@/lib/siteConfig';
+import { SITE_NAME } from '@/lib/siteConfig';
+
+const BLOG_DESCRIPTION =
+  'From the journal: wedding & portrait stories, planning tips, and Pee Dee local light—true-to-color notes behind the galleries.';
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: `Planning tips, local guides, and behind-the-gallery stories from ${SITE_NAME}—true to color, timeless wedding and portrait photography in ${PRIMARY_CITY} and the ${PRIMARY_REGION}.`,
+  description: BLOG_DESCRIPTION,
   alternates: { canonical: '/blog' },
   openGraph: {
     title: `Blog | ${SITE_NAME}`,
-    description: `Wedding and portrait photography tips, local guides, and stories from ${PRIMARY_CITY} and the ${PRIMARY_REGION}.`,
+    description: BLOG_DESCRIPTION,
     url: '/blog',
   },
 };

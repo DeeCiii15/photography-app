@@ -18,7 +18,7 @@ export function getSocialLinks(): SocialLink[] {
     'https://www.instagram.com/taylorrosereels';
   const fb =
     process.env.NEXT_PUBLIC_FACEBOOK_URL?.trim() ||
-    'https://www.facebook.com/p/Taylor-Rose-Reels-LLC-61556159227360';
+    'https://www.facebook.com/p/Taylor-Rose-Reels-61556159227360';
   const pin = process.env.NEXT_PUBLIC_PINTEREST_URL?.trim();
 
   const links: SocialLink[] = [

@@ -188,6 +188,22 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
       description:
         'Birthday party photography in Florence, SC—joyful details, candid smiles, & the little moments that make the celebration unforgettable.',
     },
+    {
+      slug: 'pamplico-sc-birthday-party-sawtooth-acres',
+      title: 'Annie\'s Birthday Party',
+      name: 'Annie',
+      venue: 'Sawtooth Acres',
+      description:
+        "Annie's birthday celebration at Sawtooth Acres in Pamplico, SC—joyful details, candid smiles, & the little moments that make the party feel like her.",
+    },
+    {
+      slug: 'florence-sc-bridal-shower-the-rooster-one-thirty-six',
+      title: 'Madeline\'s Bridal Shower',
+      name: 'Madeline',
+      venue: 'The Rooster One Thirty Six',
+      description:
+        "Madeline's bridal shower at The Rooster One Thirty Six in Florence, SC—pretty details, warm laughter, & the sweet in-between moments with the people she loves most.",
+    },
   ],
   Family: [
     {
@@ -218,7 +234,7 @@ export const SHOOTS_BY_CATEGORY: Record<string, PortfolioShootDef[]> = {
   Portraits: [
     {
       slug: 'hartsville-sc-senior-portraits',
-      title: 'Hatsville Senior Portraits',
+      title: 'Hartsville Senior Portraits',
       name: '',
       venue: '',
       description:

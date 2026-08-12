@@ -21,7 +21,7 @@ const PAGE_TITLE = `${FLORENCE_WEDDINGS_TITLE} | ${SITE_NAME}`;
 
 export const metadata: Metadata = {
   title: { absolute: PAGE_TITLE },
-  description: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography—natural light, true-to-color, documentary galleries at Florence's favorite venues. A ${PRIMARY_REGION} wedding photographer for honest, timeless coverage.`,
+  description: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photographer—documentary, true-to-color galleries at favorite venues. Honest coverage for couples across the ${PRIMARY_REGION}.`,
   alternates: { canonical: FLORENCE_WEDDINGS_PATH },
   openGraph: {
     title: PAGE_TITLE,

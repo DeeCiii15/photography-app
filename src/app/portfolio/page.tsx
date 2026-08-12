@@ -29,9 +29,9 @@ export default async function PortfolioPage({
             <h1 className="mt-3 font-display text-2xl font-medium text-cream-dark dark:text-cream md:text-3xl">
               Documenting Stories One Photograph at a Time
             </h1>
-            <p className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/68">
+            <h2 className="mt-4 font-body text-sm font-light leading-relaxed text-cream-dark/72 dark:text-cream/68">
               True to color and timeless by design—click any card to wander deeper.
-            </p>
+            </h2>
           </div>
           <PortfolioHomeGallery variant="portfolio" />
         </div>

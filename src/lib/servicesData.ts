@@ -91,7 +91,7 @@ export const SERVICE_DEFS: ServiceDef[] = [
     name: 'Wedding Photography',
     navLabel: 'Weddings',
     portfolioCategory: 'Weddings',
-    eyebrow: 'Wedding photography',
+    serviceNameAsH1: true,
     headline: 'Telling the story of your day through images you will cherish',
     headlineAccent: 'forever',
     intro:
@@ -363,7 +363,7 @@ export const SERVICE_DEFS: ServiceDef[] = [
       {
         question: 'How long is a typical family session?',
         answer:
-          'Most family sessions run 45 minutes to an hour—long enough for variety, short enough that everyone stays happy. Extended time or a second location can be added if you’d like more options.',
+          'Most family sessions run about an hour, long enough for variety, short enough that everyone stays happy. However, if you don’t think your little ones can hang for an hour, book a mini! Extended time or an additional location can be added.',
       },
       {
         question: 'What if my kids don’t sit still?',
@@ -436,12 +436,14 @@ export const SERVICE_DEFS: ServiceDef[] = [
     copyTopic: 'maternity and newborn photography',
     portfolioCategory: 'Motherhood',
     serviceNameAsH1: true,
-    headline: 'The pregnancy glow, the growing bump, and the wonder before and after baby',
+    headline: 'That glow, the bump, & the wonder before & after baby',
     headlineAccent: 'arrives',
+    introLead:
+      'Maternity, gender reveals, & the tender season of becoming a mama—documented gently, never rushed, with room for every feeling.',
     intro:
-      'Maternity sessions, gender reveals, newborn sessions, or updated family portraits with your new arrival—the whole season of motherhood deserves to be timelessly captured.',
+      'These sessions are unhurried & intimate, whether we’re wandering through the fields at Moore Farms in Lake City, taking in the beauty of Lawton Park in Hartsville, exploring downtown Florence, or choosing another meaningful location throughout the Pee Dee area—I’ll guide you softly & let the emotion lead.',
     body:
-      'These sessions are unhurried, intimate, and you can even ask me about my motherhood package.',
+      'The little details, the anticipation, the hands that instinctively find your belly, & the love that already feels so big, preserved honestly, beautifully, & exactly as it was.',
     faqs: [
       {
         question: 'When is the best time for maternity photos?',
@@ -458,12 +460,48 @@ export const SERVICE_DEFS: ServiceDef[] = [
         answer:
           'I’ll provide a style guide & tips if requested—but most importantly, wear whatever feels comfortable to you.',
       },
-      {
-        question: 'Do you offer gender reveal coverage?',
-        answer:
-          'I do—whether it’s an intimate moment with close family or a bigger celebration. We’ll talk through the reveal plan so I’m in the right place at the right time.',
-      },
     ],
+    venueSuggestions: {
+      heading: `Suggested maternity & newborn locations in and around ${PRIMARY_CITY}`,
+      intro:
+        'Here are some places I’ve loved for maternity & newborn sessions. Tap a category to browse, & open a spot in Maps when you want to scout it—or we can shoot right at home if that feels most authentic.',
+      categories: [
+        {
+          name: 'Favorite motherhood spots',
+          locations: [
+            {
+              name: 'Right at home',
+              detail: 'Wherever feels most authentic for this season',
+            },
+            {
+              name: 'Downtown Florence',
+              detail: 'South Carolina',
+              mapsQuery: 'Downtown Florence South Carolina',
+            },
+            {
+              name: 'Collins Grove',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Collins Grove Florence SC',
+            },
+            {
+              name: 'Timrod Park',
+              detail: 'Florence, South Carolina',
+              mapsQuery: 'Timrod Park Florence SC',
+            },
+            {
+              name: 'Lawton Park',
+              detail: 'Hartsville, South Carolina',
+              mapsQuery: 'Lawton Park Hartsville SC',
+            },
+            {
+              name: 'Kalmia Gardens',
+              detail: 'Hartsville, South Carolina',
+              mapsQuery: 'Kalmia Gardens Hartsville SC',
+            },
+          ],
+        },
+      ],
+    },
     blogTags: ['motherhood', 'maternity'],
     blogCategories: [],
     ctaHeadline: 'Want to remember this season?',
@@ -476,7 +514,7 @@ export const SERVICE_DEFS: ServiceDef[] = [
     name: 'Portrait Photography',
     navLabel: 'Portraits',
     portfolioCategory: 'Portraits',
-    eyebrow: 'Portrait photography',
+    serviceNameAsH1: true,
     headline: 'Just you—soft light & room to breathe—portraits that feel like a',
     headlineAccent: 'compliment',
     intro:

@@ -1,37 +1,37 @@
 {
   "meta": {
-    "generatedAt": "2026-08-06T19:18:35.875Z",
+    "generatedAt": "2026-08-11T15:45:50.347Z",
     "branch": "user-acceptance-testing (local working tree)",
-    "pageCount": 59
+    "pageCount": 61
   },
   "by": {
     "Core": [
       {
         "group": "Core",
         "path": "/",
-        "title": "Wedding Photographer in Florence, SC and surrounding Pee Dee areas | Taylor Rose Reels",
-        "desc": "Taylor Rose Reels is a Florence, SC wedding & portrait photographer serving the Pee Dee—Hartsville, Darlington",
-        "h1": "Florence, SC · Pee Dee · Wedding & portrait Soft light, honest color, warmth that feels li",
-        "h2": "Every photo tells a story; I'd love to help you tell yours. · More stories, same light · W",
+        "title": "Florence, SC Photographer | Weddings & Portraits | Taylor Rose Reels",
+        "desc": "Taylor Rose Reels is a Florence, SC wedding & portrait photographer serving the Pee Dee—Hartsville, Darlington, Marion, Lake City, & beyond.",
+        "h1": "Florence, SC · Pee Dee · Wedding & portrait Soft light, honest color, warmth that feels like memory.",
+        "h2": "Every photo tells a story; I'd love to help you tell yours. · More stories, same light · What they still talk about",
         "issue": "—"
       },
       {
         "group": "Core",
         "path": "/contact",
-        "title": "Contact | Taylor Rose Reels",
-        "desc": "Inquire about wedding, portrait, engagement, motherhood, family, and special event photography in Florence, SC",
+        "title": "Contact a Florence, SC Photographer | Taylor Rose Reels",
+        "desc": "Book wedding, portrait, engagement, family & event photography in Florence, SC & the Pee Dee. Share your date or vision—Taylor reads every message.",
         "h1": "Share your event vision with me",
-        "h2": "",
-        "issue": "Meta description >160 chars (187); Title weak for local SEO; No H2s on page"
+        "h2": "Send a message",
+        "issue": "—"
       },
       {
         "group": "Core",
         "path": "/portfolio",
         "title": "Wedding & Event Portfolio in Florence, SC | Taylor Rose Reels",
-        "desc": "Wedding, elopement, engagement, portrait, & event galleries from Florence, SC & the Pee Dee. Natural light & h",
+        "desc": "Wedding, elopement, engagement, portrait, & event galleries from Florence, SC & the Pee Dee. Natural light & honest color by Taylor Rose Reels.",
         "h1": "Documenting Stories One Photograph at a Time",
-        "h2": "",
-        "issue": "No H2s on page"
+        "h2": "True to color and timeless by design—click any card to wander deeper.",
+        "issue": "—"
       }
     ],
     "Location": [
@@ -39,10 +39,10 @@
         "group": "Location",
         "path": "/florence-sc-wedding-photography",
         "title": "Florence, South Carolina Wedding Photography | Taylor Rose Reels",
-        "desc": "Florence, SC wedding photography—natural light, true-to-color, documentary galleries at Florence's favorite ve",
+        "desc": "Florence, SC wedding photographer—documentary, true-to-color galleries at favorite venues. Honest coverage for couples across the Pee Dee.",
         "h1": "Florence, South Carolina Wedding Photography",
-        "h2": "Why I love being a part of your Florence wedding · Florence wedding venues I love · Let's ",
-        "issue": "Meta description >160 chars (177)"
+        "h2": "Why I love being a part of your Florence wedding · Florence wedding venues I love · Let's talk about your Florence area wedding",
+        "issue": "—"
       }
     ],
     "Services": [
@@ -50,54 +50,54 @@
         "group": "Services",
         "path": "/services/wedding-photography",
         "title": "Wedding Photography | Taylor Rose Reels",
-        "desc": "Documentary wedding photography in Florence, SC & the Pee Dee—true-to-color galleries, honest emotion, & timel",
-        "h1": "Telling the story of your day through images you will cherish forever",
-        "h2": "A closer look at wedding photography · Across the Pee Dee · Wedding related reading · Stra",
-        "issue": "Title missing location"
+        "desc": "Documentary wedding photographer in Florence, SC & the Pee Dee—true-to-color galleries, honest emotion, & timeless coverage from vows to last dance.",
+        "h1": "Wedding Photography",
+        "h2": "A closer look at wedding photography · Across the Pee Dee · Wedding related reading · Straight answers about weddings · What they say about weddings",
+        "issue": "—"
       },
       {
         "group": "Services",
         "path": "/services/engagement-photography",
         "title": "Engagement Photography in Florence, SC | Taylor Rose Reels",
-        "desc": "Relaxed engagement & couples photography in Florence, SC & the Pee Dee—natural light, easy posing, & galleries",
-        "h1": "Sweet on each other, on camera—wherever you feel most yourselves",
-        "h2": "A closer look at engagement photography · Straight answers about engagements · What they s",
+        "desc": "Engagement & couples photographer in Florence, SC & the Pee Dee—natural light, easy posing, & galleries that feel like you.",
+        "h1": "Engagement Photography",
+        "h2": "A closer look at engagement photography · Suggested engagement venues in and around Florence · Straight answers about engagements · What they say about engagements",
         "issue": "—"
       },
       {
         "group": "Services",
         "path": "/services/special-events-photography",
         "title": "Special Event Photography in Florence, SC | Taylor Rose Reels",
-        "desc": "Event photography in Florence, SC & the Pee Dee—proms, celebrations, brand moments, & milestones captured with",
-        "h1": "Galas, milestones, & the moments that deserve to be remembered",
-        "h2": "A closer look at special events photography · Straight answers about special events · What",
+        "desc": "Event photographer in Florence, SC & the Pee Dee—proms, celebrations, brand moments, & milestones captured with polish & warmth.",
+        "h1": "Special Events Photography",
+        "h2": "A closer look at special events photography · Wherever feels meaningful · Straight answers about special events · What they say about special events",
         "issue": "—"
       },
       {
         "group": "Services",
         "path": "/services/family-portrait-photography",
         "title": "Family Portrait Photography in Florence, SC | Taylor Rose Reels",
-        "desc": "Natural family portrait photography in Florence, SC & the Pee Dee—relaxed sessions, golden light, & galleries ",
-        "h1": "Your people, warm light, & love that doesn’t feel forced",
-        "h2": "A closer look at family portrait photography · Straight answers about family · What they s",
+        "desc": "Family portrait photographer in Florence, SC & the Pee Dee—relaxed sessions, golden light, & galleries that feel authentic.",
+        "h1": "Family Portrait Photography",
+        "h2": "A closer look at family portrait photography · Suggested family portrait locations in and around Florence · Straight answers about family portraits · What they say about family portraits",
         "issue": "—"
       },
       {
         "group": "Services",
         "path": "/services/motherhood-photography",
-        "title": "Maternity and Newborn Photography in Florence, ${PRIMARY_STATE}",
-        "desc": "Maternity & newborn photography in Florence, SC & the Pee Dee—gentle sessions for bump, gender reveals, & the ",
-        "h1": "That glow, the bump, & the wonder before & after baby arrives",
-        "h2": "A closer look at motherhood photography · Straight answers about motherhood",
+        "title": "Maternity and Newborn Photography in Florence, South Carolina | Taylor Rose Reels",
+        "desc": "Maternity & newborn photographer in Florence, SC & the Pee Dee—gentle sessions for bump, gender reveals, & the season before baby.",
+        "h1": "Maternity and Newborn Photography",
+        "h2": "A closer look at maternity and newborn photography · Straight answers about maternity and newborn photography",
         "issue": "—"
       },
       {
         "group": "Services",
         "path": "/services/portrait-photography",
         "title": "Portrait Photography in Florence, SC | Taylor Rose Reels",
-        "desc": "Portrait photography in Florence, SC & the Pee Dee—senior, bridal, professional, & personal sessions in natura",
-        "h1": "Just you—soft light & room to breathe—portraits that feel like a compliment",
-        "h2": "A closer look at portrait photography · Straight answers about portraits · What they say a",
+        "desc": "Portrait photographer in Florence, SC & the Pee Dee—senior, bridal, professional, & personal sessions in natural light.",
+        "h1": "Portrait Photography",
+        "h2": "A closer look at portrait photography · Straight answers about portraits · What they say about portraits",
         "issue": "—"
       }
     ],
@@ -106,7 +106,7 @@
         "group": "Portfolio categories",
         "path": "/portfolio/weddings",
         "title": "Wedding Photography Portfolio | Taylor Rose Reels",
-        "desc": "Veil soft in the breeze, daddy walking you down the aisle, & the quiet tear he tries to hide—I live for those ",
+        "desc": "Veil soft in the breeze, daddy walking you down the aisle, & the quiet tear he tries to hide—I live for those honest wedding-day moments. Florence, SC & Pee Dee",
         "h1": "Wedding Portfolios",
         "h2": "",
         "issue": "—"
@@ -114,47 +114,47 @@
       {
         "group": "Portfolio categories",
         "path": "/portfolio/motherhood",
-        "title": "Motherhood Gallery | Taylor Rose Reels",
-        "desc": "That glow, the bump you keep resting your hand on, & the wonder before & after baby arrives—documented gently,",
+        "title": "Motherhood Portfolios | Taylor Rose Reels",
+        "desc": "That glow, the bump you keep resting your hand on, & the wonder before & after baby arrives—documented gently, never rushed. Florence, SC & Pee Dee photography ",
         "h1": "Motherhood Portfolios",
         "h2": "",
-        "issue": "Generic gallery title; little location signal; Title says Gallery; H1 says Portfolios"
+        "issue": "—"
       },
       {
         "group": "Portfolio categories",
         "path": "/portfolio/couples-engagement",
-        "title": "Couples / Engagement Gallery | Taylor Rose Reels",
-        "desc": "Ocean waves, downtown strolls, or evening boat rides—wherever y’all feel like yourselves is where I’ll meet yo",
+        "title": "Engagement Portfolios | Taylor Rose Reels",
+        "desc": "Ocean waves, downtown strolls, or evening boat rides—wherever y’all feel like yourselves is where I’ll meet you. Florence, SC & Pee Dee photography by Taylor Ro",
         "h1": "Engagement Portfolios",
         "h2": "",
-        "issue": "Generic gallery title; little location signal; Title says Gallery; H1 says Portfolios"
+        "issue": "—"
       },
       {
         "group": "Portfolio categories",
         "path": "/portfolio/special-events",
-        "title": "Special Events Gallery | Taylor Rose Reels",
-        "desc": "Galas, brand launches, & the milestones that deserve to be remembered with polish & a little Southern warmth. ",
+        "title": "Special Events Portfolios | Taylor Rose Reels",
+        "desc": "Galas, brand launches, & the milestones that deserve to be remembered with polish & a little Southern warmth. Florence, SC & Pee Dee photography by Taylor Rose ",
         "h1": "Special Events Portfolios",
         "h2": "",
-        "issue": "Generic gallery title; little location signal; Title says Gallery; H1 says Portfolios"
+        "issue": "—"
       },
       {
         "group": "Portfolio categories",
         "path": "/portfolio/family",
-        "title": "Family Gallery | Taylor Rose Reels",
-        "desc": "Your people, warm light, & so much love. Family portraits that feel natural & authentic, not posed or forced. ",
+        "title": "Family Portfolios | Taylor Rose Reels",
+        "desc": "Your people, warm light, & so much love. Family portraits that feel natural & authentic, not posed or forced. Florence, SC & Pee Dee photography by Taylor Rose ",
         "h1": "Family Portfolios",
         "h2": "",
-        "issue": "Generic gallery title; little location signal; Title says Gallery; H1 says Portfolios"
+        "issue": "—"
       },
       {
         "group": "Portfolio categories",
         "path": "/portfolio/portraits",
-        "title": "Portraits Gallery | Taylor Rose Reels",
-        "desc": "Just you—soft light & room to breathe—portraits that feel like a compliment, not a performance. Florence, SC &",
+        "title": "Portrait Portfolios | Taylor Rose Reels",
+        "desc": "Just you—soft light & room to breathe—portraits that feel like a compliment, not a performance. Florence, SC & Pee Dee photography by Taylor Rose Reels.",
         "h1": "Portrait Portfolios",
         "h2": "",
-        "issue": "Generic gallery title; little location signal; Title says Gallery; H1 says Portfolios"
+        "issue": "—"
       }
     ],
     "Portfolio shoots": [
@@ -162,7 +162,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/weddings/tennessee-wedding-emerald-ridge",
         "title": "Carly & Drew at Emerald Ridge | Taylor Rose Reels",
-        "desc": "Carly & Drew Nash said I do at Emerald Ridge in Tennessee—honest light, real emotion, & the quiet in-between m",
+        "desc": "Carly & Drew Nash said I do at Emerald Ridge in Tennessee—honest light, real emotion, & the quiet in-between moments from vows through celebration.",
         "h1": "Carly & Drew at Emerald Ridge",
         "h2": "",
         "issue": "—"
@@ -171,7 +171,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/weddings/mount-pleasant-sc-wedding-dunes-west-golf-river-club",
         "title": "Tori & Michael at Dunes West Golf & River Club | Taylor Rose Reels",
-        "desc": "Tori & Michael McKenzie celebrated at Dunes West Golf & River Club in Mount Pleasant, SC—soft coastal light, e",
+        "desc": "Tori & Michael McKenzie celebrated at Dunes West Golf & River Club in Mount Pleasant, SC—soft coastal light, easy joy, & the in-between moments that made their ",
         "h1": "Tori & Michael at Dunes West Golf & River Club",
         "h2": "",
         "issue": "—"
@@ -180,7 +180,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/weddings/patrick-sc-wedding-griggs-farm",
         "title": "Elena & Mike at Griggs Farm | Taylor Rose Reels",
-        "desc": "Elena & Mike Dotson celebrated at Griggs Farm in Patrick, SC—natural light, genuine emotion, & the real moment",
+        "desc": "Elena & Mike Dotson celebrated at Griggs Farm in Patrick, SC—natural light, genuine emotion, & the real moments from getting ready through the last dance.",
         "h1": "Elena & Mike at Griggs Farm",
         "h2": "",
         "issue": "—"
@@ -189,7 +189,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/weddings/pamplico-sc-wedding-sawtooth-acres",
         "title": "Jessica & Gage at Sawtooth Acres | Taylor Rose Reels",
-        "desc": "Jessica & Gage Norton’s vintage-meets-timeless day at Sawtooth Acres in Pamplico, SC—honest light, real emotio",
+        "desc": "Jessica & Gage Norton’s vintage-meets-timeless day at Sawtooth Acres in Pamplico, SC—honest light, real emotion, & the quiet glances that make a wedding feel li",
         "h1": "Jessica & Gage at Sawtooth Acres",
         "h2": "",
         "issue": "—"
@@ -198,7 +198,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/weddings/florence-sc-wedding-glenview-farms",
         "title": "Madelyn & Max at Glenview Farms | Taylor Rose Reels",
-        "desc": "Madelyn & Max Freeman celebrated at Glenview Farms in Florence, SC—true-to-color light, barn warmth, & the hon",
+        "desc": "Madelyn & Max Freeman celebrated at Glenview Farms in Florence, SC—true-to-color light, barn warmth, & the honest in-between moments from getting ready through ",
         "h1": "Madelyn & Max at Glenview Farms",
         "h2": "",
         "issue": "—"
@@ -207,7 +207,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/weddings/timmonsville-sc-wedding-the-cabin-at-old-spur",
         "title": "Baylee & Walker at The Cabin at Old Spur | Taylor Rose Reels",
-        "desc": "Baylee & Walker Rogers celebrated at The Cabin at Old Spur in Timmonsville, SC—cabin getting-ready jitters, te",
+        "desc": "Baylee & Walker Rogers celebrated at The Cabin at Old Spur in Timmonsville, SC—cabin getting-ready jitters, tender family details, & soft light tucked back in t",
         "h1": "Baylee & Walker at The Cabin at Old Spur",
         "h2": "",
         "issue": "—"
@@ -216,7 +216,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/weddings/latta-sc-wedding-parker-pines-lee",
         "title": "Talor & Houston at Parker Pines | Taylor Rose Reels",
-        "desc": "Talor & Houston Lee’s modern white-barn wedding at Parker Pines in Latta, SC—natural light among the trees, ho",
+        "desc": "Talor & Houston Lee’s modern white-barn wedding at Parker Pines in Latta, SC—natural light among the trees, honest emotion, & the real moments from getting read",
         "h1": "Talor & Houston at Parker Pines",
         "h2": "",
         "issue": "—"
@@ -225,7 +225,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/weddings/latta-sc-wedding-parker-pines-flowers",
         "title": "Kendall & Dalton at Parker Pines | Taylor Rose Reels",
-        "desc": "Kendall & Dalton Flowers celebrated waterside vows at Parker Pines in Latta, SC—soft natural light by the pond",
+        "desc": "Kendall & Dalton Flowers celebrated waterside vows at Parker Pines in Latta, SC—soft natural light by the pond, romantic details, & the quiet in-between moments",
         "h1": "Kendall & Dalton at Parker Pines",
         "h2": "",
         "issue": "—"
@@ -234,7 +234,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/weddings/darlington-sc-wedding-murphy-farms",
         "title": "Maddie & Dan at Murphy Farms | Taylor Rose Reels",
-        "desc": "Maddie & Dan Galloway’s cozy winter wedding at Murphy Farms in Darlington, SC—an open-field ceremony beside th",
+        "desc": "Maddie & Dan Galloway’s cozy winter wedding at Murphy Farms in Darlington, SC—an open-field ceremony beside the pond, emerald bridesmaids, red & white florals, ",
         "h1": "Maddie & Dan at Murphy Farms",
         "h2": "",
         "issue": "—"
@@ -243,7 +243,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/motherhood/charleston-sc-motherhood",
         "title": "Charleston Beach Motherhood | Taylor Rose Reels",
-        "desc": "Maternity portraits on the Charleston coast—soft sand, golden light, & gentle documentation of life before & a",
+        "desc": "Maternity portraits on the Charleston coast—soft sand, golden light, & gentle documentation of life before & after baby arrives.",
         "h1": "Charleston Beach Motherhood",
         "h2": "",
         "issue": "—"
@@ -252,7 +252,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/motherhood/sullivans-island-motherhood",
         "title": "Sullivans Island Beach Motherhood | Taylor Rose Reels",
-        "desc": "Beach maternity session on Sullivan's Island—ocean air, natural light, & calm portraits that honor the bump & ",
+        "desc": "Beach maternity session on Sullivan's Island—ocean air, natural light, & calm portraits that honor the bump & anticipation.",
         "h1": "Sullivans Island Beach Motherhood",
         "h2": "",
         "issue": "—"
@@ -261,7 +261,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/motherhood/florence-sc-gender-reveal",
         "title": "Florence Intimate Gender Reveal | Taylor Rose Reels",
-        "desc": "Intimate gender reveal photography in Florence, SC—joyful anticipation, soft natural light, & candid moments a",
+        "desc": "Intimate gender reveal photography in Florence, SC—joyful anticipation, soft natural light, & candid moments as you share the surprise with the people you love ",
         "h1": "Florence Intimate Gender Reveal",
         "h2": "",
         "issue": "—"
@@ -279,7 +279,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/couples-engagement/florence-sc-engagement",
         "title": "Downtown Florence Engagement | Taylor Rose Reels",
-        "desc": "Downtown Florence engagement session—city streets at golden hour, easy laughs, & romantic portraits in natural",
+        "desc": "Downtown Florence engagement session—city streets at golden hour, easy laughs, & romantic portraits in natural light.",
         "h1": "Downtown Florence Engagement",
         "h2": "",
         "issue": "—"
@@ -288,7 +288,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/couples-engagement/lake-city-sc-engagement",
         "title": "Pee Dee River Engagement | Taylor Rose Reels",
-        "desc": "Engagement photos along the Pee Dee River near Lake City—soft light, open water, & unhurried couples portraits",
+        "desc": "Engagement photos along the Pee Dee River near Lake City—soft light, open water, & unhurried couples portraits.",
         "h1": "Pee Dee River Engagement",
         "h2": "",
         "issue": "—"
@@ -306,8 +306,26 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/special-events/florence-sc-birthday-party",
         "title": "Florence Birthday Party | Taylor Rose Reels",
-        "desc": "Birthday party photography in Florence, SC—joyful details, candid smiles, & the little moments that make the c",
+        "desc": "Birthday party photography in Florence, SC—joyful details, candid smiles, & the little moments that make the celebration unforgettable.",
         "h1": "Florence Birthday Party",
+        "h2": "",
+        "issue": "—"
+      },
+      {
+        "group": "Portfolio shoots",
+        "path": "/portfolio/special-events/pamplico-sc-birthday-party-sawtooth-acres",
+        "title": "Annie's Birthday Party | Taylor Rose Reels",
+        "desc": "Annie's birthday celebration at Sawtooth Acres in Pamplico, SC—joyful details, candid smiles, & the little moments that make the party feel like her.",
+        "h1": "Annie's Birthday Party",
+        "h2": "",
+        "issue": "—"
+      },
+      {
+        "group": "Portfolio shoots",
+        "path": "/portfolio/special-events/florence-sc-bridal-shower-the-rooster-one-thirty-six",
+        "title": "Madeline's Bridal Shower | Taylor Rose Reels",
+        "desc": "Madeline's bridal shower at The Rooster One Thirty Six in Florence, SC—pretty details, warm laughter, & the sweet in-between moments with the people she loves m",
+        "h1": "Madeline's Bridal Shower",
         "h2": "",
         "issue": "—"
       },
@@ -315,7 +333,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/family/myrtle-beach-family",
         "title": "Myrtle Beach Family Shoot | Taylor Rose Reels",
-        "desc": "Family portraits at Myrtle Beach—siblings, parents, & sandy toes in soft coastal light you'll want to frame fo",
+        "desc": "Family portraits at Myrtle Beach—siblings, parents, & sandy toes in soft coastal light you'll want to frame for years.",
         "h1": "Myrtle Beach Family Shoot",
         "h2": "",
         "issue": "—"
@@ -324,7 +342,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/family/florence-sc-family",
         "title": "Florence Family Shoot | Taylor Rose Reels",
-        "desc": "Family photography in Florence, SC—relaxed portraits with room to breathe, real laughs, & light that flatters ",
+        "desc": "Family photography in Florence, SC—relaxed portraits with room to breathe, real laughs, & light that flatters your crew.",
         "h1": "Florence Family Shoot",
         "h2": "",
         "issue": "—"
@@ -333,7 +351,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/family/marion-sc-family",
         "title": "Marion Family Shoot | Taylor Rose Reels",
-        "desc": "Family session in Marion, SC—togetherness, natural light, & portraits that feel like your everyday love, not a",
+        "desc": "Family session in Marion, SC—togetherness, natural light, & portraits that feel like your everyday love, not a stiff pose.",
         "h1": "Marion Family Shoot",
         "h2": "",
         "issue": "—"
@@ -341,17 +359,17 @@
       {
         "group": "Portfolio shoots",
         "path": "/portfolio/portraits/hartsville-sc-senior-portraits",
-        "title": "Hatsville Senior Portraits | Taylor Rose Reels",
-        "desc": "Senior portraits in Hartsville, SC—confident, relaxed, & true to you, with natural light & room to simply be y",
-        "h1": "Hatsville Senior Portraits",
+        "title": "Hartsville Senior Portraits | Taylor Rose Reels",
+        "desc": "Senior portraits in Hartsville, SC—confident, relaxed, & true to you, with natural light & room to simply be yourself.",
+        "h1": "Hartsville Senior Portraits",
         "h2": "",
-        "issue": "Typo: Hatsville → Hartsville; H1 typo: Hatsville"
+        "issue": "—"
       },
       {
         "group": "Portfolio shoots",
         "path": "/portfolio/portraits/camden-sc-bridal-portraits",
         "title": "Camden Bridal Portraits | Taylor Rose Reels",
-        "desc": "Bridal portraits in Camden, SC—soft light, elegant details, & the quiet beauty of getting ready for your weddi",
+        "desc": "Bridal portraits in Camden, SC—soft light, elegant details, & the quiet beauty of getting ready for your wedding day.",
         "h1": "Camden Bridal Portraits",
         "h2": "",
         "issue": "—"
@@ -360,7 +378,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/portraits/latta-sc-bridal-portraits",
         "title": "Latta Bridal Portraits | Taylor Rose Reels",
-        "desc": "Bridal portraits in Latta, SC—soft natural light, elegant details, & the quiet beauty of getting ready for you",
+        "desc": "Bridal portraits in Latta, SC—soft natural light, elegant details, & the quiet beauty of getting ready for your wedding day.",
         "h1": "Latta Bridal Portraits",
         "h2": "",
         "issue": "—"
@@ -369,7 +387,7 @@
         "group": "Portfolio shoots",
         "path": "/portfolio/portraits/florence-sc-professional-portraits",
         "title": "Florence Professional Portraits | Taylor Rose Reels",
-        "desc": "Professional portraits in Florence, SC—polished, approachable, & natural light for headshots, branding, & putt",
+        "desc": "Professional portraits in Florence, SC—polished, approachable, & natural light for headshots, branding, & putting your best self forward.",
         "h1": "Florence Professional Portraits",
         "h2": "",
         "issue": "—"
@@ -380,10 +398,10 @@
         "group": "Blog",
         "path": "/blog",
         "title": "Blog | Taylor Rose Reels",
-        "desc": "Planning tips, local guides, and behind-the-gallery stories from Taylor Rose Reels—true to color, timeless wed",
+        "desc": "From the journal: wedding & portrait stories, planning tips, and Pee Dee local light—true-to-color notes behind the galleries.",
         "h1": "Stories, tips & local light",
         "h2": "",
-        "issue": "Meta description >160 chars (168); No H2s on page"
+        "issue": "No H2s"
       }
     ],
     "Blog posts": [
@@ -400,7 +418,7 @@
         "group": "Blog posts",
         "path": "/blog/why-documentary-wedding-photography-captures-the-moments-you-treasure",
         "title": "Why Documentary Wedding Photography Captures the Moments You Will Treasure the Most | Taylor Rose Reels",
-        "desc": "A look at how documentary-style wedding photography blends intentional portraits with candid, in-between momen",
+        "desc": "A look at how documentary-style wedding photography blends intentional portraits with candid, in-between moments you'll want to remember forever.",
         "h1": "Why Documentary Wedding Photography Captures the Moments You Will Treasure the Most",
         "h2": "More from the journal",
         "issue": "—"
@@ -414,7 +432,7 @@
         "desc": "Weddings from the Taylor Rose Reels journal.",
         "h1": "Weddings",
         "h2": "",
-        "issue": "Meta description short (44)"
+        "issue": "Meta desc short (44)"
       },
       {
         "group": "Blog filters",
@@ -423,7 +441,7 @@
         "desc": "Wedding Planning from the Taylor Rose Reels journal.",
         "h1": "Wedding Planning",
         "h2": "",
-        "issue": "Meta description short (52)"
+        "issue": "Meta desc short (52)"
       },
       {
         "group": "Blog filters",
@@ -432,7 +450,7 @@
         "desc": "Journal posts tagged “weddings” from Taylor Rose Reels.",
         "h1": "weddings",
         "h2": "",
-        "issue": "Meta description short (55); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (55); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -441,7 +459,7 @@
         "desc": "Journal posts tagged “Pamplico SC” from Taylor Rose Reels.",
         "h1": "Pamplico SC",
         "h2": "",
-        "issue": "Meta description short (58); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (58); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -450,7 +468,7 @@
         "desc": "Journal posts tagged “Sawtooth Acres” from Taylor Rose Reels.",
         "h1": "Sawtooth Acres",
         "h2": "",
-        "issue": "Meta description short (61); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (61); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -459,7 +477,7 @@
         "desc": "Journal posts tagged “Pee Dee” from Taylor Rose Reels.",
         "h1": "Pee Dee",
         "h2": "",
-        "issue": "Meta description short (54); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (54); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -468,7 +486,7 @@
         "desc": "Journal posts tagged “South Carolina” from Taylor Rose Reels.",
         "h1": "South Carolina",
         "h2": "",
-        "issue": "Meta description short (61); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (61); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -477,7 +495,7 @@
         "desc": "Journal posts tagged “documentary photography” from Taylor Rose Reels.",
         "h1": "documentary photography",
         "h2": "",
-        "issue": "Thin tag landing (few posts sitewide)"
+        "issue": "Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -486,7 +504,7 @@
         "desc": "Journal posts tagged “Florence SC” from Taylor Rose Reels.",
         "h1": "Florence SC",
         "h2": "",
-        "issue": "Meta description short (58); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (58); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -495,7 +513,7 @@
         "desc": "Journal posts tagged “Timmonsville SC” from Taylor Rose Reels.",
         "h1": "Timmonsville SC",
         "h2": "",
-        "issue": "Meta description short (62); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (62); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -504,7 +522,7 @@
         "desc": "Journal posts tagged “Camden SC” from Taylor Rose Reels.",
         "h1": "Camden SC",
         "h2": "",
-        "issue": "Meta description short (56); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (56); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -513,7 +531,7 @@
         "desc": "Journal posts tagged “Weaverville NC” from Taylor Rose Reels.",
         "h1": "Weaverville NC",
         "h2": "",
-        "issue": "Meta description short (61); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (61); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -522,7 +540,7 @@
         "desc": "Journal posts tagged “Patrick SC” from Taylor Rose Reels.",
         "h1": "Patrick SC",
         "h2": "",
-        "issue": "Meta description short (57); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (57); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -531,7 +549,7 @@
         "desc": "Journal posts tagged “Ocean Isle Beach NC” from Taylor Rose Reels.",
         "h1": "Ocean Isle Beach NC",
         "h2": "",
-        "issue": "Meta description short (66); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (66); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -540,7 +558,7 @@
         "desc": "Journal posts tagged “Mt. Pleasant SC” from Taylor Rose Reels.",
         "h1": "Mt. Pleasant SC",
         "h2": "",
-        "issue": "Meta description short (62); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (62); Thin tag page (only 2 posts sitewide)"
       },
       {
         "group": "Blog filters",
@@ -549,7 +567,7 @@
         "desc": "Journal posts tagged “North Carolina” from Taylor Rose Reels.",
         "h1": "North Carolina",
         "h2": "",
-        "issue": "Meta description short (61); Thin tag landing (few posts sitewide)"
+        "issue": "Meta desc short (61); Thin tag page (only 2 posts sitewide)"
       }
     ]
   }

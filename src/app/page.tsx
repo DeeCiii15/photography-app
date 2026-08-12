@@ -31,8 +31,8 @@ export default function Home() {
           <div className="flex min-h-svh flex-col items-center justify-end px-6 pb-16 pt-28 text-center sm:items-start sm:px-10 sm:pb-20 sm:text-left md:pb-24 lg:px-16">
             <h1 className="mx-auto max-w-xl sm:mx-0">
               <span className="type-eyebrow block text-white/88">
-                {PRIMARY_CITY}, {PRIMARY_STATE_ABBR} · {PRIMARY_REGION} · Wedding
-                &amp; portrait
+                {PRIMARY_CITY}, {PRIMARY_STATE_ABBR} photographer ·{' '}
+                {PRIMARY_REGION} · Weddings &amp; portraits
               </span>
               <span className="font-display mt-6 block text-2xl leading-snug text-white/95 sm:text-3xl md:text-[2.15rem]">
                 Soft light, honest color, warmth that feels like memory.
@@ -113,9 +113,9 @@ export default function Home() {
             <p className="mt-3 font-body text-xs font-light leading-[1.75] text-cream-dark/78 dark:text-cream/72 sm:mt-4 sm:text-sm sm:text-base">
               This little corner of the internet is a slow scroll through the
               kind of light I love—golden fields, quiet ceremony corners, &
-              film-soft black & white. Based in {PRIMARY_CITY}, I photograph
-              weddings & portraits across the {PRIMARY_REGION} &
-              surrounding {PRIMARY_STATE_ABBR} towns like{' '}
+              film-soft black & white. Based in {PRIMARY_CITY}, I&apos;m a
+              photographer for weddings & portraits across the {PRIMARY_REGION}{' '}
+              & surrounding {PRIMARY_STATE_ABBR} towns like{' '}
               {SERVICE_AREAS.slice(1, 4).join(', ')}, & beyond. Stay as long as
               you like; when you&apos;re ready, we&apos;ll dream up a session
               that feels like you, not a pose list.
@@ -146,7 +146,12 @@ export default function Home() {
               <div className="mx-auto mt-4 max-w-md space-y-3 text-center font-body text-[0.8rem] font-light leading-[1.75] text-cream-dark/82 dark:text-cream/78 max-sm:px-1 sm:mt-8 sm:max-w-none sm:space-y-5 sm:px-0 sm:text-left sm:text-[0.95rem] sm:leading-[1.8]">
                 <p>
                   Hi, friend! I&apos;m Taylor Hayden, the owner & heart behind
-                  Taylor Rose Reels, LLC. I&apos;m so glad you&apos;re here!
+                  Taylor Rose Reels. I&apos;m so glad you&apos;re here!
+                </p>
+                <p>
+                  I photograph weddings, families, and portraits in{' '}
+                  {PRIMARY_CITY}, {PRIMARY_STATE_ABBR} and across the{' '}
+                  {PRIMARY_REGION}.
                 </p>
                 <p>
                   Photography is more than just taking pictures—it&apos;s about
