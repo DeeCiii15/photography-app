@@ -9,6 +9,7 @@ import {
   getCategoryBySlug,
   getPostsByCategory,
 } from '@/lib/blog';
+import { pageShareMeta } from '@/lib/shareMeta';
 import { SITE_NAME } from '@/lib/siteConfig';
 
 type BlogCategoryPageProps = {
@@ -28,15 +29,18 @@ export async function generateMetadata({
   const label = getCategoryBySlug(category);
   if (!label) return {};
 
+  const description = `${label} from the ${SITE_NAME} journal.`;
+  const share = pageShareMeta({
+    title: `${label} | Blog | ${SITE_NAME}`,
+    description,
+    url: `/blog/category/${category}`,
+  });
+
   return {
     title: `${label}`,
-    description: `${label} from the ${SITE_NAME} journal.`,
+    description,
     alternates: { canonical: `/blog/category/${category}` },
-    openGraph: {
-      title: `${label} | Blog | ${SITE_NAME}`,
-      description: `${label} from the ${SITE_NAME} journal.`,
-      url: `/blog/category/${category}`,
-    },
+    ...share,
   };
 }
 

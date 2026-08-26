@@ -3,20 +3,24 @@ import Link from 'next/link';
 import BlogPageShell from '@/app/components/BlogPageShell';
 import BlogPostCard from '@/app/components/BlogPostCard';
 import { getAllCategories, getAllPosts, getAllTags, categoryToSlug, tagToSlug } from '@/lib/blog';
+import { pageShareMeta } from '@/lib/shareMeta';
 import { SITE_NAME } from '@/lib/siteConfig';
 
 const BLOG_DESCRIPTION =
   'From the journal: wedding & portrait stories, planning tips, and Pee Dee local light—true-to-color notes behind the galleries.';
 
+const BLOG_TITLE = `Blog | ${SITE_NAME}`;
+const blogShare = pageShareMeta({
+  title: BLOG_TITLE,
+  description: BLOG_DESCRIPTION,
+  url: '/blog',
+});
+
 export const metadata: Metadata = {
   title: 'Blog',
   description: BLOG_DESCRIPTION,
   alternates: { canonical: '/blog' },
-  openGraph: {
-    title: `Blog | ${SITE_NAME}`,
-    description: BLOG_DESCRIPTION,
-    url: '/blog',
-  },
+  ...blogShare,
 };
 
 export default function BlogPage() {

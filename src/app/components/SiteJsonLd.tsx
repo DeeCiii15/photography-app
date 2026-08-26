@@ -4,12 +4,12 @@ import {
   GEO_COORDINATES,
   getSiteUrl,
   PHOTOGRAPHER_EMAIL,
+  PHOTOGRAPHER_NAME,
   PRIMARY_CITY,
-  PRIMARY_REGION,
-  PRIMARY_STATE,
   PRIMARY_STATE_ABBR,
-  SERVICE_AREAS,
+  schemaAreaServed,
   SITE_DESCRIPTION,
+  SITE_LOGO_PATH,
   SITE_NAME,
 } from '@/lib/siteConfig';
 
@@ -17,6 +17,7 @@ import {
 export default function SiteJsonLd() {
   const url = getSiteUrl();
   const sameAs = getSameAsLinks();
+  const logoUrl = `${url}${SITE_LOGO_PATH}`;
 
   const business: Record<string, unknown> = {
     '@type': ['LocalBusiness', 'ProfessionalService', 'Photographer'],
@@ -25,8 +26,13 @@ export default function SiteJsonLd() {
     description: SITE_DESCRIPTION,
     url,
     image: `${url}${DEFAULT_OG_IMAGE_PATH}`,
+    logo: {
+      '@type': 'ImageObject',
+      url: logoUrl,
+    },
     email: PHOTOGRAPHER_EMAIL,
     priceRange: '$$',
+    founder: { '@id': `${url}#person` },
     address: {
       '@type': 'PostalAddress',
       addressLocality: PRIMARY_CITY,
@@ -38,16 +44,7 @@ export default function SiteJsonLd() {
       latitude: GEO_COORDINATES.latitude,
       longitude: GEO_COORDINATES.longitude,
     },
-    areaServed: [
-      {
-        '@type': 'AdministrativeArea',
-        name: `${PRIMARY_REGION} region, ${PRIMARY_STATE}`,
-      },
-      ...SERVICE_AREAS.map((city) => ({
-        '@type': 'City',
-        name: `${city}, ${PRIMARY_STATE_ABBR}`,
-      })),
-    ],
+    areaServed: schemaAreaServed(),
     serviceType: [
       'Wedding photography',
       'Family photography',
@@ -70,6 +67,15 @@ export default function SiteJsonLd() {
         url,
         description: SITE_DESCRIPTION,
         publisher: { '@id': `${url}#business` },
+      },
+      {
+        '@type': 'Person',
+        '@id': `${url}#person`,
+        name: PHOTOGRAPHER_NAME,
+        url,
+        jobTitle: 'Photographer',
+        image: `${url}${DEFAULT_OG_IMAGE_PATH}`,
+        worksFor: { '@id': `${url}#business` },
       },
       business,
     ],

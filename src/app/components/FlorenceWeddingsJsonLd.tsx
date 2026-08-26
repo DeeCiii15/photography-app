@@ -1,12 +1,12 @@
 import {
+  FLORENCE_WEDDINGS_HERO_PATH,
   FLORENCE_WEDDINGS_PATH,
   FLORENCE_WEDDINGS_TITLE,
   getSiteUrl,
   PRIMARY_CITY,
   PRIMARY_REGION,
-  PRIMARY_STATE,
   PRIMARY_STATE_ABBR,
-  SERVICE_AREAS,
+  schemaAreaServed,
   SITE_NAME,
 } from '@/lib/siteConfig';
 
@@ -17,6 +17,7 @@ import {
 export default function FlorenceWeddingsJsonLd() {
   const url = getSiteUrl();
   const pageUrl = `${url}${FLORENCE_WEDDINGS_PATH}`;
+  const hero = `${url}${FLORENCE_WEDDINGS_HERO_PATH}`;
 
   const data = {
     '@context': 'https://schema.org',
@@ -28,7 +29,7 @@ export default function FlorenceWeddingsJsonLd() {
         name: `${FLORENCE_WEDDINGS_TITLE} | ${SITE_NAME}`,
         isPartOf: { '@id': `${url}#website` },
         about: { '@id': `${pageUrl}#service` },
-        primaryImageOfPage: `${url}/images/hero_1.jpg`,
+        primaryImageOfPage: hero,
       },
       {
         '@type': 'Service',
@@ -37,17 +38,9 @@ export default function FlorenceWeddingsJsonLd() {
         name: FLORENCE_WEDDINGS_TITLE,
         description: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography—natural light, true-to-color coverage for couples across the ${PRIMARY_REGION} by ${SITE_NAME}.`,
         url: pageUrl,
+        image: hero,
         provider: { '@id': `${url}#business` },
-        areaServed: [
-          {
-            '@type': 'AdministrativeArea',
-            name: `${PRIMARY_REGION} region, ${PRIMARY_STATE}`,
-          },
-          ...SERVICE_AREAS.map((city) => ({
-            '@type': 'City',
-            name: `${city}, ${PRIMARY_STATE_ABBR}`,
-          })),
-        ],
+        areaServed: schemaAreaServed(),
       },
     ],
   };

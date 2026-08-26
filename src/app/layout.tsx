@@ -4,12 +4,12 @@ import { Corinthia, Lora } from "next/font/google";
 import "./globals.css";
 import ContactRibbon from "./components/ContactRibbon";
 import SiteJsonLd from "./components/SiteJsonLd";
+import { pageShareMeta } from "@/lib/shareMeta";
 import {
   CANONICAL_SITE_URL,
-  DEFAULT_OG_IMAGE_PATH,
   getSiteUrl,
   LOCAL_KEYWORDS,
-  PHOTOGRAPHER_IMAGE_ALT,
+  PHOTOGRAPHER_NAME,
   SITE_DESCRIPTION,
   SITE_NAME,
 } from "@/lib/siteConfig";
@@ -32,6 +32,11 @@ const siteUrl = getSiteUrl();
 const favicon = (path: string) => `${CANONICAL_SITE_URL}${path}`;
 
 const HOME_PAGE_TITLE = `Florence, SC Photographer | Weddings & Portraits | ${SITE_NAME}`;
+const homeShare = pageShareMeta({
+  title: HOME_PAGE_TITLE,
+  description: SITE_DESCRIPTION,
+  url: "/",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -41,28 +46,10 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   keywords: [...LOCAL_KEYWORDS],
-  authors: [{ name: SITE_NAME, url: siteUrl }],
-  creator: SITE_NAME,
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteUrl,
-    siteName: SITE_NAME,
-    title: HOME_PAGE_TITLE,
-    description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: DEFAULT_OG_IMAGE_PATH,
-        alt: PHOTOGRAPHER_IMAGE_ALT,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: HOME_PAGE_TITLE,
-    description: SITE_DESCRIPTION,
-    images: [DEFAULT_OG_IMAGE_PATH],
-  },
+  authors: [{ name: PHOTOGRAPHER_NAME, url: siteUrl }],
+  creator: PHOTOGRAPHER_NAME,
+  openGraph: homeShare.openGraph,
+  twitter: homeShare.twitter,
   robots: {
     index: true,
     follow: true,

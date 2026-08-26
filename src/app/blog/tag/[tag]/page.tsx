@@ -9,6 +9,7 @@ import {
   getTagBySlug,
   tagToSlug,
 } from '@/lib/blog';
+import { pageShareMeta } from '@/lib/shareMeta';
 import { SITE_NAME } from '@/lib/siteConfig';
 
 type BlogTagPageProps = {
@@ -26,15 +27,18 @@ export async function generateMetadata({
   const label = getTagBySlug(tag);
   if (!label) return {};
 
+  const description = `Journal posts tagged “${label}” from ${SITE_NAME}.`;
+  const share = pageShareMeta({
+    title: `${label} | Blog | ${SITE_NAME}`,
+    description,
+    url: `/blog/tag/${tag}`,
+  });
+
   return {
     title: `${label} posts`,
-    description: `Journal posts tagged “${label}” from ${SITE_NAME}.`,
+    description,
     alternates: { canonical: `/blog/tag/${tag}` },
-    openGraph: {
-      title: `${label} | Blog | ${SITE_NAME}`,
-      description: `Journal posts tagged “${label}”.`,
-      url: `/blog/tag/${tag}`,
-    },
+    ...share,
   };
 }
 

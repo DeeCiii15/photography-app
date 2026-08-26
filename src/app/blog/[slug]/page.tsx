@@ -16,7 +16,12 @@ import {
   tagToSlug,
 } from '@/lib/blog';
 import { getServicesForBlogPost } from '@/lib/servicesServer';
-import { SITE_NAME } from '@/lib/siteConfig';
+import { pageShareMeta } from '@/lib/shareMeta';
+import {
+  DEFAULT_OG_IMAGE_PATH,
+  PHOTOGRAPHER_NAME,
+  SITE_NAME,
+} from '@/lib/siteConfig';
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -33,27 +38,26 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post || !post.published) return {};
 
+  const shareTitle = `${post.title} | ${SITE_NAME}`;
+  const share = pageShareMeta({
+    title: shareTitle,
+    description: post.description,
+    url: `/blog/${post.slug}`,
+    image: post.coverImage ?? DEFAULT_OG_IMAGE_PATH,
+    imageAlt: post.coverImageAlt ?? post.title,
+    type: 'article',
+  });
+
   return {
     title: post.title,
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
-      title: `${post.title} | ${SITE_NAME}`,
-      description: post.description,
-      url: `/blog/${post.slug}`,
+      ...share.openGraph,
       type: 'article',
       publishedTime: post.date,
-      ...(post.coverImage
-        ? {
-            images: [
-              {
-                url: post.coverImage,
-                alt: post.coverImageAlt ?? post.title,
-              },
-            ],
-          }
-        : {}),
     },
+    twitter: share.twitter,
   };
 }
 
@@ -108,7 +112,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </Link>
               )}
               <span className="font-body text-xs font-light text-cream-dark/55 dark:text-cream/50">
-                {formatPostDate(post.date)} · {post.readingTime}
+                {formatPostDate(post.date)} · {post.readingTime} · By{' '}
+                {PHOTOGRAPHER_NAME}
               </span>
             </div>
 

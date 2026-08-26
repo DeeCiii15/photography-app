@@ -21,6 +21,12 @@ export function getSiteUrl(): string {
 
 export const SITE_NAME = 'Taylor Rose Reels';
 
+/** Person behind the brand — used in JSON-LD Person / BlogPosting author */
+export const PHOTOGRAPHER_NAME = 'Taylor Hayden';
+
+/** Square brand mark for Organization.logo (Google Article: ≥112px, 1:1) */
+export const SITE_LOGO_PATH = '/icon-192.png';
+
 export const PRIMARY_CITY = 'Florence';
 export const PRIMARY_STATE = 'South Carolina';
 export const PRIMARY_STATE_ABBR = 'SC';
@@ -78,6 +84,24 @@ export const DEFAULT_OG_IMAGE_PATH = '/images/Taylor_site.jpg';
 
 /** Canonical path for the Florence, SC wedding photography SEO landing page */
 export const FLORENCE_WEDDINGS_PATH = '/florence-sc-wedding-photography';
+
+/** Hero used on the Florence hub (OG + JSON-LD primary image) */
+export const FLORENCE_WEDDINGS_HERO_PATH =
+  '/images/galleries/weddings/latta-sc-wedding-parker-pines-lee/04.jpg';
+
+/** schema.org areaServed list reused by LocalBusiness / Service JSON-LD */
+export function schemaAreaServed() {
+  return [
+    {
+      '@type': 'AdministrativeArea' as const,
+      name: `${PRIMARY_REGION} region, ${PRIMARY_STATE}`,
+    },
+    ...SERVICE_AREAS.map((city) => ({
+      '@type': 'City' as const,
+      name: `${city}, ${PRIMARY_STATE_ABBR}`,
+    })),
+  ];
+}
 
 /** Display / SEO title pattern: location first, then service */
 export const FLORENCE_WEDDINGS_TITLE = `${PRIMARY_CITY}, ${PRIMARY_STATE} Wedding Photography`;

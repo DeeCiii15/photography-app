@@ -9,7 +9,9 @@ import {
   FLORENCE_WEDDING_VENUE_CARDS,
   venueGalleries,
 } from '@/lib/weddingVenueCards';
+import { pageShareMeta } from '@/lib/shareMeta';
 import {
+  FLORENCE_WEDDINGS_HERO_PATH,
   FLORENCE_WEDDINGS_PATH,
   FLORENCE_WEDDINGS_REF,
   FLORENCE_WEDDINGS_TITLE,
@@ -21,16 +23,20 @@ import {
 } from '@/lib/siteConfig';
 
 const PAGE_TITLE = `${FLORENCE_WEDDINGS_TITLE} | ${SITE_NAME}`;
+const PAGE_DESCRIPTION = `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photographer—documentary, true-to-color galleries at favorite venues. Honest coverage for couples across the ${PRIMARY_REGION}.`;
+const florenceShare = pageShareMeta({
+  title: PAGE_TITLE,
+  description: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography for couples across the ${PRIMARY_REGION}—honest, timeless, true-to-color.`,
+  url: FLORENCE_WEDDINGS_PATH,
+  image: FLORENCE_WEDDINGS_HERO_PATH,
+  imageAlt: `${PRIMARY_CITY}, ${PRIMARY_STATE} wedding photography by ${SITE_NAME}`,
+});
 
 export const metadata: Metadata = {
   title: { absolute: PAGE_TITLE },
-  description: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photographer—documentary, true-to-color galleries at favorite venues. Honest coverage for couples across the ${PRIMARY_REGION}.`,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: FLORENCE_WEDDINGS_PATH },
-  openGraph: {
-    title: PAGE_TITLE,
-    description: `${PRIMARY_CITY}, ${PRIMARY_STATE_ABBR} wedding photography for couples across the ${PRIMARY_REGION}—honest, timeless, true-to-color.`,
-    url: FLORENCE_WEDDINGS_PATH,
-  },
+  ...florenceShare,
 };
 
 const WEDDINGS_HREF = portfolioCategoryHref('weddings');
@@ -85,7 +91,7 @@ export default function FlorenceWeddingsPage() {
         {/* Hero */}
         <section className="relative isolate flex min-h-svh items-end overflow-hidden">
           <Image
-            src="/images/galleries/weddings/latta-sc-wedding-parker-pines-lee/04.jpg"
+            src={FLORENCE_WEDDINGS_HERO_PATH}
             alt={`${PRIMARY_CITY}, ${PRIMARY_STATE} wedding photography by ${SITE_NAME}`}
             fill
             priority

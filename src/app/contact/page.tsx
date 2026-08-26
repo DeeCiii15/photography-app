@@ -4,6 +4,7 @@ import SiteFooter from '../components/SiteFooter';
 import HomeStylePageIntro from '../components/HomeStylePageIntro';
 import BookingForm from '../components/BookingForm';
 import Image from 'next/image';
+import { pageShareMeta } from '@/lib/shareMeta';
 import {
   PHOTOGRAPHER_EMAIL,
   PHOTOGRAPHER_IMAGE_ALT,
@@ -15,17 +16,21 @@ const CONTACT_TITLE = `Contact a Florence, SC Photographer | ${SITE_NAME}`;
 const CONTACT_DESCRIPTION =
   'Book wedding, portrait, engagement, family & event photography in Florence, SC & the Pee Dee. Share your date or vision—Taylor reads every message.';
 
+const contactShare = pageShareMeta({
+  title: CONTACT_TITLE,
+  description: CONTACT_DESCRIPTION,
+  url: '/contact',
+  image: SITE_IMAGES.contactPhoto,
+  imageAlt: PHOTOGRAPHER_IMAGE_ALT,
+});
+
 export const metadata: Metadata = {
   title: {
     absolute: CONTACT_TITLE,
   },
   description: CONTACT_DESCRIPTION,
   alternates: { canonical: '/contact' },
-  openGraph: {
-    title: CONTACT_TITLE,
-    description: CONTACT_DESCRIPTION,
-    url: '/contact',
-  },
+  ...contactShare,
 };
 
 export default function ContactPage() {

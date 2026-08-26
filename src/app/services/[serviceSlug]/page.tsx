@@ -9,6 +9,8 @@ import TestimonialsSection from '../../components/TestimonialsSection';
 import BlogPostCard from '../../components/BlogPostCard';
 import ServiceFaqSection from '../../components/ServiceFaqSection';
 import ServiceFaqJsonLd from '../../components/ServiceFaqJsonLd';
+import ServiceJsonLd from '../../components/ServiceJsonLd';
+import ReviewsJsonLd from '../../components/ReviewsJsonLd';
 import ServiceGallerySection from '../../components/ServiceGallerySection';
 import ServiceVenueSuggestions from '../../components/ServiceVenueSuggestions';
 import WeddingLocationsMap from '../../components/WeddingLocationsMap';
@@ -22,6 +24,8 @@ import {
   serviceHref,
 } from '@/lib/servicesData';
 import { getServiceBlogPosts } from '@/lib/servicesServer';
+import { pageShareMeta } from '@/lib/shareMeta';
+import { SITE_NAME } from '@/lib/siteConfig';
 
 type ServicePageProps = {
   params: Promise<{ serviceSlug: string }>;
@@ -38,15 +42,20 @@ export async function generateMetadata({
   const service = getServiceBySlug(serviceSlug);
   if (!service) return {};
 
+  const path = serviceHref(service.slug);
+  const share = pageShareMeta({
+    title: service.metaTitle,
+    description: service.metaDescription,
+    url: path,
+    image: getServiceHeroImage(service),
+    imageAlt: `${service.name} by ${SITE_NAME}`,
+  });
+
   return {
     title: { absolute: service.metaTitle },
     description: service.metaDescription,
-    alternates: { canonical: serviceHref(service.slug) },
-    openGraph: {
-      title: service.metaTitle,
-      description: service.metaDescription,
-      url: serviceHref(service.slug),
-    },
+    alternates: { canonical: path },
+    ...share,
   };
 }
 
@@ -64,7 +73,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <div className="min-h-screen bg-[#f4f1eb] dark:bg-boho-ink">
+      <ServiceJsonLd service={service} />
       <ServiceFaqJsonLd faqs={service.faqs} />
+      <ReviewsJsonLd testimonials={testimonials} />
       <Navigation />
       <HomeStylePageIntro />
 
